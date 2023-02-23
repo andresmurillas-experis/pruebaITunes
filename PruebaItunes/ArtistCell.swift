@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtistCell: UITableViewCell {
+final class ArtistCell: UITableViewCell {
     
     @IBOutlet private weak var artistName: UILabel!
     @IBOutlet private weak var discName1: UILabel!
