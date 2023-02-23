@@ -9,27 +9,29 @@ import UIKit
 
 class ArtistCell: UITableViewCell {
     
-    @IBOutlet private weak var label: UILabel!
-    @IBOutlet private weak var albumCover1: UIImageView!
-    @IBOutlet private weak var albumCover2: UIImageView!
+    @IBOutlet private weak var artistName: UILabel!
+    @IBOutlet private weak var discName1: UILabel!
+    @IBOutlet private weak var discName2: UILabel!
+    @IBOutlet private weak var moreContentExistsIndicator: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     override func prepareForReuse() {
-        // Not sure if neaded
+        discName1.text = ""
+        discName2.text = ""
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func setContentsTo(label: String) {
-        self.label.text = label
-        // removed because couldn'y reference UIImage(named:String) when calling method
-//        self.albumCover1.image = albumCover1
-//        self.albumCover2.image = albumCover2
+    func setContentsTo(artistName: String, discName1: String, discName2: String) {
+        self.artistName.text = artistName
+        self.discName1.text = discName1
+        self.discName2.text = discName2
+        moreContentExistsIndicator.isHidden = true
     }
     
 }

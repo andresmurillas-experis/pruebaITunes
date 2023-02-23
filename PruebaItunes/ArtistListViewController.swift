@@ -26,7 +26,7 @@ class ArtistListViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
             fatalError("Could not get ArtistCell")
         }
-        cell.setContentsTo(label: "Hello")
+        cell.setContentsTo(artistName: "John Lennon", discName1: "Please Please Me", discName2: "With The Beatles")
         return cell
     }
 

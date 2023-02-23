@@ -20,28 +20,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toe-Tg-kAA">
-                                <rect key="frame" x="0.0" y="0.0" width="41" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="41" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-aC-MPR">
-                                <rect key="frame" x="0.0" y="20" width="90" height="180"/>
+                                <rect key="frame" x="0.0" y="20.333333333333329" width="86.333333333333329" height="159.33333333333337"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ax5-Ih-Sy0">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Ax5-Ih-Sy0" secondAttribute="height" multiplier="1:1" id="GhE-eN-V3H"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zvs-mI-9ly">
-                                        <rect key="frame" x="0.0" y="90" width="90" height="90"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Zvs-mI-9ly" secondAttribute="height" multiplier="1:1" id="jbS-Kl-JR3"/>
-                                        </constraints>
-                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discografia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpr-NH-xRP">
+                                        <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disc1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-rl-oiU">
+                                        <rect key="frame" x="0.0" y="53" width="86.333333333333329" height="53.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disc2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4d-x2-e2k">
+                                        <rect key="frame" x="0.0" y="106.33333333333334" width="86.333333333333329" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text=" ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMh-mA-8bp" userLabel="...">
+                                <rect key="frame" x="0.0" y="179.66666666666666" width="18.333333333333332" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                     </stackView>
                 </subviews>
@@ -54,9 +66,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="albumCover1" destination="Ax5-Ih-Sy0" id="gxB-Qw-s1P"/>
-                <outlet property="albumCover2" destination="Zvs-mI-9ly" id="bLt-7d-Wmd"/>
-                <outlet property="label" destination="toe-Tg-kAA" id="6fc-p1-M5b"/>
+                <outlet property="artistName" destination="toe-Tg-kAA" id="6fc-p1-M5b"/>
+                <outlet property="discName1" destination="aHK-rl-oiU" id="CKC-zz-Cdq"/>
+                <outlet property="discName2" destination="D4d-x2-e2k" id="EGw-NB-AdD"/>
+                <outlet property="moreContentExistsIndicator" destination="WMh-mA-8bp" id="zul-qs-rJ6"/>
             </connections>
             <point key="canvasLocation" x="130" y="20"/>
         </tableViewCell>
