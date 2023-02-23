@@ -16,6 +16,8 @@
 		7F28420B29A61CA5004AFA0D /* PruebaItunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28420A29A61CA5004AFA0D /* PruebaItunesTests.swift */; };
 		7F28421529A61CA5004AFA0D /* PruebaItunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28421429A61CA5004AFA0D /* PruebaItunesUITests.swift */; };
 		7F28421729A61CA5004AFA0D /* PruebaItunesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28421629A61CA5004AFA0D /* PruebaItunesUITestsLaunchTests.swift */; };
+		7F2B64B129A7529C001DF58A /* ArtistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */; };
+		7F2B64B229A7529C001DF58A /* ArtistListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2B64B029A7529C001DF58A /* ArtistListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		7F28421029A61CA5004AFA0D /* PruebaItunesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PruebaItunesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F28421429A61CA5004AFA0D /* PruebaItunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaItunesUITests.swift; sourceTree = "<group>"; };
 		7F28421629A61CA5004AFA0D /* PruebaItunesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaItunesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewController.swift; sourceTree = "<group>"; };
+		7F2B64B029A7529C001DF58A /* ArtistListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */,
 				7F2841F729A61CA3004AFA0D /* ViewController.swift */,
 				7F2841F929A61CA3004AFA0D /* Main.storyboard */,
+				7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */,
+				7F2B64B029A7529C001DF58A /* ArtistListViewController.xib */,
 				7F2841FC29A61CA5004AFA0D /* Assets.xcassets */,
 				7F2841FE29A61CA5004AFA0D /* LaunchScreen.storyboard */,
 				7F28420129A61CA5004AFA0D /* Info.plist */,
@@ -234,6 +240,7 @@
 				7F28420029A61CA5004AFA0D /* LaunchScreen.storyboard in Resources */,
 				7F2841FD29A61CA5004AFA0D /* Assets.xcassets in Resources */,
 				7F2841FB29A61CA3004AFA0D /* Main.storyboard in Resources */,
+				7F2B64B229A7529C001DF58A /* ArtistListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 				7F2841F829A61CA3004AFA0D /* ViewController.swift in Sources */,
 				7F2841F429A61CA3004AFA0D /* AppDelegate.swift in Sources */,
 				7F2841F629A61CA3004AFA0D /* SceneDelegate.swift in Sources */,
+				7F2B64B129A7529C001DF58A /* ArtistListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
