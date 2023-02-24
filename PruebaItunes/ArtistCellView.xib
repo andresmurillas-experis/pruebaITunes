@@ -66,10 +66,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="artistName" destination="toe-Tg-kAA" id="6fc-p1-M5b"/>
-                <outlet property="discName1" destination="aHK-rl-oiU" id="CKC-zz-Cdq"/>
-                <outlet property="discName2" destination="D4d-x2-e2k" id="EGw-NB-AdD"/>
+                <outlet property="discOneName" destination="aHK-rl-oiU" id="CKC-zz-Cdq"/>
+                <outlet property="discTwoName" destination="D4d-x2-e2k" id="EGw-NB-AdD"/>
                 <outlet property="moreContentExistsIndicator" destination="WMh-mA-8bp" id="zul-qs-rJ6"/>
+                <outlet property="name" destination="toe-Tg-kAA" id="6fc-p1-M5b"/>
             </connections>
             <point key="canvasLocation" x="130" y="20"/>
         </tableViewCell>
