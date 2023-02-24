@@ -20,8 +20,21 @@ final class ArtistListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
+        guard let destination = URL(string: "https://itunes.apple.com/lookup?id=909253") else {
+            print("e3213fe1321d13")
+            return
+        }
+        Task {
+            do {
+                try await download(from: destination)
+            } catch {
+                
+            }
+            
+
+        }
+
     }
-    
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -49,4 +62,32 @@ private extension ArtistListViewController {
         self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
     }
 
+}
+
+private extension ArtistListViewController {
+    
+    func download(from downloadURL: URL) async throws {
+        var sessionConfiguration = URLSessionConfiguration.default
+        print(downloadURL)
+        print("pirates")
+        var session = URLSession(configuration: sessionConfiguration)
+
+        var (downloaded, _) = try await session.download(from: downloadURL)
+                
+        print(downloaded)
+        
+        var data: Data = try Data(contentsOf: downloaded)
+                    
+        print(data)
+        
+        let decoder = JSONDecoder()
+//        var decoded: iTunesArtistModel
+        do {
+            print(data.isEmpty)
+            let decoded = try decoder.decode(iTunesArtistModel.self, from: data)
+            print("dwqfewqfewfewq\(decoded)")
+        } catch {
+            print("nope")
+        }
+    }
 }
