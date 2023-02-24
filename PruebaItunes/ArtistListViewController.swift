@@ -11,6 +11,12 @@ final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
+    private let artistList = [
+        ArtistViewModel(name: "aaa", disc1Name: "bbb", disc2Name: "ccc"),
+        ArtistViewModel(name: "ccc", disc1Name: "ddd", disc2Name: "eee"),
+        ArtistViewModel(name: "fff", disc1Name: "ggg", disc2Name: "hhh")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
@@ -18,17 +24,20 @@ final class ArtistListViewController: UIViewController {
     
 }
 
+    
+
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
             return UITableViewCell()
         }
-        cell.setContentsTo(artistName: "John Lennon", discName1: "Please Please Me", discName2: "With The Beatles")
+        let artist = artistList[indexPath.item]
+        cell.setContentsTo(artist: artist)
         return cell
     }
 

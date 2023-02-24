@@ -9,21 +9,28 @@ import UIKit
 
 final class ArtistCell: UITableViewCell {
     
-    @IBOutlet private weak var artistName: UILabel!
-    @IBOutlet private weak var discName1: UILabel!
-    @IBOutlet private weak var discName2: UILabel!
+    @IBOutlet private weak var name: UILabel!
+    @IBOutlet private weak var disc1Name: UILabel!
+    @IBOutlet private weak var disc2Name: UILabel!
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
     
     override func prepareForReuse() {
-        discName1.text = ""
-        discName2.text = ""
+        name.text = ""
+        disc1Name.text = ""
+        disc2Name.text = ""
     }
 
-    func setContentsTo(artistName: String, discName1: String, discName2: String) {
-        self.artistName.text = artistName
-        self.discName1.text = discName1
-        self.discName2.text = discName2
+    func setContentsTo(artistName: String, disc1Name: String, discName2: String) {
+        self.name.text = artistName
+        self.disc1Name.text = disc1Name
+        self.disc2Name.text = discName2
         moreContentExistsIndicator.isHidden = true
+    }
+    
+    func setContentsTo(artist: ArtistViewModel) {
+        self.name.text = artist.name
+        self.disc1Name.text = artist.disc1Name
+        self.disc2Name.text = artist.disc2Name
     }
     
 }
