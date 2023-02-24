@@ -12,9 +12,9 @@ final class ArtistListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private let artistList = [
-        ArtistViewModel(name: "aaa", disc1Name: "bbb", disc2Name: "ccc"),
-        ArtistViewModel(name: "ccc", disc1Name: "ddd", disc2Name: "eee"),
-        ArtistViewModel(name: "fff", disc1Name: "ggg", disc2Name: "hhh")
+        ArtistViewModel(name: "aaa", discOneName: "bbb", discTwoName: "ccc"),
+        ArtistViewModel(name: "ccc", discOneName: "ddd", discTwoName: "eee"),
+        ArtistViewModel(name: "fff", discOneName: "ggg", discTwoName: "hhh")
     ]
 
     override func viewDidLoad() {

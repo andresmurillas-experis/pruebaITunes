@@ -9,6 +9,6 @@ import Foundation
 
 struct ArtistViewModel {
     let name: String
-    let disc1Name: String
-    let disc2Name: String
+    let discOneName: String
+    let discTwoName: String
 }

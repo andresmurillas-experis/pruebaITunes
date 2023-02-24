@@ -10,20 +10,20 @@ import UIKit
 final class ArtistCell: UITableViewCell {
 
     @IBOutlet private weak var name: UILabel!
-    @IBOutlet private weak var disc1Name: UILabel!
-    @IBOutlet private weak var disc2Name: UILabel!
+    @IBOutlet private weak var discOneName: UILabel!
+    @IBOutlet private weak var discTwoName: UILabel!
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
 
     override func prepareForReuse() {
         name.text = ""
-        disc1Name.text = ""
-        disc2Name.text = ""
+        discOneName.text = ""
+        discTwoName.text = ""
     }
 
     func setupViewModel(_ viewModel: ArtistViewModel) {
         self.name.text = viewModel.name
-        self.disc1Name.text = viewModel.disc1Name
-        self.disc2Name.text = viewModel.disc2Name
+        self.discOneName.text = viewModel.discOneName
+        self.discTwoName.text = viewModel.discTwoName
         moreContentExistsIndicator.isHidden = true
     }
 
