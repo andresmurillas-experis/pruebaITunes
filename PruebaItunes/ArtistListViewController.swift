@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtistListViewController: UIViewController {
+final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
@@ -16,16 +16,10 @@ class ArtistListViewController: UIViewController {
         setTableView()
     }
     
-    private func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
-    }
-    
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -38,4 +32,14 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+}
+
+private extension ArtistListViewController {
+    
+    private func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+    }
+    
 }
