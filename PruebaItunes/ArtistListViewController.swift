@@ -7,23 +7,39 @@
 
 import UIKit
 
-class ArtistListViewController: UIViewController {
+final class ArtistListViewController: UIViewController {
 
+    @IBOutlet private weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTableView()
+    }
+    
+}
 
-        // Do any additional setup after loading the view.
+extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
+            return UITableViewCell()
+        }
+        cell.setContentsTo(artistName: "John Lennon", discName1: "Please Please Me", discName2: "With The Beatles")
+        return cell
     }
-    */
 
+}
+
+private extension ArtistListViewController {
+    
+    func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+    }
+    
 }
