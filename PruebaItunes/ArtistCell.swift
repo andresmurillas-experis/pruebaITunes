@@ -19,10 +19,6 @@ final class ArtistCell: UITableViewCell {
         discName2.text = ""
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func setContentsTo(artistName: String, discName1: String, discName2: String) {
         self.artistName.text = artistName
         self.discName1.text = discName1
