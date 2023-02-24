@@ -26,7 +26,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
-            fatalError("Could not get ArtistCell")
+            return UITableViewCell()
         }
         cell.setContentsTo(artistName: "John Lennon", discName1: "Please Please Me", discName2: "With The Beatles")
         return cell
@@ -36,7 +36,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
 private extension ArtistListViewController {
     
-    private func setTableView() {
+    func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")

@@ -14,10 +14,6 @@ final class ArtistCell: UITableViewCell {
     @IBOutlet private weak var discName2: UILabel!
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override func prepareForReuse() {
         discName1.text = ""
         discName2.text = ""
