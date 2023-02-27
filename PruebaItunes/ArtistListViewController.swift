@@ -11,6 +11,8 @@ final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
+    var dataTask: URLSessionDataTask?
+    
     private let artistList = [
         ArtistViewModel(name: "aaa", discOneName: "bbb", discTwoName: "ccc"),
         ArtistViewModel(name: "ccc", discOneName: "ddd", discTwoName: "eee"),
@@ -20,19 +22,23 @@ final class ArtistListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
-        guard let destination = URL(string: "https://itunes.apple.com/lookup?id=909253") else {
-            print("e3213fe1321d13")
-            return
-        }
-        Task {
-            do {
-                try await download(from: destination)
-            } catch {
-                
-            }
-            
+        
+        downloadMusic()
+        
+//        guard let destination = URL(string: "https://itunes.apple.com/lookup?id=909253") else {
+//            print("e3213fe1321d13")
+//            return
+//        }
+//        Task {
+//            do {
+//                try await download(from: destination)
+//            } catch {
+//
+//            }
+//
 
-        }
+//        }
+        
 
     }
 }
@@ -90,4 +96,56 @@ private extension ArtistListViewController {
             print("nope")
         }
     }
+}
+
+private extension ArtistListViewController {
+
+    func downloadMusic() {
+        let defaultSession = URLSession(configuration: .default)
+
+        guard let url = URL(string: "https://itunes.apple.com/lookup?id=909253") else {
+            print("Invalid URL")
+            return
+        }
+        
+        dataTask?.cancel()
+        
+        let request = URLRequest(url: url)
+        let session = URLSession.shared
+
+        let data = Data()
+        
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+                return
+            }
+            
+            print("control print")
+            
+            guard let data = data else {
+                print("No data returned")
+                return
+            }
+            
+            if let dataString = String(data: data, encoding: .utf8) {
+                print("Downloaded data: \(dataString)")
+            }
+            
+            print(data.count)
+            
+            let decoder: JSONDecoder = JSONDecoder()
+            do {
+                var iTunesArtist = try decoder.decode(iTunesArtistModel.self, from: data)
+                print(iTunesArtist.resultCount)
+            } catch {
+                print("error")
+            }
+        }
+        
+        dataTask.resume()
+        
+        print(data)
+    }
+
 }
