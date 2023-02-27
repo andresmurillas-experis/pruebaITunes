@@ -11,6 +11,8 @@ final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
+    var dataTask: URLSessionDataTask?
+    
     private let artistList = [
         ArtistViewModel(name: "aaa", discOneName: "bbb", discTwoName: "ccc"),
         ArtistViewModel(name: "ccc", discOneName: "ddd", discTwoName: "eee"),
@@ -20,6 +22,8 @@ final class ArtistListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
+        
+        download()
     }
     
 }
@@ -47,6 +51,34 @@ private extension ArtistListViewController {
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+    }
+
+}
+
+private extension ArtistListViewController {
+
+    func download() {
+        guard let url = URL(string: "https://itunes.apple.com/lookup?id=909253") else {
+            print("Invalid URL")
+            return
+        }
+        dataTask?.cancel()
+        let request = URLRequest(url: url)
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+                return
+            }
+            guard let data = data else {
+                print("error")
+                return
+            }
+            if let dataString = String(data: data, encoding: .utf8) {
+                print("Downloaded data: \(dataString)")
+            }
+        }
+        dataTask.resume()
     }
 
 }
