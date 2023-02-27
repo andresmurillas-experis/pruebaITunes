@@ -18,7 +18,7 @@ struct Result: Codable {
      let primaryGenreId:Int
 }
 
-struct iTunesArtistModel: Codable {
+struct ITunesArtistModel: Codable {
     let resultCount: Int
     let results: [Result]
 }
