@@ -60,7 +60,7 @@ private extension ArtistListViewController {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request) { data, response, error in
+        let dataTask = session.dataTask(with: request) { [self] data, response, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -75,9 +75,7 @@ private extension ArtistListViewController {
                 let decoder = JSONDecoder()
                 let iTunesArtistModel: ITunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
                 print(iTunesArtistModel)
-                self.artistList = iTunesArtistModel.results.map({ artistResult in
-                    return ArtistViewModel(name: artistResult.artistName)
-                })
+                artistList = iTunesArtistModel.results.map { ArtistViewModel(name: $0.artistName) }
             } catch {
                 print("Error: \(error.localizedDescription)")
             }

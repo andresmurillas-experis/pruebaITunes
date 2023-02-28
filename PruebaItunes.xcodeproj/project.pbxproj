@@ -22,7 +22,6 @@
 		7FBC437E29A76D0000FD0D3D /* ArtistCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBC437C29A76D0000FD0D3D /* ArtistCellView.xib */; };
 		7FBC438229A8A79800FD0D3D /* ArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC438129A8A79800FD0D3D /* ArtistViewModel.swift */; };
 		7FBC438629A8D67E00FD0D3D /* ITunesArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC438529A8D67E00FD0D3D /* ITunesArtistModel.swift */; };
-		7FBC438829ACC92700FD0D3D /* ITunesAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC438729ACC92700FD0D3D /* ITunesAlbumModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +61,6 @@
 		7FBC437C29A76D0000FD0D3D /* ArtistCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistCellView.xib; sourceTree = "<group>"; };
 		7FBC438129A8A79800FD0D3D /* ArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewModel.swift; sourceTree = "<group>"; };
 		7FBC438529A8D67E00FD0D3D /* ITunesArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesArtistModel.swift; sourceTree = "<group>"; };
-		7FBC438729ACC92700FD0D3D /* ITunesAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAlbumModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				7FBC438529A8D67E00FD0D3D /* ITunesArtistModel.swift */,
-				7FBC438729ACC92700FD0D3D /* ITunesAlbumModel.swift */,
 				7F2841F329A61CA3004AFA0D /* AppDelegate.swift */,
 				7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */,
 				7F2841F729A61CA3004AFA0D /* ViewController.swift */,
@@ -284,7 +281,6 @@
 				7F2841F829A61CA3004AFA0D /* ViewController.swift in Sources */,
 				7F2841F429A61CA3004AFA0D /* AppDelegate.swift in Sources */,
 				7F2841F629A61CA3004AFA0D /* SceneDelegate.swift in Sources */,
-				7FBC438829ACC92700FD0D3D /* ITunesAlbumModel.swift in Sources */,
 				7FBC438629A8D67E00FD0D3D /* ITunesArtistModel.swift in Sources */,
 				7FBC438229A8A79800FD0D3D /* ArtistViewModel.swift in Sources */,
 				7FBC437D29A76D0000FD0D3D /* ArtistCell.swift in Sources */,
