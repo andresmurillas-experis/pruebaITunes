@@ -15,9 +15,7 @@ final class ArtistListViewController: UIViewController {
 
     private var artistList: [ArtistViewModel] = [] {
         didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         }
     }
 
@@ -81,7 +79,9 @@ private extension ArtistListViewController {
             do {
                 let decoder = JSONDecoder()
                 let iTunesArtistModel: ITunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
-                self?.artistList = iTunesArtistModel.results.map { ArtistViewModel(name: $0.artistName) }
+                DispatchQueue.main.async {
+                    self?.artistList = iTunesArtistModel.results.map { ArtistViewModel(name: $0.artistName) }
+                }
             } catch {
                 print("Error: \(error.localizedDescription)")
             }
