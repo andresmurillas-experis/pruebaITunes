@@ -12,24 +12,24 @@ final class ArtistListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     var dataTask: URLSessionDataTask?
-    
-    private let artistList = [
-        ArtistViewModel(name: "aaa", discOneName: "bbb", discTwoName: "ccc"),
-        ArtistViewModel(name: "ccc", discOneName: "ddd", discTwoName: "eee"),
-        ArtistViewModel(name: "fff", discOneName: "ggg", discTwoName: "hhh")
-    ]
+
+    private var artistList: [ArtistViewModel] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm")
         setTableView()
         
-        download()
     }
-    
+
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return artistList.count
     }
@@ -42,7 +42,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setupViewModel(artist)
         return cell
     }
-    
+
 }
 
 private extension ArtistListViewController {
@@ -57,25 +57,33 @@ private extension ArtistListViewController {
 
 private extension ArtistListViewController {
 
-    func download() {
-        guard let url = URL(string: "https://itunes.apple.com/lookup?id=909253") else {
+    func download(from url: String) {
+        guard let url = URL(string: url) else {
             print("Invalid URL")
             return
         }
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request) { data, response, error in
+        let dataTask = session.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
-                print("Error \(error.localizedDescription)")
+                print("Error: \(error.localizedDescription)")
                 return
             }
             guard let data = data else {
-                print("error")
+                print("Error unwrapping data constant")
                 return
             }
-            if let dataString = String(data: data, encoding: .utf8) {
-                print("Downloaded data: \(dataString)")
+            let stringData = String(data: data, encoding: .utf8)!
+            let json = stringData.data(using: .utf8)!
+            do {
+                let decoder = JSONDecoder()
+                let iTunesArtistModel: ITunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
+                DispatchQueue.main.async {
+                    self?.artistList = iTunesArtistModel.results.map { ArtistViewModel(name: $0.artistName) }
+                }
+            } catch {
+                print("Error: \(error.localizedDescription)")
             }
         }
         dataTask.resume()

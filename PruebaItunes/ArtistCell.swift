@@ -25,6 +25,8 @@ final class ArtistCell: UITableViewCell {
         self.discOneName.text = viewModel.discOneName
         self.discTwoName.text = viewModel.discTwoName
         moreContentExistsIndicator.isHidden = true
+        self.discOneName.isHidden = true
+        self.discTwoName.isHidden = true
     }
 
 }
