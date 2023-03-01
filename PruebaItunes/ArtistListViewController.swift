@@ -22,7 +22,9 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm")
+        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { (data) in
+            return data
+        }
         artistList = decodeJSONFromData(data: data)
         setTableView()
     }
@@ -58,7 +60,7 @@ private extension ArtistListViewController {
 
 private extension ArtistListViewController {
 
-    func download(from url: String) {
+    func download(from url: String, handler: @escaping (Data) -> Data) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -76,7 +78,7 @@ private extension ArtistListViewController {
                 print("Error unwrapping data constant")
                 return
             }
-            self?.data = data
+            handler(data)
         }.resume()
         
     }

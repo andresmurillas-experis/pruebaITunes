@@ -14,9 +14,9 @@
             filePath = "PruebaItunes/ArtistListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "download(from:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "download(from:handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "PruebaItunes/ArtistListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "download(from:)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "download(from:handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,9 +46,9 @@
             filePath = "PruebaItunes/ArtistListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "download(from:)"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "download(from:handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
