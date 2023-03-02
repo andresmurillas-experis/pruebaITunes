@@ -8,12 +8,12 @@
 import UIKit
 
 final class ArtistListViewController: UIViewController {
-
+    
     @IBOutlet private weak var tableView: UITableView!
-
+    
     var dataTask: URLSessionDataTask?
 
-    private var artistList: [ArtistViewModel] = [] {
+    var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -21,9 +21,10 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm")
+        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] in
+            self?.artistList = $0
+        }
         setTableView()
-        
     }
 
 }
@@ -40,6 +41,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
+        
         return cell
     }
 
@@ -57,7 +59,7 @@ private extension ArtistListViewController {
 
 private extension ArtistListViewController {
 
-    func download(from url: String) {
+    func download(from url: String, handler: @escaping ([ArtistViewModel]) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -65,7 +67,7 @@ private extension ArtistListViewController {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request) { [weak self] data, response, error in
+        session.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -74,19 +76,30 @@ private extension ArtistListViewController {
                 print("Error unwrapping data constant")
                 return
             }
-            let stringData = String(data: data, encoding: .utf8)!
-            let json = stringData.data(using: .utf8)!
-            do {
-                let decoder = JSONDecoder()
-                let iTunesArtistModel: ITunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
-                DispatchQueue.main.async {
-                    self?.artistList = iTunesArtistModel.results.map { ArtistViewModel(name: $0.artistName) }
-                }
-            } catch {
-                print("Error: \(error.localizedDescription)")
+            guard let artistList = self?.decodeJSONFromData(data) else {
+                return
             }
+            DispatchQueue.main.async {
+                handler(artistList)
+            }
+        }.resume()
+        
+
+    }
+
+    func decodeJSONFromData(_ data: Data) -> [ArtistViewModel]{
+        let stringData = String(data: data, encoding: .utf8)!
+        let json = stringData.data(using: .utf8)!
+        var artistList: [ArtistViewModel] = []
+        do {
+            let decoder = JSONDecoder()
+            let iTunesArtistModel: ITunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
+            artistList = iTunesArtistModel.results.map { ArtistViewModel(name: $0.artistName) }
+        } catch {
+            print("Error: \(error.localizedDescription)")
+            
         }
-        dataTask.resume()
+        return artistList
     }
 
 }
