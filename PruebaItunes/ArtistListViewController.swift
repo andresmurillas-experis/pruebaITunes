@@ -12,9 +12,8 @@ final class ArtistListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var dataTask: URLSessionDataTask?
-    var data = Data()
 
-    private var artistList: [ArtistViewModel] = [] {
+    var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -22,10 +21,7 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { (data) in
-            return data
-        }
-        artistList = decodeJSONFromData(data: data)
+        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm")
         setTableView()
     }
 
@@ -60,7 +56,9 @@ private extension ArtistListViewController {
 
 private extension ArtistListViewController {
 
-    func download(from url: String, handler: @escaping (Data) -> Data) {
+    func download(from url: String, handler: @escaping (ArtistListViewController, [ArtistViewModel]) -> Void = { (ArtistListViewController, artistList) in
+        ArtistListViewController.artistList = artistList
+    }) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -68,7 +66,6 @@ private extension ArtistListViewController {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        
         session.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
@@ -78,12 +75,15 @@ private extension ArtistListViewController {
                 print("Error unwrapping data constant")
                 return
             }
-            handler(data)
+            guard let artistList = self?.decodeJSONFromData(data) else {
+                return
+            }
+            handler(self!, artistList)
         }.resume()
-        
+
     }
-    
-    func decodeJSONFromData(data: Data) -> [ArtistViewModel]{
+
+    func decodeJSONFromData(_ data: Data) -> [ArtistViewModel]{
         let stringData = String(data: data, encoding: .utf8)!
         let json = stringData.data(using: .utf8)!
         var artistList: [ArtistViewModel] = []
@@ -93,6 +93,7 @@ private extension ArtistListViewController {
             artistList = iTunesArtistModel.results.map { ArtistViewModel(name: $0.artistName) }
         } catch {
             print("Error: \(error.localizedDescription)")
+            
         }
         return artistList
     }
