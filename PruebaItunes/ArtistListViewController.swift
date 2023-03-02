@@ -21,8 +21,13 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] in
-            self?.artistList = $0
+        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] result in
+            switch result {
+            case . success(let artistList):
+                self?.artistList = artistList
+            case .failure(let error):
+                print("Error: ", error)
+            }
         }
         setTableView()
     }
@@ -59,7 +64,7 @@ private extension ArtistListViewController {
 
 private extension ArtistListViewController {
 
-    func download(from url: String, handler: @escaping ([ArtistViewModel]) -> Void) {
+    func download(from url: String, handler: @escaping (Result<[ArtistViewModel], Error>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -69,18 +74,17 @@ private extension ArtistListViewController {
         let session = URLSession.shared
         session.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
-                print("Error: \(error.localizedDescription)")
+                handler(.failure(error))
                 return
             }
             guard let data = data else {
-                print("Error unwrapping data constant")
                 return
             }
             guard let artistList = self?.decodeJSONFromData(data) else {
                 return
             }
             DispatchQueue.main.async {
-                handler(artistList)
+                handler(.success(artistList))
             }
         }.resume()
         
