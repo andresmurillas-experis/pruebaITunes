@@ -25,12 +25,14 @@ final class ArtistListViewController: UIViewController {
             switch result {
             case .success(let artistList):
                 self?.artistList = artistList
-            case .failure(let networkError):
-                switch networkError {
+            case .failure(let error):
+                switch error {
                 case .noData:
-                    print("Error: Network Service Error: ", networkError)
+                    print("Error: Network Service Error: ", error)
                 case .serviceError:
-                    print("Error: No Data Eroor: ", networkError)
+                    print("Error: No Data Eroor: ", error)
+                case .parsing:
+                print("Error: JSON Parsong Error: ", error)
                 }
             }
         }
@@ -69,7 +71,7 @@ private extension ArtistListViewController {
 private extension ArtistListViewController {
 
     enum NetworkError: Error {
-        case serviceError, noData
+        case serviceError, noData, parsing
     }
     
     func download(from url: String, completionHandler: @escaping (Result<[ArtistViewModel], NetworkError>) -> Void) {
@@ -86,11 +88,11 @@ private extension ArtistListViewController {
                 return
             }
             guard let data = data else {
-                completionHandler(.failure(NetworkError.noData))
+                completionHandler(.failure(NetworkError.parsing))
                 return
             }
             guard let artistList = self?.decodeJSONFromData(data) else {
-                completionHandler(.failure(NetworkError.noData))
+                completionHandler(.failure(NetworkError.parsing))
                 return
             }
             DispatchQueue.main.async {
