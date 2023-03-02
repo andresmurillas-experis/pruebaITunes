@@ -28,9 +28,9 @@ final class ArtistListViewController: UIViewController {
             case .failure(let networkError):
                 switch networkError {
                 case .noData:
-                    print("Error: ", networkError)
+                    print("Error: Network Service Error: ", networkError)
                 case .serviceError:
-                    print("Error: ", networkError)
+                    print("Error: No Data Eroor: ", networkError)
                 }
             }
         }
