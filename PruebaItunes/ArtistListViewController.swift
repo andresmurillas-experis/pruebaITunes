@@ -21,7 +21,9 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm")
+        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] in
+            self?.artistList = $0
+        }
         setTableView()
     }
 
@@ -39,6 +41,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
+        
         return cell
     }
 
@@ -56,9 +59,7 @@ private extension ArtistListViewController {
 
 private extension ArtistListViewController {
 
-    func download(from url: String, handler: @escaping (ArtistListViewController, [ArtistViewModel]) -> Void = { (ArtistListViewController, artistList) in
-        ArtistListViewController.artistList = artistList
-    }) {
+    func download(from url: String, handler: @escaping ([ArtistViewModel]) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -79,9 +80,10 @@ private extension ArtistListViewController {
                 return
             }
             DispatchQueue.main.async {
-                handler(self!, artistList)
+                handler(artistList)
             }
         }.resume()
+        
 
     }
 
