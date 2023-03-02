@@ -88,7 +88,7 @@ private extension ArtistListViewController {
                 return
             }
             guard let data = data else {
-                completionHandler(.failure(NetworkError.parsing))
+                completionHandler(.failure(NetworkError.noData))
                 return
             }
             guard let artistList = self?.decodeJSONFromData(data) else {
