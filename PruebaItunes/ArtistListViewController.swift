@@ -21,8 +21,20 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] in
-            self?.artistList = $0
+        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] result in
+            switch result {
+            case .success(let artistList):
+                self?.artistList = artistList
+            case .failure(let error):
+                switch error {
+                case .noData:
+                    print("Error: Network Service Error: ", error)
+                case .serviceError:
+                    print("Error: No Data Eroor: ", error)
+                case .parsing:
+                print("Error: JSON Parsong Error: ", error)
+                }
+            }
         }
         setTableView()
     }
@@ -41,7 +53,6 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
-        
         return cell
     }
 
@@ -59,7 +70,11 @@ private extension ArtistListViewController {
 
 private extension ArtistListViewController {
 
-    func download(from url: String, handler: @escaping ([ArtistViewModel]) -> Void) {
+    enum NetworkError: Error {
+        case serviceError, noData, parsing
+    }
+    
+    func download(from url: String, completionHandler: @escaping (Result<[ArtistViewModel], NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -68,22 +83,22 @@ private extension ArtistListViewController {
         let request = URLRequest(url: url)
         let session = URLSession.shared
         session.dataTask(with: request) { [weak self] data, response, error in
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
+            if error != nil {
+                completionHandler(.failure(NetworkError.serviceError))
                 return
             }
             guard let data = data else {
-                print("Error unwrapping data constant")
+                completionHandler(.failure(NetworkError.noData))
                 return
             }
             guard let artistList = self?.decodeJSONFromData(data) else {
+                completionHandler(.failure(NetworkError.parsing))
                 return
             }
             DispatchQueue.main.async {
-                handler(artistList)
+                completionHandler(.success(artistList))
             }
         }.resume()
-        
 
     }
 
