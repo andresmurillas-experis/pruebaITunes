@@ -78,7 +78,9 @@ private extension ArtistListViewController {
             guard let artistList = self?.decodeJSONFromData(data) else {
                 return
             }
-            handler(self!, artistList)
+            DispatchQueue.main.async {
+                handler(self!, artistList)
+            }
         }.resume()
 
     }
