@@ -23,7 +23,7 @@ final class ArtistListViewController: UIViewController {
         super.viewDidLoad()
         download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] result in
             switch result {
-            case . success(let artistList):
+            case .success(let artistList):
                 self?.artistList = artistList
             case .failure(let error):
                 print("Error: ", error)
@@ -64,7 +64,11 @@ private extension ArtistListViewController {
 
 private extension ArtistListViewController {
 
-    func download(from url: String, handler: @escaping (Result<[ArtistViewModel], Error>) -> Void) {
+    private enum NetworkError: Error {
+        case serviceError, noData
+    }
+    
+    func download(from url: String, completionHandler: @escaping (Result<[ArtistViewModel], Error>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -74,17 +78,19 @@ private extension ArtistListViewController {
         let session = URLSession.shared
         session.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
-                handler(.failure(error))
+                completionHandler(.failure(error))
                 return
             }
             guard let data = data else {
+                completionHandler(.failure(NetworkError.serviceError))
                 return
             }
             guard let artistList = self?.decodeJSONFromData(data) else {
+                completionHandler(.failure(NetworkError.noData))
                 return
             }
             DispatchQueue.main.async {
-                handler(.success(artistList))
+                completionHandler(.success(artistList))
             }
         }.resume()
         
