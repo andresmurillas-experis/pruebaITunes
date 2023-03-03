@@ -54,8 +54,6 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
         cell.delegate = self
-
-        cell.addGestureRecognizer(cell.tapGestureRecognizer)
         return cell
     }
 
