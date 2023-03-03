@@ -55,7 +55,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
         cell.delegate = self
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didSelectCell))
+        tapGestureRecognizer = UITapGestureRecognizer(target: cell, action: #selector(cell.cellTapped))
         guard let tapper = tapGestureRecognizer else {
             return cell
         }
@@ -76,11 +76,11 @@ private extension ArtistListViewController {
 }
 
 extension ArtistListViewController: OnTapDelegate {
-    
-    @objc func didSelectCell() {
+
+    func didSelectCell() {
         print("Waldo")
     }
-    
+
 }
 
 private extension ArtistListViewController {
