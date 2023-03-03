@@ -8,9 +8,9 @@
 import UIKit
 
 final class ArtistListViewController: UIViewController {
-    
+
     @IBOutlet private weak var tableView: UITableView!
-    
+
     var dataTask: URLSessionDataTask?
 
     var artistList: [ArtistViewModel] = [] {
@@ -53,6 +53,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
+        cell.delegate = self
         return cell
     }
 
@@ -68,12 +69,20 @@ private extension ArtistListViewController {
 
 }
 
+extension ArtistListViewController: OnTapDelegate {
+
+    func didSelectCell() {
+        print("Waldo")
+    }
+
+}
+
 private extension ArtistListViewController {
 
     enum NetworkError: Error {
         case serviceError, noData, parsing
     }
-    
+
     func download(from url: String, completionHandler: @escaping (Result<[ArtistViewModel], NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
