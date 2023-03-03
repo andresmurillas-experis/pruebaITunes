@@ -12,6 +12,7 @@ final class ArtistListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var dataTask: URLSessionDataTask?
+    var tapGestureRecognizer: UITapGestureRecognizer?
 
     var artistList: [ArtistViewModel] = [] {
         didSet {
@@ -37,8 +38,6 @@ final class ArtistListViewController: UIViewController {
             }
         }
         setTableView()
-        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(didSelectCell))
-        self.tableView.addGestureRecognizer(tapGestureRecogniser)
     }
 
 }
@@ -56,6 +55,11 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
         cell.delegate = self
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didSelectCell))
+        guard let tapy = tapGestureRecognizer else {
+            return cell
+        }
+        cell.addGestureRecognizer(tapy)
         return cell
     }
 
