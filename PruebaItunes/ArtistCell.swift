@@ -17,6 +17,9 @@ final class ArtistCell: UITableViewCell {
     @IBOutlet private weak var discOneName: UILabel!
     @IBOutlet private weak var discTwoName: UILabel!
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
+    
+    weak var delegate: OnTapDelegate?
+    var tapGestureRecognizer: UIGestureRecognizer!
 
     override func prepareForReuse() {
         name.text = ""
@@ -24,7 +27,6 @@ final class ArtistCell: UITableViewCell {
         discTwoName.text = ""
     }
 
-    weak var delegate: OnTapDelegate?
     
     @objc func cellTapped() {
         delegate?.didSelectCell()
@@ -37,6 +39,7 @@ final class ArtistCell: UITableViewCell {
         moreContentExistsIndicator.isHidden = true
         self.discOneName.isHidden = true
         self.discTwoName.isHidden = true
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.cellTapped))
     }
     
 }

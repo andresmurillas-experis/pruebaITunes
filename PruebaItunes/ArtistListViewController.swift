@@ -10,9 +10,8 @@ import UIKit
 final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    
+
     var dataTask: URLSessionDataTask?
-    var tapGestureRecognizer: UITapGestureRecognizer?
 
     var artistList: [ArtistViewModel] = [] {
         didSet {
@@ -55,11 +54,8 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
         cell.delegate = self
-        tapGestureRecognizer = UITapGestureRecognizer(target: cell, action: #selector(cell.cellTapped))
-        guard let tapper = tapGestureRecognizer else {
-            return cell
-        }
-        cell.addGestureRecognizer(tapper)
+
+        cell.addGestureRecognizer(cell.tapGestureRecognizer)
         return cell
     }
 
@@ -88,7 +84,7 @@ private extension ArtistListViewController {
     enum NetworkError: Error {
         case serviceError, noData, parsing
     }
-    
+
     func download(from url: String, completionHandler: @escaping (Result<[ArtistViewModel], NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
