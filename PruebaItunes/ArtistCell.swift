@@ -7,8 +7,12 @@
 
 import UIKit
 
-final class ArtistCell: UITableViewCell {
+protocol OnTapDelegate: AnyObject {
+    func didSelectCell()
+}
 
+final class ArtistCell: UITableViewCell {
+    
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var discOneName: UILabel!
     @IBOutlet private weak var discTwoName: UILabel!
@@ -20,6 +24,12 @@ final class ArtistCell: UITableViewCell {
         discTwoName.text = ""
     }
 
+    weak var delegate: OnTapDelegate?
+    
+    @objc func cellTapped() {
+        delegate?.didSelectCell()
+    }
+    
     func setupViewModel(_ viewModel: ArtistViewModel) {
         self.name.text = viewModel.name
         self.discOneName.text = viewModel.discOneName
@@ -28,5 +38,5 @@ final class ArtistCell: UITableViewCell {
         self.discOneName.isHidden = true
         self.discTwoName.isHidden = true
     }
-
+    
 }

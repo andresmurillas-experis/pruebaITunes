@@ -8,7 +8,7 @@
 import UIKit
 
 final class ArtistListViewController: UIViewController {
-    
+
     @IBOutlet private weak var tableView: UITableView!
     
     var dataTask: URLSessionDataTask?
@@ -37,6 +37,8 @@ final class ArtistListViewController: UIViewController {
             }
         }
         setTableView()
+        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(didSelectCell))
+        self.tableView.addGestureRecognizer(tapGestureRecogniser)
     }
 
 }
@@ -53,6 +55,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
+        cell.delegate = self
         return cell
     }
 
@@ -66,6 +69,14 @@ private extension ArtistListViewController {
         self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
     }
 
+}
+
+extension ArtistListViewController: OnTapDelegate {
+    
+    @objc func didSelectCell() {
+        print("Waldo")
+    }
+    
 }
 
 private extension ArtistListViewController {
