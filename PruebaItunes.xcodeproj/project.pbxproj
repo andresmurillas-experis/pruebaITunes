@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F19DB4C29B22062005838AE /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F19DB4A29B22062005838AE /* ArtistDetailViewController.swift */; };
+		7F19DB4D29B22062005838AE /* ArtistDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F19DB4B29B22062005838AE /* ArtistDetailView.xib */; };
 		7F2841F429A61CA3004AFA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2841F329A61CA3004AFA0D /* AppDelegate.swift */; };
 		7F2841F629A61CA3004AFA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */; };
 		7F2841F829A61CA3004AFA0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2841F729A61CA3004AFA0D /* ViewController.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F19DB4A29B22062005838AE /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
+		7F19DB4B29B22062005838AE /* ArtistDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistDetailView.xib; sourceTree = "<group>"; };
 		7F2841F029A61CA3004AFA0D /* PruebaItunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaItunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F2841F329A61CA3004AFA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				7F2841FE29A61CA5004AFA0D /* LaunchScreen.storyboard */,
 				7F28420129A61CA5004AFA0D /* Info.plist */,
 				7FBC438129A8A79800FD0D3D /* ArtistViewModel.swift */,
+				7F19DB4A29B22062005838AE /* ArtistDetailViewController.swift */,
+				7F19DB4B29B22062005838AE /* ArtistDetailView.xib */,
 			);
 			path = PruebaItunes;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 				7F28420029A61CA5004AFA0D /* LaunchScreen.storyboard in Resources */,
 				7F2841FD29A61CA5004AFA0D /* Assets.xcassets in Resources */,
 				7F2841FB29A61CA3004AFA0D /* Main.storyboard in Resources */,
+				7F19DB4D29B22062005838AE /* ArtistDetailView.xib in Resources */,
 				7F2B64B229A7529C001DF58A /* ArtistListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F19DB4C29B22062005838AE /* ArtistDetailViewController.swift in Sources */,
 				7F2841F829A61CA3004AFA0D /* ViewController.swift in Sources */,
 				7F2841F429A61CA3004AFA0D /* AppDelegate.swift in Sources */,
 				7F2841F629A61CA3004AFA0D /* SceneDelegate.swift in Sources */,
