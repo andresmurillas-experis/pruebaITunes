@@ -8,19 +8,18 @@
 import UIKit
 
 protocol OnTapDelegate: AnyObject {
-    func didSelectCell()
+    func didSelectCell(_ sender: ArtistCell)
 }
 
 final class ArtistCell: UITableViewCell {
-    
+
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var discOneName: UILabel!
     @IBOutlet private weak var discTwoName: UILabel!
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
-    
-    
+
     weak var delegate: OnTapDelegate?
-    
+
     override func awakeFromNib() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.cellTapped))
         addGestureRecognizer(tapGestureRecognizer)
@@ -32,11 +31,10 @@ final class ArtistCell: UITableViewCell {
         discTwoName.text = ""
     }
 
-    
     @objc func cellTapped() {
-        delegate?.didSelectCell()
+        delegate?.didSelectCell(self)
     }
-    
+
     func setupViewModel(_ viewModel: ArtistViewModel) {
         self.name.text = viewModel.name
         self.discOneName.text = viewModel.discOneName
@@ -45,5 +43,5 @@ final class ArtistCell: UITableViewCell {
         self.discOneName.isHidden = true
         self.discTwoName.isHidden = true
     }
-    
+
 }
