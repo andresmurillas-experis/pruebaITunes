@@ -114,13 +114,12 @@
 				7F2841F329A61CA3004AFA0D /* AppDelegate.swift */,
 				7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */,
 				7F6C58B229B5EDFC00C7AEB2 /* ArtistList */,
+				7F47DAA929B5F35300364F00 /* ArtistDetail */,
 				7FBC438529A8D67E00FD0D3D /* ITunesArtistModel.swift */,
 				7F2841FC29A61CA5004AFA0D /* Assets.xcassets */,
 				7F2841FE29A61CA5004AFA0D /* LaunchScreen.storyboard */,
 				7F28420129A61CA5004AFA0D /* Info.plist */,
 				7FBC438129A8A79800FD0D3D /* ArtistViewModel.swift */,
-				7F19DB4A29B22062005838AE /* ArtistDetailViewController.swift */,
-				7F19DB4B29B22062005838AE /* ArtistDetailView.xib */,
 			);
 			path = PruebaItunes;
 			sourceTree = "<group>";
@@ -140,6 +139,15 @@
 				7F28421629A61CA5004AFA0D /* PruebaItunesUITestsLaunchTests.swift */,
 			);
 			path = PruebaItunesUITests;
+			sourceTree = "<group>";
+		};
+		7F47DAA929B5F35300364F00 /* ArtistDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7F19DB4B29B22062005838AE /* ArtistDetailView.xib */,
+				7F19DB4A29B22062005838AE /* ArtistDetailViewController.swift */,
+			);
+			path = ArtistDetail;
 			sourceTree = "<group>";
 		};
 		7F6C58B229B5EDFC00C7AEB2 /* ArtistList */ = {
