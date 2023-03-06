@@ -38,7 +38,7 @@ final class ArtistListViewController: UIViewController {
         }
         setTableView()
     }
-
+    
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -72,7 +72,8 @@ private extension ArtistListViewController {
 extension ArtistListViewController: OnTapDelegate {
 
     func didSelectCell() {
-        print("Waldo")
+        let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailView", bundle: nil)
+        navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
 
 }
