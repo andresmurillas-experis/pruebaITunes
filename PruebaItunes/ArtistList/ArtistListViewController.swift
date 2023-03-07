@@ -52,6 +52,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let artist = artistList[indexPath.item]
+        cell.artist = artist
         cell.setupViewModel(artist)
         cell.delegate = self
         return cell
@@ -71,11 +72,10 @@ private extension ArtistListViewController {
 
 extension ArtistListViewController: OnTapDelegate {
     
-    func didSelectCell(artist: ArtistViewModel) {
+    func didSelectCell(_ artist: ArtistViewModel) {
         let artistName = artist.name
         print(artistName)
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailView", bundle: nil)
-        artistDetailViewController.artistNameLabel?.text = artistName
         navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
 
