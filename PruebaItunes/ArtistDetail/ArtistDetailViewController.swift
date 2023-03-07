@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ArtistDetailViewController: UIViewController {
+final class ArtistDetailViewController: UIViewController {
 
-    @IBOutlet var artistNameLabel: UILabel!
+    @IBOutlet private var artistNameLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

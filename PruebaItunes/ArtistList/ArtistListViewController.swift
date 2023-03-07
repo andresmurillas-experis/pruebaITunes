@@ -70,17 +70,12 @@ private extension ArtistListViewController {
 }
 
 extension ArtistListViewController: OnTapDelegate {
-
-    func didSelectCell(_ sender: ArtistCell) {
-        guard let tableIndex = tableView.indexPath(for: sender) else {
-            return
-        }
-        let artist = artistList[tableIndex.item]
+    
+    func didSelectCell(artist: ArtistViewModel) {
         let artistName = artist.name
         print(artistName)
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailView", bundle: nil)
         artistDetailViewController.artistNameLabel?.text = artistName
-        print(artistDetailViewController.artistNameLabel)
         navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
 
