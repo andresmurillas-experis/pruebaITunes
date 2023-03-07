@@ -10,10 +10,16 @@ import UIKit
 final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
+    
+    private var artist: ArtistViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         artistNameLabel.text = ""
+    }
+    
+    func setArtist(artist: ArtistViewModel) {
+        self.artist = artist
     }
 
 }
