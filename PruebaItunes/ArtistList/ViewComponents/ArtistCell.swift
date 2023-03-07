@@ -8,7 +8,7 @@
 import UIKit
 
 protocol OnTapDelegate: AnyObject {
-    func didSelectCell(_ artist: ArtistViewModel)
+    func didSelectCellWith(artist: ArtistViewModel)
 }
 
 final class ArtistCell: UITableViewCell {
@@ -18,7 +18,7 @@ final class ArtistCell: UITableViewCell {
     @IBOutlet private weak var discTwoName: UILabel!
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
     
-    var artist: ArtistViewModel?
+    private var artist: ArtistViewModel?
 
     weak var delegate: OnTapDelegate?
 
@@ -39,7 +39,7 @@ final class ArtistCell: UITableViewCell {
         guard let artist = artist else {
             return
         }
-        delegate?.didSelectCell(artist)
+        delegate?.didSelectCellWith(artist: artist)
     }
 
     func setupViewModel(_ viewModel: ArtistViewModel) {
@@ -49,6 +49,7 @@ final class ArtistCell: UITableViewCell {
         moreContentExistsIndicator.isHidden = true
         self.discOneName.isHidden = true
         self.discTwoName.isHidden = true
+        artist = viewModel
     }
 
 }
