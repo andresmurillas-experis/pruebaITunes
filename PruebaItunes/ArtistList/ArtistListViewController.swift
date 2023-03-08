@@ -76,7 +76,7 @@ extension ArtistListViewController: OnTapDelegate {
         let artistName = artist.name
         print(artistName)
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailView", bundle: nil)
-        artistDetailViewController.setArtist(this: artist)
+        artistDetailViewController.setArtist(artist)
         navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
 

@@ -43,7 +43,7 @@ final class ArtistDetailViewController: UIViewController {
 
     }
 
-    func setArtist(this artist: ArtistViewModel) {
+    func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
 }
