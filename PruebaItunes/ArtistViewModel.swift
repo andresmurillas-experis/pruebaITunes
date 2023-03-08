@@ -8,11 +8,13 @@
 import Foundation
 
 struct ArtistViewModel {
+    let id: Int
     let name: String
     let discOneName: String?
     let discTwoName: String?
 
-    init(name: String, discOneName: String? = nil, discTwoName: String? = nil) {
+    init(id: Int, name: String, discOneName: String? = nil, discTwoName: String? = nil) {
+        self.id = id
         self.name = name
         self.discOneName = discOneName
         self.discTwoName = discTwoName

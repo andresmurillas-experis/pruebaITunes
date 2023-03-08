@@ -18,6 +18,7 @@ final class ArtistListViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+//    var albumList = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ final class ArtistListViewController: UIViewController {
         }
         setTableView()
     }
-    
+
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,12 +71,12 @@ private extension ArtistListViewController {
 }
 
 extension ArtistListViewController: OnTapDelegate {
-    
+
     func didSelectCellWith(artist: ArtistViewModel) {
         let artistName = artist.name
         print(artistName)
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailView", bundle: nil)
-        artistDetailViewController.setArtist(artist: artist)
+        artistDetailViewController.setArtistId(artistId: artist.id)
         navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
 
@@ -122,10 +123,9 @@ private extension ArtistListViewController {
         do {
             let decoder = JSONDecoder()
             let iTunesArtistModel: ITunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
-            artistList = iTunesArtistModel.results.map { ArtistViewModel(name: $0.artistName) }
+            artistList = iTunesArtistModel.results.map { ArtistViewModel(id: $0.artistId, name: $0.artistName) }
         } catch {
             print("Error: \(error.localizedDescription)")
-            
         }
         return artistList
     }
