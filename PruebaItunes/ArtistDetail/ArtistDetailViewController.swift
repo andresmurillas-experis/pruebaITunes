@@ -21,7 +21,11 @@ final class ArtistDetailViewController: UIViewController {
         super.viewDidLoad()
         artistNameLabel.text = ""
 
-        download(from: "https://itunes.apple.com/lookup?id=\(artist?.id ?? 0)&entity=album") { [weak self] result in
+        guard let artistId = artist?.id else {
+            return
+        }
+        
+        download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
             switch result {
             case .success(let albumList):
                 self?.albumList = albumList
