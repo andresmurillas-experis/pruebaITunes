@@ -8,21 +8,20 @@
 import UIKit
 
 final class ArtistDetailViewController: UIViewController {
-    
+
     @IBOutlet private var artistNameLabel: UILabel!
-    
-    private var artistId: Int = 0
+
+    private var artist: ArtistViewModel?
     
     private var albumList: [AlbumViewModel] = []
-    
+
     var dataTask: URLSessionDataTask?
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         artistNameLabel.text = ""
 
-        download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
+        download(from: "https://itunes.apple.com/lookup?id=\(artist?.id ?? 0)&entity=album") { [weak self] result in
             switch result {
             case .success(let albumList):
                 self?.albumList = albumList
@@ -40,18 +39,17 @@ final class ArtistDetailViewController: UIViewController {
 
     }
 
-    func setArtistId(artistId: Int) {
-        self.artistId = artistId
-        print(artistId)
+    func setArtist(this artist: ArtistViewModel) {
+        self.artist = artist
     }
 }
 
 extension ArtistDetailViewController {
-        
+
     enum NetworkError: Error {
         case serviceError, noData, parsing
     }
-    
+
     func download(from url: String, completionHandler: @escaping (Result<[AlbumViewModel], NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
@@ -97,5 +95,5 @@ extension ArtistDetailViewController {
         }
         return albumList
     }
-    
+
 }
