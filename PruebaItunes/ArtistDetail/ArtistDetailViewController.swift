@@ -11,8 +11,10 @@ final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
+    @IBOutlet private var tableView: UITableView!
+
     private var artist: ArtistViewModel?
-    
+
     private var albumList: [AlbumViewModel] = []
 
     var dataTask: URLSessionDataTask?
@@ -24,7 +26,7 @@ final class ArtistDetailViewController: UIViewController {
         guard let artistId = artist?.id else {
             return
         }
-        
+
         download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
             switch result {
             case .success(let albumList):
@@ -40,12 +42,41 @@ final class ArtistDetailViewController: UIViewController {
                 }
             }
         }
-
+        setTableView()
     }
 
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
+}
+
+extension ArtistDetailViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        albumList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Mau")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
+            print("Mau")
+            return UITableViewCell()
+        }
+        let album = albumList[indexPath.item]
+        print("dw   dq \(album)")
+        return cell
+    }
+
+}
+
+private extension ArtistDetailViewController {
+
+    func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellReuseIdentifier: "AlbumCellReuseIdentifier")
+    }
+
 }
 
 extension ArtistDetailViewController {
@@ -90,7 +121,7 @@ extension ArtistDetailViewController {
         do {
             let decoder = JSONDecoder()
             let iTunesAlbumModel: ITunesAlbumModel = try decoder.decode(ITunesAlbumModel.self, from: json)
-            print(iTunesAlbumModel)
+//            print(iTunesAlbumModel)
             albumList = iTunesAlbumModel.results.map {
                 return AlbumViewModel(albumName: $0.collectionName)
             }
