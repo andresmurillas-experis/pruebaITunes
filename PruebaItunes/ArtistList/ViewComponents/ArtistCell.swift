@@ -17,7 +17,7 @@ final class ArtistCell: UITableViewCell {
     @IBOutlet private weak var discOneName: UILabel!
     @IBOutlet private weak var discTwoName: UILabel!
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
-    
+
     private var artist: ArtistViewModel?
 
     weak var delegate: OnTapDelegate?

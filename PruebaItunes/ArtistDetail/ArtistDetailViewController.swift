@@ -11,18 +11,22 @@ final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
-    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     private var artist: ArtistViewModel?
 
-    private var albumList: [AlbumViewModel] = []
+    private var albumList: [AlbumViewModel] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     var dataTask: URLSessionDataTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         artistNameLabel.text = ""
-
+        
         guard let artistId = artist?.id else {
             return
         }
@@ -38,7 +42,7 @@ final class ArtistDetailViewController: UIViewController {
                 case .serviceError:
                     print("Error: No Data Eroor: ", error)
                 case .parsing:
-                print("Error: JSON Parsong Error: ", error)
+                    print("Error: JSON Parsong Error: ", error)
                 }
             }
         }
@@ -48,22 +52,20 @@ final class ArtistDetailViewController: UIViewController {
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
+
 }
 
 extension ArtistDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        albumList.count
+        return albumList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Mau")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
-            print("Mau")
             return UITableViewCell()
         }
-        let album = albumList[indexPath.item]
-        print("dw   dq \(album)")
+        cell.setupViewModel(albumList[indexPath.item])
         return cell
     }
 
@@ -106,12 +108,10 @@ extension ArtistDetailViewController {
                 completionHandler(.failure(NetworkError.parsing))
                 return
             }
-            print()
             DispatchQueue.main.async {
                 completionHandler(.success(albumList))
             }
         }.resume()
-
     }
 
     func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
@@ -121,7 +121,6 @@ extension ArtistDetailViewController {
         do {
             let decoder = JSONDecoder()
             let iTunesAlbumModel: ITunesAlbumModel = try decoder.decode(ITunesAlbumModel.self, from: json)
-//            print(iTunesAlbumModel)
             albumList = iTunesAlbumModel.results.map {
                 return AlbumViewModel(albumName: $0.collectionName)
             }

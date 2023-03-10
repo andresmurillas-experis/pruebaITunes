@@ -23,5 +23,10 @@ class AlbumViewCell: UITableViewCell {
     func setupViewModel (_ viewModel: AlbumViewModel) {
         self.name.text = viewModel.albumName
     }
+
+    override func prepareForReuse() {
+        name.text = ""
+    }
+
     
 }
