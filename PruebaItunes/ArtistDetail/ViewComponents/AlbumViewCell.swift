@@ -10,7 +10,7 @@ import UIKit
 final class AlbumViewCell: UITableViewCell {
 
     @IBOutlet private var name: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -19,7 +19,7 @@ final class AlbumViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    
+
     func setupViewModel (_ viewModel: AlbumViewModel) {
         self.name.text = viewModel.albumName
     }
@@ -28,5 +28,4 @@ final class AlbumViewCell: UITableViewCell {
         name.text = ""
     }
 
-    
 }

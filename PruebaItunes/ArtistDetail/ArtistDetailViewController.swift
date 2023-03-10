@@ -26,7 +26,7 @@ final class ArtistDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         artistNameLabel.text = ""
-        
+
         guard let artistId = artist?.id else {
             return
         }
