@@ -21,13 +21,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHf-Tq-mum">
-                    <rect key="frame" x="16" y="10" width="361" height="20.333333333333329"/>
+                    <rect key="frame" x="16" y="69" width="361" height="20.333333333333329"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="t9N-9w-uiF">
-                    <rect key="frame" x="0.0" y="106.33333333333331" width="393" height="745.66666666666674"/>
+                    <rect key="frame" x="0.0" y="135.33333333333331" width="393" height="682.66666666666674"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XHP-Cx-Ajd">
                         <size key="itemSize" width="128" height="128"/>
@@ -46,7 +46,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="t9N-9w-uiF" secondAttribute="bottom" id="gIa-GQ-J06"/>
                 <constraint firstItem="lHf-Tq-mum" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="jxN-41-FaZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="t9N-9w-uiF" secondAttribute="trailing" id="sw4-bW-JZH"/>
-                <constraint firstItem="t9N-9w-uiF" firstAttribute="top" secondItem="lHf-Tq-mum" secondAttribute="bottom" constant="76" id="z2n-JZ-CcY"/>
+                <constraint firstItem="t9N-9w-uiF" firstAttribute="top" secondItem="lHf-Tq-mum" secondAttribute="bottom" constant="46" id="z2n-JZ-CcY"/>
             </constraints>
             <point key="canvasLocation" x="5.343511450381679" y="20.422535211267608"/>
         </view>

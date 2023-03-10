@@ -9,9 +9,9 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
-    
     @IBOutlet weak var albumName: UILabel!
-    
+    @IBOutlet weak var albumCover: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

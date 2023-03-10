@@ -132,13 +132,13 @@
 				7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */,
 				7F6C58B229B5EDFC00C7AEB2 /* ArtistList */,
 				7F47DAA929B5F35300364F00 /* ArtistDetail */,
-				7F2841FC29A61CA5004AFA0D /* Assets.xcassets */,
-				7F2841FE29A61CA5004AFA0D /* LaunchScreen.storyboard */,
-				7F28420129A61CA5004AFA0D /* Info.plist */,
 				7FBC438529A8D67E00FD0D3D /* ITunesArtistModel.swift */,
 				7FBC438129A8A79800FD0D3D /* ArtistViewModel.swift */,
 				7F47DAAA29B8894700364F00 /* ITunesAlbumModel.swift */,
 				7F47DAAC29B88CB600364F00 /* AlbumViewModel.swift */,
+				7F2841FC29A61CA5004AFA0D /* Assets.xcassets */,
+				7F2841FE29A61CA5004AFA0D /* LaunchScreen.storyboard */,
+				7F28420129A61CA5004AFA0D /* Info.plist */,
 			);
 			path = PruebaItunes;
 			sourceTree = "<group>";
