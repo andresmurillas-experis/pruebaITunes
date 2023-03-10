@@ -7,9 +7,9 @@
 
 import UIKit
 
-class AlbumViewCell: UITableViewCell {
+final class AlbumViewCell: UITableViewCell {
 
-    @IBOutlet var name: UILabel!
+    @IBOutlet private var name: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -17,7 +17,7 @@ final class ArtistDetailViewController: UIViewController {
 
     private var albumList: [AlbumViewModel] = [] {
         didSet {
-            self.tableView.reloadData()
+            tableView.reloadData()
         }
     }
 
@@ -76,7 +76,7 @@ private extension ArtistDetailViewController {
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellReuseIdentifier: "AlbumCellReuseIdentifier")
+        tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellReuseIdentifier: "AlbumCellReuseIdentifier")
     }
 
 }
