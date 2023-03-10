@@ -11,7 +11,7 @@ final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UICollectionView!
 
     private var artist: ArtistViewModel?
 
@@ -55,15 +55,15 @@ final class ArtistDetailViewController: UIViewController {
 
 }
 
-extension ArtistDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albumList.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? CollectionViewCell else {
+            return UICollectionViewCell()
         }
         cell.setupViewModel(albumList[indexPath.item])
         return cell
@@ -76,7 +76,7 @@ private extension ArtistDetailViewController {
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellReuseIdentifier: "AlbumCellReuseIdentifier")
+        tableView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
     }
 
 }
