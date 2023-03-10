@@ -11,20 +11,26 @@ final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
+    @IBOutlet private weak var tableView: UITableView!
+
     private var artist: ArtistViewModel?
-    
-    private var albumList: [AlbumViewModel] = []
+
+    private var albumList: [AlbumViewModel] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     var dataTask: URLSessionDataTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         artistNameLabel.text = ""
-
+        
         guard let artistId = artist?.id else {
             return
         }
-        
+
         download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
             switch result {
             case .success(let albumList):
@@ -36,16 +42,43 @@ final class ArtistDetailViewController: UIViewController {
                 case .serviceError:
                     print("Error: No Data Eroor: ", error)
                 case .parsing:
-                print("Error: JSON Parsong Error: ", error)
+                    print("Error: JSON Parsong Error: ", error)
                 }
             }
         }
-
+        setTableView()
     }
 
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
+
+}
+
+extension ArtistDetailViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return albumList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
+            return UITableViewCell()
+        }
+        cell.setupViewModel(albumList[indexPath.item])
+        return cell
+    }
+
+}
+
+private extension ArtistDetailViewController {
+
+    func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellReuseIdentifier: "AlbumCellReuseIdentifier")
+    }
+
 }
 
 extension ArtistDetailViewController {
@@ -75,12 +108,10 @@ extension ArtistDetailViewController {
                 completionHandler(.failure(NetworkError.parsing))
                 return
             }
-            print()
             DispatchQueue.main.async {
                 completionHandler(.success(albumList))
             }
         }.resume()
-
     }
 
     func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
@@ -90,7 +121,6 @@ extension ArtistDetailViewController {
         do {
             let decoder = JSONDecoder()
             let iTunesAlbumModel: ITunesAlbumModel = try decoder.decode(ITunesAlbumModel.self, from: json)
-            print(iTunesAlbumModel)
             albumList = iTunesAlbumModel.results.map {
                 return AlbumViewModel(albumName: $0.collectionName)
             }

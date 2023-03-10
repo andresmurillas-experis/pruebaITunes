@@ -71,7 +71,7 @@
                 <outlet property="moreContentExistsIndicator" destination="WMh-mA-8bp" id="zul-qs-rJ6"/>
                 <outlet property="name" destination="toe-Tg-kAA" id="6fc-p1-M5b"/>
             </connections>
-            <point key="canvasLocation" x="130" y="20"/>
+            <point key="canvasLocation" x="166" y="26"/>
         </tableViewCell>
     </objects>
 </document>
