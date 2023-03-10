@@ -55,6 +55,16 @@ final class ArtistDetailViewController: UIViewController {
 
 }
 
+private extension ArtistDetailViewController {
+
+    func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellReuseIdentifier: "AlbumCellReuseIdentifier")
+    }
+
+}
+
 extension ArtistDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,16 +77,6 @@ extension ArtistDetailViewController: UITableViewDelegate, UITableViewDataSource
         }
         cell.setupViewModel(albumList[indexPath.item])
         return cell
-    }
-
-}
-
-private extension ArtistDetailViewController {
-
-    func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellReuseIdentifier: "AlbumCellReuseIdentifier")
     }
 
 }

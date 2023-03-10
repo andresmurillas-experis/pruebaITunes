@@ -18,7 +18,6 @@ final class ArtistListViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-//    var albumList = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +41,16 @@ final class ArtistListViewController: UIViewController {
 
 }
 
+private extension ArtistListViewController {
+
+    func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+    }
+
+}
+
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,20 +69,9 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-private extension ArtistListViewController {
-
-    func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
-    }
-
-}
-
 extension ArtistListViewController: OnTapDelegate {
 
     func didSelectCellWith(artist: ArtistViewModel) {
-        let artistName = artist.name
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil)
         artistDetailViewController.setArtist(artist)
         navigationController?.pushViewController(artistDetailViewController, animated: true)
