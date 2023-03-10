@@ -49,7 +49,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistViewCell else {
             return UITableViewCell()
         }
         let artist = artistList[indexPath.item]
@@ -65,7 +65,7 @@ private extension ArtistListViewController {
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+        self.tableView.register(UINib(nibName: "ArtistView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
     }
 
 }
@@ -73,7 +73,6 @@ private extension ArtistListViewController {
 extension ArtistListViewController: OnTapDelegate {
 
     func didSelectCellWith(artist: ArtistViewModel) {
-        let artistName = artist.name
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil)
         artistDetailViewController.setArtist(artist)
         navigationController?.pushViewController(artistDetailViewController, animated: true)

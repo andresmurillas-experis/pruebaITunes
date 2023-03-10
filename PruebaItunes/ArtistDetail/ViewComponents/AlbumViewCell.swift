@@ -7,10 +7,10 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+final class AlbumViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var albumName: UILabel!
-    @IBOutlet weak var albumCover: UIImageView!
+    @IBOutlet private weak var albumName: UILabel!
+    @IBOutlet private weak var albumCover: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,6 +18,10 @@ class CollectionViewCell: UICollectionViewCell {
 
     func setupViewModel(_ viewModel: AlbumViewModel) {
         albumName.text = viewModel.albumName
+    }
+    
+    func downloadAlbumCover(from url: URL) {
+        
     }
     
 }

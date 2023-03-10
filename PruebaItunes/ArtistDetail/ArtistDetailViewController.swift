@@ -62,7 +62,7 @@ extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionView
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? CollectionViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
             return UICollectionViewCell()
         }
         cell.setupViewModel(albumList[indexPath.item])
@@ -76,7 +76,7 @@ private extension ArtistDetailViewController {
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
+        tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
     }
 
 }
