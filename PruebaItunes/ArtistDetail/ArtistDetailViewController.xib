@@ -46,6 +46,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="t9N-9w-uiF" secondAttribute="bottom" id="gIa-GQ-J06"/>
                 <constraint firstItem="lHf-Tq-mum" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="jxN-41-FaZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="t9N-9w-uiF" secondAttribute="trailing" id="sw4-bW-JZH"/>
+                <constraint firstItem="lHf-Tq-mum" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="u7j-kW-HoG"/>
                 <constraint firstItem="t9N-9w-uiF" firstAttribute="top" secondItem="lHf-Tq-mum" secondAttribute="bottom" constant="46" id="z2n-JZ-CcY"/>
             </constraints>
             <point key="canvasLocation" x="5.343511450381679" y="20.422535211267608"/>

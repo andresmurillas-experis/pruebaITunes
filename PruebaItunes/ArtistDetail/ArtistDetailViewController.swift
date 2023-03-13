@@ -25,7 +25,7 @@ final class ArtistDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        artistNameLabel.text = ""
+        artistNameLabel.text = artist?.name
 
         guard let artistId = artist?.id else {
             return
@@ -49,6 +49,8 @@ final class ArtistDetailViewController: UIViewController {
         setTableView()
     }
 
+    
+    
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
