@@ -13,12 +13,6 @@ final class AlbumViewCell: UICollectionViewCell {
     @IBOutlet private var albumCover: UIImageView!
 
     var dataTask: URLSessionDataTask?
-
-    var image: UIImage? {
-        didSet {
-            albumCover.image = image
-        }
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +23,7 @@ final class AlbumViewCell: UICollectionViewCell {
         downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { [weak self] result in
             switch result {
             case .success(let image):
-                self?.image = image ?? UIImage()
+                self?.albumCover.image = image ?? UIImage()
             case .failure(let error):
                 switch error {
                 case .noData:
