@@ -18,7 +18,6 @@ final class ArtistListViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-//    var albumList = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +48,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistViewCell else {
             return UITableViewCell()
         }
         let artist = artistList[indexPath.item]
@@ -65,7 +64,7 @@ private extension ArtistListViewController {
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ArtistCellView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+        self.tableView.register(UINib(nibName: "ArtistView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
     }
 
 }
@@ -73,7 +72,6 @@ private extension ArtistListViewController {
 extension ArtistListViewController: OnTapDelegate {
 
     func didSelectCellWith(artist: ArtistViewModel) {
-        let artistName = artist.name
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil)
         artistDetailViewController.setArtist(artist)
         navigationController?.pushViewController(artistDetailViewController, animated: true)
@@ -112,7 +110,6 @@ private extension ArtistListViewController {
                 completionHandler(.success(artistList))
             }
         }.resume()
-
     }
 
     func decodeJSONFromData(_ data: Data) -> [ArtistViewModel]{
@@ -121,7 +118,7 @@ private extension ArtistListViewController {
         var artistList: [ArtistViewModel] = []
         do {
             let decoder = JSONDecoder()
-            let iTunesArtistModel: ITunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
+            let iTunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
             artistList = iTunesArtistModel.results.map { ArtistViewModel(id: $0.artistId, name: $0.artistName) }
         } catch {
             print("Error: \(error.localizedDescription)")

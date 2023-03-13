@@ -11,13 +11,13 @@ final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var collectionView: UICollectionView!
 
     private var artist: ArtistViewModel?
 
     private var albumList: [AlbumViewModel] = [] {
         didSet {
-            tableView.reloadData()
+            collectionView.reloadData()
         }
     }
 
@@ -25,7 +25,7 @@ final class ArtistDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        artistNameLabel.text = ""
+        artistNameLabel.text = artist?.name
         
         guard let artistId = artist?.id else {
             return
@@ -46,37 +46,43 @@ final class ArtistDetailViewController: UIViewController {
                 }
             }
         }
-        setTableView()
+        setCollectionView()
     }
 
+    
+    
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
 
 }
 
-extension ArtistDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albumList.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
+            return UICollectionViewCell()
         }
         cell.setupViewModel(albumList[indexPath.item])
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 175, height: 175)
     }
 
 }
 
 private extension ArtistDetailViewController {
 
-    func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellReuseIdentifier: "AlbumCellReuseIdentifier")
+    func setCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "AlbumView", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
     }
 
 }
@@ -121,8 +127,11 @@ extension ArtistDetailViewController {
         do {
             let decoder = JSONDecoder()
             let iTunesAlbumModel: ITunesAlbumModel = try decoder.decode(ITunesAlbumModel.self, from: json)
-            albumList = iTunesAlbumModel.results.map {
-                return AlbumViewModel(albumName: $0.collectionName)
+            albumList = iTunesAlbumModel.results.compactMap {
+                if $0.collectionName == nil {
+                    return nil
+                }
+                return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
             }
         } catch {
             print("Error: \(error.localizedDescription)")

@@ -1,32 +1,72 @@
 //
-//  AlbumViewCell.swift
+//  CollectionViewCell.swift
 //  PruebaItunes
 //
-//  Created by Andrés Murillas on 9/3/23.
+//  Created by Andrés Murillas on 10/3/23.
 //
 
 import UIKit
 
-final class AlbumViewCell: UITableViewCell {
+final class AlbumViewCell: UICollectionViewCell {
 
-    @IBOutlet private var name: UILabel!
+    @IBOutlet private var albumName: UILabel!
+    @IBOutlet private var albumCover: UIImageView!
+
+    var dataTask: URLSessionDataTask?
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    func setupViewModel(_ viewModel: AlbumViewModel) {
+        albumName.text = viewModel.albumName
+        downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.albumCover.image = image
+            case .failure(let error):
+                switch error {
+                case .noData:
+                    print("Error: Network Service Error: ", error)
+                case .serviceError:
+                    print("Error: No Data Eroor: ", error)
+                case .parsing:
+                    print("Error: JSON Parsong Error: ", error)
+                }
+            }
+        }
     }
-    
-    func setupViewModel (_ viewModel: AlbumViewModel) {
-        self.name.text = viewModel.albumName
+
+}
+
+private extension AlbumViewCell {
+
+    enum NetworkError: Error {
+        case serviceError, noData, parsing
     }
 
-    override func prepareForReuse() {
-        name.text = ""
+    func downloadAlbumCover(from url: String, completionHandler: @escaping (Result<UIImage?, NetworkError>) -> Void) {
+        guard let url = URL(string: url) else {
+            print("Invalid URL")
+            return
+        }
+        dataTask?.cancel()
+        let request = URLRequest(url: url)
+        let session = URLSession.shared
+        session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                completionHandler(.failure(NetworkError.serviceError))
+                return
+            }
+            guard let data = data else {
+                completionHandler(.failure(NetworkError.noData))
+                return
+            }
+            let image = UIImage(data: data)
+            DispatchQueue.main.async {
+                completionHandler(.success(image))
+            }
+        }.resume()
     }
 
-    
 }

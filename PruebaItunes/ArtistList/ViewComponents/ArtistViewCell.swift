@@ -11,7 +11,7 @@ protocol OnTapDelegate: AnyObject {
     func didSelectCellWith(artist: ArtistViewModel)
 }
 
-final class ArtistCell: UITableViewCell {
+final class ArtistViewCell: UITableViewCell {
 
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var discOneName: UILabel!
