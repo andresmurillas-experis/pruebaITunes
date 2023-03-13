@@ -23,7 +23,7 @@ final class AlbumViewCell: UICollectionViewCell {
         downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { [weak self] result in
             switch result {
             case .success(let image):
-                self?.albumCover.image = image ?? UIImage()
+                self?.albumCover.image = image
             case .failure(let error):
                 switch error {
                 case .noData:
