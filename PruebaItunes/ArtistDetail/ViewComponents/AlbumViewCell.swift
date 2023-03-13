@@ -14,7 +14,7 @@ final class AlbumViewCell: UICollectionViewCell {
 
     var dataTask: URLSessionDataTask?
 
-    var image: UIImage! {
+    var image: UIImage? {
         didSet {
             albumCover.image = image
         }
