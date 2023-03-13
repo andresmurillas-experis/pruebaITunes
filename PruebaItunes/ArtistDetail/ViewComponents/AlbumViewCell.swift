@@ -16,7 +16,7 @@ final class AlbumViewCell: UICollectionViewCell {
 
     var image: UIImage! {
         didSet {
-            albumCover = UIImageView(image: image)
+            albumCover.image = image
         }
     }
     
