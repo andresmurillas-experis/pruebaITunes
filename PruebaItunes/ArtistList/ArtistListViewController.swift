@@ -18,7 +18,6 @@ final class ArtistListViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-//    var albumList = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +110,6 @@ private extension ArtistListViewController {
                 completionHandler(.success(artistList))
             }
         }.resume()
-
     }
 
     func decodeJSONFromData(_ data: Data) -> [ArtistViewModel]{
@@ -120,7 +118,7 @@ private extension ArtistListViewController {
         var artistList: [ArtistViewModel] = []
         do {
             let decoder = JSONDecoder()
-            let iTunesArtistModel: ITunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
+            let iTunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
             artistList = iTunesArtistModel.results.map { ArtistViewModel(id: $0.artistId, name: $0.artistName) }
         } catch {
             print("Error: \(error.localizedDescription)")

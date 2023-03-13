@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct AlbumViewModel {
+struct AlbumViewModel: Codable{
     let albumName: String?
+    let albumCover: String?
+    let albumCoverLarge: String?
 }
