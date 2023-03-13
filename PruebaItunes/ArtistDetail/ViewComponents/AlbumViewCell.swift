@@ -26,7 +26,7 @@ final class AlbumViewCell: UICollectionViewCell {
 
     func setupViewModel(_ viewModel: AlbumViewModel) {
         albumName.text = viewModel.albumName
-        downloadAlbumCover(from: viewModel.albumCover ?? "") { [weak self] result in
+        downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { [weak self] result in
             switch result {
             case .success(let image):
                 self?.image = image ?? UIImage()
