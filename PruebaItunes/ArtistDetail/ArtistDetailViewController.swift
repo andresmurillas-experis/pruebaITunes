@@ -127,7 +127,10 @@ extension ArtistDetailViewController {
         do {
             let decoder = JSONDecoder()
             let iTunesAlbumModel: ITunesAlbumModel = try decoder.decode(ITunesAlbumModel.self, from: json)
-            albumList = iTunesAlbumModel.results.map {
+            albumList = iTunesAlbumModel.results.compactMap {
+                if $0.collectionName == nil {
+                    return nil
+                }
                 return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
             }
         } catch {
