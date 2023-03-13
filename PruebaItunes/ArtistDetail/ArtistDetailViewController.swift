@@ -11,13 +11,13 @@ final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
-    @IBOutlet private weak var tableView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
 
     private var artist: ArtistViewModel?
 
     private var albumList: [AlbumViewModel] = [] {
         didSet {
-            tableView.reloadData()
+            collectionView.reloadData()
         }
     }
 
@@ -26,7 +26,7 @@ final class ArtistDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         artistNameLabel.text = artist?.name
-
+        
         guard let artistId = artist?.id else {
             return
         }
@@ -46,7 +46,7 @@ final class ArtistDetailViewController: UIViewController {
                 }
             }
         }
-        setTableView()
+        setCollectionView()
     }
 
     
@@ -57,28 +57,32 @@ final class ArtistDetailViewController: UIViewController {
 
 }
 
-extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albumList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = tableView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
             return UICollectionViewCell()
         }
         cell.setupViewModel(albumList[indexPath.item])
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 175, height: 175)
+    }
+
 }
 
 private extension ArtistDetailViewController {
 
-    func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "AlbumView", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
+    func setCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "AlbumView", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
     }
 
 }

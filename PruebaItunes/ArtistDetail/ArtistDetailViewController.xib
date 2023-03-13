@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArtistDetailViewController" customModule="PruebaItunes" customModuleProvider="target">
             <connections>
                 <outlet property="artistNameLabel" destination="lHf-Tq-mum" id="vwN-GG-aDv"/>
-                <outlet property="tableView" destination="t9N-9w-uiF" id="gwB-7s-tJI"/>
+                <outlet property="collectionView" destination="t9N-9w-uiF" id="gwB-7s-tJI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
