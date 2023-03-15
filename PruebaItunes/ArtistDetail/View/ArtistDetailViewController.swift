@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class ArtistDetailViewController: UIViewController, ArtistDetailViewDelegate{
+final class ArtistDetailViewController: UIViewController, ArtistDetailViewDelegate {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private let artistDetailPresenter = ArtistDetailPresenter()
+    private var artistDetailPresenter: ArtistDetailPresenterProtocol?
 
     private var artist: ArtistViewModel?
 
@@ -23,34 +23,25 @@ final class ArtistDetailViewController: UIViewController, ArtistDetailViewDelega
         }
     }
 
-    var dataTask: URLSessionDataTask?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        artistDetailPresenter.setviewdelegate(artistDetailViewDelegate: self)
         artistNameLabel.text = artist?.name
-        
+
         guard let artistId = artist?.id else {
             return
         }
+        
+        artistDetailPresenter = ArtistDetailPresenter()
+        artistDetailPresenter?.setviewdelegate(artistDetailViewDelegate: self)
 
-        artistDetailPresenter.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
-            switch result {
-            case .success(let albumList):
-                self?.albumList = albumList
-            case .failure(let error):
-                switch error {
-                case .noData:
-                    print("Error: Network Service Error: ", error)
-                case .serviceError:
-                    print("Error: No Data Eroor: ", error)
-                case .parsing:
-                    print("Error: JSON Parsong Error: ", error)
-                }
-            }
-        }
+        artistDetailPresenter?.download(url: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album")
+
         setCollectionView()
+    }
+
+    func setAlbumList(_ albumList: [AlbumViewModel]) {
+        self.albumList = albumList
     }
 
     func setArtist(_ artist: ArtistViewModel) {
@@ -69,7 +60,7 @@ extension ArtistDetailViewController {
 
 }
 
-extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albumList.count

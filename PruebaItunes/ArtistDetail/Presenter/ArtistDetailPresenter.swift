@@ -8,15 +8,11 @@
 import Foundation
 import UIKit
 
-class ArtistDetailPresenter {
+class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
 
     weak private var artistDetailViewDelegate: ArtistDetailViewDelegate?
 
     var dataTask: URLSessionDataTask?
-
-    init() {
-        
-    }
 
     func setviewdelegate(artistDetailViewDelegate: ArtistDetailViewDelegate?) {
         self.artistDetailViewDelegate = artistDetailViewDelegate
@@ -30,7 +26,7 @@ extension ArtistDetailPresenter {
         case serviceError, noData, parsing
     }
 
-    func download(from url: String, completionHandler: @escaping (Result<[AlbumViewModel], NetworkError>) -> Void) {
+    func downloadFromITunes(from url: String, completionHandler: @escaping (Result<[AlbumViewModel], NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -55,6 +51,7 @@ extension ArtistDetailPresenter {
                 completionHandler(.success(albumList))
             }
         }.resume()
+
     }
 
     func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
@@ -74,6 +71,26 @@ extension ArtistDetailPresenter {
             print("Error: \(error.localizedDescription)")
         }
         return albumList
+    }
+
+    func download(url: String) {
+
+        downloadFromITunes(from: url, completionHandler: { [weak self] result in
+               switch result {
+               case .success(let albumList):
+                   self?.artistDetailViewDelegate?.setAlbumList(albumList)
+               case .failure(let error):
+                   switch error {
+                   case .noData:
+                       print("Error: Network Service Error: ", error)
+                   case .serviceError:
+                       print("Error: No Data Eroor: ", error)
+                   case .parsing:
+                       print("Error: JSON Parsong Error: ", error)
+                   }
+               }
+        })
+
     }
 
 }
