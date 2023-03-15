@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ArtistDetailViewController: UIViewController, ArtistDetailViewDelegate {
+final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtocol {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
@@ -31,7 +31,7 @@ final class ArtistDetailViewController: UIViewController, ArtistDetailViewDelega
         guard let artistId = artist?.id else {
             return
         }
-        
+
         artistDetailPresenter = ArtistDetailPresenter()
         artistDetailPresenter?.setviewdelegate(artistDetailViewDelegate: self)
 

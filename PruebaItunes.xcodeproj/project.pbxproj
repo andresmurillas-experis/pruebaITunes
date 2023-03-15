@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7F00F4F229C05EF300337091 /* ArtistDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00F4F129C05EF300337091 /* ArtistDetailPresenter.swift */; };
-		7F00F4F629C05FD800337091 /* ArtistDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00F4F529C05FD800337091 /* ArtistDetailViewDelegate.swift */; };
 		7F00F4FA29C07E9600337091 /* ArtistDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00F4F929C07E9600337091 /* ArtistDetailViewProtocol.swift */; };
 		7F00F4FC29C07F6900337091 /* ArtistDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00F4FB29C07F6900337091 /* ArtistDetailPresenterProtocol.swift */; };
 		7F0444F929BB3310008B2E05 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0444F729BB3310008B2E05 /* ArtistDetailViewController.swift */; };
@@ -51,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		7F00F4F129C05EF300337091 /* ArtistDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailPresenter.swift; sourceTree = "<group>"; };
-		7F00F4F529C05FD800337091 /* ArtistDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewDelegate.swift; sourceTree = "<group>"; };
 		7F00F4F929C07E9600337091 /* ArtistDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewProtocol.swift; sourceTree = "<group>"; };
 		7F00F4FB29C07F6900337091 /* ArtistDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		7F0444F729BB3310008B2E05 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 				7F00F4FF29C0802D00337091 /* Model */,
 				7F00F4FE29C0802800337091 /* View */,
 				7F0444EC29BA01B8008B2E05 /* ViewComponents */,
-				7F00F4F529C05FD800337091 /* ArtistDetailViewDelegate.swift */,
 			);
 			path = ArtistDetail;
 			sourceTree = "<group>";
@@ -366,7 +363,6 @@
 				7F00F4F229C05EF300337091 /* ArtistDetailPresenter.swift in Sources */,
 				7F00F4FC29C07F6900337091 /* ArtistDetailPresenterProtocol.swift in Sources */,
 				7F0444F929BB3310008B2E05 /* ArtistDetailViewController.swift in Sources */,
-				7F00F4F629C05FD800337091 /* ArtistDetailViewDelegate.swift in Sources */,
 				7F2841F629A61CA3004AFA0D /* SceneDelegate.swift in Sources */,
 				7FBC438629A8D67E00FD0D3D /* ITunesArtistModel.swift in Sources */,
 				7F47DAAB29B8894700364F00 /* ITunesAlbumModel.swift in Sources */,

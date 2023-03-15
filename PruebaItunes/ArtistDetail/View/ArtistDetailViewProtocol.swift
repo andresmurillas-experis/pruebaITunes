@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol ArtistDetailViewProtocol {
-    
-    
-    
+protocol ArtistDetailViewProtocol: AnyObject {
+
+    func setAlbumList(_ albumList: [AlbumViewModel])
+
 }

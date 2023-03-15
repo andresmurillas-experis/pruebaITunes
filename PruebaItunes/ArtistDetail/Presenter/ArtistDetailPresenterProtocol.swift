@@ -8,9 +8,9 @@
 import Foundation
 
 protocol ArtistDetailPresenterProtocol {
-    
+
     func download(url: String)
 
-    func setviewdelegate(artistDetailViewDelegate: ArtistDetailViewDelegate?)
+    func setviewdelegate(artistDetailViewDelegate: ArtistDetailViewProtocol?)
 
 }

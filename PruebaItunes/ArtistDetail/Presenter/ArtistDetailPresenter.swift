@@ -10,11 +10,11 @@ import UIKit
 
 class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
 
-    weak private var artistDetailViewDelegate: ArtistDetailViewDelegate?
+    weak private var artistDetailViewDelegate: ArtistDetailViewProtocol?
 
     var dataTask: URLSessionDataTask?
 
-    func setviewdelegate(artistDetailViewDelegate: ArtistDetailViewDelegate?) {
+    func setviewdelegate(artistDetailViewDelegate: ArtistDetailViewProtocol?) {
         self.artistDetailViewDelegate = artistDetailViewDelegate
     }
 
