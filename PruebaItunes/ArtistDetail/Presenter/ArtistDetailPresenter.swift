@@ -9,29 +9,30 @@ import Foundation
 import UIKit
 
 protocol ArtistDetailPresenterProtocol: AnyObject {
-    var artistDetailView: ArtistDetailViewController? { get set }
+    var artistDetailView: ArtistDetailViewController? {get set}
     func viewDidLoad()
-    func setArtist(_ artist: ArtistViewModel)
+    func download(url: String, presenter: ArtistDetailPresenter)
+    func setArtist(artist: ArtistViewModel)
 }
 
-final class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
+class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
 
     weak internal var artistDetailView: ArtistDetailViewController?
 
-    private var artist: ArtistViewModel?
-
     var dataTask: URLSessionDataTask?
+
+    private var artist: ArtistViewModel?
 
     func viewDidLoad() {
         guard let artistId = self.artist?.id else {
             return
         }
-        download(url: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album")
+        print(self)
+        download(url: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album", presenter: self)
     }
 
-    func setArtist(_ artist: ArtistViewModel) {
+    func setArtist(artist: ArtistViewModel) {
         self.artist = artist
-        print(artist)
     }
 
 }
@@ -88,9 +89,8 @@ extension ArtistDetailPresenter {
         return albumList
     }
 
-    func download(url: String) {
+    func download(url: String, presenter: ArtistDetailPresenter) {
         downloadFromITunes(from: url, completionHandler: { [weak self] result in
-            print(self ?? "this value is nil")
             switch result {
             case .success(let albumList):
                 self?.artistDetailView?.setAlbumList(albumList)
