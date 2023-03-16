@@ -7,45 +7,48 @@
 
 import UIKit
 
+protocol ArtistDetailViewProtocol: AnyObject {
+
+    func setAlbumList(_ albumList: [AlbumViewModel])
+
+//    var presenter: ArtistDetailPresenterProtocol? {get set}
+}
+
 final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtocol {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
     @IBOutlet private weak var collectionView: UICollectionView!
-
-    private var artistDetailPresenter: ArtistDetailPresenterProtocol?
-
+    
     private var artist: ArtistViewModel?
 
     private var albumList: [AlbumViewModel] = [] {
         didSet {
             collectionView.reloadData()
+            print("bug collection")
         }
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        artistNameLabel.text = artist?.name
-
-        guard let artistId = artist?.id else {
+        let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
+        guard let artist = self.artist else {
+            print("UK")
             return
         }
-
-        artistDetailPresenter = ArtistDetailPresenter()
-        artistDetailPresenter?.setviewdelegate(artistDetailViewDelegate: self)
-
-        artistDetailPresenter?.download(url: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album")
-
         setCollectionView()
+        presenter.setArtist(artist)
+        presenter.setViewDelegate(artistDetailView: self)
+        presenter.viewDidLoad()
     }
 
     func setAlbumList(_ albumList: [AlbumViewModel]) {
         self.albumList = albumList
+        print("Gust", albumList)
     }
 
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
+        print(artist)
     }
 
 }

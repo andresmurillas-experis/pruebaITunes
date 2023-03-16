@@ -8,14 +8,42 @@
 import Foundation
 import UIKit
 
+protocol ArtistDetailPresenterProtocol: AnyObject {
+
+    var artistDetailView: ArtistDetailViewController? {get set}
+
+    func viewDidLoad()
+
+    func download(url: String)
+
+    func setViewDelegate(artistDetailView: ArtistDetailViewController?)
+
+    func setArtist(_ artist: ArtistViewModel)
+
+}
+
 class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
 
-    weak private var artistDetailViewDelegate: ArtistDetailViewProtocol?
+    weak internal var artistDetailView: ArtistDetailViewController?
+
+    private var artist: ArtistViewModel?
 
     var dataTask: URLSessionDataTask?
 
-    func setviewdelegate(artistDetailViewDelegate: ArtistDetailViewProtocol?) {
-        self.artistDetailViewDelegate = artistDetailViewDelegate
+    func setViewDelegate(artistDetailView: ArtistDetailViewController?) {
+        self.artistDetailView = artistDetailView
+    }
+
+    func viewDidLoad() {
+        guard let artistId = self.artist?.id else {
+            return
+        }
+        download(url: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album")
+    }
+
+    func setArtist(_ artist: ArtistViewModel) {
+        self.artist = artist
+        print(artist)
     }
 
 }
@@ -34,7 +62,7 @@ extension ArtistDetailPresenter {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        session.dataTask(with: request) { [weak self] data, response, error in
+        session.dataTask(with: request) { [self] data, response, error in
             if error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
@@ -43,7 +71,8 @@ extension ArtistDetailPresenter {
                 completionHandler(.failure(NetworkError.noData))
                 return
             }
-            guard let albumList = self?.decodeJSONFromData(data) else {
+
+            guard let albumList = self.decodeJSONFromData(data) else {
                 completionHandler(.failure(NetworkError.parsing))
                 return
             }
@@ -51,7 +80,6 @@ extension ArtistDetailPresenter {
                 completionHandler(.success(albumList))
             }
         }.resume()
-
     }
 
     func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
@@ -74,23 +102,21 @@ extension ArtistDetailPresenter {
     }
 
     func download(url: String) {
-
-        downloadFromITunes(from: url, completionHandler: { [weak self] result in
+        downloadFromITunes(from: url, completionHandler: { [self] result in
                switch result {
                case .success(let albumList):
-                   self?.artistDetailViewDelegate?.setAlbumList(albumList)
+                   self.artistDetailView?.setAlbumList(albumList)
                case .failure(let error):
                    switch error {
                    case .noData:
-                       print("Error: Network Service Error: ", error)
+                       print("Network Service Error: ", error)
                    case .serviceError:
-                       print("Error: No Data Eroor: ", error)
+                       print("No Data Eroor: ", error)
                    case .parsing:
-                       print("Error: JSON Parsong Error: ", error)
+                       print("JSON Parsing Error: ", error)
                    }
                }
         })
-
     }
 
 }

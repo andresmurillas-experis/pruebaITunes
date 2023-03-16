@@ -73,7 +73,9 @@ extension ArtistListViewController: OnTapDelegate {
 
     func didSelectCellWith(artist: ArtistViewModel) {
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil)
+        print("spagueti")
         artistDetailViewController.setArtist(artist)
+        print("tomate")
         navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
 
