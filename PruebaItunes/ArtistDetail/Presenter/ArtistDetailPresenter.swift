@@ -62,7 +62,7 @@ extension ArtistDetailPresenter {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        session.dataTask(with: request) { [self] data, response, error in
+        session.dataTask(with: request) { [weak self] data, response, error in
             if error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
@@ -71,8 +71,7 @@ extension ArtistDetailPresenter {
                 completionHandler(.failure(NetworkError.noData))
                 return
             }
-
-            guard let albumList = self.decodeJSONFromData(data) else {
+            guard let albumList = self?.decodeJSONFromData(data) else {
                 completionHandler(.failure(NetworkError.parsing))
                 return
             }
@@ -102,20 +101,21 @@ extension ArtistDetailPresenter {
     }
 
     func download(url: String) {
-        downloadFromITunes(from: url, completionHandler: { [self] result in
-               switch result {
-               case .success(let albumList):
-                   self.artistDetailView?.setAlbumList(albumList)
-               case .failure(let error):
-                   switch error {
-                   case .noData:
-                       print("Network Service Error: ", error)
-                   case .serviceError:
-                       print("No Data Eroor: ", error)
-                   case .parsing:
-                       print("JSON Parsing Error: ", error)
-                   }
-               }
+        downloadFromITunes(from: url, completionHandler: { [weak self] result in
+            print(self ?? "this value is nil")
+            switch result {
+            case .success(let albumList):
+                self?.artistDetailView?.setAlbumList(albumList)
+            case .failure(let error):
+                switch error {
+                case .noData:
+                    print("Network Service Error: ", error)
+                case .serviceError:
+                    print("No Data Eroor: ", error)
+                case .parsing:
+                    print("JSON Parsing Error: ", error)
+                }
+            }
         })
     }
 

@@ -19,31 +19,39 @@ final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtoc
     @IBOutlet private var artistNameLabel: UILabel!
 
     @IBOutlet private weak var collectionView: UICollectionView!
-    
+
     private var artist: ArtistViewModel?
+    
+    private var presenter: ArtistDetailPresenterProtocol?
 
     private var albumList: [AlbumViewModel] = [] {
         didSet {
             collectionView.reloadData()
-            print("bug collection")
         }
     }
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        presenter = ArtistDetailPresenter()
+        presenter?.artistDetailView = self
+    }
+
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
-        let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
         guard let artist = self.artist else {
-            print("UK")
             return
         }
         setCollectionView()
-        presenter.setArtist(artist)
-        presenter.setViewDelegate(artistDetailView: self)
-        presenter.viewDidLoad()
+        presenter?.setArtist(artist)
+        presenter?.setViewDelegate(artistDetailView: self)
+        presenter?.viewDidLoad()
     }
 
     func setAlbumList(_ albumList: [AlbumViewModel]) {
         self.albumList = albumList
-        print("Gust", albumList)
     }
 
     func setArtist(_ artist: ArtistViewModel) {
