@@ -8,10 +8,7 @@
 import UIKit
 
 protocol ArtistDetailViewProtocol: AnyObject {
-
     func setAlbumList(_ albumList: [AlbumViewModel])
-
-//    var presenter: ArtistDetailPresenterProtocol? {get set}
 }
 
 final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtocol {
@@ -21,7 +18,7 @@ final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtoc
     @IBOutlet private weak var collectionView: UICollectionView!
 
     private var artist: ArtistViewModel?
-    
+
     private var presenter: ArtistDetailPresenterProtocol?
 
     private var albumList: [AlbumViewModel] = [] {
@@ -46,7 +43,6 @@ final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtoc
         }
         setCollectionView()
         presenter?.setArtist(artist)
-        presenter?.setViewDelegate(artistDetailView: self)
         presenter?.viewDidLoad()
     }
 

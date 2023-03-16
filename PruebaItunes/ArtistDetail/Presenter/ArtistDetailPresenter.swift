@@ -9,30 +9,18 @@ import Foundation
 import UIKit
 
 protocol ArtistDetailPresenterProtocol: AnyObject {
-
-    var artistDetailView: ArtistDetailViewController? {get set}
-
+    var artistDetailView: ArtistDetailViewController? { get set }
     func viewDidLoad()
-
-    func download(url: String)
-
-    func setViewDelegate(artistDetailView: ArtistDetailViewController?)
-
     func setArtist(_ artist: ArtistViewModel)
-
 }
 
-class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
+final class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
 
     weak internal var artistDetailView: ArtistDetailViewController?
 
     private var artist: ArtistViewModel?
 
     var dataTask: URLSessionDataTask?
-
-    func setViewDelegate(artistDetailView: ArtistDetailViewController?) {
-        self.artistDetailView = artistDetailView
-    }
 
     func viewDidLoad() {
         guard let artistId = self.artist?.id else {
