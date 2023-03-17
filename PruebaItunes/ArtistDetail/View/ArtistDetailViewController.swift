@@ -17,6 +17,8 @@ final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
+    private var presenter: ArtistDetailPresenterProtocol?
+
     private var artist: ArtistViewModel
 
     private var albumList: [AlbumViewModel] = [] {
@@ -36,10 +38,10 @@ final class ArtistDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
-        presenter.artistDetailView = self
-        presenter.setArtist(artist)
-        presenter.viewDidLoad()
+        presenter = ArtistDetailPresenter()
+        presenter?.artistDetailView = self
+        presenter?.setArtist(artist)
+        presenter?.viewDidLoad()
         setCollectionView()
     }
 

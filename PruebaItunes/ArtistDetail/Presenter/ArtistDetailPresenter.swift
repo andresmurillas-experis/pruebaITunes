@@ -26,17 +26,16 @@ class ArtistDetailPresenter: UIViewController {
         guard let artistId = self.artist?.id else {
             return
         }
-        download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { result in
+        self.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
             switch result {
             case .success(let albumList):
-                print(self)
-                self.artistDetailView?.setAlbumList(albumList)
+                self?.artistDetailView?.setAlbumList(albumList)
             case .failure(let error):
                 switch error {
-                case .noData:
-                    print("Network Service Error: ", error)
                 case .serviceError:
                     print("No Data Eroor: ", error)
+                case .noData:
+                    print("Network Service Error: ", error)
                 case .parsing:
                     print("JSON Parsing Error: ", error)
                 }
@@ -59,7 +58,7 @@ private extension ArtistDetailPresenter {
         case serviceError, noData, parsing
     }
 
-    func download(from url: String, completionHandler: @escaping (Result<[AlbumViewModel], NetworkError>) -> Void) {
+    private func download(from url: String, completionHandler: @escaping (Result<[AlbumViewModel], NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -67,7 +66,7 @@ private extension ArtistDetailPresenter {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        dataTask = session.dataTask(with: request) { [weak self] data, response, error in
+        dataTask = session.dataTask(with: request, completionHandler: { [weak self] data, response, error in
             if error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
@@ -83,11 +82,11 @@ private extension ArtistDetailPresenter {
             DispatchQueue.main.async {
                 completionHandler(.success(albumList))
             }
-        }
+        })
         dataTask?.resume()
     }
 
-    func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
+    private func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
         let stringData = String(data: data, encoding: .utf8)!
         let json = stringData.data(using: .utf8)!
         var albumList: [AlbumViewModel] = []
