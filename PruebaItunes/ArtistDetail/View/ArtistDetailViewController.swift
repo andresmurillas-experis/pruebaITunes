@@ -21,7 +21,6 @@ final class ArtistDetailViewController: UIViewController {
 
     private var albumList: [AlbumViewModel] = [] {
         didSet {
-            print("Mario")
             collectionView.reloadData()
         }
     }
@@ -39,7 +38,7 @@ final class ArtistDetailViewController: UIViewController {
         super.viewDidLoad()
         let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
         presenter.artistDetailView = self
-        presenter.setArtist(artist: artist)
+        presenter.setArtist(artist)
         presenter.viewDidLoad()
         setCollectionView()
     }

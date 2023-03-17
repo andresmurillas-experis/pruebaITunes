@@ -92,7 +92,7 @@ private extension ArtistListViewController {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        session.dataTask(with: request) { [weak self] data, response, error in
+        session.dataTask(with: request) { data, response, error in
             if error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
@@ -101,7 +101,7 @@ private extension ArtistListViewController {
                 completionHandler(.failure(NetworkError.noData))
                 return
             }
-            guard let artistList = self?.decodeJSONFromData(data) else {
+            guard let artistList = self.decodeArtistsFromJSON(data) else {
                 completionHandler(.failure(NetworkError.parsing))
                 return
             }
@@ -111,7 +111,7 @@ private extension ArtistListViewController {
         }.resume()
     }
 
-    func decodeJSONFromData(_ data: Data) -> [ArtistViewModel]{
+    func decodeArtistsFromJSON(_ data: Data) -> [ArtistViewModel]? {
         let stringData = String(data: data, encoding: .utf8)!
         let json = stringData.data(using: .utf8)!
         var artistList: [ArtistViewModel] = []

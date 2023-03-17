@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 protocol ArtistDetailPresenterProtocol: UIViewController, AnyObject {
-    var artistDetailView: ArtistDetailViewController? {get set}
-    func setArtist(artist: ArtistViewModel)
+    var artistDetailView: ArtistDetailViewController? { get set }
+    func setArtist(_ artist: ArtistViewModel)
 }
 
 class ArtistDetailPresenter: UIViewController {
@@ -26,9 +26,7 @@ class ArtistDetailPresenter: UIViewController {
         guard let artistId = self.artist?.id else {
             return
         }
-        print(artistId)
         download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
-            print(self, "download closure")
             switch result {
             case .success(let albumList):
                 self?.artistDetailView?.setAlbumList(albumList)
@@ -48,7 +46,7 @@ class ArtistDetailPresenter: UIViewController {
 
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
 
-    func setArtist(artist: ArtistViewModel) {
+    internal func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
 
@@ -69,7 +67,6 @@ private extension ArtistDetailPresenter {
         let request = URLRequest(url: url)
         let session = URLSession.shared
         session.dataTask(with: request) { [weak self] data, response, error in
-            print(self, "datatask closure")
             if error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
@@ -88,7 +85,7 @@ private extension ArtistDetailPresenter {
         }.resume()
     }
 
-    func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
+    func decodeJSONFromData(_ data: Data) -> [AlbumViewModel] {
         let stringData = String(data: data, encoding: .utf8)!
         let json = stringData.data(using: .utf8)!
         var albumList: [AlbumViewModel] = []
