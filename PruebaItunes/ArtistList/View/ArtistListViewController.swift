@@ -11,7 +11,7 @@ final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    var dataTask: URLSessionDataTask?
+    private var dataTask: URLSessionDataTask?
 
     var artistList: [ArtistViewModel] = [] {
         didSet {
