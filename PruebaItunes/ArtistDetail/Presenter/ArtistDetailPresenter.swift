@@ -55,7 +55,7 @@ extension ArtistDetailPresenter {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        session.dataTask(with: request) { [self] data, response, error in
+        session.dataTask(with: request) { [weak self] data, response, error in
             if error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
@@ -65,7 +65,7 @@ extension ArtistDetailPresenter {
                 return
             }
             print(self)
-            guard let albumList = self.decodeJSONFromData(data) else {
+            guard let albumList = self?.decodeJSONFromData(data) else {
                 completionHandler(.failure(NetworkError.parsing))
                 return
             }
