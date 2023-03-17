@@ -11,11 +11,10 @@ import UIKit
 protocol ArtistDetailPresenterProtocol: AnyObject {
     var artistDetailView: ArtistDetailViewController? {get set}
     func viewDidLoad()
-    func download(url: String, presenter: ArtistDetailPresenter)
     func setArtist(artist: ArtistViewModel)
 }
 
-class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
+class ArtistDetailPresenter {
 
     weak internal var artistDetailView: ArtistDetailViewController?
 
@@ -23,12 +22,17 @@ class ArtistDetailPresenter: ArtistDetailPresenterProtocol {
 
     private var artist: ArtistViewModel?
 
+}
+
+extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
+
     func viewDidLoad() {
         guard let artistId = self.artist?.id else {
+            print("no artist")
             return
         }
         print(self)
-        download(url: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album", presenter: self)
+        download(url: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album")
     }
 
     func setArtist(artist: ArtistViewModel) {
@@ -51,7 +55,7 @@ extension ArtistDetailPresenter {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        session.dataTask(with: request) { [weak self] data, response, error in
+        session.dataTask(with: request) { [self] data, response, error in
             if error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
@@ -60,7 +64,8 @@ extension ArtistDetailPresenter {
                 completionHandler(.failure(NetworkError.noData))
                 return
             }
-            guard let albumList = self?.decodeJSONFromData(data) else {
+            print(self)
+            guard let albumList = self.decodeJSONFromData(data) else {
                 completionHandler(.failure(NetworkError.parsing))
                 return
             }
@@ -89,10 +94,11 @@ extension ArtistDetailPresenter {
         return albumList
     }
 
-    func download(url: String, presenter: ArtistDetailPresenter) {
+    func download(url: String) {
         downloadFromITunes(from: url, completionHandler: { [weak self] result in
             switch result {
             case .success(let albumList):
+                print(self)
                 self?.artistDetailView?.setAlbumList(albumList)
             case .failure(let error):
                 switch error {

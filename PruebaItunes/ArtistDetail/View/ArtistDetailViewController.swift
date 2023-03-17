@@ -11,11 +11,13 @@ protocol ArtistDetailViewProtocol: AnyObject {
     func setAlbumList(_ albumList: [AlbumViewModel])
 }
 
-final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtocol {
+final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
 
     @IBOutlet private weak var collectionView: UICollectionView!
+
+    private var artist: ArtistViewModel
 
     private var albumList: [AlbumViewModel] = [] {
         didSet {
@@ -23,13 +25,10 @@ final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtoc
             collectionView.reloadData()
         }
     }
-    
+
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, artist: ArtistViewModel) {
+        self.artist = artist
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
-        presenter.artistDetailView = self
-        presenter.setArtist(artist: artist)
-        presenter.viewDidLoad()
     }
 
     required init(coder: NSCoder) {
@@ -37,16 +36,17 @@ final class ArtistDetailViewController: UIViewController, ArtistDetailViewProtoc
     }
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+        let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
+        presenter.artistDetailView = self
+        presenter.setArtist(artist: artist)
+        presenter.viewDidLoad()
         setCollectionView()
-    }
-
-    func setAlbumList(_ albumList: [AlbumViewModel]) {
-        self.albumList = albumList
     }
 
 }
 
-extension ArtistDetailViewController {
+private extension ArtistDetailViewController {
 
     func setCollectionView() {
         collectionView.delegate = self
@@ -54,6 +54,12 @@ extension ArtistDetailViewController {
         collectionView.register(UINib(nibName: "AlbumView", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
     }
 
+}
+
+extension ArtistDetailViewController: ArtistDetailViewProtocol {
+    func setAlbumList(_ albumList: [AlbumViewModel]) {
+        self.albumList = albumList
+    }
 }
 
 extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
