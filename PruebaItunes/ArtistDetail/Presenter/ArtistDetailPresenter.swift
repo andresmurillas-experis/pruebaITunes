@@ -19,6 +19,14 @@ final class ArtistDetailPresenter {
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
 
+}
+
+extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
+
+    func setArtist(_ artist: ArtistViewModel) {
+        self.artist = artist
+    }
+
     func viewDidLoad() {
         guard let artistId = artist?.id else {
             return
@@ -38,13 +46,6 @@ final class ArtistDetailPresenter {
                 }
             }
         }
-    }
-}
-
-extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
-
-    internal func setArtist(_ artist: ArtistViewModel) {
-        self.artist = artist
     }
 
 }
