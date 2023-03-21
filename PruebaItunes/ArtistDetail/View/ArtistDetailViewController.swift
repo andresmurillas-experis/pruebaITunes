@@ -27,7 +27,8 @@ final class ArtistDetailViewController: UIViewController {
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, artist: ArtistViewModel) {
         self.artist = artist
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        presenter.artistDetailView? = self
+        presenter.setArtist(artist)
+        presenter.artistDetailView = self
     }
 
     required init(coder: NSCoder) {
@@ -36,7 +37,6 @@ final class ArtistDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setArtist(artist)
         presenter.viewDidLoad()
         setCollectionView()
     }

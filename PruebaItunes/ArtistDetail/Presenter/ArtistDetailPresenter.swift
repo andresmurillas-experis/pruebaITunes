@@ -15,9 +15,7 @@ protocol ArtistDetailPresenterProtocol: AnyObject {
 final class ArtistDetailPresenter {
 
     weak var artistDetailView: ArtistDetailViewController?
-
     private var dataTask: URLSessionDataTask?
-
     private var artist: ArtistViewModel?
 
     func viewDidLoad() {

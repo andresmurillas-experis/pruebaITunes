@@ -12,7 +12,6 @@ final class ArtistListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private var dataTask: URLSessionDataTask?
-
     var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
@@ -21,7 +20,7 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        download(from: "https://itunes.apple.com/search?term=marina&entity=musicArtist&attribute=artistTerm") { [weak self] result in
+        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] result in
             switch result {
             case .success(let artistList):
                 self?.artistList = artistList
