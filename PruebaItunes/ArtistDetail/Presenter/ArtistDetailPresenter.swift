@@ -6,27 +6,25 @@
 //
 
 import Foundation
-import UIKit
 
-protocol ArtistDetailPresenterProtocol: UIViewController, AnyObject {
+protocol ArtistDetailPresenterProtocol: AnyObject {
     var artistDetailView: ArtistDetailViewController? { get set }
     func setArtist(_ artist: ArtistViewModel)
 }
 
-class ArtistDetailPresenter: UIViewController {
+final class ArtistDetailPresenter {
 
-    weak internal var artistDetailView: ArtistDetailViewController?
+    weak var artistDetailView: ArtistDetailViewController?
 
     private var dataTask: URLSessionDataTask?
 
     private var artist: ArtistViewModel?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        guard let artistId = self.artist?.id else {
+    func viewDidLoad() {
+        guard let artistId = artist?.id else {
             return
         }
-        self.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
+        download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
             switch result {
             case .success(let albumList):
                 self?.artistDetailView?.setAlbumList(albumList)

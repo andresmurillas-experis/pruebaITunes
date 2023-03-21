@@ -14,13 +14,10 @@ protocol ArtistDetailViewProtocol: AnyObject {
 final class ArtistDetailViewController: UIViewController {
 
     @IBOutlet private var artistNameLabel: UILabel!
-
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private var presenter: ArtistDetailPresenterProtocol?
-
     private var artist: ArtistViewModel
-
+    private let presenter: ArtistDetailPresenter = ArtistDetailPresenter()
     private var albumList: [AlbumViewModel] = [] {
         didSet {
             collectionView.reloadData()
@@ -30,6 +27,7 @@ final class ArtistDetailViewController: UIViewController {
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, artist: ArtistViewModel) {
         self.artist = artist
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        presenter.artistDetailView? = self
     }
 
     required init(coder: NSCoder) {
@@ -38,10 +36,8 @@ final class ArtistDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = ArtistDetailPresenter()
-        presenter?.artistDetailView = self
-        presenter?.setArtist(artist)
-        presenter?.viewDidLoad()
+        presenter.setArtist(artist)
+        presenter.viewDidLoad()
         setCollectionView()
     }
 
