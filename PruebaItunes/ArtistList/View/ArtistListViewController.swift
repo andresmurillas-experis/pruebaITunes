@@ -11,8 +11,7 @@ final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    var dataTask: URLSessionDataTask?
-
+    private var dataTask: URLSessionDataTask?
     var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
@@ -72,8 +71,7 @@ private extension ArtistListViewController {
 extension ArtistListViewController: OnTapDelegate {
 
     func didSelectCellWith(artist: ArtistViewModel) {
-        let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil)
-        artistDetailViewController.setArtist(artist)
+        let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, artist: artist)
         navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
 
@@ -102,7 +100,7 @@ private extension ArtistListViewController {
                 completionHandler(.failure(NetworkError.noData))
                 return
             }
-            guard let artistList = self?.decodeJSONFromData(data) else {
+            guard let artistList = self?.decodeArtistsFromJSON(data) else {
                 completionHandler(.failure(NetworkError.parsing))
                 return
             }
@@ -112,7 +110,7 @@ private extension ArtistListViewController {
         }.resume()
     }
 
-    func decodeJSONFromData(_ data: Data) -> [ArtistViewModel]{
+    func decodeArtistsFromJSON(_ data: Data) -> [ArtistViewModel] {
         let stringData = String(data: data, encoding: .utf8)!
         let json = stringData.data(using: .utf8)!
         var artistList: [ArtistViewModel] = []

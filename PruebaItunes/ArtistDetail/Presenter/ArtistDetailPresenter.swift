@@ -1,93 +1,56 @@
 //
-//  ArtistDetailViewController.swift
+//  ArtistDetailPresenter.swift
 //  PruebaItunes
 //
-//  Created by Andrés Murillas on 3/3/23.
+//  Created by Andrés Murillas on 14/3/23.
 //
 
-import UIKit
+import Foundation
 
-final class ArtistDetailViewController: UIViewController {
+protocol ArtistDetailPresenterProtocol: AnyObject {
+    var artistDetailView: ArtistDetailViewController? { get set }
+    func setArtist(_ artist: ArtistViewModel)
+    func viewDidLoad()
+}
 
-    @IBOutlet private var artistNameLabel: UILabel!
+final class ArtistDetailPresenter {
 
-    @IBOutlet private weak var collectionView: UICollectionView!
-
+    weak var artistDetailView: ArtistDetailViewController?
+    private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
 
-    private var albumList: [AlbumViewModel] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+}
 
-    var dataTask: URLSessionDataTask?
+extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        artistNameLabel.text = artist?.name
-        
-        guard let artistId = artist?.id else {
-            return
-        }
-
-        download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
-            switch result {
-            case .success(let albumList):
-                self?.albumList = albumList
-            case .failure(let error):
-                switch error {
-                case .noData:
-                    print("Error: Network Service Error: ", error)
-                case .serviceError:
-                    print("Error: No Data Eroor: ", error)
-                case .parsing:
-                    print("Error: JSON Parsong Error: ", error)
-                }
-            }
-        }
-        setCollectionView()
-    }
-
-    
-    
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
 
-}
-
-extension ArtistDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albumList.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
-            return UICollectionViewCell()
+    func viewDidLoad() {
+        guard let artistId = artist?.id else {
+            return
         }
-        cell.setupViewModel(albumList[indexPath.item])
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 175, height: 175)
+        download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] result in
+            switch result {
+            case .success(let albumList):
+                self?.artistDetailView?.setAlbumList(albumList)
+            case .failure(let error):
+                switch error {
+                case .serviceError:
+                    print("No Data Eroor: ", error)
+                case .noData:
+                    print("Network Service Error: ", error)
+                case .parsing:
+                    print("JSON Parsing Error: ", error)
+                }
+            }
+        }
     }
 
 }
 
-private extension ArtistDetailViewController {
-
-    func setCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "AlbumView", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
-    }
-
-}
-
-extension ArtistDetailViewController {
+private extension ArtistDetailPresenter {
 
     enum NetworkError: Error {
         case serviceError, noData, parsing
@@ -101,7 +64,7 @@ extension ArtistDetailViewController {
         dataTask?.cancel()
         let request = URLRequest(url: url)
         let session = URLSession.shared
-        session.dataTask(with: request) { [weak self] data, response, error in
+        dataTask = session.dataTask(with: request, completionHandler: { [weak self] data, response, error in
             if error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
@@ -117,7 +80,8 @@ extension ArtistDetailViewController {
             DispatchQueue.main.async {
                 completionHandler(.success(albumList))
             }
-        }.resume()
+        })
+        dataTask?.resume()
     }
 
     func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {

@@ -19,7 +19,6 @@ final class ArtistViewCell: UITableViewCell {
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
 
     private var artist: ArtistViewModel?
-
     weak var delegate: OnTapDelegate?
 
     override func awakeFromNib() {
