@@ -16,7 +16,6 @@ final class ArtistDetailViewController: UIViewController {
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private var artist: ArtistViewModel
     private let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
     private var albumList: [AlbumViewModel] = [] {
         didSet {
@@ -25,7 +24,6 @@ final class ArtistDetailViewController: UIViewController {
     }
 
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, artist: ArtistViewModel) {
-        self.artist = artist
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         presenter.setArtist(artist)
         presenter.artistDetailView = self

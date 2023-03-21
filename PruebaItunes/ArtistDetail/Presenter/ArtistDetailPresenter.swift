@@ -56,7 +56,7 @@ private extension ArtistDetailPresenter {
         case serviceError, noData, parsing
     }
 
-    private func download(from url: String, completionHandler: @escaping (Result<[AlbumViewModel], NetworkError>) -> Void) {
+    func download(from url: String, completionHandler: @escaping (Result<[AlbumViewModel], NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
@@ -84,7 +84,7 @@ private extension ArtistDetailPresenter {
         dataTask?.resume()
     }
 
-    private func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
+    func decodeJSONFromData(_ data: Data) -> [AlbumViewModel]? {
         let stringData = String(data: data, encoding: .utf8)!
         let json = stringData.data(using: .utf8)!
         var albumList: [AlbumViewModel] = []
