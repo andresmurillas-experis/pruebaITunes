@@ -17,7 +17,7 @@ final class ArtistDetailViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
 
     private var artist: ArtistViewModel
-    private let presenter: ArtistDetailPresenter = ArtistDetailPresenter()
+    private let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
     private var albumList: [AlbumViewModel] = [] {
         didSet {
             collectionView.reloadData()

@@ -10,6 +10,7 @@ import Foundation
 protocol ArtistDetailPresenterProtocol: AnyObject {
     var artistDetailView: ArtistDetailViewController? { get set }
     func setArtist(_ artist: ArtistViewModel)
+    func viewDidLoad()
 }
 
 final class ArtistDetailPresenter {
