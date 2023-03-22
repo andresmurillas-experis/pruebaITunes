@@ -7,34 +7,33 @@
 
 import UIKit
 
+protocol ArtistListViewProtocol: AnyObject {
+    func setArtistList(_ artistList: [ArtistViewModel])
+}
+
 final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private var dataTask: URLSessionDataTask?
-    var artistList: [ArtistViewModel] = [] {
+    private var presenter: ArtistListPresenterProtocol = ArtistListPresenter()
+    private var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
         }
     }
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        presenter.artistListView = self
+    }
+
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] result in
-            switch result {
-            case .success(let artistList):
-                self?.artistList = artistList
-            case .failure(let error):
-                switch error {
-                case .noData:
-                    print("Error: Network Service Error: ", error)
-                case .serviceError:
-                    print("Error: No Data Eroor: ", error)
-                case .parsing:
-                print("Error: JSON Parsong Error: ", error)
-                }
-            }
-        }
+        presenter.viewDidLoad()
         setTableView()
     }
 
@@ -58,6 +57,14 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
+extension ArtistListViewController: ArtistListViewProtocol {
+
+    func setArtistList(_ artistList: [ArtistViewModel]) {
+        self.artistList = artistList
+    }
+
+}
+
 private extension ArtistListViewController {
 
     func setTableView() {
@@ -73,55 +80,6 @@ extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistViewModel) {
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, artist: artist)
         navigationController?.pushViewController(artistDetailViewController, animated: true)
-    }
-
-}
-
-private extension ArtistListViewController {
-
-    enum NetworkError: Error {
-        case serviceError, noData, parsing
-    }
-
-    func download(from url: String, completionHandler: @escaping (Result<[ArtistViewModel], NetworkError>) -> Void) {
-        guard let url = URL(string: url) else {
-            print("Invalid URL")
-            return
-        }
-        dataTask?.cancel()
-        let request = URLRequest(url: url)
-        let session = URLSession.shared
-        session.dataTask(with: request) { [weak self] data, response, error in
-            if error != nil {
-                completionHandler(.failure(NetworkError.serviceError))
-                return
-            }
-            guard let data = data else {
-                completionHandler(.failure(NetworkError.noData))
-                return
-            }
-            guard let artistList = self?.decodeArtistsFromJSON(data) else {
-                completionHandler(.failure(NetworkError.parsing))
-                return
-            }
-            DispatchQueue.main.async {
-                completionHandler(.success(artistList))
-            }
-        }.resume()
-    }
-
-    func decodeArtistsFromJSON(_ data: Data) -> [ArtistViewModel] {
-        let stringData = String(data: data, encoding: .utf8)!
-        let json = stringData.data(using: .utf8)!
-        var artistList: [ArtistViewModel] = []
-        do {
-            let decoder = JSONDecoder()
-            let iTunesArtistModel = try decoder.decode(ITunesArtistModel.self, from: json)
-            artistList = iTunesArtistModel.results.map { ArtistViewModel(id: $0.artistId, name: $0.artistName) }
-        } catch {
-            print("Error: \(error.localizedDescription)")
-        }
-        return artistList
     }
 
 }
