@@ -25,7 +25,6 @@ final class ArtistListViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         presenter.artistListView = self
-        presenter.viewDidLoad()
     }
 
     required init(coder: NSCoder) {
