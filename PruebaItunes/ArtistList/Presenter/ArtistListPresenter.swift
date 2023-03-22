@@ -12,12 +12,11 @@ protocol ArtistListPresenterProtocol: AnyObject {
     func viewDidLoad()
 }
 
-class ArtistListPresenter  {
-    
+final class ArtistListPresenter  {
+
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
-    
-    
+
 }
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {

@@ -16,7 +16,7 @@ final class ArtistListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private var presenter: ArtistListPresenterProtocol = ArtistListPresenter()
-    var artistList: [ArtistViewModel] = [] {
+    private var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -58,20 +58,23 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-extension ArtistListViewController {
-    
-    func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ArtistView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
-    }
- 
+extension ArtistListViewController: ArtistListViewProtocol {
+
     func setArtistList(_ artistList: [ArtistViewModel]) {
         self.artistList = artistList
     }
 
 }
 
+private extension ArtistListViewController {
+
+    func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "ArtistView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+    }
+
+}
 
 extension ArtistListViewController: OnTapDelegate {
 
@@ -80,8 +83,4 @@ extension ArtistListViewController: OnTapDelegate {
         navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
 
-}
-
-private extension ArtistListViewController {
-    
 }
