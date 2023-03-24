@@ -39,7 +39,7 @@ class DownloadClient {
         }.resume()
     }
 
-    func decodeJsonFromData<ViewModelObject: Decodable>(_ data: Data) -> ViewModelObject? {
+    private func decodeJsonFromData<ViewModelObject: Decodable>(_ data: Data) -> ViewModelObject? {
         let stringData = String(data: data, encoding: .utf8)!
         let json = stringData.data(using: .utf8)!
         let decoder = JSONDecoder()

@@ -15,12 +15,13 @@ protocol ArtistListPresenterProtocol: AnyObject {
 final class ArtistListPresenter  {
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
-    let downloadClient = DownloadClient()
+    let resolver = AppDependencie()
 }
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
     func viewDidLoad() {
-        downloadClient.download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
+        let client: DownloadClient = resolver.resolve()
+        client.download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 let artistList = iTunesArtistModel.results.map { ArtistViewModel(id: $0.artistId, name: $0.artistName) }
