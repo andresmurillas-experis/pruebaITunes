@@ -14,11 +14,10 @@ protocol ArtistDetailPresenterProtocol: AnyObject {
 }
 
 final class ArtistDetailPresenter {
-
     weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
-
+    let downloadClient = DownloadClient()
 }
 
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
@@ -31,8 +30,6 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
         guard let artistId = artist?.id else {
             return
         }
-        let downloadClient = DownloadClient()
-
         downloadClient.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesAlbumModel):

@@ -58,28 +58,22 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ArtistListViewController: ArtistListViewProtocol {
-
     func setArtistList(_ artistList: [ArtistViewModel]) {
         self.artistList = artistList
     }
-
 }
 
 private extension ArtistListViewController {
-
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ArtistView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
     }
-
 }
 
 extension ArtistListViewController: OnTapDelegate {
-
     func didSelectCellWith(artist: ArtistViewModel) {
         let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, artist: artist)
         navigationController?.pushViewController(artistDetailViewController, animated: true)
     }
-
 }

@@ -42,13 +42,11 @@ final class ArtistDetailViewController: UIViewController {
 }
 
 private extension ArtistDetailViewController {
-
     func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "AlbumView", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
     }
-
 }
 
 extension ArtistDetailViewController: ArtistDetailViewProtocol {
