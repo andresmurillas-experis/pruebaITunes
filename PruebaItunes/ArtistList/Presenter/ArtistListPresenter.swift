@@ -10,17 +10,24 @@ import Foundation
 protocol ArtistListPresenterProtocol: AnyObject {
     var artistListView: ArtistListViewController? { get set }
     func viewDidLoad()
+    var appDependencies: AppDependenciesResolver? { get set }
+  
 }
 
 final class ArtistListPresenter  {
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
-    let resolver = AppDependencies()
+    var appDependencies: AppDependenciesResolver?
 }
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
+
     func viewDidLoad() {
-        let client: DownloadClient = resolver.resolve()
+        print("am here")
+
+        guard let client: DownloadClient = appDependencies?.resolve() else {
+            return
+        }
         client.download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):

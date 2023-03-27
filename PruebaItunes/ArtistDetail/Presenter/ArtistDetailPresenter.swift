@@ -9,6 +9,7 @@ import Foundation
 
 protocol ArtistDetailPresenterProtocol: AnyObject {
     var artistDetailView: ArtistDetailViewController? { get set }
+    var appDependencies: AppDependenciesResolver? { get set }
     func setArtist(_ artist: ArtistViewModel)
     func viewDidLoad()
 }
@@ -17,7 +18,7 @@ final class ArtistDetailPresenter {
     weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
-    let resolver = AppDependencies()
+    var appDependencies: AppDependenciesResolver?
 }
 
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
@@ -30,7 +31,9 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
         guard let artistId = artist?.id else {
             return
         }
-        let client = resolver.resolve()
+        guard let client = appDependencies?.resolve() else {
+            return
+        }
         client.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesAlbumModel):
