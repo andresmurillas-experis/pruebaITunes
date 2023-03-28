@@ -9,9 +9,9 @@ import Foundation
 
 protocol ArtistListPresenterProtocol: AnyObject {
     var artistListView: ArtistListViewController? { get set }
-    func viewDidLoad()
     var appDependencies: AppDependenciesResolver? { get set }
-  
+    func viewDidLoad()
+    func goTo(_ view: ArtistDetailViewController)  
 }
 
 final class ArtistListPresenter  {
@@ -20,11 +20,18 @@ final class ArtistListPresenter  {
     var appDependencies: AppDependenciesResolver?
 }
 
+extension ArtistListPresenter{
+    func goTo(_ view: ArtistDetailViewController) {
+        view.setAppDependencies(appDependencies)
+        guard let coordinator: Coordinator = appDependencies?.resolve() else {
+            return
+        }
+        coordinator.goTo(view)
+    }
+}
+
 extension ArtistListPresenter: ArtistListPresenterProtocol {
-
     func viewDidLoad() {
-        print("am here")
-
         guard let client: DownloadClient = appDependencies?.resolve() else {
             return
         }

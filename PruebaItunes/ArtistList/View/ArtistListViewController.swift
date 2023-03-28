@@ -13,10 +13,8 @@ protocol ArtistListViewProtocol: AnyObject {
 
 final class ArtistListViewController: UIViewController {
 
-    
     @IBOutlet private weak var tableView: UITableView!
 
-    private var appDependencies: AppDependenciesResolver?
     private var presenter: ArtistListPresenterProtocol = ArtistListPresenter()
     private var artistList: [ArtistViewModel] = [] {
         didSet {
@@ -39,10 +37,9 @@ final class ArtistListViewController: UIViewController {
         presenter.viewDidLoad()
         setTableView()
     }
-
-    func setAppDependencies(_ dependencies: AppDependenciesResolver) {
-        self.appDependencies = dependencies
-        presenter.appDependencies = dependencies
+    
+    func setAppDependencies(_ appDependencies: AppDependenciesResolver) {
+        presenter.appDependencies = appDependencies
     }
 
 }
@@ -81,8 +78,7 @@ private extension ArtistListViewController {
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistViewModel) {
-        let artistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, artist: artist)
-        appDependencies?.coordinator.goTo(artistDetailViewController)
-        
+        let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, artist: artist)
+        presenter.goTo(artistDetailView)
     }
 }

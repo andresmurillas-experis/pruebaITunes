@@ -31,7 +31,7 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
         guard let artistId = artist?.id else {
             return
         }
-        guard let client = appDependencies?.resolve() else {
+        guard let client: DownloadClient = appDependencies?.resolve() else {
             return
         }
         client.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
@@ -57,5 +57,7 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
             }
         }
     }
+
+    
 
 }

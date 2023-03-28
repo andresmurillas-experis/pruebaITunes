@@ -9,31 +9,29 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
-    var coordinator: Coordinator { get set }
     func resolve() -> DownloadClient
+    func resolve() -> Coordinator
 }
 
 class AppDependencies: AppDependenciesResolver {
-    var coordinator: Coordinator
-    var appDependencies: AppDependenciesResolver?
+    private var navigator: UINavigationController
+    init(navigationController navigator: UINavigationController) {
+        self.navigator = navigator
+    }
     func resolve() -> DownloadClient {
         return DownloadClient()
     }
- 
-    init(navigatorContorller navigator: UINavigationController) {
-        print("Hurra")
-        coordinator = Coordinator(navigatorContorller: navigator)
+    func resolve() -> Coordinator {
+        return Coordinator(navigationController: navigator)
     }
-
 }
 
 struct Coordinator {
-    private var navigatorController: UINavigationController
-    init(navigatorContorller: UINavigationController) {
-        self.navigatorController = navigatorContorller
+    private var navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     func goTo(_ artistDetailView: ArtistDetailViewController) {
-        navigatorController.pushViewController(artistDetailView, animated: true)
-        artistDetailView.appDependencies = AppDependencies(navigatorContorller: navigatorController)
+        navigationController.pushViewController(artistDetailView, animated: true)
     }
 }

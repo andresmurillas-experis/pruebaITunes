@@ -16,11 +16,6 @@ final class ArtistDetailViewController: UIViewController {
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    var appDependencies: AppDependenciesResolver? {
-        didSet {
-            presenter.appDependencies = appDependencies
-        }
-    }
     private let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
     private var albumList: [AlbumViewModel] = [] {
         didSet {
@@ -42,6 +37,10 @@ final class ArtistDetailViewController: UIViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
         setCollectionView()
+    }
+    
+    func setAppDependencies(_ appDependencies: AppDependenciesResolver?) {
+        self.presenter.appDependencies = appDependencies
     }
 
 }

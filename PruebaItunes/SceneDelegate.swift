@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let view = ArtistListViewController(nibName: "ArtistListViewController", bundle: nil)
         let nav = UINavigationController(rootViewController: view)
-        let appDependencies = AppDependencies(navigatorContorller: nav)
+        let appDependencies = AppDependencies(navigationController: nav)
         view.setAppDependencies(appDependencies)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
