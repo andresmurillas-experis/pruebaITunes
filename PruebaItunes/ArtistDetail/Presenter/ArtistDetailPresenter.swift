@@ -9,7 +9,6 @@ import Foundation
 
 protocol ArtistDetailPresenterProtocol: AnyObject {
     var artistDetailView: ArtistDetailViewController? { get set }
-    var appDependencies: AppDependenciesResolver? { get set }
     func setArtist(_ artist: ArtistViewModel)
     func viewDidLoad()
 }

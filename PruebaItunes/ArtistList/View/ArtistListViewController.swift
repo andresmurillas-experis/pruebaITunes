@@ -15,16 +15,16 @@ final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private var presenter: ArtistListPresenterProtocol = ArtistListPresenter()
+    private var presenter: ArtistListPresenterProtocol?
     private var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
+            print("spear")
         }
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        presenter.artistListView = self
     }
 
     required init(coder: NSCoder) {
@@ -32,16 +32,16 @@ final class ArtistListViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        print("amoking causes coughing")
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        presenter?.viewDidLoad()
         setTableView()
     }
-    
-    func setAppDependencies(_ appDependencies: AppDependenciesResolver) {
-        presenter.appDependencies = appDependencies
-    }
 
+    func setPresenter(_ presenter: ArtistListPresenterProtocol) {
+        self.presenter = presenter
+        presenter.artistListView = self
+    }
+    
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,7 +78,6 @@ private extension ArtistListViewController {
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistViewModel) {
-        let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, artist: artist)
-        presenter.goTo(artistDetailView)
+        presenter?.goToDetailViewForArtist(artist)
     }
 }

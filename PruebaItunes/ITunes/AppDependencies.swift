@@ -11,27 +11,57 @@ import Foundation
 protocol AppDependenciesResolver {
     func resolve() -> DownloadClient
     func resolve() -> Coordinator
+    func resolve() -> ArtistListViewController
+    func resolve() -> ArtistDetailViewController
+    func resolve() -> ArtistListPresenter
+    func resolve() -> ArtistDetailPresenter
 }
 
 class AppDependencies: AppDependenciesResolver {
-    private var navigator: UINavigationController
-    init(navigationController navigator: UINavigationController) {
+    private var navigator: UINavigationController?
+    func setNavigationController(_ navigator: UINavigationController) {
         self.navigator = navigator
     }
     func resolve() -> DownloadClient {
         return DownloadClient()
     }
     func resolve() -> Coordinator {
-        return Coordinator(navigationController: navigator)
+        return Coordinator(self, navigationController: navigator)
+    }
+    
+    func resolve() -> ArtistListViewController {
+        let artistListView = ArtistListViewController(nibName: "ArtistListViewController", bundle: nil)
+        return artistListView
+    }
+    
+    func resolve() -> ArtistDetailViewController {
+        let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil)
+        return artistDetailView
+    }
+    
+    func resolve() -> ArtistListPresenter {
+        let artistListPresenter = ArtistListPresenter()
+        artistListPresenter.appDependencies = self
+        return artistListPresenter
+    }
+    func resolve() -> ArtistDetailPresenter {
+        let artistDetailPresenter = ArtistDetailPresenter()
+        artistDetailPresenter.appDependencies = self
+        return artistDetailPresenter
     }
 }
 
 struct Coordinator {
-    private var navigationController: UINavigationController
-    init(navigationController: UINavigationController) {
+    private var navigationController: UINavigationController?
+    weak var appDependencies: AppDependencies?
+    init(_ appDependencies : AppDependencies, navigationController: UINavigationController?) {
+        self.appDependencies = appDependencies
         self.navigationController = navigationController
     }
     func goTo(_ artistDetailView: ArtistDetailViewController) {
-        navigationController.pushViewController(artistDetailView, animated: true)
+        navigationController?.pushViewController(artistDetailView, animated: true)
+    }
+    func appDependenciesResolver() -> AppDependenciesResolver? {
+        return appDependencies
     }
 }

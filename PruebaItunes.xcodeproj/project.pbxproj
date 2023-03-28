@@ -162,9 +162,9 @@
 		7F2841F229A61CA3004AFA0D /* PruebaItunes */ = {
 			isa = PBXGroup;
 			children = (
-				7FF60C1E29CB04E7008823D4 /* ITunes */,
 				7F2841F329A61CA3004AFA0D /* AppDelegate.swift */,
 				7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */,
+				7FF60C1E29CB04E7008823D4 /* ITunes */,
 				7F6C58B229B5EDFC00C7AEB2 /* ArtistList */,
 				7F47DAA929B5F35300364F00 /* ArtistDetail */,
 				7F2841FC29A61CA5004AFA0D /* Assets.xcassets */,

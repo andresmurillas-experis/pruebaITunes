@@ -16,17 +16,16 @@ final class ArtistDetailViewController: UIViewController {
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
+    private var presenter: ArtistDetailPresenterProtocol?
     private var albumList: [AlbumViewModel] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
 
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, artist: ArtistViewModel) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        presenter.setArtist(artist)
-        presenter.artistDetailView = self
+        presenter?.artistDetailView = self
     }
 
     required init(coder: NSCoder) {
@@ -35,12 +34,13 @@ final class ArtistDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        presenter?.viewDidLoad()
         setCollectionView()
     }
     
-    func setAppDependencies(_ appDependencies: AppDependenciesResolver?) {
-        self.presenter.appDependencies = appDependencies
+    func setPresenter(_ presenter: ArtistDetailPresenter) {
+        self.presenter = presenter
+        presenter.artistDetailView = self
     }
 
 }

@@ -9,9 +9,8 @@ import Foundation
 
 protocol ArtistListPresenterProtocol: AnyObject {
     var artistListView: ArtistListViewController? { get set }
-    var appDependencies: AppDependenciesResolver? { get set }
     func viewDidLoad()
-    func goTo(_ view: ArtistDetailViewController)  
+    func goToDetailViewForArtist(_ artist: ArtistViewModel)
 }
 
 final class ArtistListPresenter  {
@@ -21,13 +20,22 @@ final class ArtistListPresenter  {
 }
 
 extension ArtistListPresenter{
-    func goTo(_ view: ArtistDetailViewController) {
-        view.setAppDependencies(appDependencies)
+
+    func goToDetailViewForArtist(_ artist: ArtistViewModel) {
         guard let coordinator: Coordinator = appDependencies?.resolve() else {
             return
         }
-        coordinator.goTo(view)
+        guard let detailView: ArtistDetailViewController = appDependencies?.resolve() else {
+            return
+        }
+        guard let presenter: ArtistDetailPresenter = appDependencies?.resolve() else {
+            return
+        }
+        presenter.setArtist(artist)
+        detailView.setPresenter(presenter)
+        coordinator.goTo(detailView)
     }
+    
 }
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
@@ -38,6 +46,7 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
         client.download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
+                print("SUCCES")
                 let artistList = iTunesArtistModel.results.map { ArtistViewModel(id: $0.artistId, name: $0.artistName) }
                 self?.artistListView?.setArtistList(artistList)
                 return

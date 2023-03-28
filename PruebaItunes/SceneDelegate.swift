@@ -17,10 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let view = ArtistListViewController(nibName: "ArtistListViewController", bundle: nil)
-        let nav = UINavigationController(rootViewController: view)
-        let appDependencies = AppDependencies(navigationController: nav)
-        view.setAppDependencies(appDependencies)
+        let appDependencies = AppDependencies()
+        let initialView: ArtistListViewController = appDependencies.resolve()
+        let nav = UINavigationController(rootViewController: initialView)
+        appDependencies.setNavigationController(nav)
+        initialView.setPresenter(appDependencies.resolve())
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
