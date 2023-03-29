@@ -19,7 +19,6 @@ final class ArtistListViewController: UIViewController {
     private var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
-            print("spear")
         }
     }
 

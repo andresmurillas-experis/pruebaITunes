@@ -41,7 +41,6 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
         client.download(from: "https://itunes.apple.com/search?term=jony&cash&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
-                print("SUCCES")
                 let artistList = iTunesArtistModel.results.map { ArtistViewModel(id: $0.artistId, name: $0.artistName) }
                 self?.artistListView?.setArtistList(artistList)
                 return
