@@ -17,6 +17,13 @@ final class ArtistListPresenter  {
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
     var appDependencies: AppDependenciesResolver?
+    
+    init(dataTask: URLSessionDataTask? = nil, artistListView: ArtistListViewController? = nil, appDependencies: AppDependenciesResolver) {
+        self.dataTask = dataTask
+        self.artistListView = artistListView
+        self.appDependencies = appDependencies
+    }
+    
 }
 
 extension ArtistListPresenter{
@@ -43,7 +50,7 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
         guard let client: DownloadClient = appDependencies?.resolve() else {
             return
         }
-        client.download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
+        client.download(from: "https://itunes.apple.com/search?term=jony&cash&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 print("SUCCES")

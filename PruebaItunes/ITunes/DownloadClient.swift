@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DownloadClient {
+final class DownloadClient {
 
     enum NetworkError: Error {
         case serviceError, noData, parsing

@@ -17,7 +17,14 @@ final class ArtistDetailPresenter {
     weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
-    var appDependencies: AppDependenciesResolver?
+    var appDependencies: AppDependenciesResolver
+
+    init(artistDetailView: ArtistDetailViewController? = nil, dataTask: URLSessionDataTask? = nil, artist: ArtistViewModel? = nil, appDependencies: AppDependenciesResolver) {
+        self.artistDetailView = artistDetailView
+        self.dataTask = dataTask
+        self.artist = artist
+        self.appDependencies = appDependencies
+    }
 }
 
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
@@ -30,9 +37,7 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
         guard let artistId = artist?.id else {
             return
         }
-        guard let client: DownloadClient = appDependencies?.resolve() else {
-            return
-        }
+        let client: DownloadClient = appDependencies.resolve()
         client.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesAlbumModel):

@@ -17,7 +17,7 @@ protocol AppDependenciesResolver {
     func resolve() -> ArtistDetailPresenter
 }
 
-class AppDependencies: AppDependenciesResolver {
+final class AppDependencies: AppDependenciesResolver {
     private var navigator: UINavigationController?
     func setNavigationController(_ navigator: UINavigationController) {
         self.navigator = navigator
@@ -40,12 +40,12 @@ class AppDependencies: AppDependenciesResolver {
     }
     
     func resolve() -> ArtistListPresenter {
-        let artistListPresenter = ArtistListPresenter()
+        let artistListPresenter = ArtistListPresenter(appDependencies: self)
         artistListPresenter.appDependencies = self
         return artistListPresenter
     }
     func resolve() -> ArtistDetailPresenter {
-        let artistDetailPresenter = ArtistDetailPresenter()
+        let artistDetailPresenter = ArtistDetailPresenter(appDependencies: self)
         artistDetailPresenter.appDependencies = self
         return artistDetailPresenter
     }
