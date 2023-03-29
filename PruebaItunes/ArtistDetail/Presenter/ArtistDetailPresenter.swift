@@ -17,13 +17,13 @@ final class ArtistDetailPresenter {
     weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
-    let downloadClient: DownloadClient
-    var appDependencies: AppDependenciesResolver
-    init(artistDetailView: ArtistDetailViewController? = nil, dataTask: URLSessionDataTask? = nil, artist: ArtistViewModel? = nil, downloadClient: DownloadClient, appDependencies: AppDependenciesResolver) {
+    private let downloadClient: DownloadClient
+    private var appDependencies: AppDependenciesResolver
+    init(artistDetailView: ArtistDetailViewController? = nil, dataTask: URLSessionDataTask? = nil, artist: ArtistViewModel? = nil, appDependencies: AppDependenciesResolver) {
         self.artistDetailView = artistDetailView
         self.dataTask = dataTask
         self.artist = artist
-        self.downloadClient = downloadClient
+        self.downloadClient = appDependencies.resolve()
         self.appDependencies = appDependencies
     }
 }

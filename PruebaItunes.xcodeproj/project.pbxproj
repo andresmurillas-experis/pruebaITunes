@@ -225,8 +225,8 @@
 		7FECE6D729C1C50A00D5CCF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7FA80BD429C1C53E0008322E /* ArtistListViewController.xib */,
 				7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */,
+				7FA80BD429C1C53E0008322E /* ArtistListViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

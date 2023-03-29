@@ -41,8 +41,7 @@ final class AppDependencies: AppDependenciesResolver {
         return artistListPresenter
     }
     func resolve() -> ArtistDetailPresenter {
-        let artistDetailPresenter = ArtistDetailPresenter(downloadClient: self.resolve(), appDependencies: self)
-        artistDetailPresenter.appDependencies = self
+        let artistDetailPresenter = ArtistDetailPresenter(appDependencies: self)
         return artistDetailPresenter
     }
 }
