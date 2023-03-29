@@ -14,6 +14,7 @@ protocol ArtistDetailPresenterProtocol: AnyObject {
 }
 
 final class ArtistDetailPresenter {
+
     weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
@@ -25,14 +26,13 @@ final class ArtistDetailPresenter {
         self.artist = artist
         self.appDependencies = appDependencies
     }
+
 }
 
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
-
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
-
     func viewDidLoad() {
         guard let artistId = artist?.id else {
             return
@@ -61,5 +61,4 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
             }
         }
     }
-
 }

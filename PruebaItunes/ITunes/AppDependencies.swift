@@ -28,17 +28,14 @@ final class AppDependencies: AppDependenciesResolver {
     func resolve() -> Coordinator {
         return Coordinator(self, navigationController: navigator)
     }
-    
     func resolve() -> ArtistListViewController {
         let artistListView = ArtistListViewController(nibName: "ArtistListViewController", bundle: nil)
         return artistListView
     }
-    
     func resolve() -> ArtistDetailViewController {
         let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil)
         return artistDetailView
     }
-    
     func resolve() -> ArtistListPresenter {
         let artistListPresenter = ArtistListPresenter(appDependencies: self)
         artistListPresenter.appDependencies = self

@@ -14,10 +14,11 @@ protocol ArtistListPresenterProtocol: AnyObject {
 }
 
 final class ArtistListPresenter  {
+    
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
-    var appDependencies: AppDependenciesResolver?
-    
+    var appDependencies: AppDependenciesResolver
+
     init(dataTask: URLSessionDataTask? = nil, artistListView: ArtistListViewController? = nil, appDependencies: AppDependenciesResolver) {
         self.dataTask = dataTask
         self.artistListView = artistListView
@@ -27,29 +28,19 @@ final class ArtistListPresenter  {
 }
 
 extension ArtistListPresenter{
-
     func goToDetailViewForArtist(_ artist: ArtistViewModel) {
-        guard let coordinator: Coordinator = appDependencies?.resolve() else {
-            return
-        }
-        guard let detailView: ArtistDetailViewController = appDependencies?.resolve() else {
-            return
-        }
-        guard let presenter: ArtistDetailPresenter = appDependencies?.resolve() else {
-            return
-        }
+        let presenter: ArtistDetailPresenter = appDependencies.resolve()
+        let detailView: ArtistDetailViewController = appDependencies.resolve()
+        let coordinator: Coordinator = appDependencies.resolve()
         presenter.setArtist(artist)
         detailView.setPresenter(presenter)
         coordinator.goTo(detailView)
     }
-
 }
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
     func viewDidLoad() {
-        guard let client: DownloadClient = appDependencies?.resolve() else {
-            return
-        }
+        let client: DownloadClient = appDependencies.resolve()
         client.download(from: "https://itunes.apple.com/search?term=jony&cash&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
