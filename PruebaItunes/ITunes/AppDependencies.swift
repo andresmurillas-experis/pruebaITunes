@@ -19,7 +19,7 @@ protocol AppDependenciesResolver {
 
 final class AppDependencies: AppDependenciesResolver {
     private var navigator: UINavigationController?
-    func setNavigationController(_ navigator: UINavigationController) {
+    init(navigator: UINavigationController) {
         self.navigator = navigator
     }
     func resolve() -> DownloadClient {
