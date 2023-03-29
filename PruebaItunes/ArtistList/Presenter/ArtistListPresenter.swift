@@ -14,7 +14,7 @@ protocol ArtistListPresenterProtocol: AnyObject {
 }
 
 final class ArtistListPresenter  {
-    
+
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
     var appDependencies: AppDependenciesResolver
@@ -24,7 +24,7 @@ final class ArtistListPresenter  {
         self.artistListView = artistListView
         self.appDependencies = appDependencies
     }
-    
+
 }
 
 extension ArtistListPresenter{
