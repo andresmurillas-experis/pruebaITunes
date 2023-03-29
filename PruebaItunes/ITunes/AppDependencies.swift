@@ -18,7 +18,7 @@ protocol AppDependenciesResolver {
 }
 
 final class AppDependencies: AppDependenciesResolver {
-    private var navigator: UINavigationController?
+    private let navigator: UINavigationController
     init(navigator: UINavigationController) {
         self.navigator = navigator
     }
