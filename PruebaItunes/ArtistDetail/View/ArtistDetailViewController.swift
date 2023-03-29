@@ -9,6 +9,7 @@ import UIKit
 
 protocol ArtistDetailViewProtocol: AnyObject {
     func setAlbumList(_ albumList: [AlbumViewModel])
+    func setPresenter(_ presenter: ArtistDetailPresenter)
 }
 
 final class ArtistDetailViewController: UIViewController {
@@ -37,11 +38,6 @@ final class ArtistDetailViewController: UIViewController {
         presenter?.viewDidLoad()
         setCollectionView()
     }
-    
-    func setPresenter(_ presenter: ArtistDetailPresenter) {
-        self.presenter = presenter
-        presenter.artistDetailView = self
-    }
 
 }
 
@@ -56,6 +52,10 @@ private extension ArtistDetailViewController {
 extension ArtistDetailViewController: ArtistDetailViewProtocol {
     func setAlbumList(_ albumList: [AlbumViewModel]) {
         self.albumList = albumList
+    }
+    func setPresenter(_ presenter: ArtistDetailPresenter) {
+        self.presenter = presenter
+        presenter.artistDetailView = self
     }
 }
 

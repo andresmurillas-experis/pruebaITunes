@@ -35,7 +35,7 @@ extension ArtistListPresenter{
         detailView.setPresenter(presenter)
         coordinator.goTo(detailView)
     }
-    
+
 }
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {

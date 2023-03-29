@@ -13,7 +13,7 @@ final class AlbumViewCell: UICollectionViewCell {
     @IBOutlet private var albumCover: UIImageView!
 
     var dataTask: URLSessionDataTask?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -41,7 +41,7 @@ final class ArtistListViewController: UIViewController {
         self.presenter = presenter
         presenter.artistListView = self
     }
-    
+
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {

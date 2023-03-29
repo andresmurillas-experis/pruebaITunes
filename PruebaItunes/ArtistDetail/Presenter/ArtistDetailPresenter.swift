@@ -57,6 +57,4 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
         }
     }
 
-    
-
 }
