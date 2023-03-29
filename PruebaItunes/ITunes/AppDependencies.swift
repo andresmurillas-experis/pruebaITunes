@@ -38,11 +38,10 @@ final class AppDependencies: AppDependenciesResolver {
     }
     func resolve() -> ArtistListPresenter {
         let artistListPresenter = ArtistListPresenter(appDependencies: self)
-        artistListPresenter.appDependencies = self
         return artistListPresenter
     }
     func resolve() -> ArtistDetailPresenter {
-        let artistDetailPresenter = ArtistDetailPresenter(appDependencies: self)
+        let artistDetailPresenter = ArtistDetailPresenter(downloadClient: self.resolve(), appDependencies: self)
         artistDetailPresenter.appDependencies = self
         return artistDetailPresenter
     }
@@ -55,10 +54,10 @@ struct Coordinator {
         self.appDependencies = appDependencies
         self.navigationController = navigationController
     }
-    func goTo(_ artistDetailView: ArtistDetailViewController) {
+    func goToDetailView() {
+        guard let artistDetailView: ArtistDetailViewController = appDependencies?.resolve() else {
+            return
+        }
         navigationController?.pushViewController(artistDetailView, animated: true)
-    }
-    func appDependenciesResolver() -> AppDependenciesResolver? {
-        return appDependencies
     }
 }

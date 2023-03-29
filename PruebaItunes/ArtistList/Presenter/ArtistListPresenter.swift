@@ -34,7 +34,7 @@ extension ArtistListPresenter{
         let coordinator: Coordinator = appDependencies.resolve()
         presenter.setArtist(artist)
         detailView.setPresenter(presenter)
-        coordinator.goTo(detailView)
+        coordinator.goToDetailView()
     }
 }
 
