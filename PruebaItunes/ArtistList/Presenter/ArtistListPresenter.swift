@@ -27,11 +27,9 @@ final class ArtistListPresenter  {
 extension ArtistListPresenter{
     func goToDetailViewForArtist(_ artist: ArtistViewModel) {
         let presenter: ArtistDetailPresenter = appDependencies.resolve()
-        let detailView: ArtistDetailViewController = appDependencies.resolve()
         let coordinator: Coordinator = appDependencies.resolve()
         presenter.setArtist(artist)
-        detailView.setPresenter(presenter)
-        coordinator.goToDetailView()
+        coordinator.goToDetailViewWithPresenter(presenter)
     }
 }
 

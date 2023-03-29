@@ -53,10 +53,11 @@ struct Coordinator {
         self.appDependencies = appDependencies
         self.navigationController = navigationController
     }
-    func goToDetailView() {
+    func goToDetailViewWithPresenter(_ presenter: ArtistDetailPresenter) {
         guard let artistDetailView: ArtistDetailViewController = appDependencies?.resolve() else {
             return
         }
+        artistDetailView.setPresenter(presenter)
         navigationController?.pushViewController(artistDetailView, animated: true)
     }
 }
