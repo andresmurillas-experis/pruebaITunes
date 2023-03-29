@@ -45,11 +45,9 @@ final class ArtistListViewController: UIViewController {
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return artistList.count
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistViewCell else {
             return UITableViewCell()
@@ -59,7 +57,6 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         return cell
     }
-
 }
 
 extension ArtistListViewController: ArtistListViewProtocol {

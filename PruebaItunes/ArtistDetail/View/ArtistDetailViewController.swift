@@ -60,11 +60,9 @@ extension ArtistDetailViewController: ArtistDetailViewProtocol {
 }
 
 extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albumList.count
     }
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
             return UICollectionViewCell()
@@ -72,9 +70,7 @@ extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionVi
         cell.setupViewModel(albumList[indexPath.item])
         return cell
     }
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 175, height: 175)
     }
-
 }
