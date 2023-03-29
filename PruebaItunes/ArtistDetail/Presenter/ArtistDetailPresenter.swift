@@ -14,13 +14,11 @@ protocol ArtistDetailPresenterProtocol: AnyObject {
 }
 
 final class ArtistDetailPresenter {
-
     weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
     let downloadClient: DownloadClient
     var appDependencies: AppDependenciesResolver
-
     init(artistDetailView: ArtistDetailViewController? = nil, dataTask: URLSessionDataTask? = nil, artist: ArtistViewModel? = nil, downloadClient: DownloadClient, appDependencies: AppDependenciesResolver) {
         self.artistDetailView = artistDetailView
         self.dataTask = dataTask
@@ -28,7 +26,6 @@ final class ArtistDetailPresenter {
         self.downloadClient = downloadClient
         self.appDependencies = appDependencies
     }
-
 }
 
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {

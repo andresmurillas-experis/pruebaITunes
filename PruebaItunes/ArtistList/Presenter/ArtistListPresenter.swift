@@ -14,17 +14,14 @@ protocol ArtistListPresenterProtocol: AnyObject {
 }
 
 final class ArtistListPresenter  {
-
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
     var appDependencies: AppDependenciesResolver
-
     init(dataTask: URLSessionDataTask? = nil, artistListView: ArtistListViewController? = nil, appDependencies: AppDependenciesResolver) {
         self.dataTask = dataTask
         self.artistListView = artistListView
         self.appDependencies = appDependencies
     }
-
 }
 
 extension ArtistListPresenter{
