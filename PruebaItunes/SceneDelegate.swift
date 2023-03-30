@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let initialView: ArtistListViewController = appDependencies.resolve()
         initialView.setPresenter(appDependencies.resolve())
         window?.rootViewController = nav
-        nav.setViewControllers([initialView], animated: false)
+        nav.pushViewController(initialView, animated: false)
         window?.makeKeyAndVisible()
         
     }
