@@ -50,15 +50,13 @@ struct Coordinator {
         self.appDependencies = appDependencies
         self.navigationController = navigationController
     }
+    func getInitialViewController() -> UIViewController {
+        ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: appDependencies.resolve())
+    }
     func goToDetailViewForArtist(_ artist: ArtistViewModel) {
         let presenter: ArtistDetailPresenterProtocol = appDependencies.resolve()
         presenter.setArtist(artist)
         let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, presenter: presenter)
         navigationController.pushViewController(artistDetailView, animated: true)
-    }
-    func getInitialViewController() -> UIViewController {
-        let presenter: ArtistListPresenterProtocol = appDependencies.resolve()
-        let artistListView = ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: presenter)
-        return artistListView
     }
 }
