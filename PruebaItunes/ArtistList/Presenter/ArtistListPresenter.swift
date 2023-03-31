@@ -24,10 +24,13 @@ final class ArtistListPresenter  {
     }
 }
 
-extension ArtistListPresenter: ArtistListPresenterProtocol {
+private extension ArtistListPresenter {
     var coordinator: Coordinator {
         appDependencies.resolve()
     }
+}
+
+extension ArtistListPresenter: ArtistListPresenterProtocol {
     func viewDidLoad() {
         downloadClient.download(from: "https://itunes.apple.com/search?term=jony&cash&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
