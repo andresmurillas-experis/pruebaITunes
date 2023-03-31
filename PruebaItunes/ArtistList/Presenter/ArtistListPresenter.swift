@@ -18,9 +18,6 @@ final class ArtistListPresenter  {
     weak var artistListView: ArtistListViewController?
     private var appDependencies: AppDependenciesResolver
     private var downloadClient: DownloadClient
-    private var coordinator: Coordinator {
-        appDependencies.resolve()
-    }
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
         downloadClient = appDependencies.resolve()
@@ -28,6 +25,9 @@ final class ArtistListPresenter  {
 }
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
+    var coordinator: Coordinator {
+        appDependencies.resolve()
+    }
     func viewDidLoad() {
         downloadClient.download(from: "https://itunes.apple.com/search?term=jony&cash&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {

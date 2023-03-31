@@ -10,6 +10,10 @@ import Foundation
 
 protocol AppDependenciesResolver {
     func resolve() -> Coordinator
+    func resolve() -> DownloadClient
+    func resolve() -> ArtistListPresenterProtocol
+    func resolve() -> ArtistDetailPresenterProtocol
+    func resolve() -> ArtistListViewProtocol
 }
 
 extension AppDependenciesResolver {
