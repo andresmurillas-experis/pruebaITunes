@@ -19,12 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let nav = UINavigationController()
         let appDependencies = AppDependencies(navigator: nav)
-        let initialView: ArtistListViewController = appDependencies.resolve()
-        initialView.setPresenter(appDependencies.resolve())
+        let coordinator: Coordinator = appDependencies.resolve()
+        let initialView = coordinator.getInitialViewController()
         window?.rootViewController = nav
         nav.pushViewController(initialView, animated: false)
         window?.makeKeyAndVisible()
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

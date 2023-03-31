@@ -19,15 +19,12 @@ final class ArtistDetailPresenter {
     private var artist: ArtistViewModel?
     private let downloadClient: DownloadClient
     private var appDependencies: AppDependenciesResolver
-    init(artistDetailView: ArtistDetailViewController? = nil, dataTask: URLSessionDataTask? = nil, artist: ArtistViewModel? = nil, appDependencies: AppDependenciesResolver) {
-        self.artistDetailView = artistDetailView
-        self.dataTask = dataTask
-        self.artist = artist
+    init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
         self.appDependencies = appDependencies
     }
 }
-
+ 
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
@@ -36,8 +33,7 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
         guard let artistId = artist?.id else {
             return
         }
-        let client: DownloadClient = appDependencies.resolve()
-        client.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
+        downloadClient.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesAlbumModel):
                 let albumList: [AlbumViewModel] = iTunesAlbumModel.results.compactMap {

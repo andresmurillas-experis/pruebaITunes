@@ -9,7 +9,6 @@ import UIKit
 
 protocol ArtistDetailViewProtocol: AnyObject {
     func setAlbumList(_ albumList: [AlbumViewModel])
-    func setPresenter(_ presenter: ArtistDetailPresenter)
 }
 
 final class ArtistDetailViewController: UIViewController {
@@ -17,25 +16,24 @@ final class ArtistDetailViewController: UIViewController {
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private var presenter: ArtistDetailPresenterProtocol?
+    private var presenter: ArtistDetailPresenter
     private var albumList: [AlbumViewModel] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistDetailPresenter) {
+        self.presenter = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        presenter?.artistDetailView = self
+        self.presenter.artistDetailView = self
     }
-
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
         setCollectionView()
     }
 
@@ -52,10 +50,6 @@ private extension ArtistDetailViewController {
 extension ArtistDetailViewController: ArtistDetailViewProtocol {
     func setAlbumList(_ albumList: [AlbumViewModel]) {
         self.albumList = albumList
-    }
-    func setPresenter(_ presenter: ArtistDetailPresenter) {
-        self.presenter = presenter
-        presenter.artistDetailView = self
     }
 }
 

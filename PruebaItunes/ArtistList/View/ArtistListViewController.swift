@@ -22,8 +22,10 @@ final class ArtistListViewController: UIViewController {
         }
     }
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistListPresenter) {
+        self.presenter = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        presenter.artistListView = self
     }
 
     required init(coder: NSCoder) {
@@ -34,11 +36,6 @@ final class ArtistListViewController: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         setTableView()
-    }
-
-    func setPresenter(_ presenter: ArtistListPresenterProtocol) {
-        self.presenter = presenter
-        presenter.artistListView = self
     }
 
 }
