@@ -28,9 +28,7 @@ extension AppDependenciesResolver {
         return artistListView
     }
     func resolve(appDependencies: AppDependenciesResolver) -> Coordinator {
-        let navigator = appDependencies.getNavigator()
-        let coordinator = Coordinator(appDependencies, navigationController: appDependencies.getNavigator())
-        return coordinator
+        Coordinator(appDependencies, navigationController: appDependencies.getNavigator())
     }
 }
 
