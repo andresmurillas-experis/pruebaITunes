@@ -23,9 +23,7 @@ extension AppDependenciesResolver {
         ArtistDetailPresenter(appDependencies: self)
     }
     func resolve() -> ArtistListViewProtocol {
-        let presenter: ArtistListPresenterProtocol = resolve()
-        let artistListView = ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: presenter)
-        return artistListView
+        ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: resolve())
     }
     func resolve(appDependencies: AppDependenciesResolver) -> Coordinator {
         Coordinator(appDependencies, navigationController: appDependencies.getNavigator())
