@@ -25,8 +25,8 @@ extension AppDependenciesResolver {
     func resolve() -> ArtistListViewProtocol {
         ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: resolve())
     }
-    func resolve(appDependencies: AppDependenciesResolver) -> Coordinator {
-        Coordinator(appDependencies, navigationController: appDependencies.getNavigator())
+    func resolve() -> Coordinator {
+        Coordinator(self, navigationController: getNavigator())
     }
 }
 
