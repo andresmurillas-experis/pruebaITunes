@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let coordinator: Coordinator = appDependencies.resolve()
         let initialView = coordinator.getInitialViewController()
         window?.rootViewController = nav
-        nav.viewControllers = [initialView]
+        nav.show(initialView, sender: self)
         window?.makeKeyAndVisible()
     }
 
