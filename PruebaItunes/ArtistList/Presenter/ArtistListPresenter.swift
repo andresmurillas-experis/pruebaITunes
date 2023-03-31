@@ -45,7 +45,7 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
         }
     }
     func goToDetailViewForArtist(_ artist: ArtistViewModel) {
-        let coordinator: Coordinator = appDependencies.resolve()
+        let coordinator: Coordinator = appDependencies.resolve(appDependencies: appDependencies)
         coordinator.goToDetailViewForArtist(artist)
     }
 }

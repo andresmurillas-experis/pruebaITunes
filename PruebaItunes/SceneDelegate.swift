@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let nav = UINavigationController()
         let appDependencies = AppDependencies(navigator: nav)
-        let coordinator: Coordinator = appDependencies.resolve()
+        let coordinator: Coordinator = appDependencies.resolve(appDependencies: appDependencies)
         let initialView = coordinator.getInitialViewController()
         window?.rootViewController = nav
         nav.viewControllers = [initialView]
