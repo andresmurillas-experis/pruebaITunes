@@ -16,17 +16,19 @@ final class ArtistDetailViewController: UIViewController {
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private var presenter: ArtistDetailPresenter
+    private var presenter: ArtistDetailPresenterProtocol
     private var albumList: [AlbumViewModel] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistDetailPresenter) {
+
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistDetailPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.presenter.artistDetailView = self
     }
+
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -55,7 +57,7 @@ extension ArtistDetailViewController: ArtistDetailViewProtocol {
 
 extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albumList.count
+        albumList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
@@ -65,6 +67,6 @@ extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionVi
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 175, height: 175)
+        CGSize(width: 175, height: 175)
     }
 }

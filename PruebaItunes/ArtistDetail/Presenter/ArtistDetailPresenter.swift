@@ -24,7 +24,7 @@ final class ArtistDetailPresenter {
         self.appDependencies = appDependencies
     }
 }
- 
+
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist

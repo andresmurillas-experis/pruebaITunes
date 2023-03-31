@@ -15,14 +15,14 @@ final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private var presenter: ArtistListPresenterProtocol?
+    private var presenter: ArtistListPresenterProtocol
     private var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
         }
     }
 
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistListPresenter) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistListPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         presenter.artistListView = self
@@ -34,7 +34,7 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
         setTableView()
     }
 
@@ -42,7 +42,7 @@ final class ArtistListViewController: UIViewController {
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artistList.count
+        artistList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistViewCell else {
@@ -71,6 +71,6 @@ private extension ArtistListViewController {
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistViewModel) {
-        presenter?.goToDetailViewForArtist(artist)
+        presenter.goToDetailViewForArtist(artist)
     }
 }

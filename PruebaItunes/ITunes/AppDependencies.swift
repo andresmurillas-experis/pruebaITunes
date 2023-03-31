@@ -11,9 +11,9 @@ import Foundation
 protocol AppDependenciesResolver {
     func resolve() -> DownloadClient
     func resolve() -> Coordinator
-    func resolve() -> ArtistListViewController
-    func resolve() -> ArtistListPresenter
-    func resolve() -> ArtistDetailPresenter
+    func resolve() -> ArtistListViewProtocol
+    func resolve() -> ArtistListPresenterProtocol
+    func resolve() -> ArtistDetailPresenterProtocol
 }
 
 final class AppDependencies {
@@ -23,44 +23,43 @@ final class AppDependencies {
     }
 }
 
-struct Coordinator {
-    private var navigationController: UINavigationController
-    var appDependencies: AppDependencies
-    init(_ appDependencies : AppDependencies, navigationController: UINavigationController) {
-        self.appDependencies = appDependencies
-        self.navigationController = navigationController
+extension AppDependencies: AppDependenciesResolver {
+    func resolve() -> DownloadClient {
+        DownloadClient()
     }
-    func goToDetailViewForArtist(_ artist: ArtistViewModel) {
-        let presenter: ArtistDetailPresenter = appDependencies.resolve()
-        presenter.setArtist(artist)
-        let artistDetailView: ArtistDetailViewController = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, presenter: presenter)
-        navigationController.pushViewController(artistDetailView, animated: true)
+    func resolve() -> Coordinator {
+        Coordinator(self, navigationController: navigator)
     }
-    func getInitialViewController() -> UIViewController {
-        let presenter: ArtistListPresenter = appDependencies.resolve()
+    func resolve() -> ArtistListPresenterProtocol {
+        ArtistListPresenter(appDependencies: self)
+    }   
+    func resolve() -> ArtistDetailPresenterProtocol {
+        ArtistDetailPresenter(appDependencies: self)
+    }
+    func resolve() -> ArtistListViewProtocol {
+        let presenter: ArtistListPresenterProtocol = resolve()
         let artistListView = ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: presenter)
         return artistListView
     }
 }
 
-extension AppDependencies: AppDependenciesResolver {
-    func resolve() -> DownloadClient {
-        return DownloadClient()
+struct Coordinator {
+    private var navigationController: UINavigationController
+    private var appDependencies: AppDependencies
+    init(_ appDependencies : AppDependencies, navigationController: UINavigationController) {
+        self.appDependencies = appDependencies
+        self.navigationController = navigationController
     }
-    func resolve() -> Coordinator {
-        return Coordinator(self, navigationController: navigator)
+    func goToDetailViewForArtist(_ artist: ArtistViewModel) {
+        let presenter: ArtistDetailPresenterProtocol = appDependencies.resolve()
+        presenter.setArtist(artist)
+        let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, presenter: presenter)
+        navigationController.pushViewController(artistDetailView, animated: true)
     }
-    func resolve() -> ArtistListViewController {
-        let presenter: ArtistListPresenter = resolve()
+    func getInitialViewController() -> UIViewController {
+        let presenter: ArtistListPresenterProtocol = appDependencies.resolve()
         let artistListView = ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: presenter)
         return artistListView
     }
-    func resolve() -> ArtistListPresenter {
-        let artistListPresenter = ArtistListPresenter(appDependencies: self)
-        return artistListPresenter
-    }
-    func resolve() -> ArtistDetailPresenter {
-        let artistDetailPresenter = ArtistDetailPresenter(appDependencies: self)
-        return artistDetailPresenter
-    }
 }
+
