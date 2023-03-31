@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
-    func getNavigator() -> UINavigationController
+    func resolve() -> Coordinator
 }
 
 extension AppDependenciesResolver {
@@ -25,9 +25,6 @@ extension AppDependenciesResolver {
     func resolve() -> ArtistListViewProtocol {
         ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: resolve())
     }
-    func resolve() -> Coordinator {
-        Coordinator(self, navigationController: getNavigator())
-    }
 }
 
 final class AppDependencies {
@@ -38,8 +35,8 @@ final class AppDependencies {
 }
 
 extension AppDependencies: AppDependenciesResolver {
-    func getNavigator() -> UINavigationController {
-        navigator
+    func resolve() -> Coordinator {
+        Coordinator(self, navigationController: navigator)
     }
 }
 

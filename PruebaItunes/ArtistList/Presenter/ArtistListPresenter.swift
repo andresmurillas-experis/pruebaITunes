@@ -18,6 +18,9 @@ final class ArtistListPresenter  {
     weak var artistListView: ArtistListViewController?
     private var appDependencies: AppDependenciesResolver
     private var downloadClient: DownloadClient
+    private var coordinator: Coordinator {
+        appDependencies.resolve()
+    }
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
         downloadClient = appDependencies.resolve()
@@ -45,7 +48,6 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
         }
     }
     func goToDetailViewForArtist(_ artist: ArtistViewModel) {
-        let coordinator: Coordinator = appDependencies.resolve()
         coordinator.goToDetailViewForArtist(artist)
     }
 }
