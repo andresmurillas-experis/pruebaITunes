@@ -12,7 +12,6 @@ struct ArtistViewModel {
     let name: String
     let discOneName: String?
     let discTwoName: String?
-
     init(id: Int, name: String, discOneName: String? = nil, discTwoName: String? = nil) {
         self.id = id
         self.name = name

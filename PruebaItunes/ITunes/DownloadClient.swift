@@ -1,5 +1,5 @@
 //
-//  xwqdwq.swift
+//  DownloadClient.swift
 //  PruebaItunes
 //
 //  Created by Andrés Murillas on 23/3/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DownloadClient {
+final class DownloadClient {
 
     enum NetworkError: Error {
         case serviceError, noData, parsing

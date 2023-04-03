@@ -10,17 +10,29 @@ import Foundation
 protocol ArtistListPresenterProtocol: AnyObject {
     var artistListView: ArtistListViewController? { get set }
     func viewDidLoad()
+    func goToDetailViewForArtist(_ artist: ArtistViewModel)
 }
 
 final class ArtistListPresenter  {
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
-    let downloadClient = DownloadClient()
+    private var appDependencies: AppDependenciesResolver
+    private var downloadClient: DownloadClient
+    init(appDependencies: AppDependenciesResolver) {
+        self.appDependencies = appDependencies
+        downloadClient = appDependencies.resolve()
+    }
+}
+
+private extension ArtistListPresenter {
+    var coordinator: Coordinator {
+        appDependencies.resolve()
+    }
 }
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
     func viewDidLoad() {
-        downloadClient.download(from: "https://itunes.apple.com/search?term=metallica&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
+        downloadClient.download(from: "https://itunes.apple.com/search?term=jony&cash&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 let artistList = iTunesArtistModel.results.map { ArtistViewModel(id: $0.artistId, name: $0.artistName) }
@@ -37,5 +49,8 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
                 }
             }
         }
+    }
+    func goToDetailViewForArtist(_ artist: ArtistViewModel) {
+        coordinator.goToDetailViewForArtist(artist)
     }
 }

@@ -17,15 +17,18 @@ final class ArtistDetailPresenter {
     weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
-    let downloadClient = DownloadClient()
+    private let downloadClient: DownloadClient
+    private var appDependencies: AppDependenciesResolver
+    init(appDependencies: AppDependenciesResolver) {
+        self.downloadClient = appDependencies.resolve()
+        self.appDependencies = appDependencies
+    }
 }
 
 extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
-
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
-
     func viewDidLoad() {
         guard let artistId = artist?.id else {
             return
@@ -53,5 +56,4 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
             }
         }
     }
-
 }

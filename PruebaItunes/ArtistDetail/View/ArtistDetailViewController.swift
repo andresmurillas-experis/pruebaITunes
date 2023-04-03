@@ -16,17 +16,17 @@ final class ArtistDetailViewController: UIViewController {
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private let presenter: ArtistDetailPresenterProtocol = ArtistDetailPresenter()
+    private var presenter: ArtistDetailPresenterProtocol
     private var albumList: [AlbumViewModel] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
 
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, artist: ArtistViewModel) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistDetailPresenterProtocol) {
+        self.presenter = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        presenter.setArtist(artist)
-        presenter.artistDetailView = self
+        self.presenter.artistDetailView = self
     }
 
     required init(coder: NSCoder) {
@@ -56,11 +56,9 @@ extension ArtistDetailViewController: ArtistDetailViewProtocol {
 }
 
 extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albumList.count
+        albumList.count
     }
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
             return UICollectionViewCell()
@@ -68,9 +66,7 @@ extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionVi
         cell.setupViewModel(albumList[indexPath.item])
         return cell
     }
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 175, height: 175)
+        CGSize(width: 175, height: 175)
     }
-
 }
