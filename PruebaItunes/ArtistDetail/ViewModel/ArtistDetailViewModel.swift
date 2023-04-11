@@ -7,8 +7,25 @@
 
 import Foundation
 
+class Bindable <T> {
+    var albumList: T {
+        didSet {
+            bind()
+        }
+    }
+    typealias onChange = (T) -> Void
+    var bindAlbumList: onChange = { _ in
+        return
+    }
+    init(_ albumList: T) {
+        self.albumList = albumList
+    }
+    func bind() {
+        bindAlbumList(albumList)
+    }
+}
+
 final class ArtistDetailViewModel {
-    weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
     private let downloadClient: DownloadClient

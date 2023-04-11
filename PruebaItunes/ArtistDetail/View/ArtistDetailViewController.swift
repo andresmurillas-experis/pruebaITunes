@@ -26,7 +26,7 @@ final class ArtistDetailViewController: UIViewController {
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistDetailViewModel) {
         self.vm = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        presenter.albumList.changeList = { (albumList) in
+        presenter.albumList.bindAlbumList = { (albumList) in
             self.albumList = albumList
         }
     }
