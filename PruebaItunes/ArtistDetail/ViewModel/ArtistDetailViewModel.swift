@@ -7,17 +7,12 @@
 
 import Foundation
 
-protocol ArtistDetailPresenterProtocol: AnyObject {
-    var artistDetailView: ArtistDetailViewController? { get set }
-    func setArtist(_ artist: ArtistViewModel)
-    func viewDidLoad()
-}
-
-final class ArtistDetailPresenter {
+final class ArtistDetailViewModel {
     weak var artistDetailView: ArtistDetailViewController?
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
     private let downloadClient: DownloadClient
+    var albumList: Bindable<[AlbumViewModel]> = Bindable([])
     private var appDependencies: AppDependenciesResolver
     init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
@@ -25,7 +20,7 @@ final class ArtistDetailPresenter {
     }
 }
 
-extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
+extension ArtistDetailViewModel {
     func setArtist(_ artist: ArtistViewModel) {
         self.artist = artist
     }
@@ -42,7 +37,7 @@ extension ArtistDetailPresenter: ArtistDetailPresenterProtocol {
                     }
                     return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
                 }
-                self?.artistDetailView?.setAlbumList(albumList)
+                self?.albumList.albumList = albumList
                 return
             case .failure(let error):
                 switch error {

@@ -12,7 +12,6 @@ protocol AppDependenciesResolver {
     func resolve() -> Coordinator
     func resolve() -> DownloadClient
     func resolve() -> ArtistListPresenterProtocol
-    func resolve() -> ArtistDetailPresenterProtocol
     func resolve() -> ArtistListViewProtocol
 }
 
@@ -23,8 +22,8 @@ extension AppDependenciesResolver {
     func resolve() -> ArtistListPresenterProtocol {
         ArtistListPresenter(appDependencies: self)
     }
-    func resolve() -> ArtistDetailPresenterProtocol {
-        ArtistDetailPresenter(appDependencies: self)
+    func resolve() -> ArtistDetailViewModel {
+        ArtistDetailViewModel(appDependencies: self)
     }
     func resolve() -> ArtistListViewProtocol {
         ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: resolve())
@@ -55,7 +54,7 @@ struct Coordinator {
         ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: appDependencies.resolve())
     }
     func goToDetailViewForArtist(_ artist: ArtistViewModel) {
-        let presenter: ArtistDetailPresenterProtocol = appDependencies.resolve()
+        let presenter: ArtistDetailViewModel = appDependencies.resolve()
         presenter.setArtist(artist)
         let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, presenter: presenter)
         navigationController.pushViewController(artistDetailView, animated: true)
