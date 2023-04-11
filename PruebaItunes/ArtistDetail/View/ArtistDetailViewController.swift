@@ -12,7 +12,6 @@ protocol ArtistDetailViewProtocol: AnyObject {
 }
 
 final class ArtistDetailViewController: UIViewController {
-
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
 
@@ -22,7 +21,6 @@ final class ArtistDetailViewController: UIViewController {
             collectionView.reloadData()
         }
     }
-
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistDetailViewModel) {
         self.vm = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -30,17 +28,14 @@ final class ArtistDetailViewController: UIViewController {
             self.albumList = albumList
         }
     }
-
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.viewDidLoad()
         setCollectionView()
     }
-
 }
 
 private extension ArtistDetailViewController {

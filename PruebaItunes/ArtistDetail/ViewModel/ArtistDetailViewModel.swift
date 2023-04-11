@@ -20,6 +20,9 @@ final class Bindable <T> {
     init(_ albumList: T) {
         self.albumList = albumList
     }
+}
+
+extension Bindable {
     func bind() {
         bindAlbumList(albumList)
     }
@@ -30,7 +33,9 @@ final class ArtistDetailViewModel {
     private var artist: ArtistViewModel?
     private let downloadClient: DownloadClient
     private var appDependencies: AppDependenciesResolver
+
     var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([])
+
     init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
         self.appDependencies = appDependencies
