@@ -29,8 +29,8 @@ final class ArtistDetailViewModel {
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
     private let downloadClient: DownloadClient
-    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([])
     private var appDependencies: AppDependenciesResolver
+    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([])
     init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
         self.appDependencies = appDependencies
