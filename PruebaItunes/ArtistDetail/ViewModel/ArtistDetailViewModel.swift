@@ -8,7 +8,7 @@
 import Foundation
 
 final class Bindable <T> {
-    private var albumList: T {
+    var albumList: T {
         didSet {
             bind()
         }
@@ -22,9 +22,6 @@ final class Bindable <T> {
     }
     func bind() {
         bindAlbumList(albumList)
-    }
-    func setAlbumList(_ albumList: T) {
-        self.albumList = albumList
     }
 }
 
@@ -57,7 +54,7 @@ extension ArtistDetailViewModel {
                     }
                     return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
                 }
-                self?.albumListBinding.setAlbumList(albumList)
+                self?.albumListBinding.albumList = albumList
                 return
             case .failure(let error):
                 switch error {
