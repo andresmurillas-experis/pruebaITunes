@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Bindable <T> {
-    var albumList: T {
+final class Bindable <T> {
+    private var albumList: T {
         didSet {
             bind()
         }
@@ -23,13 +23,16 @@ class Bindable <T> {
     func bind() {
         bindAlbumList(albumList)
     }
+    func setAlbumList(_ albumList: T) {
+        self.albumList = albumList
+    }
 }
 
 final class ArtistDetailViewModel {
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
     private let downloadClient: DownloadClient
-    var albumList: Bindable<[AlbumViewModel]> = Bindable([])
+    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([])
     private var appDependencies: AppDependenciesResolver
     init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
@@ -54,7 +57,7 @@ extension ArtistDetailViewModel {
                     }
                     return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
                 }
-                self?.albumList.albumList = albumList
+                self?.albumListBinding.setAlbumList(albumList)
                 return
             case .failure(let error):
                 switch error {
