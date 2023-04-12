@@ -13,7 +13,7 @@ final class ArtistDetailViewModel {
     private let downloadClient: DownloadClient
     private var appDependencies: AppDependenciesResolver
 
-    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([]) { (albumList) in
+    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([]) { _ in
         return
     }
 

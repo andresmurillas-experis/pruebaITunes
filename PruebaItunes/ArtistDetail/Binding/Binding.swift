@@ -10,10 +10,10 @@ import Foundation
 final class Bindable <T> {
     var value: T {
         didSet {
-            observer(value)
+            observer?(value)
         }
     }
-    var observer: ((T) -> Void)
+    var observer: ((T) -> Void)?
     init(_ value: T, _ observer: @escaping ((T) -> Void)) {
         self.observer = observer
         self.value = value

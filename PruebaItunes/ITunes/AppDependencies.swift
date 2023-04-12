@@ -54,9 +54,9 @@ struct Coordinator {
         ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: appDependencies.resolve())
     }
     func goToDetailViewForArtist(_ artist: ArtistViewModel) {
-        let presenter: ArtistDetailViewModel = appDependencies.resolve()
-        presenter.setArtist(artist)
-        let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, presenter: presenter)
+        let vm: ArtistDetailViewModel = appDependencies.resolve()
+        vm.setArtist(artist)
+        let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, vm: vm)
         navigationController.pushViewController(artistDetailView, animated: true)
     }
 }

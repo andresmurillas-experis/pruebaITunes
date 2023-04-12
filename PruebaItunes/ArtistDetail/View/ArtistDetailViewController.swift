@@ -17,8 +17,8 @@ final class ArtistDetailViewController: UIViewController {
             collectionView.reloadData()
         }
     }
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistDetailViewModel) {
-        self.vm = presenter
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, vm: ArtistDetailViewModel) {
+        self.vm = vm
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         vm.albumListBinding.observer = { (albumList) in
             self.albumList = albumList
