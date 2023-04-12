@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol ArtistDetailViewProtocol: AnyObject {
-    func setAlbumList(_ albumList: [AlbumViewModel])
-}
-
 final class ArtistDetailViewController: UIViewController {
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -24,7 +20,7 @@ final class ArtistDetailViewController: UIViewController {
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistDetailViewModel) {
         self.vm = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        presenter.albumListBinding.bindAlbumList = { (albumList) in
+        vm.albumListBinding.observer = { (albumList) in
             self.albumList = albumList
         }
     }
@@ -46,7 +42,7 @@ private extension ArtistDetailViewController {
     }
 }
 
-extension ArtistDetailViewController: ArtistDetailViewProtocol {
+extension ArtistDetailViewController {
     func setAlbumList(_ albumList: [AlbumViewModel]) {
         self.albumList = albumList
     }

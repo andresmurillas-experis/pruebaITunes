@@ -7,34 +7,15 @@
 
 import Foundation
 
-final class Bindable <T> {
-    var albumList: T {
-        didSet {
-            bind()
-        }
-    }
-    typealias onChange = (T) -> Void
-    var bindAlbumList: onChange = { _ in
-        return
-    }
-    init(_ albumList: T) {
-        self.albumList = albumList
-    }
-}
-
-extension Bindable {
-    func bind() {
-        bindAlbumList(albumList)
-    }
-}
-
 final class ArtistDetailViewModel {
     private var dataTask: URLSessionDataTask?
     private var artist: ArtistViewModel?
     private let downloadClient: DownloadClient
     private var appDependencies: AppDependenciesResolver
 
-    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([])
+    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([]) { (albumList) in
+        return
+    }
 
     init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
@@ -59,7 +40,7 @@ extension ArtistDetailViewModel {
                     }
                     return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
                 }
-                self?.albumListBinding.albumList = albumList
+                self?.albumListBinding.value = albumList
                 return
             case .failure(let error):
                 switch error {
