@@ -38,7 +38,7 @@ extension ArtistDetailViewModel {
                     }
                     return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
                 }
-                self?.albumListBinding.value = albumList
+                self?.albumListBinding.value = albumList    
                 return
             case .failure(let error):
                 switch error {
