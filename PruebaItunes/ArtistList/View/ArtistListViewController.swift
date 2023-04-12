@@ -15,7 +15,7 @@ final class ArtistListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private var presenter: ArtistListPresenterProtocol
+    private var vm: ArtistListPresenterProtocol
     private var artistList: [ArtistViewModel] = [] {
         didSet {
             self.tableView.reloadData()
@@ -23,7 +23,7 @@ final class ArtistListViewController: UIViewController {
     }
 
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistListPresenterProtocol) {
-        self.presenter = presenter
+        self.vm = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         presenter.artistListView = self
     }
@@ -34,7 +34,7 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        vm.viewDidLoad()
         setTableView()
     }
 
@@ -71,6 +71,6 @@ private extension ArtistListViewController {
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistViewModel) {
-        presenter.goToDetailViewForArtist(artist)
+        vm.goToDetailViewForArtist(artist)
     }
 }
