@@ -20,7 +20,7 @@ final class ArtistDetailViewController: UIViewController {
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, vm: ArtistDetailViewModel) {
         self.vm = vm
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        vm.albumListBinding.observer = { (albumList) in
+        vm.albumListBinding.bind { (albumList) in
             self.albumList = albumList
         }
     }
