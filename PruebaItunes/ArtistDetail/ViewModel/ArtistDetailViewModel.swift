@@ -13,7 +13,7 @@ final class ArtistDetailViewModel {
     private let downloadClient: DownloadClient
     private var appDependencies: AppDependenciesResolver
 
-    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([]) { _ in
+    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable() { _ in
         return
     }
 
@@ -40,7 +40,7 @@ extension ArtistDetailViewModel {
                     }
                     return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
                 }
-                self?.albumListBinding.value = albumList
+                self?.albumListBinding.bind(albumList)
                 return
             case .failure(let error):
                 switch error {
