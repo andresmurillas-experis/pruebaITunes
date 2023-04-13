@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ArtistListViewProtocol: AnyObject {
-    func setArtistList(_ artistList: [ArtistViewModel])
+    func setArtistList(_ artistList: [ArtistModel])
 }
 
 final class ArtistListViewController: UIViewController {
@@ -16,7 +16,7 @@ final class ArtistListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private var vm: ArtistListPresenterProtocol
-    private var artistList: [ArtistViewModel] = [] {
+    private var artistList: [ArtistModel] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -56,7 +56,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ArtistListViewController: ArtistListViewProtocol {
-    func setArtistList(_ artistList: [ArtistViewModel]) {
+    func setArtistList(_ artistList: [ArtistModel]) {
         self.artistList = artistList
     }
 }
@@ -70,7 +70,7 @@ private extension ArtistListViewController {
 }
 
 extension ArtistListViewController: OnTapDelegate {
-    func didSelectCellWith(artist: ArtistViewModel) {
+    func didSelectCellWith(artist: ArtistModel) {
         vm.goToDetailViewForArtist(artist)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArtistViewModel {
+struct ArtistModel {
     let id: Int
     let name: String
     let discOneName: String?

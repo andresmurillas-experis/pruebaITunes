@@ -12,7 +12,7 @@ final class ArtistDetailViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
 
     private var vm: ArtistDetailViewModel
-    private var albumList: [AlbumViewModel] = [] {
+    private var albumList: [AlbumModel] = [] {
         didSet {
             collectionView.reloadData()
         }
@@ -43,7 +43,7 @@ private extension ArtistDetailViewController {
 }
 
 extension ArtistDetailViewController {
-    func setAlbumList(_ albumList: [AlbumViewModel]) {
+    func setAlbumList(_ albumList: [AlbumModel]) {
         self.albumList = albumList
     }
 }

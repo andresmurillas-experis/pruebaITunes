@@ -9,11 +9,11 @@ import Foundation
 
 final class ArtistDetailViewModel {
     private var dataTask: URLSessionDataTask?
-    private var artist: ArtistViewModel?
+    private var artist: ArtistModel?
     private let downloadClient: DownloadClient
     private var appDependencies: AppDependenciesResolver
 
-    var albumListBinding: Bindable<[AlbumViewModel]> = Bindable([])
+    var albumListBinding: Bindable<[AlbumModel]> = Bindable([])
 
     init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
@@ -22,7 +22,7 @@ final class ArtistDetailViewModel {
 }
 
 extension ArtistDetailViewModel {
-    func setArtist(_ artist: ArtistViewModel) {
+    func setArtist(_ artist: ArtistModel) {
         self.artist = artist
     }
     func viewDidLoad() {
@@ -32,11 +32,11 @@ extension ArtistDetailViewModel {
         downloadClient.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesAlbumModel):
-                let albumList: [AlbumViewModel] = iTunesAlbumModel.results.compactMap {
+                let albumList: [AlbumModel] = iTunesAlbumModel.results.compactMap {
                     if $0.collectionName == nil {
                         return nil
                     }
-                    return AlbumViewModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
+                    return AlbumModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
                 }
                 self?.albumListBinding.value = albumList    
                 return
