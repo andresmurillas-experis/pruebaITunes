@@ -18,7 +18,7 @@ final class AlbumViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func setupViewModel(_ viewModel: AlbumViewModel) {
+    func setupViewModel(_ viewModel: AlbumModel) {
         albumName.text = viewModel.albumName
         downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { [weak self] result in
             switch result {

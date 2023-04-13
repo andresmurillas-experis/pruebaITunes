@@ -8,7 +8,7 @@
 import UIKit
 
 protocol OnTapDelegate: AnyObject {
-    func didSelectCellWith(artist: ArtistViewModel)
+    func didSelectCellWith(artist: ArtistModel)
 }
 
 final class ArtistViewCell: UITableViewCell {
@@ -18,7 +18,7 @@ final class ArtistViewCell: UITableViewCell {
     @IBOutlet private weak var discTwoName: UILabel!
     @IBOutlet private weak var moreContentExistsIndicator: UILabel!
 
-    private var artist: ArtistViewModel?
+    private var artist: ArtistModel?
     weak var delegate: OnTapDelegate?
 
     override func awakeFromNib() {
@@ -41,7 +41,7 @@ final class ArtistViewCell: UITableViewCell {
         delegate?.didSelectCellWith(artist: artist)
     }
 
-    func setupViewModel(_ viewModel: ArtistViewModel) {
+    func setupViewModel(_ viewModel: ArtistModel) {
         self.name.text = viewModel.name
         self.discOneName.text = viewModel.discOneName
         self.discTwoName.text = viewModel.discTwoName

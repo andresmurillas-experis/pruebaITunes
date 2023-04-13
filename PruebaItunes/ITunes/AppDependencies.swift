@@ -53,7 +53,7 @@ struct Coordinator {
     func getInitialViewController() -> UIViewController {
         ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: appDependencies.resolve())
     }
-    func goToDetailViewForArtist(_ artist: ArtistViewModel) {
+    func goToDetailViewForArtist(_ artist: ArtistModel) {
         let vm: ArtistDetailViewModel = appDependencies.resolve()
         vm.setArtist(artist)
         let artistDetailView = ArtistDetailViewController(nibName: "ArtistDetailViewController", bundle: nil, vm: vm)
