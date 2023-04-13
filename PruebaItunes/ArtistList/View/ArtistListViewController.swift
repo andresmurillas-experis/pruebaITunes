@@ -16,6 +16,8 @@ final class ArtistListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private var vm: ArtistListPresenterProtocol
+    private var searchBar: UISearchBar = UISearchBar()
+    var searchText = ""
     private var artistList: [ArtistModel] = [] {
         didSet {
             self.tableView.reloadData()
@@ -26,6 +28,7 @@ final class ArtistListViewController: UIViewController {
         self.vm = presenter
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         presenter.artistListView = self
+        searchBar.delegate = self
     }
 
     required init(coder: NSCoder) {
@@ -35,9 +38,31 @@ final class ArtistListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.viewDidLoad()
+        navigationItem.titleView = searchBar
         setTableView()
     }
 
+}
+
+private extension ArtistListViewController {
+    func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "ArtistView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+    }
+}
+
+extension ArtistListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+        viewDidLoad()
+    }
+}
+
+extension ArtistListViewController: ArtistListViewProtocol {
+    func setArtistList(_ artistList: [ArtistModel]) {
+        self.artistList = artistList
+    }
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -52,20 +77,6 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setupViewModel(artist)
         cell.delegate = self
         return cell
-    }
-}
-
-extension ArtistListViewController: ArtistListViewProtocol {
-    func setArtistList(_ artistList: [ArtistModel]) {
-        self.artistList = artistList
-    }
-}
-
-private extension ArtistListViewController {
-    func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ArtistView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
     }
 }
 

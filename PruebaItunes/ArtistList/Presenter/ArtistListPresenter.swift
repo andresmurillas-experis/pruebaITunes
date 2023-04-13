@@ -32,7 +32,11 @@ private extension ArtistListPresenter {
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
     func viewDidLoad() {
-        downloadClient.download(from: "https://itunes.apple.com/search?term=jony&cash&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
+        guard let artistQuery = artistListView?.searchText.replacingOccurrences(of: " ", with: "%20") else {
+            return
+        }
+        print(artistQuery)
+        downloadClient.download(from: "https://itunes.apple.com/search?term=\(artistQuery)&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 let artistList = iTunesArtistModel.results.map { ArtistModel(id: $0.artistId, name: $0.artistName) }
