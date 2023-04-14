@@ -48,7 +48,8 @@ private extension ArtistListViewController {
     func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ArtistView", bundle: nil), forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+        self.tableView.register(ArtistCell.self, forCellReuseIdentifier: "ArtistCellReuseIdentifier")
+        
     }
 }
 
@@ -70,13 +71,18 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         artistList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
             return UITableViewCell()
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
+        cell.viewdidLoad()
         cell.delegate = self
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        40
     }
 }
 
