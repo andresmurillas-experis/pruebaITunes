@@ -74,20 +74,19 @@ extension ArtistCell {
         self.addConstraint(name.topAnchor.constraint(equalTo: topAnchor))
         self.addConstraint(name.bottomAnchor.constraint(equalTo: discOneName.topAnchor))
 //        self.addConstraint(name.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3))
-        self.addConstraint(name.widthAnchor.constraint(equalToConstant: 20))
+        self.addConstraint(name.widthAnchor.constraint(equalTo: widthAnchor))
         
         self.addConstraint(discOneName.leadingAnchor.constraint(equalTo: leadingAnchor))
         self.addConstraint(discOneName.topAnchor.constraint(equalTo: name.bottomAnchor))
         self.addConstraint(discOneName.bottomAnchor.constraint(equalTo: discTwoName.topAnchor))
 //        self.addConstraint(discOneName.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3))
-        self.addConstraint(discOneName.widthAnchor.constraint(equalToConstant: 20))
-        
-        
+        self.addConstraint(discOneName.widthAnchor.constraint(equalTo: widthAnchor))
+
         self.addConstraint(discTwoName.leadingAnchor.constraint(equalTo: leadingAnchor))
         self.addConstraint(discTwoName.topAnchor.constraint(equalTo: discOneName.bottomAnchor))
         self.addConstraint(discTwoName.bottomAnchor.constraint(equalTo: bottomAnchor))
 //        self.addConstraint(discTwoName.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3))
-        self.addConstraint(discTwoName.widthAnchor.constraint(equalToConstant: 20))
+        self.addConstraint(discTwoName.widthAnchor.constraint(equalTo: widthAnchor))
 //        self.addConstraint(name.bottomAnchor.constraint(equalTo: bottomAnchor))
 //        self.addConstraint(name.trailingAnchor.constraint(equalTo: trailingAnchor))
         
