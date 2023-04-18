@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ArtistListViewProtocol: AnyObject {
-    func setArtistList(_ artistList: [ArtistModel])
+    func setArtistList(_ artistList: [ArtistModel]?)
 }
 
 final class ArtistListViewController: UIViewController {
@@ -18,7 +18,7 @@ final class ArtistListViewController: UIViewController {
     private var vm: ArtistListPresenterProtocol
     private var searchBar: UISearchBar = UISearchBar()
     var searchText = ""
-    private var artistList: [ArtistModel] = [] {
+    private var artistList: [ArtistModel]? = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -61,18 +61,22 @@ extension ArtistListViewController: UISearchBarDelegate {
 }
 
 extension ArtistListViewController: ArtistListViewProtocol {
-    func setArtistList(_ artistList: [ArtistModel]) {
+    
+    func setArtistList(_ artistList: [ArtistModel]?) {
         self.artistList = artistList
     }
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        artistList.count
+        artistList?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
             return UITableViewCell()
+        }
+        guard let artistList = artistList else {
+            return ArtistCell()
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
