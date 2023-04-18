@@ -75,13 +75,12 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
 }
 private extension ArtistListPresenter {
     func addDiscsToArtistIn(_ artistListNoDiscs: [ArtistModel]) {
-        var artistList: [ArtistModel] = [ArtistModel(id: 0, name: "")]
         artistListNoDiscs.map { artist in
             albumList = ["", ""]
             self.downloadClient.download(from: "https://itunes.apple.com/lookup?id=\(artist.id)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
                 switch result {
                 case .success(let iTunesAlbumModel):
-                    artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results.first?.collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistModel(id: 0, name: ""))
+                    self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results.first?.collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistModel(id: 0, name: ""))
                 case .failure(let error):
                     switch error {
                     case .serviceError:
@@ -94,7 +93,6 @@ private extension ArtistListPresenter {
                 }
             }
         }
-        self.artistList = artistList
     }
     func createArtist(artist: ArtistModel, disc1: String?, disc2: String?) -> ArtistModel {
         var artist = artist
