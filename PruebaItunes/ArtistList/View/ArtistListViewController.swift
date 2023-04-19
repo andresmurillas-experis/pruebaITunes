@@ -13,9 +13,9 @@ protocol ArtistListViewProtocol: AnyObject {
 
 final class ArtistListViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    private let tableView = UITableView()
 
-    private var vm: ArtistListPresenterProtocol
+    private var presenter: ArtistListPresenterProtocol
     private var searchBar: UISearchBar = UISearchBar()
     var searchText = ""
     private var artistList: [ArtistModel]? = [] {
@@ -24,9 +24,9 @@ final class ArtistListViewController: UIViewController {
         }
     }
 
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistListPresenterProtocol) {
-        self.vm = presenter
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init(presenter: ArtistListPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
         presenter.artistListView = self
         searchBar.delegate = self
     }
@@ -37,19 +37,22 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        vm.viewDidLoad()
+        presenter.viewDidLoad()
         navigationItem.titleView = searchBar
-        setTableView()
+        setupTableView()
     }
 
 }
 
 private extension ArtistListViewController {
-    func setTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.tableView.register(ArtistCell.self, forCellReuseIdentifier: "ArtistCellReuseIdentifier")
-        
+    func setupTableView() {
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.register(ArtistCell.self, forCellReuseIdentifier:"ArtistCellReuseIdentifier")
     }
 }
 
@@ -61,12 +64,8 @@ extension ArtistListViewController: UISearchBarDelegate {
 }
 
 extension ArtistListViewController: ArtistListViewProtocol {
-    
     func setArtistList(_ artistList: [ArtistModel]?) {
         self.artistList = artistList
-//        print(artistList?.count)
-//        print(artistList?.last?.name)
-//        print(artistList?.last?.discTwoName)
     }
 }
 
@@ -83,19 +82,18 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
-//        print(artist.discTwoName)
         cell.viewdidLoad()
         cell.delegate = self
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        62
+        84
     }
 }
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistModel) {
-        vm.goToDetailViewForArtist(artist)
+        presenter.goToDetailViewForArtist(artist)
     }
 }

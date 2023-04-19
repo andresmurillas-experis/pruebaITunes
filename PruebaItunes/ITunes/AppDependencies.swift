@@ -26,7 +26,7 @@ extension AppDependenciesResolver {
         ArtistDetailViewModel(appDependencies: self)
     }
     func resolve() -> ArtistListViewProtocol {
-        ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: resolve())
+        ArtistListViewController(presenter: resolve())
     }
 }
 
@@ -51,7 +51,7 @@ struct Coordinator {
         self.navigationController = navigationController
     }
     func getInitialViewController() -> UIViewController {
-        ArtistListViewController(nibName: "ArtistListViewController", bundle: nil, presenter: appDependencies.resolve())
+        ArtistListViewController(presenter: appDependencies.resolve())
     }
     func goToDetailViewForArtist(_ artist: ArtistModel) {
         let vm: ArtistDetailViewModel = appDependencies.resolve()

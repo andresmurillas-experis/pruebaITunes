@@ -13,10 +13,11 @@ protocol OnTapDelegate: AnyObject {
 final class ArtistCell: UITableViewCell {
 
     private var name = UILabel()
+    private let discografia = UILabel()
     private var discOneName = UILabel()
     private var discTwoName = UILabel()
     private var moreContentExistsIndicator = UILabel()
-
+    
     private var artist: ArtistModel?
     weak var delegate: OnTapDelegate?
 
@@ -34,12 +35,10 @@ final class ArtistCell: UITableViewCell {
         name.text = ""
         discOneName.text = ""
         discTwoName.text = ""
+        discografia.text = "Discografia"
     }
 
     @objc func cellTapped() {
-        let discOneName = discOneName.text ?? ""
-        let discTwoName = discTwoName.text ?? ""
-//        print(discTwoName)
         guard let artist = artist else {
             return
         }
@@ -52,11 +51,7 @@ extension ArtistCell {
     func setupViewModel(_ viewModel: ArtistModel) {
         name.text = viewModel.name
         discOneName.text = viewModel.discOneName
-//        print(viewModel.discOneName )
-//        print(viewModel.discTwoName)
-        self.discTwoName.text = viewModel.discTwoName
-        print(self.discOneName)
-        print(self.discTwoName)
+        discTwoName.text = viewModel.discTwoName
         moreContentExistsIndicator.isHidden = true
         artist = viewModel
     }
@@ -65,18 +60,27 @@ extension ArtistCell {
         name.translatesAutoresizingMaskIntoConstraints = false
         discOneName.translatesAutoresizingMaskIntoConstraints = false
         discTwoName.translatesAutoresizingMaskIntoConstraints = false
+        discografia.translatesAutoresizingMaskIntoConstraints = false
+
+        discografia.text = "Discografia"
+        
         self.contentView.addSubview(name)
+        self.contentView.addSubview(discografia)
         self.contentView.addSubview(discOneName)
         self.contentView.addSubview(discTwoName)
-        name.contentMode = .scaleAspectFit
 
         self.addConstraint(name.leadingAnchor.constraint(equalTo: leadingAnchor))
         self.addConstraint(name.topAnchor.constraint(equalTo: topAnchor))
         self.addConstraint(name.bottomAnchor.constraint(equalTo: discOneName.topAnchor))
         self.addConstraint(name.widthAnchor.constraint(equalTo: widthAnchor))
 
+        self.addConstraint(discografia.leadingAnchor.constraint(equalTo: leadingAnchor))
+        self.addConstraint(discografia.topAnchor.constraint(equalTo: name.bottomAnchor))
+        self.addConstraint(discografia.bottomAnchor.constraint(equalTo: discOneName.topAnchor))
+        self.addConstraint(discografia.widthAnchor.constraint(equalTo: widthAnchor))
+        
         self.addConstraint(discOneName.leadingAnchor.constraint(equalTo: leadingAnchor))
-        self.addConstraint(discOneName.topAnchor.constraint(equalTo: name.bottomAnchor))
+        self.addConstraint(discOneName.topAnchor.constraint(equalTo: discografia.bottomAnchor))
         self.addConstraint(discOneName.bottomAnchor.constraint(equalTo: discTwoName.topAnchor))
         self.addConstraint(discOneName.widthAnchor.constraint(equalTo: widthAnchor))
 
