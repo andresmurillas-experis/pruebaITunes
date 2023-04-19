@@ -58,6 +58,7 @@ private extension ArtistListViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.register(ArtistCell.self, forCellReuseIdentifier:"ArtistCellReuseIdentifier")
         tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
@@ -87,15 +88,16 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let artistList = artistList else {
             return ArtistCell()
         }
-//        print(artistLi)
-        let artist = artistList[indexPath.item]
-        cell.setupViewModel(artist)
-        cell.viewdidLoad()
-        cell.delegate = self
+        if artistList.count > 0 {
+            let artist = artistList[indexPath.item]
+            cell.setupViewModel(artist)
+            cell.viewdidLoad()
+            cell.delegate = self
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        84
+        return 84
     }
 }
 
