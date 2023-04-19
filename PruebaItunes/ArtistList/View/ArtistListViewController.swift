@@ -64,6 +64,9 @@ extension ArtistListViewController: ArtistListViewProtocol {
     
     func setArtistList(_ artistList: [ArtistModel]?) {
         self.artistList = artistList
+//        print(artistList?.count)
+//        print(artistList?.last?.name)
+//        print(artistList?.last?.discTwoName)
     }
 }
 
@@ -80,13 +83,14 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
+//        print(artist.discTwoName)
         cell.viewdidLoad()
         cell.delegate = self
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        40
+        62
     }
 }
 

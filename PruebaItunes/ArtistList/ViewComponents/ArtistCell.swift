@@ -39,6 +39,7 @@ final class ArtistCell: UITableViewCell {
     @objc func cellTapped() {
         let discOneName = discOneName.text ?? ""
         let discTwoName = discTwoName.text ?? ""
+//        print(discTwoName)
         guard let artist = artist else {
             return
         }
@@ -51,7 +52,11 @@ extension ArtistCell {
     func setupViewModel(_ viewModel: ArtistModel) {
         name.text = viewModel.name
         discOneName.text = viewModel.discOneName
+//        print(viewModel.discOneName )
+//        print(viewModel.discTwoName)
         self.discTwoName.text = viewModel.discTwoName
+        print(self.discOneName)
+        print(self.discTwoName)
         moreContentExistsIndicator.isHidden = true
         artist = viewModel
     }
@@ -64,17 +69,12 @@ extension ArtistCell {
         self.contentView.addSubview(discOneName)
         self.contentView.addSubview(discTwoName)
         name.contentMode = .scaleAspectFit
-        name.clipsToBounds  = true
-        discOneName.contentMode = .scaleAspectFit
-        discOneName.clipsToBounds  = true
-        discTwoName.contentMode = .scaleAspectFit
-        discTwoName.clipsToBounds  = true
 
         self.addConstraint(name.leadingAnchor.constraint(equalTo: leadingAnchor))
         self.addConstraint(name.topAnchor.constraint(equalTo: topAnchor))
         self.addConstraint(name.bottomAnchor.constraint(equalTo: discOneName.topAnchor))
         self.addConstraint(name.widthAnchor.constraint(equalTo: widthAnchor))
-        
+
         self.addConstraint(discOneName.leadingAnchor.constraint(equalTo: leadingAnchor))
         self.addConstraint(discOneName.topAnchor.constraint(equalTo: name.bottomAnchor))
         self.addConstraint(discOneName.bottomAnchor.constraint(equalTo: discTwoName.topAnchor))
@@ -84,10 +84,5 @@ extension ArtistCell {
         self.addConstraint(discTwoName.topAnchor.constraint(equalTo: discOneName.bottomAnchor))
         self.addConstraint(discTwoName.bottomAnchor.constraint(equalTo: bottomAnchor))
         self.addConstraint(discTwoName.widthAnchor.constraint(equalTo: widthAnchor))
-//        self.addConstraint(name.bottomAnchor.constraint(equalTo: bottomAnchor))
-//        self.addConstraint(name.trailingAnchor.constraint(equalTo: trailingAnchor))
-        
-//        print(name.text ?? "")
-
     }
 }

@@ -80,7 +80,14 @@ private extension ArtistListPresenter {
             self.downloadClient.download(from: "https://itunes.apple.com/lookup?id=\(artist.id)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
                 switch result {
                 case .success(let iTunesAlbumModel):
-                    self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results.first?.collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistModel(id: 0, name: ""))
+//                    print("👉", iTunesAlbumModel.results ?? "", "🥥",iTunesAlbumModel.results.first, "🐕", iTunesAlbumModel.results.count)
+//                    print(iTunesAlbumModel.results[0], iTunesAlbumModel.results.last)
+                    if iTunesAlbumModel.results.count > 1 {
+                        self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results[1].collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistModel(id: 0, name: ""))
+                    } else {
+                        self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results.first?.collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistModel(id: 0, name: ""))
+                    }
+//                    print (self?.artistList.last)
                 case .failure(let error):
                     switch error {
                     case .serviceError:
