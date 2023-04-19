@@ -20,7 +20,10 @@ final class ArtistListViewController: UIViewController {
     var searchText = ""
     private var artistList: [ArtistModel]? = [] {
         didSet {
-            self.tableView.reloadData()
+//            print(artistList)
+            DispatchQueue.main.async {
+                self.tableView.reloadData() 
+            }
         }
     }
 
@@ -47,12 +50,14 @@ final class ArtistListViewController: UIViewController {
 private extension ArtistListViewController {
     func setupTableView() {
         view.addSubview(tableView)
+        print("mcfly")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.register(ArtistCell.self, forCellReuseIdentifier:"ArtistCellReuseIdentifier")
+        tableView.dataSource = self
     }
 }
 
@@ -66,6 +71,8 @@ extension ArtistListViewController: UISearchBarDelegate {
 extension ArtistListViewController: ArtistListViewProtocol {
     func setArtistList(_ artistList: [ArtistModel]?) {
         self.artistList = artistList
+//        print(self.artistList)
+//        print(artistList)
     }
 }
 
@@ -80,13 +87,13 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let artistList = artistList else {
             return ArtistCell()
         }
+//        print(artistLi)
         let artist = artistList[indexPath.item]
         cell.setupViewModel(artist)
         cell.viewdidLoad()
         cell.delegate = self
         return cell
     }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         84
     }

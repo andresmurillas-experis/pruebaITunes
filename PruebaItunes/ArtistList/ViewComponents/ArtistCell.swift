@@ -62,6 +62,8 @@ extension ArtistCell {
         discTwoName.translatesAutoresizingMaskIntoConstraints = false
         discografia.translatesAutoresizingMaskIntoConstraints = false
 
+//        print(discTwoName.text)
+        
         discografia.text = "Discografia"
         
         self.contentView.addSubview(name)

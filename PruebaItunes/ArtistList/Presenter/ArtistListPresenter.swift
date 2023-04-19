@@ -26,6 +26,8 @@ final class ArtistListPresenter  {
     }
     private var artistList: [ArtistModel] = [ArtistModel(id: 0, name: "")] {
         didSet {
+//            print(artistList)
+//            print(artistListView)
             self.artistListView?.setArtistList(artistList)
         }
     }
@@ -47,6 +49,7 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
         guard let artistQuery = artistListView?.searchText.replacingOccurrences(of: " ", with: "%20") else {
             return
         }
+//        print(artistQuery)
         var artistList: [ArtistModel] = [ArtistModel(id: 0, name: "")]
         downloadClient.download(from: "https://itunes.apple.com/search?term=\(artistQuery)&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
