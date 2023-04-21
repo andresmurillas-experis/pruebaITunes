@@ -38,7 +38,7 @@ private extension ArtistDetailViewController {
     func setCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "AlbumView", bundle: nil), forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
+        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
     }
 }
 
@@ -53,7 +53,7 @@ extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionVi
         albumList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumCell else {
             return UICollectionViewCell()
         }
         cell.setupViewModel(albumList[indexPath.item])

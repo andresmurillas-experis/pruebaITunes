@@ -10,6 +10,7 @@ import UIKit
 protocol OnTapDelegate: AnyObject {
     func didSelectCellWith(artist: ArtistModel)
 }
+
 final class ArtistCell: UITableViewCell {
 
     private var name = UILabel()
@@ -58,12 +59,10 @@ extension ArtistCell {
 
     func viewdidLoad() {
         name.translatesAutoresizingMaskIntoConstraints = false
+        discografia.translatesAutoresizingMaskIntoConstraints = false
         discOneName.translatesAutoresizingMaskIntoConstraints = false
         discTwoName.translatesAutoresizingMaskIntoConstraints = false
-        discografia.translatesAutoresizingMaskIntoConstraints = false
-
-//        print(discTwoName.text)
-        
+       
         discografia.text = "Discografia"
         
         self.contentView.addSubview(name)
