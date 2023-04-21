@@ -8,25 +8,28 @@
 import UIKit
 
 protocol ArtistListViewProtocol: AnyObject {
-    func setArtistList(_ artistList: [ArtistModel])
+    func setArtistList(_ artistList: [ArtistModel]?)
 }
 
 final class ArtistListViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    private let tableView = UITableView()
 
-    private var vm: ArtistListPresenterProtocol
+    private var presenter: ArtistListPresenterProtocol
     private var searchBar: UISearchBar = UISearchBar()
     var searchText = ""
-    private var artistList: [ArtistModel] = [] {
+    private var artistList: [ArtistModel]? = [] {
         didSet {
-            self.tableView.reloadData()
+//            print(artistList)
+            DispatchQueue.main.async {
+                self.tableView.reloadData() 
+            }
         }
     }
 
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presenter: ArtistListPresenterProtocol) {
-        self.vm = presenter
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init(presenter: ArtistListPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
         presenter.artistListView = self
         searchBar.delegate = self
     }
@@ -37,19 +40,25 @@ final class ArtistListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        vm.viewDidLoad()
+        presenter.viewDidLoad()
         navigationItem.titleView = searchBar
-        setTableView()
+        setupTableView()
     }
 
 }
 
 private extension ArtistListViewController {
-    func setTableView() {
-        tableView.delegate = self
+    func setupTableView() {
+        view.addSubview(tableView)
+        print("mcfly")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.register(ArtistCell.self, forCellReuseIdentifier:"ArtistCellReuseIdentifier")
         tableView.dataSource = self
-        self.tableView.register(ArtistCell.self, forCellReuseIdentifier: "ArtistCellReuseIdentifier")
-        
+        tableView.delegate = self
     }
 }
 
@@ -61,33 +70,39 @@ extension ArtistListViewController: UISearchBarDelegate {
 }
 
 extension ArtistListViewController: ArtistListViewProtocol {
-    func setArtistList(_ artistList: [ArtistModel]) {
+    func setArtistList(_ artistList: [ArtistModel]?) {
         self.artistList = artistList
+//        print(self.artistList)
+//        print(artistList)
     }
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        artistList.count
+        artistList?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
             return UITableViewCell()
         }
-        let artist = artistList[indexPath.item]
-        cell.setupViewModel(artist)
-        cell.viewdidLoad()
-        cell.delegate = self
+        guard let artistList = artistList else {
+            return ArtistCell()
+        }
+        if artistList.count > 0 {
+            let artist = artistList[indexPath.item]
+            cell.setupViewModel(artist)
+            cell.viewdidLoad()
+            cell.delegate = self
+        }
         return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        40
+        return 84
     }
 }
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistModel) {
-        vm.goToDetailViewForArtist(artist)
+        presenter.goToDetailViewForArtist(artist)
     }
 }

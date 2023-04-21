@@ -10,11 +10,13 @@ import Foundation
 struct ArtistModel {
     let id: Int
     let name: String
-    let discOneName: String?
-    let discTwoName: String?
-    init(id: Int, name: String, discOneName: String? = nil, discTwoName: String? = nil) {
+    var discOneName: String?
+    var discTwoName: String?
+    init(id: Int, name: String) {
         self.id = id
         self.name = name
+    }
+    mutating func setDiscNames (discOneName: String?, discTwoName: String?) {
         self.discOneName = discOneName
         self.discTwoName = discTwoName
     }
