@@ -7,17 +7,23 @@
 
 import UIKit
 
-final class AlbumViewCell: UICollectionViewCell {
-
-    @IBOutlet private var albumName: UILabel!
-    @IBOutlet private var albumCover: UIImageView!
+final class AlbumCell: UICollectionViewCell {
+    private var albumName = UILabel()
+    private var albumCover: UIImageView = UIImageView(image: UIImage(systemName: "music.note.list"))
 
     var dataTask: URLSessionDataTask?
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        viewDidLoad()
     }
 
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension AlbumCell {
     func setupViewModel(_ viewModel: AlbumModel) {
         albumName.text = viewModel.albumName
         downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { [weak self] result in
@@ -36,10 +42,17 @@ final class AlbumViewCell: UICollectionViewCell {
             }
         }
     }
-
+    func viewDidLoad() {
+        self.addSubview(albumName)
+        self.addSubview(albumCover)
+        albumCover.translatesAutoresizingMaskIntoConstraints = false
+        addConstraint(albumCover.heightAnchor.constraint(equalTo: heightAnchor))
+        addConstraint(albumCover.widthAnchor.constraint(equalTo: widthAnchor))
+        albumCover.updateConstraints()
+    }
 }
 
-private extension AlbumViewCell {
+private extension AlbumCell {
 
     enum NetworkError: Error {
         case serviceError, noData, parsing

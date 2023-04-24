@@ -16,9 +16,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rKU-BN-qzy">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dif-Z6-7Ib">
                         <rect key="frame" x="10" y="109" width="130" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -30,16 +27,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="dif-Z6-7Ib" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="109" id="0by-bg-SY2"/>
-                <constraint firstItem="rKU-BN-qzy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5xD-8l-uv5"/>
-                <constraint firstItem="rKU-BN-qzy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Jo9-UL-kPV"/>
                 <constraint firstAttribute="bottom" secondItem="dif-Z6-7Ib" secondAttribute="bottom" constant="5" id="ME7-W0-62e"/>
                 <constraint firstAttribute="trailing" secondItem="dif-Z6-7Ib" secondAttribute="trailing" constant="10" id="cTK-da-KxR"/>
                 <constraint firstItem="dif-Z6-7Ib" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="iVx-yp-g2F"/>
-                <constraint firstAttribute="trailing" secondItem="rKU-BN-qzy" secondAttribute="trailing" id="lfX-zk-RCy"/>
-                <constraint firstAttribute="bottom" secondItem="rKU-BN-qzy" secondAttribute="bottom" id="nw8-t9-0AS"/>
             </constraints>
             <connections>
-                <outlet property="albumCover" destination="rKU-BN-qzy" id="2U9-sq-Hs4"/>
                 <outlet property="albumName" destination="dif-Z6-7Ib" id="heG-XY-0l6"/>
             </connections>
             <point key="canvasLocation" x="117.55725190839694" y="20.422535211267608"/>

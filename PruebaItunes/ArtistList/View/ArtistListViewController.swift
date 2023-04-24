@@ -20,7 +20,6 @@ final class ArtistListViewController: UIViewController {
     var searchText = ""
     private var artistList: [ArtistModel]? = [] {
         didSet {
-//            print(artistList)
             DispatchQueue.main.async {
                 self.tableView.reloadData() 
             }
@@ -50,7 +49,6 @@ final class ArtistListViewController: UIViewController {
 private extension ArtistListViewController {
     func setupTableView() {
         view.addSubview(tableView)
-        print("mcfly")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -72,8 +70,6 @@ extension ArtistListViewController: UISearchBarDelegate {
 extension ArtistListViewController: ArtistListViewProtocol {
     func setArtistList(_ artistList: [ArtistModel]?) {
         self.artistList = artistList
-//        print(self.artistList)
-//        print(artistList)
     }
 }
 
@@ -82,13 +78,14 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         artistList?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
             return UITableViewCell()
         }
         guard let artistList = artistList else {
             return ArtistCell()
         }
-        if artistList.count > 0 {
+        if indexPath.item < artistList.count {
             let artist = artistList[indexPath.item]
             cell.setupViewModel(artist)
             cell.viewdidLoad()

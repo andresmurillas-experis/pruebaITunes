@@ -24,10 +24,8 @@ final class ArtistListPresenter  {
             addDiscsToArtistIn(artistListNoDiscs)
         }
     }
-    private var artistList: [ArtistModel] = [ArtistModel(id: 0, name: "")] {
+    private var artistList: [ArtistModel] = [ArtistModel(id: 0, name: "ko")] {
         didSet {
-//            print(artistList)
-//            print(artistListView)
             self.artistListView?.setArtistList(artistList)
         }
     }
@@ -46,15 +44,14 @@ private extension ArtistListPresenter {
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
     func viewDidLoad() {
-        guard let artistQuery = artistListView?.searchText.replacingOccurrences(of: " ", with: "%20") else {
+        guard let artistQuery = artistListView?.searchText.replacingOccurrences(of: " ", with: "+") else {
             return
         }
-//        print(artistQuery)
-        var artistList: [ArtistModel] = [ArtistModel(id: 0, name: "")]
+        print(artistQuery)
         downloadClient.download(from: "https://itunes.apple.com/search?term=\(artistQuery)&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
-                artistList = iTunesArtistModel.results.map {
+                self?.artistListNoDiscs = iTunesArtistModel.results.map {
                     let id = $0.artistId
                     let name = $0.artistName
                     return ArtistModel(id: id, name: name)
@@ -62,20 +59,23 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
             case .failure(let error):
                 switch error {
                 case .serviceError:
+                    print(error)
                     print("No Data Eroor: ", error)
                 case .noData:
+                    print(error)
                     print("Network Service Error: ", error)
                 case .parsing:
+                    print(error)
                     print("JSON Parsing Error: ", error)
                 }
             }
-            self?.artistListNoDiscs = artistList
         }
     }
     func goToDetailViewForArtist(_ artist: ArtistModel) {
         coordinator.goToDetailViewForArtist(artist)
     }
 }
+
 private extension ArtistListPresenter {
     func addDiscsToArtistIn(_ artistListNoDiscs: [ArtistModel]) {
         artistList = []
@@ -90,6 +90,7 @@ private extension ArtistListPresenter {
                         self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results.first?.collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistModel(id: 0, name: ""))
                     }
                 case .failure(let error):
+                    print(result)
                     switch error {
                     case .serviceError:
                         print("No Data Eroor: ", error)
