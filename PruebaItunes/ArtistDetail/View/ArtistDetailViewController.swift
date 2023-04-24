@@ -8,18 +8,17 @@
 import UIKit
 
 final class ArtistDetailViewController: UIViewController {
-    @IBOutlet private var artistNameLabel: UILabel!
-    @IBOutlet private weak var collectionView: UICollectionView!
+    private var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
 
     private var vm: ArtistDetailViewModel
     private var albumList: [AlbumModel] = [] {
         didSet {
-            collectionView.reloadData()
+            self.collectionView.reloadData()
         }
     }
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, vm: ArtistDetailViewModel) {
+    init(vm: ArtistDetailViewModel) {
         self.vm = vm
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(nibName: nil, bundle: nil)
         vm.albumListBinding.bind { (albumList) in
             self.albumList = albumList
         }
@@ -30,15 +29,22 @@ final class ArtistDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.viewDidLoad()
-        setCollectionView()
+        setupCollectionView()
     }
 }
 
 private extension ArtistDetailViewController {
-    func setCollectionView() {
-        collectionView.delegate = self
+    func setupCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .brown
+        view.addConstraint(collectionView.topAnchor.constraint(equalTo: view.topAnchor))
+        view.addConstraint(collectionView.leftAnchor.constraint(equalTo: view.leftAnchor))
+        view.addConstraint( collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor))
+        view.addConstraint(collectionView.rightAnchor.constraint(equalTo: view.rightAnchor))
+        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier:"AlbumCellReuseIdentifier")
         collectionView.dataSource = self
-        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: "AlbumCellReuseIdentifier")
+        collectionView.delegate = self
     }
 }
 
@@ -49,17 +55,21 @@ extension ArtistDetailViewController {
 }
 
 extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        albumList.count
+        return albumList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("the time machine")
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumCell else {
             return UICollectionViewCell()
         }
         cell.setupViewModel(albumList[indexPath.item])
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 175, height: 175)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        CGSize(width: 175, height: 175)
+//    }
 }

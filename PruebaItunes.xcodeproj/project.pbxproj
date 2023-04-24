@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7F00F4F229C05EF300337091 /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F00F4F129C05EF300337091 /* ArtistDetailViewModel.swift */; };
 		7F0444F929BB3310008B2E05 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0444F729BB3310008B2E05 /* ArtistDetailViewController.swift */; };
-		7F1E2B4B29C0811500813256 /* ArtistDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1E2B4A29C0811500813256 /* ArtistDetailViewController.xib */; };
 		7F2841F429A61CA3004AFA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2841F329A61CA3004AFA0D /* AppDelegate.swift */; };
 		7F2841F629A61CA3004AFA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */; };
 		7F2841FD29A61CA5004AFA0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F2841FC29A61CA5004AFA0D /* Assets.xcassets */; };
@@ -50,7 +49,6 @@
 /* Begin PBXFileReference section */
 		7F00F4F129C05EF300337091 /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
 		7F0444F729BB3310008B2E05 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
-		7F1E2B4A29C0811500813256 /* ArtistDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistDetailViewController.xib; sourceTree = "<group>"; };
 		7F2841F029A61CA3004AFA0D /* PruebaItunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaItunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F2841F329A61CA3004AFA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				7F0444F729BB3310008B2E05 /* ArtistDetailViewController.swift */,
-				7F1E2B4A29C0811500813256 /* ArtistDetailViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -366,7 +363,6 @@
 			files = (
 				7F28420029A61CA5004AFA0D /* LaunchScreen.storyboard in Resources */,
 				7F2841FD29A61CA5004AFA0D /* Assets.xcassets in Resources */,
-				7F1E2B4B29C0811500813256 /* ArtistDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
