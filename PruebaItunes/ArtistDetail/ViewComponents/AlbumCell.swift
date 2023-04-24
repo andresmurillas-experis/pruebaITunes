@@ -25,8 +25,6 @@ final class AlbumCell: UICollectionViewCell {
 
 extension AlbumCell {
     func setupViewModel(_ viewModel: AlbumModel) {
-        heightAnchor.constraint(equalToConstant: 150).isActive = true
-        widthAnchor.constraint(equalToConstant: 150).isActive = true
         albumName.text = viewModel.albumName
         downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { [weak self] result in
             switch result {

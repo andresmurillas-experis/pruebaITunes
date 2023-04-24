@@ -8,8 +8,7 @@
 import UIKit
 
 final class ArtistDetailViewController: UIViewController {
-    private var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
-
+    private var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     private var vm: ArtistDetailViewModel
     private var albumList: [AlbumModel] = [] {
         didSet {
@@ -37,7 +36,6 @@ private extension ArtistDetailViewController {
     func setupCollectionView() {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .brown
         view.addConstraint(collectionView.topAnchor.constraint(equalTo: view.topAnchor))
         view.addConstraint(collectionView.leftAnchor.constraint(equalTo: view.leftAnchor))
         view.addConstraint( collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor))
@@ -54,7 +52,7 @@ extension ArtistDetailViewController {
     }
 }
 
-extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -62,14 +60,15 @@ extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionVi
         return albumList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("the time machine")
+        print(":)")
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumCell else {
             return UICollectionViewCell()
         }
         cell.setupViewModel(albumList[indexPath.item])
         return cell
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        CGSize(width: 175, height: 175)
-//    }
+    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+        print("@")
+        return CGSize(width: 175, height: 175)
+    }
 }
