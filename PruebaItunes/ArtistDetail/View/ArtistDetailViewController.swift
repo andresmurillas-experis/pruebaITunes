@@ -52,7 +52,7 @@ extension ArtistDetailViewController {
     }
 }
 
-extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -67,8 +67,10 @@ extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionVi
         cell.setupViewModel(albumList[indexPath.item])
         return cell
     }
-    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        print("@")
-        return CGSize(width: 175, height: 175)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 175, height: 175)
     }
 }
