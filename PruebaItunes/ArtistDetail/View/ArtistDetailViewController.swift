@@ -8,7 +8,7 @@
 import UIKit
 
 final class ArtistDetailViewController: UIViewController {
-    private var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: CustomCollectionViewLayout())
     private var vm: ArtistDetailViewModel
     private var albumList: [AlbumModel] = [] {
         didSet {
