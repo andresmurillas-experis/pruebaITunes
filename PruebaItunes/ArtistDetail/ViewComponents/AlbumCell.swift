@@ -48,6 +48,9 @@ extension AlbumCell {
         albumCover.translatesAutoresizingMaskIntoConstraints = false
         addConstraint(albumCover.heightAnchor.constraint(equalTo: heightAnchor))
         addConstraint(albumCover.widthAnchor.constraint(equalTo: widthAnchor))
+        addConstraint(albumCover.centerXAnchor.constraint(equalTo: centerXAnchor))
+        addConstraint(albumCover.centerYAnchor.constraint(equalTo: centerYAnchor))
+        
         albumCover.updateConstraints()
     }
 }

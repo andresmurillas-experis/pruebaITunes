@@ -12,7 +12,9 @@ final class ArtistDetailViewController: UIViewController {
     private var vm: ArtistDetailViewModel
     private var albumList: [AlbumModel] = [] {
         didSet {
-            self.collectionView.reloadData()
+            collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: CustomCollectionViewLayout(albumList: albumList))
+            collectionView.reloadData()
+            setupCollectionView()
         }
     }
     init(vm: ArtistDetailViewModel) {
@@ -28,7 +30,6 @@ final class ArtistDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.viewDidLoad()
-        setupCollectionView()
     }
 }
 
@@ -60,7 +61,6 @@ extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionVi
         return albumList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(":)")
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCellReuseIdentifier", for: indexPath) as? AlbumCell else {
             return UICollectionViewCell()
         }
@@ -68,6 +68,7 @@ extension ArtistDetailViewController: UICollectionViewDataSource, UICollectionVi
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
         UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
