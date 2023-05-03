@@ -15,6 +15,7 @@ final class AlbumCell: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        viewDidLoad()
     }
 
     required init(coder: NSCoder) {
@@ -23,14 +24,12 @@ final class AlbumCell: UIView {
 }
 
 extension AlbumCell {
-    func setupViewModel(_ viewModel: AlbumModel, parent: UIStackView) {
+    func setupViewModel(_ viewModel: AlbumModel) {
         albumName.text = viewModel.albumName
         downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { result in
             switch result {
             case .success(let image):
                 self.albumCover.image = image
-                self.viewDidLoad()
-                parent.addArrangedSubview(self)
             case .failure(let error):
                 switch error {
                 case .noData:
@@ -47,10 +46,11 @@ extension AlbumCell {
         self.addSubview(albumName)
         self.addSubview(albumCover)
         albumCover.translatesAutoresizingMaskIntoConstraints = false
-        addConstraint(albumCover.heightAnchor.constraint(equalToConstant: 175))
-        addConstraint(albumCover.widthAnchor.constraint(equalTo: widthAnchor))
-        addConstraint(albumCover.centerXAnchor.constraint(equalTo: centerXAnchor))
-        addConstraint(albumCover.centerYAnchor.constraint(equalTo: centerYAnchor))
+        albumCover.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        albumCover.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        albumCover.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        albumCover.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        albumCover.contentMode = .scaleAspectFit
         albumCover.updateConstraints()
     }
 }
