@@ -10,7 +10,12 @@ import UIKit
 final class AlbumCell: UIView {
     private var albumName = UILabel()
     weak private var delegate: UIStackView?
-    private var albumCover: UIImageView = UIImageView(image: UIImage(systemName: "music.note.list"))
+    lazy private var albumCover: UIImageView =  {
+        var cover = UIImageView(image: UIImage(systemName: "music.note.list"))
+        cover.heightAnchor.constraint(equalToConstant: 115).isActive = true
+        cover.widthAnchor.constraint(equalToConstant: 115).isActive = true
+        return cover
+    }()
     var dataTask: URLSessionDataTask?
 
     override init(frame: CGRect) {
@@ -46,12 +51,13 @@ extension AlbumCell {
         self.addSubview(albumName)
         self.addSubview(albumCover)
         albumCover.translatesAutoresizingMaskIntoConstraints = false
-        albumCover.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        albumCover.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        albumCover.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        albumCover.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        albumCover.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        albumCover.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         albumCover.contentMode = .scaleAspectFit
         albumCover.updateConstraints()
+    }
+    func wipeCover() {
+        self.albumCover.image = nil
     }
 }
 

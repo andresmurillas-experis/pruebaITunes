@@ -8,67 +8,24 @@
 import UIKit
 
 final class ArtistDetailViewController: UIViewController {
-    lazy private var mainStackView: UIStackView = {
-        let stackView: UIStackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        return stackView
-    }()
-    lazy private var rowStackView: UIStackView = {
-        let stackView: UIStackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 20
-        stackView.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        return stackView
-    }()
     lazy private var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(mainStackView)
-        scrollView.addConstraint(mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor))
-        scrollView.addConstraint(mainStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor))
-        scrollView.addConstraint(mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor))
-        scrollView.addConstraint(mainStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor))
-        scrollView.addConstraint(mainStackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor))
-        scrollView.addConstraint(mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor))
-        scrollView.showsVerticalScrollIndicator = true
-        return scrollView
+        UIScrollView()
+    }()
+    lazy private var contentView: UIView = {
+        UIView()
+    }()
+    lazy private var mainStackView: UIStackView = {
+        UIStackView()
     }()
     private var vm: ArtistDetailViewModel
     private var albumList: [AlbumModel] = [] {
         didSet {
-            let albumViewCell = AlbumCell(frame: CGRect.zero)
-            let albumViewCell2 = AlbumCell(frame: CGRect.zero)
-
-            let stackView = UIStackView()
-            view.addSubview(stackView)
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-            stackView.heightAnchor.constraint(equalToConstant: 175).isActive = true
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            stackView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-            stackView.backgroundColor = .brown
-            stackView.contentMode = .scaleAspectFit
-            albumViewCell.translatesAutoresizingMaskIntoConstraints = false
-            albumViewCell.setupViewModel(albumList[0])
-            albumViewCell2.translatesAutoresizingMaskIntoConstraints = false
-            albumViewCell2.setupViewModel(albumList[1])
-            stackView.addArrangedSubview(albumViewCell)
-            stackView.addArrangedSubview(albumViewCell2)
-//            albumViewCell.translatesAutoresizingMaskIntoConstraints = false
-//            albumViewCell.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
-//            albumViewCell.contentMode = .scaleAspectFit
-//            albumViewCell2.translatesAutoresizingMaskIntoConstraints = false
-//            albumViewCell2.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
-//            albumViewCell2.contentMode = .scaleAspectFit
-            stackView.updateConstraints()
+            setupCollectionView()
         }
     }
     init(vm: ArtistDetailViewModel) {
         self.vm = vm
         super.init(nibName: nil, bundle: nil)
-        view.backgroundColor = .white
         vm.albumListBinding.bind { (albumList) in
             self.albumList = albumList
         }
@@ -82,7 +39,79 @@ final class ArtistDetailViewController: UIViewController {
     }
 }
 
-private extension ArtistDetailViewController { }
+private extension ArtistDetailViewController {
+    func divideInChunks(array: [AlbumCell]) {
+        return
+    }
+    func setupCollectionView() {
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        scrollView.showsVerticalScrollIndicator = true
+        
+        scrollView.addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        
+        contentView.addSubview(mainStackView)
+        contentView.heightAnchor.constraint(equalTo: mainStackView.heightAnchor).isActive = true
+
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        mainStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        mainStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        mainStackView.axis = .vertical
+        let chunks = stride(from: 0, to: albumList.count, by: 3).map { i in
+            var chunk: [AlbumModel] = []
+            if i < (albumList.count - 3) {
+                for j in  i...(i + 2) {
+                    chunk.append(albumList[j])
+                }
+            } else {
+                for j in (i...albumList.count - 1) {
+                    chunk.append(albumList[j])
+                }
+            }
+            return chunk
+        }
+
+        var stackViews: [UIStackView] = []
+        for _ in 0...chunks.count {
+            stackViews.append(UIStackView())
+        }
+        var i = 0
+        for chunk in chunks {
+            mainStackView.addArrangedSubview(stackViews[i])
+            stackViews[i].translatesAutoresizingMaskIntoConstraints = false
+            stackViews[i].heightAnchor.constraint(equalToConstant: 120).isActive = true
+            stackViews[i].distribution = .fillEqually
+            
+            var newchunk = chunk
+            if chunk.count < 3 {
+                for _ in chunk.count...2 {
+                    newchunk.append(AlbumModel(albumName: nil, albumCover: nil, albumCoverLarge: nil))
+                }
+            }
+            for album in newchunk {
+                let albumViewCell = AlbumCell(frame: CGRect.zero)
+                albumViewCell.setupViewModel(album)
+                if album.albumName == nil {
+                    albumViewCell.wipeCover()
+                }
+                stackViews[i].addArrangedSubview(albumViewCell)
+                stackViews[i].reloadInputViews()
+            }
+            i += 1
+        }
+        mainStackView.reloadInputViews()
+    }
+}
 
 extension ArtistDetailViewController {
     func setAlbumList(_ albumList: [AlbumModel]) {
