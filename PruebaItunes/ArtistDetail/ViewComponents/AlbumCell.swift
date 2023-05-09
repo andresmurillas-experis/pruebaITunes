@@ -7,10 +7,15 @@
 
 import UIKit
 
-final class AlbumCell: UICollectionViewCell {
+final class AlbumCell: UIView {
     private var albumName = UILabel()
-    private var albumCover: UIImageView = UIImageView(image: UIImage(systemName: "music.note.list"))
-
+    weak private var delegate: UIStackView?
+    lazy private var albumCover: UIImageView =  {
+        var cover = UIImageView(image: UIImage(systemName: "music.note.list"))
+        cover.heightAnchor.constraint(equalToConstant: 115).isActive = true
+        cover.widthAnchor.constraint(equalToConstant: 115).isActive = true
+        return cover
+    }()
     var dataTask: URLSessionDataTask?
 
     override init(frame: CGRect) {
@@ -26,10 +31,10 @@ final class AlbumCell: UICollectionViewCell {
 extension AlbumCell {
     func setupViewModel(_ viewModel: AlbumModel) {
         albumName.text = viewModel.albumName
-        downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { [weak self] result in
+        downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { result in
             switch result {
             case .success(let image):
-                self?.albumCover.image = image
+                self.albumCover.image = image
             case .failure(let error):
                 switch error {
                 case .noData:
@@ -46,21 +51,20 @@ extension AlbumCell {
         self.addSubview(albumName)
         self.addSubview(albumCover)
         albumCover.translatesAutoresizingMaskIntoConstraints = false
-        addConstraint(albumCover.heightAnchor.constraint(equalTo: heightAnchor))
-        addConstraint(albumCover.widthAnchor.constraint(equalTo: widthAnchor))
-        addConstraint(albumCover.centerXAnchor.constraint(equalTo: centerXAnchor))
-        addConstraint(albumCover.centerYAnchor.constraint(equalTo: centerYAnchor))
-        
+        albumCover.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        albumCover.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        albumCover.contentMode = .scaleAspectFit
         albumCover.updateConstraints()
+    }
+    func wipeCover() {
+        self.albumCover.image = nil
     }
 }
 
 private extension AlbumCell {
-
     enum NetworkError: Error {
         case serviceError, noData, parsing
     }
-
     func downloadAlbumCover(from url: String, completionHandler: @escaping (Result<UIImage?, NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
