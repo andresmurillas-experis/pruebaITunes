@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DownloadClient {
+final class WebAPIDataSource {
 
     enum NetworkError: Error {
         case serviceError, noData, parsing
@@ -38,6 +38,9 @@ final class DownloadClient {
             }
         }.resume()
     }
+}
+
+private extension WebAPIDataSource {
 
     func decodeJsonFromData<ViewModelObject: Decodable>(_ data: Data) -> ViewModelObject? {
         let stringData = String(data: data, encoding: .utf8)!

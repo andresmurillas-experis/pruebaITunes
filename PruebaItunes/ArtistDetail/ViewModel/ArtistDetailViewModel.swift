@@ -9,32 +9,34 @@ import Foundation
 
 final class ArtistDetailViewModel {
     private var dataTask: URLSessionDataTask?
-    private var artist: ArtistModel?
-    private let downloadClient: DownloadClient
+    private var artist: ArtistEntity?
+    private let downloadClient: WebAPIDataSource
     private var appDependencies: AppDependenciesResolver
-    var albumListBinding: Bindable<[AlbumModel]> = Bindable([])
+    var albumListBinding: Bindable<[AlbumEntity]> = Bindable([])
+    var dataRepository: DataRepository
     init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
         self.appDependencies = appDependencies
+        self.dataRepository = appDependencies.resolve()
     }
 }
 
 extension ArtistDetailViewModel {
-    func setArtist(_ artist: ArtistModel) {
+    func setArtist(_ artist: ArtistEntity) {
         self.artist = artist
     }
     func viewDidLoad() {
         guard let artistId = artist?.id else {
             return
         }
-        downloadClient.download(from: "https://itunes.apple.com/lookup?id=\(artistId)&entity=album") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
+        dataRepository.getAllAlbums(for: artistId) { [weak self] (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
             switch result {
             case .success(let iTunesAlbumModel):
-                let albumList: [AlbumModel] = iTunesAlbumModel.results.compactMap {
+                let albumList: [AlbumEntity] = iTunesAlbumModel.results.compactMap {
                     if $0.collectionName == nil {
                         return nil
                     }
-                    return AlbumModel(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
+                    return AlbumEntity(albumName: $0.collectionName, albumCover: $0.artworkUrl60, albumCoverLarge: $0.artworkUrl100)
                 }
                 self?.albumListBinding.value = albumList
                 return

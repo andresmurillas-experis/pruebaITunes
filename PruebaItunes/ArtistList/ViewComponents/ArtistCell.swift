@@ -8,7 +8,7 @@
 import UIKit
 
 protocol OnTapDelegate: AnyObject {
-    func didSelectCellWith(artist: ArtistModel)
+    func didSelectCellWith(artist: ArtistEntity)
 }
 
 final class ArtistCell: UITableViewCell {
@@ -19,7 +19,7 @@ final class ArtistCell: UITableViewCell {
     private var discTwoName = UILabel()
     private var moreContentExistsIndicator = UILabel()
     
-    private var artist: ArtistModel?
+    private var artist: ArtistEntity?
     weak var delegate: OnTapDelegate?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -49,7 +49,7 @@ final class ArtistCell: UITableViewCell {
 }
 
 extension ArtistCell {
-    func setupViewModel(_ viewModel: ArtistModel) {
+    func setupViewModel(_ viewModel: ArtistEntity) {
         name.text = viewModel.name
         discOneName.text = viewModel.discOneName
         discTwoName.text = viewModel.discTwoName

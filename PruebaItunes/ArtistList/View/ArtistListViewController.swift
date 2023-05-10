@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ArtistListViewProtocol: AnyObject {
-    func setArtistList(_ artistList: [ArtistModel]?)
+    func setArtistList(_ artistList: [ArtistEntity]?)
 }
 
 final class ArtistListViewController: UIViewController {
@@ -18,7 +18,7 @@ final class ArtistListViewController: UIViewController {
     private var presenter: ArtistListPresenterProtocol
     private var searchBar: UISearchBar = UISearchBar()
     var searchText = ""
-    private var artistList: [ArtistModel]? = [] {
+    private var artistList: [ArtistEntity]? = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData() 
@@ -68,7 +68,7 @@ extension ArtistListViewController: UISearchBarDelegate {
 }
 
 extension ArtistListViewController: ArtistListViewProtocol {
-    func setArtistList(_ artistList: [ArtistModel]?) {
+    func setArtistList(_ artistList: [ArtistEntity]?) {
         self.artistList = artistList
     }
 }
@@ -99,7 +99,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ArtistListViewController: OnTapDelegate {
-    func didSelectCellWith(artist: ArtistModel) {
+    func didSelectCellWith(artist: ArtistEntity) {
         presenter.goToDetailViewForArtist(artist)
     }
 }

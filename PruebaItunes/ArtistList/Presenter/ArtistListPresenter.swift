@@ -10,21 +10,22 @@ import Foundation
 protocol ArtistListPresenterProtocol: AnyObject {
     var artistListView: ArtistListViewController? { get set }
     func viewDidLoad()
-    func goToDetailViewForArtist(_ artist: ArtistModel)
+    func goToDetailViewForArtist(_ artist: ArtistEntity)
 }
 
 final class ArtistListPresenter  {
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
     private var appDependencies: AppDependenciesResolver
-    private var downloadClient: DownloadClient
-    private var newArtistList: [ArtistModel] = [ArtistModel(id: 0, name: "")]
-    private var artistListNoDiscs: [ArtistModel] = [ArtistModel(id: 0, name: "")] {
+    private var downloadClient: WebAPIDataSource
+    private var newArtistList: [ArtistEntity] = [ArtistEntity(id: 0, name: "")]
+    private var dataRepository: DataRepository
+    private var artistListNoDiscs: [ArtistEntity] = [ArtistEntity(id: 0, name: "")] {
         didSet {
             addDiscsToArtistIn(artistListNoDiscs)
         }
     }
-    private var artistList: [ArtistModel] = [ArtistModel(id: 0, name: "ko")] {
+    private var artistList: [ArtistEntity] = [ArtistEntity(id: 0, name: "ko")] {
         didSet {
             self.artistListView?.setArtistList(artistList)
         }
@@ -33,6 +34,7 @@ final class ArtistListPresenter  {
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
         downloadClient = appDependencies.resolve()
+        dataRepository = appDependencies.resolve()
     }
 }
 
@@ -44,16 +46,16 @@ private extension ArtistListPresenter {
 
 extension ArtistListPresenter: ArtistListPresenterProtocol {
     func viewDidLoad() {
-        guard let artistQuery = artistListView?.searchText.replacingOccurrences(of: " ", with: "+") else {
+        guard let artistName = artistListView?.searchText.replacingOccurrences(of: " ", with: "+") else {
             return
         }
-        downloadClient.download(from: "https://itunes.apple.com/search?term=\(artistQuery)&entity=musicArtist&attribute=artistTerm") { [weak self] (result: Result<ITunesArtistModel, DownloadClient.NetworkError>) in
+        dataRepository.getAllArtists(for: artistName) { [weak self] (result: Result<ArtistDTO, WebAPIDataSource.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 self?.artistListNoDiscs = iTunesArtistModel.results.map {
                     let id = $0.artistId
                     let name = $0.artistName
-                    return ArtistModel(id: id, name: name)
+                    return ArtistEntity(id: id, name: name)
                 }
             case .failure(let error):
                 switch error {
@@ -70,23 +72,23 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
             }
         }
     }
-    func goToDetailViewForArtist(_ artist: ArtistModel) {
+    func goToDetailViewForArtist(_ artist: ArtistEntity) {
         coordinator.goToDetailViewForArtist(artist)
     }
 }
 
 private extension ArtistListPresenter {
-    func addDiscsToArtistIn(_ artistListNoDiscs: [ArtistModel]) {
+    func addDiscsToArtistIn(_ artistListNoDiscs: [ArtistEntity]) {
         artistList = []
         artistListNoDiscs.map { artist in
             albumList = ["", ""]
-            self.downloadClient.download(from: "https://itunes.apple.com/lookup?id=\(artist.id)&entity=album&limit=2") { [weak self] (result: Result<ITunesAlbumModel, DownloadClient.NetworkError>) in
+            dataRepository.getTwoFirstAlbums(for: artist.id) { [weak self] (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
                 switch result {
                 case .success(let iTunesAlbumModel):
                     if (iTunesAlbumModel.results.count > 1) {
-                        self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results[1].collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistModel(id: 0, name: ""))
+                        self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results[1].collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistEntity(id: 0, name: ""))
                     } else {
-                        self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results.first?.collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistModel(id: 0, name: ""))
+                        self?.artistList.append(self?.createArtist(artist: artist, disc1: iTunesAlbumModel.results.first?.collectionName, disc2: iTunesAlbumModel.results.last?.collectionName) ?? ArtistEntity(id: 0, name: ""))
                     }
                 case .failure(let error):
                     print(result)
@@ -102,7 +104,7 @@ private extension ArtistListPresenter {
             }
         }
     }
-    func createArtist(artist: ArtistModel, disc1: String?, disc2: String?) -> ArtistModel {
+    func createArtist(artist: ArtistEntity, disc1: String?, disc2: String?) -> ArtistEntity {
         var artist = artist
         artist.setDiscNames(discOneName: disc1, discTwoName: disc2)
         return artist

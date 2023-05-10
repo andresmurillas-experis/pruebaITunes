@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArtistModel {
+struct ArtistEntity: Codable {
     let id: Int
     let name: String
     var discOneName: String?

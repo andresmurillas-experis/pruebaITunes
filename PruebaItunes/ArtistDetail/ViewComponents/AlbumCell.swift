@@ -8,33 +8,40 @@
 import UIKit
 
 final class AlbumCell: UIView {
-    private var albumName = UILabel()
     weak private var delegate: UIStackView?
-    lazy private var albumCover: UIImageView =  {
+    lazy private var albumTitle: UILabel = {
+        var title = UILabel(frame: CGRect.zero)
+        title.text = ""
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        title.widthAnchor.constraint(equalToConstant: 110).isActive = true
+        title.textColor = .white
+        return title
+    }()
+    lazy private var albumCover: UIImageView = {
         var cover = UIImageView(image: UIImage(systemName: "music.note.list"))
+        cover.translatesAutoresizingMaskIntoConstraints = false
         cover.heightAnchor.constraint(equalToConstant: 115).isActive = true
         cover.widthAnchor.constraint(equalToConstant: 115).isActive = true
         return cover
     }()
     var dataTask: URLSessionDataTask?
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         viewDidLoad()
     }
-
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension AlbumCell {
-    func setupViewModel(_ viewModel: AlbumModel) {
-        albumName.text = viewModel.albumName
+    func setupViewModel(_ viewModel: AlbumEntity) {
         downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { result in
             switch result {
             case .success(let image):
                 self.albumCover.image = image
+                self.albumTitle.text = viewModel.albumName
             case .failure(let error):
                 switch error {
                 case .noData:
@@ -48,13 +55,16 @@ extension AlbumCell {
         }
     }
     func viewDidLoad() {
-        self.addSubview(albumName)
+        
         self.addSubview(albumCover)
-        albumCover.translatesAutoresizingMaskIntoConstraints = false
         albumCover.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         albumCover.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         albumCover.contentMode = .scaleAspectFit
         albumCover.updateConstraints()
+        self.addSubview(albumTitle)
+        albumTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        albumTitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8  ).isActive = true
+        albumTitle.updateConstraints()
     }
     func wipeCover() {
         self.albumCover.image = nil
