@@ -15,9 +15,9 @@ final class ArtistDetailViewModel {
     var albumListBinding: Bindable<[AlbumEntity]> = Bindable([])
     var albumDataSource: AlbumDataSource
     init(appDependencies: AppDependenciesResolver) {
-        self.downloadClient = appDependencies.resolve()
         self.appDependencies = appDependencies
-        self.dataRepository = appDependencies.resolve()
+        self.downloadClient = appDependencies.resolve()
+        albumDataSource = appDependencies.resolve()
     }
 }
 
