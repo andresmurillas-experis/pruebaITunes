@@ -7,19 +7,17 @@
 
 import Foundation
 
-class AlbumDataSource {
+final class AlbumDataSource {
     var appDependencies: AppDependenciesResolver
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
     }
-    func downloadAllAlbumsFor(artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
-        let url = "https://itunes.apple.com/lookup?id=\(artistId)&entity=album"
-        let downloadClient: WebAPIDataSource = appDependencies.resolve()
-        downloadClient.download(from: url, completionHandler: completion)
+    func getAllAlbumsFor(artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
+        let dataRepository: DataRepository = appDependencies.resolve()
+        dataRepository.downloadAllAlbums(for: artistId, completion: completion)
     }
-    func downloadTwoAlbumsdFor(artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
-        let url = "https://itunes.apple.com/lookup?id=\(artistId)&entity=album&limit=2"
-        let downloadClient: WebAPIDataSource = appDependencies.resolve()
-        downloadClient.download(from: url, completionHandler: completion)
+    func getTwoAlbumsdFor(artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
+        let dataRepository: DataRepository = appDependencies.resolve()
+        dataRepository.downloadTwoAlbums(for: artistId, completion: completion)
     }
 }

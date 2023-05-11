@@ -17,9 +17,9 @@ final class ArtistListPresenter  {
     private var dataTask: URLSessionDataTask?
     weak var artistListView: ArtistListViewController?
     private var appDependencies: AppDependenciesResolver
-    private var downloadClient: WebAPIDataSource
     private var newArtistList: [ArtistEntity] = [ArtistEntity(id: 0, name: "")]
-    private var dataRepository: DataRepository
+    private var artistDataSource: ArtistDataSource
+    private var albumDatasource: AlbumDataSource
     private var artistListNoDiscs: [ArtistEntity] = [ArtistEntity(id: 0, name: "")] {
         didSet {
             addDiscsToArtistIn(artistListNoDiscs)
@@ -33,8 +33,8 @@ final class ArtistListPresenter  {
     private var albumList: [String?]?
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
-        downloadClient = appDependencies.resolve()
-        dataRepository = appDependencies.resolve()
+        artistDataSource = appDependencies.resolve()
+        albumDatasource = appDependencies.resolve()
     }
 }
 
@@ -49,7 +49,7 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
         guard let artistName = artistListView?.searchText.replacingOccurrences(of: " ", with: "+") else {
             return
         }
-        dataRepository.getAllArtists(for: artistName) { [weak self] (result: Result<ArtistDTO, WebAPIDataSource.NetworkError>) in
+        artistDataSource.getAllArtistsFor(artistName: artistName) { [weak self] (result: Result<ArtistDTO, WebAPIDataSource.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 self?.artistListNoDiscs = iTunesArtistModel.results.map {
@@ -82,7 +82,7 @@ private extension ArtistListPresenter {
         artistList = []
         artistListNoDiscs.map { artist in
             albumList = ["", ""]
-            dataRepository.getTwoFirstAlbums(for: artist.id) { [weak self] (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
+            albumDatasource.getTwoAlbumsdFor(artistId: artist.id) { [weak self] (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
                 switch result {
                 case .success(let iTunesAlbumModel):
                     if (iTunesAlbumModel.results.count > 1) {

@@ -7,14 +7,13 @@
 
 import Foundation
 
-class ArtistDataSource {
+final class ArtistDataSource {
     var appDependencies: AppDependenciesResolver
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
     }
-    func downloadArtistsFor(artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {
-        let url = "https://itunes.apple.com/search?term=\(artistName)&entity=musicArtist&attribute=artistTerm"
-        let downloadClient: WebAPIDataSource = appDependencies.resolve()
-        downloadClient.download(from: url, completionHandler: completion)
+    func getAllArtistsFor(artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {
+        let dataRepository: DataRepository = appDependencies.resolve()
+        dataRepository.downloadAllArtists(for: artistName, completion:  completion)
     }
 }

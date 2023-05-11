@@ -29,7 +29,7 @@ extension ArtistDetailViewModel {
         guard let artistId = artist?.id else {
             return
         }
-        dataRepository.getAllAlbums(for: artistId) { [weak self] (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
+        dataRepository.downloadAllAlbums(for: artistId) { [weak self] (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
             switch result {
             case .success(let iTunesAlbumModel):
                 let albumList: [AlbumEntity] = iTunesAlbumModel.results.compactMap {
