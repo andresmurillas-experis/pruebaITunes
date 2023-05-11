@@ -13,7 +13,7 @@ protocol DataRepository {
     func downloadTwoAlbums(for artistId: Int, completion: @escaping  (Result< AlbumDTO , WebAPIDataSource.NetworkError>) -> ())
 }
 
-class ITunesDataRepository: DataRepository {
+final class ITunesDataRepository: DataRepository {
     var appDependencies: AppDependenciesResolver
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies

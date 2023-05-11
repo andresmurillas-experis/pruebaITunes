@@ -13,7 +13,7 @@ final class ArtistDetailViewModel {
     private let downloadClient: WebAPIDataSource
     private var appDependencies: AppDependenciesResolver
     var albumListBinding: Bindable<[AlbumEntity]> = Bindable([])
-    var dataRepository: DataRepository
+    var albumDataSource: AlbumDataSource
     init(appDependencies: AppDependenciesResolver) {
         self.downloadClient = appDependencies.resolve()
         self.appDependencies = appDependencies
@@ -29,7 +29,7 @@ extension ArtistDetailViewModel {
         guard let artistId = artist?.id else {
             return
         }
-        dataRepository.downloadAllAlbums(for: artistId) { [weak self] (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
+        albumDataSource.getAllAlbumsFor(artistId: artistId) { [weak self] (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
             switch result {
             case .success(let iTunesAlbumModel):
                 let albumList: [AlbumEntity] = iTunesAlbumModel.results.compactMap {
