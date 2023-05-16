@@ -16,7 +16,9 @@ struct ArtistEntity: Codable {
         self.id = id
         self.name = name
     }
-    mutating func setDiscNames (discOneName: String?, discTwoName: String?) {
+    init(id: Int, name: String, discOneName: String?, discTwoName: String?) {
+        self.id = id
+        self.name = name
         self.discOneName = discOneName
         self.discTwoName = discTwoName
     }

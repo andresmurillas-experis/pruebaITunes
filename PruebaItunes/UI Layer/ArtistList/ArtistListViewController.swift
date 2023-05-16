@@ -8,42 +8,35 @@
 import UIKit
 
 protocol ArtistListViewProtocol: AnyObject {
-    func setArtistList(_ artistList: [ArtistEntity]?)
+    func setArtistList(_ artistList: [ArtistEntity])
 }
 
 final class ArtistListViewController: UIViewController {
-
     private let tableView = UITableView()
-
     private var presenter: ArtistListPresenterProtocol
     private var searchBar: UISearchBar = UISearchBar()
     var searchText = ""
-    private var artistList: [ArtistEntity]? = [] {
+    private var artistList: [ArtistEntity] = [] {
         didSet {
             DispatchQueue.main.async {
-                self.tableView.reloadData() 
+                self.tableView.reloadData()
             }
         }
     }
-
     init(presenter: ArtistListPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         presenter.artistListView = self
         searchBar.delegate = self
     }
-
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
         navigationItem.titleView = searchBar
         setupTableView()
     }
-
 }
 
 private extension ArtistListViewController {
@@ -60,30 +53,26 @@ private extension ArtistListViewController {
     }
 }
 
-extension ArtistListViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchText = searchText
-        viewDidLoad()
+extension ArtistListViewController: ArtistListViewProtocol {
+    func setArtistList(_ artistList: [ArtistEntity]) {
+        self.artistList = artistList
     }
 }
 
-extension ArtistListViewController: ArtistListViewProtocol {
-    func setArtistList(_ artistList: [ArtistEntity]?) {
-        self.artistList = artistList
+extension ArtistListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+        presenter.renewSearch()
     }
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        artistList?.count ?? 0
+        return artistList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
             return UITableViewCell()
-        }
-        guard let artistList = artistList else {
-            return ArtistCell()
         }
         if indexPath.item < artistList.count {
             let artist = artistList[indexPath.item]

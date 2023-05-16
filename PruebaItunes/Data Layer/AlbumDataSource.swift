@@ -12,11 +12,11 @@ final class AlbumDataSource {
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
     }
-    func getAllAlbumsFor(artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
+    func getAllAlbums(for artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
         let dataRepository: DataRepository = appDependencies.resolve()
         dataRepository.downloadAllAlbums(for: artistId, completion: completion)
     }
-    func getTwoAlbumsdFor(artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
+    func getTwoFirstAlbums(for artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
         let dataRepository: DataRepository = appDependencies.resolve()
         dataRepository.downloadTwoAlbums(for: artistId, completion: completion)
     }

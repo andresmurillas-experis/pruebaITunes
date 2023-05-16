@@ -8,9 +8,9 @@
 import Foundation
 
 protocol DataRepository {
-    func downloadAllArtists(for artistName: String, completion: @escaping (Result< ArtistDTO , WebAPIDataSource.NetworkError>) -> () )
-    func downloadAllAlbums(for artistId: Int, completion: @escaping (Result< AlbumDTO , WebAPIDataSource.NetworkError>) -> () )
-    func downloadTwoAlbums(for artistId: Int, completion: @escaping  (Result< AlbumDTO , WebAPIDataSource.NetworkError>) -> ())
+    func downloadAllArtists(for artistName: String, completion: @escaping (Result<ArtistDTO , WebAPIDataSource.NetworkError>) -> ())
+    func downloadAllAlbums(for artistId: Int, completion: @escaping (Result<AlbumDTO , WebAPIDataSource.NetworkError>) -> ())
+    func downloadTwoAlbums(for artistId: Int, completion: @escaping  (Result<AlbumDTO , WebAPIDataSource.NetworkError>) -> ())
 }
 
 final class ITunesDataRepository: DataRepository {

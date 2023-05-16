@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CustomCollectionViewLayout: UICollectionViewFlowLayout {
+final class CustomCollectionViewLayout: UICollectionViewFlowLayout {
     private var cache = [UICollectionViewLayoutAttributes]()
     private var albumList: [AlbumEntity]?
     private let numberOfColumns = 2

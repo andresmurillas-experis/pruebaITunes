@@ -19,17 +19,19 @@
 		7F2B64B129A7529C001DF58A /* ArtistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */; };
 		7F47DAAB29B8894700364F00 /* AlbumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47DAAA29B8894700364F00 /* AlbumDTO.swift */; };
 		7F47DAAD29B88CB600364F00 /* AlbumEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47DAAC29B88CB600364F00 /* AlbumEntity.swift */; };
+		7F6204A42A0E2CE000244A1A /* GetAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6204A32A0E2CE000244A1A /* GetAlbums.swift */; };
+		7F6204A72A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6204A62A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift */; };
 		7F8780D32A0A50AF00F1D582 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8780D22A0A50AF00F1D582 /* DataRepository.swift */; };
 		7F8780DC2A0BB65400F1D582 /* ArtistDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8780DB2A0BB65400F1D582 /* ArtistDataSource.swift */; };
 		7F8780DE2A0BB96400F1D582 /* AlbumDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8780DD2A0BB96400F1D582 /* AlbumDataSource.swift */; };
+		7F8B101B2A0CDEC500CD0F11 /* GetArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B101A2A0CDEC500CD0F11 /* GetArtists.swift */; };
 		7FBC437D29A76D0000FD0D3D /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC437B29A76D0000FD0D3D /* ArtistCell.swift */; };
 		7FBC438229A8A79800FD0D3D /* ArtistEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC438129A8A79800FD0D3D /* ArtistEntity.swift */; };
 		7FBC438629A8D67E00FD0D3D /* ArtistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC438529A8D67E00FD0D3D /* ArtistDTO.swift */; };
 		7FD76AA529F936300009A83B /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD76AA429F936300009A83B /* CustomCollectionViewLayout.swift */; };
-		7FD76AA729FBB18B0009A83B /* MyStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD76AA629FBB18B0009A83B /* MyStackView.swift */; };
 		7FDB2AFD29CC5734005CCB47 /* WebAPIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB2AFC29CC5734005CCB47 /* WebAPIDataSource.swift */; };
 		7FDB2B0329CDBB54005CCB47 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */; };
-		7FE221FB29E697CD0042E2E2 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE221FA29E697CD0042E2E2 /* Bindable.swift */; };
+		7FEAC45C2A0D09B0006E31E0 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAC45B2A0D09B0006E31E0 /* Bindable.swift */; };
 		7FF5A0CB29BB4EE800A26D45 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5A0C929BB4EE800A26D45 /* AlbumCell.swift */; };
 		7FF60C1D29CAE990008823D4 /* ArtistListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF60C1C29CAE990008823D4 /* ArtistListPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -68,17 +70,19 @@
 		7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewController.swift; sourceTree = "<group>"; };
 		7F47DAAA29B8894700364F00 /* AlbumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDTO.swift; sourceTree = "<group>"; };
 		7F47DAAC29B88CB600364F00 /* AlbumEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumEntity.swift; sourceTree = "<group>"; };
+		7F6204A32A0E2CE000244A1A /* GetAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAlbums.swift; sourceTree = "<group>"; };
+		7F6204A62A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTwoAlbumNamesUseCase.swift; sourceTree = "<group>"; };
 		7F8780D22A0A50AF00F1D582 /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		7F8780DB2A0BB65400F1D582 /* ArtistDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDataSource.swift; sourceTree = "<group>"; };
 		7F8780DD2A0BB96400F1D582 /* AlbumDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDataSource.swift; sourceTree = "<group>"; };
+		7F8B101A2A0CDEC500CD0F11 /* GetArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtists.swift; sourceTree = "<group>"; };
 		7FBC437B29A76D0000FD0D3D /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
 		7FBC438129A8A79800FD0D3D /* ArtistEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntity.swift; sourceTree = "<group>"; };
 		7FBC438529A8D67E00FD0D3D /* ArtistDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDTO.swift; sourceTree = "<group>"; };
 		7FD76AA429F936300009A83B /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
-		7FD76AA629FBB18B0009A83B /* MyStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStackView.swift; sourceTree = "<group>"; };
 		7FDB2AFC29CC5734005CCB47 /* WebAPIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPIDataSource.swift; sourceTree = "<group>"; };
 		7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
-		7FE221FA29E697CD0042E2E2 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		7FEAC45B2A0D09B0006E31E0 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		7FF5A0C929BB4EE800A26D45 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		7FF60C1C29CAE990008823D4 /* ArtistListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,28 +112,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7F00F4FE29C0802800337091 /* View */ = {
+		7F00F4FE29C0802800337091 /* ArtistDetail */ = {
 			isa = PBXGroup;
 			children = (
 				7F0444F729BB3310008B2E05 /* ArtistDetailViewController.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7F00F50029C0803800337091 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7F00F4F129C05EF300337091 /* ArtistDetailViewModel.swift */,
-			);
-			path = ViewModel;
+			name = ArtistDetail;
+			path = "../Domain Layer/ArtistDetail/ArtistDetail";
 			sourceTree = "<group>";
 		};
 		7F0444EC29BA01B8008B2E05 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				7FBC437B29A76D0000FD0D3D /* ArtistCell.swift */,
 				7FF5A0C929BB4EE800A26D45 /* AlbumCell.swift */,
 				7FD76AA429F936300009A83B /* CustomCollectionViewLayout.swift */,
-				7FD76AA629FBB18B0009A83B /* MyStackView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -157,13 +154,13 @@
 		7F2841F229A61CA3004AFA0D /* PruebaItunes */ = {
 			isa = PBXGroup;
 			children = (
+				7FEAC45A2A0D099D006E31E0 /* Binding */,
 				7F2841F329A61CA3004AFA0D /* AppDelegate.swift */,
 				7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */,
 				7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */,
 				7FF60C1E29CB04E7008823D4 /* Data Layer */,
-				7FE221F929E697AA0042E2E2 /* Binding */,
-				7F6C58B229B5EDFC00C7AEB2 /* ArtistList */,
-				7F47DAA929B5F35300364F00 /* ArtistDetail */,
+				7F8B10182A0CDE9000CD0F11 /* Domain Layer */,
+				7F8B101C2A0D036A00CD0F11 /* UI Layer */,
 				7F2841FC29A61CA5004AFA0D /* Assets.xcassets */,
 				7F2841FE29A61CA5004AFA0D /* LaunchScreen.storyboard */,
 				7F28420129A61CA5004AFA0D /* Info.plist */,
@@ -191,10 +188,7 @@
 		7F47DAA929B5F35300364F00 /* ArtistDetail */ = {
 			isa = PBXGroup;
 			children = (
-				7FF6374429F283230060C6BB /* Model */,
-				7F00F4FE29C0802800337091 /* View */,
-				7F00F50029C0803800337091 /* ViewModel */,
-				7F0444EC29BA01B8008B2E05 /* ViewComponents */,
+				7F00F4F129C05EF300337091 /* ArtistDetailViewModel.swift */,
 			);
 			path = ArtistDetail;
 			sourceTree = "<group>";
@@ -202,45 +196,65 @@
 		7F6C58B229B5EDFC00C7AEB2 /* ArtistList */ = {
 			isa = PBXGroup;
 			children = (
-				7FF6374529F2832D0060C6BB /* Model */,
-				7FECE6D729C1C50A00D5CCF2 /* View */,
-				7FECE6D929C1C51800D5CCF2 /* Presenter */,
-				7FC10D0429B5F0F1006C0B2E /* ViewComponents */,
+				7FF60C1C29CAE990008823D4 /* ArtistListPresenter.swift */,
 			);
 			path = ArtistList;
 			sourceTree = "<group>";
 		};
-		7FC10D0429B5F0F1006C0B2E /* ViewComponents */ = {
+		7F8B10182A0CDE9000CD0F11 /* Domain Layer */ = {
 			isa = PBXGroup;
 			children = (
-				7FBC437B29A76D0000FD0D3D /* ArtistCell.swift */,
+				7F6C58B229B5EDFC00C7AEB2 /* ArtistList */,
+				7F47DAA929B5F35300364F00 /* ArtistDetail */,
+				7F0444EC29BA01B8008B2E05 /* ViewComponents */,
+				7F8B10192A0CDE9D00CD0F11 /* Use Cases */,
 			);
-			path = ViewComponents;
+			path = "Domain Layer";
 			sourceTree = "<group>";
 		};
-		7FE221F929E697AA0042E2E2 /* Binding */ = {
+		7F8B10192A0CDE9D00CD0F11 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				7FE221FA29E697CD0042E2E2 /* Bindable.swift */,
+				7F8B101A2A0CDEC500CD0F11 /* GetArtists.swift */,
+				7F6204A32A0E2CE000244A1A /* GetAlbums.swift */,
+				7F6204A62A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift */,
 			);
-			name = Binding;
-			path = ArtistDetail/Binding;
+			path = "Use Cases";
 			sourceTree = "<group>";
 		};
-		7FECE6D729C1C50A00D5CCF2 /* View */ = {
+		7F8B101C2A0D036A00CD0F11 /* UI Layer */ = {
+			isa = PBXGroup;
+			children = (
+				7FECE6D729C1C50A00D5CCF2 /* ArtistList */,
+				7F00F4FE29C0802800337091 /* ArtistDetail */,
+				7FF6374529F2832D0060C6BB /* Entities */,
+			);
+			path = "UI Layer";
+			sourceTree = "<group>";
+		};
+		7F8B101D2A0D044700CD0F11 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				7FBC438529A8D67E00FD0D3D /* ArtistDTO.swift */,
+				7F47DAAA29B8894700364F00 /* AlbumDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		7FEAC45A2A0D099D006E31E0 /* Binding */ = {
+			isa = PBXGroup;
+			children = (
+				7FEAC45B2A0D09B0006E31E0 /* Bindable.swift */,
+			);
+			path = Binding;
+			sourceTree = "<group>";
+		};
+		7FECE6D729C1C50A00D5CCF2 /* ArtistList */ = {
 			isa = PBXGroup;
 			children = (
 				7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7FECE6D929C1C51800D5CCF2 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				7FF60C1C29CAE990008823D4 /* ArtistListPresenter.swift */,
-			);
-			path = Presenter;
+			path = ArtistList;
 			sourceTree = "<group>";
 		};
 		7FF60C1E29CB04E7008823D4 /* Data Layer */ = {
@@ -250,26 +264,18 @@
 				7FDB2AFC29CC5734005CCB47 /* WebAPIDataSource.swift */,
 				7F8780DB2A0BB65400F1D582 /* ArtistDataSource.swift */,
 				7F8780DD2A0BB96400F1D582 /* AlbumDataSource.swift */,
+				7F8B101D2A0D044700CD0F11 /* DTO */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
 		};
-		7FF6374429F283230060C6BB /* Model */ = {
+		7FF6374529F2832D0060C6BB /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7F47DAAA29B8894700364F00 /* AlbumDTO.swift */,
 				7F47DAAC29B88CB600364F00 /* AlbumEntity.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7FF6374529F2832D0060C6BB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7FBC438529A8D67E00FD0D3D /* ArtistDTO.swift */,
 				7FBC438129A8A79800FD0D3D /* ArtistEntity.swift */,
 			);
-			path = Model;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,22 +412,24 @@
 				7F47DAAD29B88CB600364F00 /* AlbumEntity.swift in Sources */,
 				7FDB2B0329CDBB54005CCB47 /* AppDependencies.swift in Sources */,
 				7F2841F429A61CA3004AFA0D /* AppDelegate.swift in Sources */,
-				7FE221FB29E697CD0042E2E2 /* Bindable.swift in Sources */,
 				7FF60C1D29CAE990008823D4 /* ArtistListPresenter.swift in Sources */,
 				7F00F4F229C05EF300337091 /* ArtistDetailViewModel.swift in Sources */,
 				7FD76AA529F936300009A83B /* CustomCollectionViewLayout.swift in Sources */,
 				7F0444F929BB3310008B2E05 /* ArtistDetailViewController.swift in Sources */,
+				7F6204A72A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift in Sources */,
+				7FEAC45C2A0D09B0006E31E0 /* Bindable.swift in Sources */,
 				7F2841F629A61CA3004AFA0D /* SceneDelegate.swift in Sources */,
 				7FDB2AFD29CC5734005CCB47 /* WebAPIDataSource.swift in Sources */,
 				7FBC438629A8D67E00FD0D3D /* ArtistDTO.swift in Sources */,
+				7F6204A42A0E2CE000244A1A /* GetAlbums.swift in Sources */,
 				7F8780DE2A0BB96400F1D582 /* AlbumDataSource.swift in Sources */,
 				7F8780DC2A0BB65400F1D582 /* ArtistDataSource.swift in Sources */,
-				7FD76AA729FBB18B0009A83B /* MyStackView.swift in Sources */,
 				7F47DAAB29B8894700364F00 /* AlbumDTO.swift in Sources */,
 				7FBC438229A8A79800FD0D3D /* ArtistEntity.swift in Sources */,
 				7F8780D32A0A50AF00F1D582 /* DataRepository.swift in Sources */,
 				7FBC437D29A76D0000FD0D3D /* ArtistCell.swift in Sources */,
 				7F2B64B129A7529C001DF58A /* ArtistListViewController.swift in Sources */,
+				7F8B101B2A0CDEC500CD0F11 /* GetArtists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

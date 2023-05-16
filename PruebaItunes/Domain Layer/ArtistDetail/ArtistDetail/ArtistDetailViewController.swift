@@ -11,7 +11,6 @@ final class ArtistDetailViewController: UIViewController {
     lazy private var scrollView: UIScrollView = {
         var scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.showsVerticalScrollIndicator = true
         return scrollView
     }()
     lazy private var contentView: UIView = {
@@ -54,25 +53,25 @@ private extension ArtistDetailViewController {
     }
     func setupCollectionView() {
         view.addSubview(scrollView)
-
         scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        scrollView.showsVerticalScrollIndicator = true
 
         scrollView.addSubview(contentView)
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-    
-        contentView.addSubview(mainStackView)
-        contentView.heightAnchor.constraint(equalTo: mainStackView.heightAnchor).isActive = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
 
+        contentView.addSubview(mainStackView)
         mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        mainStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         mainStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        mainStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+
+        contentView.heightAnchor.constraint(equalTo: mainStackView.heightAnchor).isActive = true
 
         let chunks = stride(from: 0, to: albumList.count, by: 3).map { i in
             var chunk: [AlbumEntity] = []
@@ -87,7 +86,6 @@ private extension ArtistDetailViewController {
             }
             return chunk
         }
-
         var stackViews: [UIStackView] = []
         for _ in 0...chunks.count {
             stackViews.append(UIStackView())
@@ -98,7 +96,6 @@ private extension ArtistDetailViewController {
             stackViews[i].translatesAutoresizingMaskIntoConstraints = false
             stackViews[i].heightAnchor.constraint(equalToConstant: 120).isActive = true
             stackViews[i].distribution = .fillEqually
-            
             var newchunk = chunk
             if chunk.count < 3 {
                 for _ in chunk.count...2 {

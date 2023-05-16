@@ -37,6 +37,15 @@ extension AppDependenciesResolver {
     func resolve() -> AlbumDataSource {
         AlbumDataSource(appDependencies: self)
     }
+    func resolve() -> GetArtists {
+        GetArtists(appDependencies: self)
+    }
+    func resolve() -> GetAlbums {
+        GetAlbums(appDependencies: self)
+    }
+    func resolve() -> GetTwoAlbumNamesUseCase {
+        GetTwoAlbumNamesUseCase(appDependencies: self)
+    }
 }
 
 final class AppDependencies {

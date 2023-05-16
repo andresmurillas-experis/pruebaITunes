@@ -12,7 +12,7 @@ final class ArtistDataSource {
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
     }
-    func getAllArtistsFor(artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {
+    func getAllArtists(for artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {
         let dataRepository: DataRepository = appDependencies.resolve()
         dataRepository.downloadAllArtists(for: artistName, completion:  completion)
     }

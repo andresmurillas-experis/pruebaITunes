@@ -55,7 +55,6 @@ extension AlbumCell {
         }
     }
     func viewDidLoad() {
-        
         self.addSubview(albumCover)
         albumCover.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         albumCover.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -64,6 +63,7 @@ extension AlbumCell {
         self.addSubview(albumTitle)
         albumTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         albumTitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8  ).isActive = true
+        albumTitle.contentMode = .scaleAspectFit
         albumTitle.updateConstraints()
     }
     func wipeCover() {
@@ -98,5 +98,4 @@ private extension AlbumCell {
             }
         }.resume()
     }
-
 }
