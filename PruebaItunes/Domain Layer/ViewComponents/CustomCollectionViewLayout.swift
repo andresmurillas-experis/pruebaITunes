@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class CustomCollectionViewLayout: UICollectionViewFlowLayout {
+final class CustomCollectionViewLayout: UICollectionViewFlowLayout {
     private var cache = [UICollectionViewLayoutAttributes]()
-    private var albumList: [AlbumModel]?
+    private var albumList: [AlbumEntity]?
     private let numberOfColumns = 2
     private let cellPadding: CGFloat = 3
     private var contentWidth: CGFloat {
@@ -22,7 +22,7 @@ class CustomCollectionViewLayout: UICollectionViewFlowLayout {
     override init() {
         super.init()
     }
-    init(albumList: [AlbumModel]) {
+    init(albumList: [AlbumEntity]) {
         self.albumList = albumList
         super.init()
     }

@@ -10,14 +10,14 @@ import Foundation
 
 protocol AppDependenciesResolver {
     func resolve() -> Coordinator
-    func resolve() -> DownloadClient
+    func resolve() -> WebAPIDataSource
     func resolve() -> ArtistListPresenterProtocol
     func resolve() -> ArtistListViewProtocol
 }
 
 extension AppDependenciesResolver {
-    func resolve() -> DownloadClient {
-        DownloadClient()
+    func resolve() -> WebAPIDataSource {
+        WebAPIDataSource()
     }
     func resolve() -> ArtistListPresenterProtocol {
         ArtistListPresenter(appDependencies: self)
@@ -25,8 +25,26 @@ extension AppDependenciesResolver {
     func resolve() -> ArtistDetailViewModel {
         ArtistDetailViewModel(appDependencies: self)
     }
+    func resolve() -> ITunesDataRepository {
+        ITunesDataRepository(appDependencies: self)
+    }
     func resolve() -> ArtistListViewProtocol {
         ArtistListViewController(presenter: resolve())
+    }
+    func resolve() -> ArtistDataSource {
+        ArtistDataSource(appDependencies: self)
+    }
+    func resolve() -> AlbumDataSource {
+        AlbumDataSource(appDependencies: self)
+    }
+    func resolve() -> GetArtists {
+        GetArtists(appDependencies: self)
+    }
+    func resolve() -> GetAlbums {
+        GetAlbums(appDependencies: self)
+    }
+    func resolve() -> GetTwoAlbumNamesUseCase {
+        GetTwoAlbumNamesUseCase(appDependencies: self)
     }
 }
 
@@ -53,7 +71,7 @@ struct Coordinator {
     func getInitialViewController() -> UIViewController {
         ArtistListViewController(presenter: appDependencies.resolve())
     }
-    func goToDetailViewForArtist(_ artist: ArtistModel) {
+    func goToDetailViewForArtist(_ artist: ArtistEntity) {
         let vm: ArtistDetailViewModel = appDependencies.resolve()
         vm.setArtist(artist)
         let artistDetailView = ArtistDetailViewController(vm: vm)

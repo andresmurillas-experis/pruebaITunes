@@ -18,7 +18,7 @@ struct ArtistResult: Decodable {
      let primaryGenreId:Int?
 }
 
-struct ITunesArtistModel: Decodable {
+struct ArtistDTO: Decodable {
     let resultCount: Int
     let results: [ArtistResult]
 }

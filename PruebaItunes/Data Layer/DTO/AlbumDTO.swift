@@ -13,7 +13,7 @@ struct AlbumResult: Decodable {
     let artworkUrl100: String?
 }
 
-struct ITunesAlbumModel: Decodable {
+struct AlbumDTO: Decodable {
     let resultCount: Int
     let results: [AlbumResult]
 }
