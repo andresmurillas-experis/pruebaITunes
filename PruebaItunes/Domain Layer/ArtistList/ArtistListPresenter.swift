@@ -39,7 +39,7 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
             return
         }
         artistList = []
-        let getArtists: GetArtists = appDependencies.resolve()
+        let getArtists: GetArtists = appDependencies.resolve(viewController: artistListView)
         getArtists.execute(artistName: artistName) { artistList in
             let artistNoDiscs = artistList
             self.addDiscsToArtistsIn(artistNoDiscs)

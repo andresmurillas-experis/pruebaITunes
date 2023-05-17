@@ -19,6 +19,7 @@
 		7F2B64B129A7529C001DF58A /* ArtistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */; };
 		7F47DAAB29B8894700364F00 /* AlbumDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47DAAA29B8894700364F00 /* AlbumDTO.swift */; };
 		7F47DAAD29B88CB600364F00 /* AlbumEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47DAAC29B88CB600364F00 /* AlbumEntity.swift */; };
+		7F5478742A14F1A900950647 /* AlertPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5478732A14F1A900950647 /* AlertPrompt.swift */; };
 		7F6204A42A0E2CE000244A1A /* GetAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6204A32A0E2CE000244A1A /* GetAlbums.swift */; };
 		7F6204A72A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6204A62A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift */; };
 		7F8780D32A0A50AF00F1D582 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8780D22A0A50AF00F1D582 /* DataRepository.swift */; };
@@ -70,6 +71,7 @@
 		7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewController.swift; sourceTree = "<group>"; };
 		7F47DAAA29B8894700364F00 /* AlbumDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDTO.swift; sourceTree = "<group>"; };
 		7F47DAAC29B88CB600364F00 /* AlbumEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumEntity.swift; sourceTree = "<group>"; };
+		7F5478732A14F1A900950647 /* AlertPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPrompt.swift; sourceTree = "<group>"; };
 		7F6204A32A0E2CE000244A1A /* GetAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAlbums.swift; sourceTree = "<group>"; };
 		7F6204A62A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTwoAlbumNamesUseCase.swift; sourceTree = "<group>"; };
 		7F8780D22A0A50AF00F1D582 /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				7FECE6D729C1C50A00D5CCF2 /* ArtistList */,
 				7F00F4FE29C0802800337091 /* ArtistDetail */,
 				7FF6374529F2832D0060C6BB /* Entities */,
+				7F5478732A14F1A900950647 /* AlertPrompt.swift */,
 			);
 			path = "UI Layer";
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				7FD76AA529F936300009A83B /* CustomCollectionViewLayout.swift in Sources */,
 				7F0444F929BB3310008B2E05 /* ArtistDetailViewController.swift in Sources */,
 				7F6204A72A0E3BF700244A1A /* GetTwoAlbumNamesUseCase.swift in Sources */,
+				7F5478742A14F1A900950647 /* AlertPrompt.swift in Sources */,
 				7FEAC45C2A0D09B0006E31E0 /* Bindable.swift in Sources */,
 				7F2841F629A61CA3004AFA0D /* SceneDelegate.swift in Sources */,
 				7FDB2AFD29CC5734005CCB47 /* WebAPIDataSource.swift in Sources */,

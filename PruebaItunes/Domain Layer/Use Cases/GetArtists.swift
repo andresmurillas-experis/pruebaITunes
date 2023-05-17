@@ -5,14 +5,17 @@
 //  Created by Andrés Murillas on 11/5/23.
 //
 
+import UIKit
 import Foundation
 
 final class GetArtists {
     private var appDependencies: AppDependenciesResolver
     private var dataRepository: DataRepository
-    init(appDependencies: AppDependenciesResolver) {
+    private var viewController: ArtistListViewController?
+    init(appDependencies: AppDependenciesResolver, viewController: ArtistListViewController?) {
         self.appDependencies = appDependencies
         self.dataRepository = appDependencies.resolve()
+        self.viewController = viewController
     }
     func execute(artistName: String, completion: @escaping (([ArtistEntity]) -> ())) {
         dataRepository.getAllArtists(for: artistName) {(result: Result<ArtistDTO, WebAPIDataSource.NetworkError>) in
@@ -27,14 +30,17 @@ final class GetArtists {
             case .failure(let error):
                 switch error {
                 case .serviceError:
-                    print(error)
-                    print("No Data Eroor: ", error)
+                    DispatchQueue.main.async {
+                        self.viewController?.showError(error, title: "Service Error")
+                    }
                 case .noData:
-                    print(error)
-                    print("Network Service Error: ", error)
+                    DispatchQueue.main.async {
+                        self.viewController?.showError(error, title: "No Data Error")
+                    }
                 case .parsing:
-                    print(error)
-                    print("JSON Parsing Error: ", error)
+                    DispatchQueue.main.async {
+                        self.viewController?.showError(error, title: "Parsing Error")
+                    }
                 }
             }
         }

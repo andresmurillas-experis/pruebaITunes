@@ -11,7 +11,7 @@ protocol ArtistListViewProtocol: AnyObject {
     func setArtistList(_ artistList: [ArtistEntity])
 }
 
-final class ArtistListViewController: UIViewController {
+final class ArtistListViewController: UIViewController, AlertPrompt {
     private let tableView = UITableView()
     private var presenter: ArtistListPresenterProtocol
     private var searchBar: UISearchBar = UISearchBar()
@@ -83,7 +83,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 84
+        return 120
     }
 }
 
