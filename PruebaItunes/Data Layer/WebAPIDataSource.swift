@@ -33,7 +33,6 @@ final class WebAPIDataSource {
                 return
             }
             DispatchQueue.main.async {
-                print(iTunesResult)
                 completionHandler(.success(iTunesResult))
             }
         }.resume()

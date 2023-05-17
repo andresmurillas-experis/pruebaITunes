@@ -9,15 +9,13 @@ import Foundation
 
 final class GetArtists {
     private var appDependencies: AppDependenciesResolver
-    private var artistDataSource: ArtistDataSource
-    private var albumDatasource: AlbumDataSource
+    private var dataRepository: DataRepository
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
-        self.artistDataSource = appDependencies.resolve()
-        self.albumDatasource = appDependencies.resolve()
+        self.dataRepository = appDependencies.resolve()
     }
     func execute(artistName: String, completion: @escaping (([ArtistEntity]) -> ())) {
-        artistDataSource.getAllArtists(for: artistName) {(result: Result<ArtistDTO, WebAPIDataSource.NetworkError>) in
+        dataRepository.getAllArtists(for: artistName) {(result: Result<ArtistDTO, WebAPIDataSource.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 let artistListNoAlbums = iTunesArtistModel.results.map {

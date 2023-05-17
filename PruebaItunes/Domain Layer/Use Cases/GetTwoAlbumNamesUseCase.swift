@@ -9,13 +9,13 @@ import Foundation
 
 class GetTwoAlbumNamesUseCase {
     private var appDependencies: AppDependenciesResolver
-    private var albumDataSource: AlbumDataSource
+    private var dataRepository: DataRepository
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
-        albumDataSource = appDependencies.resolve()
+        dataRepository = appDependencies.resolve()
     }
     func execute(albumId: Int, completion: @escaping (([AlbumEntity]) -> ())) {
-        albumDataSource.getTwoFirstAlbums(for: albumId) { (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
+        dataRepository.getTwoAlbums(for: albumId) { (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 let albumList = iTunesArtistModel.results.map {

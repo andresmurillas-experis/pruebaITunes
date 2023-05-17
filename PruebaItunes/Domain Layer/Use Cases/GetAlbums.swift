@@ -9,13 +9,13 @@ import Foundation
 
 final class GetAlbums {
     private var appDependencies: AppDependenciesResolver
-    private var albumDataSource: AlbumDataSource
+    private var dataRepository: DataRepository
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
-        self.albumDataSource = appDependencies.resolve()
+        self.dataRepository = appDependencies.resolve()
     }
     func execute(albumId: Int, completion: @escaping (([AlbumEntity]) -> ())) {
-        albumDataSource.getAllAlbums(for: albumId) { (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
+        dataRepository.getAllAlbums(for: albumId) { (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
             switch result {
             case .success(let iTunesArtistModel):
                 

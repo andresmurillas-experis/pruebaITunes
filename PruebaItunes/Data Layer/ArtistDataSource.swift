@@ -12,8 +12,9 @@ final class ArtistDataSource {
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
     }
-    func getAllArtists(for artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {
-        let dataRepository: DataRepository = appDependencies.resolve()
-        dataRepository.downloadAllArtists(for: artistName, completion:  completion)
+    func downloadAllArtists(for artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {
+        let url = "https://itunes.apple.com/search?term=\(artistName)&entity=musicArtist&attribute=artistTerm"
+        let downloadClient: WebAPIDataSource = appDependencies.resolve()
+        downloadClient.download(from: url, completionHandler: completion)
     }
 }
