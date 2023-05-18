@@ -8,16 +8,17 @@
 import Foundation
 
 final class Bindable<T> {
-    var value: T {
+    typealias observerType = ((T?) -> Void)
+    var value: T? {
         didSet {
             observer?(value)
         }
     }
-    var observer: ((T) -> Void)?
-    init(_ value: T) {
+    var observer: observerType?
+    init(_ value: T?) {
         self.value = value
     }
-    func bind(_ observer : @escaping (T) -> Void) {
+    func bind(_ observer : @escaping observerType) {
         self.observer = observer
     }
 }

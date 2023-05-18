@@ -11,7 +11,7 @@ final class ArtistDetailViewModel {
     private var artist: ArtistEntity?
     private var appDependencies: AppDependenciesResolver
     var albumListBinding: Bindable<[AlbumEntity]> = Bindable([])
-    var errorBinding: Bindable<WebAPIDataSource.NetworkError>?
+    var errorBinding: Bindable<WebAPIDataSource.NetworkError> = Bindable(nil)
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
     }
@@ -31,7 +31,7 @@ extension ArtistDetailViewModel {
                 guard let error = error else  {
                      return
                 }
-                self.errorBinding?.value = error
+                self.errorBinding.value = error
                 return
             }
             self.albumListBinding.value = albumList

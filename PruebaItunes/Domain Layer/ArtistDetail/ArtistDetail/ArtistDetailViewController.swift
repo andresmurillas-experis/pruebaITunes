@@ -48,9 +48,9 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
         self.vm = vm
         super.init(nibName: nil, bundle: nil)
         vm.albumListBinding.bind { (albumList) in
-            self.albumList = albumList
+            self.albumList = albumList ?? [AlbumEntity(albumName: nil, albumCover: nil, albumCoverLarge: nil)]
         }
-        vm.errorBinding?.bind { (error) in
+        vm.errorBinding.bind { (error) in
             self.error = error
         }
     }

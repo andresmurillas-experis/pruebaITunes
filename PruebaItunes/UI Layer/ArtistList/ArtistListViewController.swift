@@ -23,11 +23,31 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             }
         }
     }
+    private var error: WebAPIDataSource.NetworkError? {
+        didSet {
+            DispatchQueue.main.async { [self] in
+                switch error {
+                case .parsing:
+                    showError(error, title: "Parsing Error")
+                case .noData:
+                    showError(error, title: "No Data Error")
+                case .serviceError:
+                    showError(error, title: "Service Error")
+                case .none:
+                    return
+                }
+            }
+        }
+    }
+
     init(presenter: ArtistListPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         presenter.artistListView = self
         searchBar.delegate = self
+        presenter.errorBinding.bind { error in
+            self.error = error
+        }
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
