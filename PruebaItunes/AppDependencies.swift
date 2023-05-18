@@ -37,8 +37,8 @@ extension AppDependenciesResolver {
     func resolve() -> AlbumDataSource {
         AlbumDataSource(appDependencies: self)
     }
-    func resolve() -> GetArtists {
-        GetArtists(appDependencies: self)
+    func resolve(viewController: ArtistListViewController?) -> GetArtists {
+        GetArtists(appDependencies: self, viewController: viewController)
     }
     func resolve() -> GetAlbums {
         GetAlbums(appDependencies: self)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ArtistDetailViewController: UIViewController {
+final class ArtistDetailViewController: UIViewController, AlertPrompt {
     lazy private var scrollView: UIScrollView = {
         var scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,11 +30,28 @@ final class ArtistDetailViewController: UIViewController {
             setupCollectionView()
         }
     }
+    private var error: WebAPIDataSource.NetworkError? {
+        didSet {
+            switch error {
+            case .serviceError:
+                showError(error, title: "Service, Error")
+            case .noData:
+                showError(error, title: "No Data Error")
+            case .parsing:
+                showError(error, title: "Parsing Error")
+            case .none:
+                return
+            }
+        }
+    }
     init(vm: ArtistDetailViewModel) {
         self.vm = vm
         super.init(nibName: nil, bundle: nil)
         vm.albumListBinding.bind { (albumList) in
-            self.albumList = albumList
+            self.albumList = albumList ?? [AlbumEntity(albumName: nil, albumCover: nil, albumCoverLarge: nil)]
+        }
+        vm.errorBinding.bind { (error) in
+            self.error = error
         }
     }
     required init(coder: NSCoder) {

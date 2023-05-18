@@ -9,6 +9,7 @@ import Foundation
 
 protocol ArtistListPresenterProtocol: AnyObject {
     var artistListView: ArtistListViewController? { get set }
+    var errorBinding: Bindable<WebAPIDataSource.NetworkError> { get }
     func renewSearch()
     func goToDetailViewForArtist(_ artist: ArtistEntity)
 }
@@ -16,6 +17,7 @@ protocol ArtistListPresenterProtocol: AnyObject {
 final class ArtistListPresenter  {
     weak var artistListView: ArtistListViewController?
     private var appDependencies: AppDependenciesResolver
+    var errorBinding: Bindable<WebAPIDataSource.NetworkError> = Bindable(nil)
     private var artistList: [ArtistEntity] = [] {
         didSet {
             self.artistListView?.setArtistList(artistList)
@@ -39,9 +41,12 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
             return
         }
         artistList = []
-        let getArtists: GetArtists = appDependencies.resolve()
-        getArtists.execute(artistName: artistName) { artistList in
-            let artistNoDiscs = artistList
+        let getArtists: GetArtists = appDependencies.resolve(viewController: artistListView)
+        getArtists.execute(artistName: artistName) { [self] (artistList, error)  in
+            guard let artistNoDiscs = artistList else {
+                errorBinding.value = error
+                return
+            }
             self.addDiscsToArtistsIn(artistNoDiscs)
         }
     }
