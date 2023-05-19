@@ -10,8 +10,8 @@ import UIKit
 
 class ArtistDetailCoordinator {
     private var navigationController: UINavigationController
-    private var appDependencies: AppDependencies
-    init(_ appDependencies: AppDependencies, navigationController: UINavigationController) {
+    private var appDependencies: AppDependenciesResolver
+    init(_ appDependencies: AppDependenciesResolver, navigationController: UINavigationController) {
         self.appDependencies = appDependencies
         self.navigationController = navigationController
     }

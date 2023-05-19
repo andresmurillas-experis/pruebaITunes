@@ -11,7 +11,7 @@ final class GetAlbums {
     private var appDependencies: AppDependenciesResolver
     private var dataRepository: DataRepository
     private var viewController: ArtistDetailViewController?
-    init(appDependencies: AppDependencies) {
+    init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
         self.dataRepository = appDependencies.resolve()
     }

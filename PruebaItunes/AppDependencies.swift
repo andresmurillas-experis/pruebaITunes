@@ -9,29 +9,23 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
-    func resolve() -> ArtistListCoordinator
     func resolve() -> ArtistDetailCoordinator
     func resolve() -> WebAPIDataSource
     func resolve() -> ArtistListPresenterProtocol
     func resolve() -> ArtistListViewProtocol
+    func resolve() -> ArtistDetailViewModel
+    func resolve() -> ArtistListCoordinator
 }
 
-final class AppDependencies {
-    private let navigator: UINavigationController
-    init(navigator: UINavigationController) {
-        self.navigator = navigator
+extension AppDependenciesResolver {
+    func resolve() -> ArtistDetailViewModel {
+        ArtistDetailViewModel(appDependencies: self)
     }
-}
-
-extension AppDependencies: AppDependenciesResolver {
     func resolve() -> WebAPIDataSource {
         WebAPIDataSource()
     }
     func resolve() -> ArtistListPresenterProtocol {
         ArtistListPresenter(appDependencies: self)
-    }
-    func resolve() -> ArtistDetailViewModel {
-        ArtistDetailViewModel(appDependencies: self)
     }
     func resolve() -> ITunesDataRepository {
         ITunesDataRepository(appDependencies: self)
@@ -46,14 +40,24 @@ extension AppDependencies: AppDependenciesResolver {
         AlbumDataSource(appDependencies: self)
     }
     func resolve(viewController: ArtistListViewController?) -> GetArtists {
-        GetArtists(appDependencies: self, viewController: viewController)
+        GetArtists(appDependencies: self)
     }
     func resolve() -> GetAlbums {
-        GetAlbums(appDependencies: self)
+        GetAlbums(appDependencies: self as! AppDependencies)
     }
     func resolve() -> GetTwoAlbumNamesUseCase {
         GetTwoAlbumNamesUseCase(appDependencies: self)
     }
+}
+
+final class AppDependencies {
+    private let navigator: UINavigationController
+    init(navigator: UINavigationController) {
+        self.navigator = navigator
+    }
+}
+
+extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistListCoordinator {
         ArtistListCoordinator(self, navigationController: navigator)
     }
