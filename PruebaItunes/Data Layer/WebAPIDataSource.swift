@@ -6,25 +6,24 @@
 //
 
 import Foundation
+import Alamofire
 
 final class WebAPIDataSource {
     enum NetworkError: Error {
         case serviceError, noData, parsing
     }
+
     func download <ResultType: Decodable>(from url: String, completionHandler: @escaping (Result<ResultType , NetworkError>) -> ()) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return
         }
-        print(url)
-        let request = URLRequest(url: url)
-        let session = URLSession.shared
-        session.dataTask(with: request) { data, response, error in
-            if error != nil {
+        AF.request(url).response { response in
+            if response.error != nil {
                 completionHandler(.failure(NetworkError.serviceError))
                 return
             }
-            guard let data = data else {
+            guard let data = response.data else {
                 completionHandler(.failure(NetworkError.noData))
                 return
             }
@@ -35,7 +34,7 @@ final class WebAPIDataSource {
             DispatchQueue.main.async {
                 completionHandler(.success(iTunesResult))
             }
-        }.resume()
+        }
     }
 }
 
