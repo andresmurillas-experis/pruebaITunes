@@ -9,8 +9,8 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
+    func resolve() -> InitialCoordinator
     func resolve() -> ArtistListCoordinator
-    func resolve() -> ArtistDetailCoordinator
     func resolve() -> WebAPIDataSource
     func resolve() -> ArtistListPresenterProtocol
     func resolve() -> ArtistListViewProtocol
@@ -57,11 +57,11 @@ final class AppDependencies {
 }
 
 extension AppDependencies: AppDependenciesResolver {
-    func resolve() -> ArtistDetailCoordinator {
-        ArtistDetailCoordinator(self, navigationController: navigator)
+    func resolve() -> ArtistListCoordinator {
+    ArtistListCoordinator(self, navigationController: navigator)
     }
     
-    func resolve() -> ArtistListCoordinator {
-        ArtistListCoordinator(self, navigationController: navigator)
+    func resolve() -> InitialCoordinator {
+        InitialCoordinator(self, navigationController: navigator)
     }
 }
