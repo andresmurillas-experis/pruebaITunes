@@ -109,6 +109,7 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistEntity) {
+        
         presenter.goToDetailViewForArtist(artist)
     }
 }

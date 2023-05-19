@@ -9,14 +9,21 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
-    func resolve() -> InitialCoordinator
     func resolve() -> ArtistListCoordinator
+    func resolve() -> ArtistDetailCoordinator
     func resolve() -> WebAPIDataSource
     func resolve() -> ArtistListPresenterProtocol
     func resolve() -> ArtistListViewProtocol
 }
 
-extension AppDependenciesResolver {
+final class AppDependencies {
+    private let navigator: UINavigationController
+    init(navigator: UINavigationController) {
+        self.navigator = navigator
+    }
+}
+
+extension AppDependencies: AppDependenciesResolver {
     func resolve() -> WebAPIDataSource {
         WebAPIDataSource()
     }
@@ -47,21 +54,11 @@ extension AppDependenciesResolver {
     func resolve() -> GetTwoAlbumNamesUseCase {
         GetTwoAlbumNamesUseCase(appDependencies: self)
     }
-}
-
-final class AppDependencies {
-    private let navigator: UINavigationController
-    init(navigator: UINavigationController) {
-        self.navigator = navigator
-    }
-}
-
-extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistListCoordinator {
-    ArtistListCoordinator(self, navigationController: navigator)
+        ArtistListCoordinator(self, navigationController: navigator)
     }
-    
-    func resolve() -> InitialCoordinator {
-        InitialCoordinator(self, navigationController: navigator)
+    func resolve() -> ArtistDetailCoordinator {
+        ArtistDetailCoordinator(self, navigationController: navigator)
     }
 }
+

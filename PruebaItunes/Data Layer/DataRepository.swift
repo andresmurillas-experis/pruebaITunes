@@ -14,8 +14,8 @@ protocol DataRepository {
 }
 
 final class ITunesDataRepository: DataRepository {
-    var appDependencies: AppDependenciesResolver
-    init(appDependencies: AppDependenciesResolver) {
+    var appDependencies: AppDependencies
+    init(appDependencies: AppDependencies) {
         self.appDependencies = appDependencies
     }
     func getAllArtists(for artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {

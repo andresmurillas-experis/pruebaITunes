@@ -9,9 +9,9 @@ import UIKit
 import Foundation
 
 final class GetArtists {
-    private var appDependencies: AppDependenciesResolver
+    private var appDependencies: AppDependencies
     private var dataRepository: DataRepository
-    init(appDependencies: AppDependenciesResolver, viewController: ArtistListViewController?) {
+    init(appDependencies: AppDependencies, viewController: ArtistListViewController?) {
         self.appDependencies = appDependencies
         self.dataRepository = appDependencies.resolve()
     }

@@ -8,9 +8,9 @@
 import Foundation
 
 class GetTwoAlbumNamesUseCase {
-    private var appDependencies: AppDependenciesResolver
+    private var appDependencies: AppDependencies
     private var dataRepository: DataRepository
-    init(appDependencies: AppDependenciesResolver) {
+    init(appDependencies: AppDependencies) {
         self.appDependencies = appDependencies
         dataRepository = appDependencies.resolve()
     }

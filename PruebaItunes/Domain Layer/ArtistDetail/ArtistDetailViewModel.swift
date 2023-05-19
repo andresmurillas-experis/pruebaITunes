@@ -9,10 +9,10 @@ import Foundation
 
 final class ArtistDetailViewModel {
     private var artist: ArtistEntity?
-    private var appDependencies: AppDependenciesResolver
+    private var appDependencies: AppDependencies
     var albumListBinding: Bindable<[AlbumEntity]> = Bindable([])
     var errorBinding: Bindable<WebAPIDataSource.NetworkError> = Bindable(nil)
-    init(appDependencies: AppDependenciesResolver) {
+    init(appDependencies: AppDependencies) {
         self.appDependencies = appDependencies
     }
 }

@@ -16,9 +16,7 @@ class ArtistListCoordinator {
         self.navigationController = navigationController
     }
     func goToDetailViewForArtist(_ artist: ArtistEntity) {
-        let vm: ArtistDetailViewModel = appDependencies.resolve()
-        vm.setArtist(artist)
-        let artistDetailView = ArtistDetailViewController(vm: vm)
-        navigationController.pushViewController(artistDetailView, animated: true)
+        let artistDetailView: ArtistDetailCoordinator = appDependencies.resolve()
+        artistDetailView.start(artist: artist)
     }
 }

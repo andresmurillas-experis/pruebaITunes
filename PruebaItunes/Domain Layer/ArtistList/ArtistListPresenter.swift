@@ -16,7 +16,7 @@ protocol ArtistListPresenterProtocol: AnyObject {
 
 final class ArtistListPresenter  {
     weak var artistListView: ArtistListViewController?
-    private var appDependencies: AppDependenciesResolver
+    private var appDependencies: AppDependencies
     var errorBinding: Bindable<WebAPIDataSource.NetworkError> = Bindable(nil)
     private var artistList: [ArtistEntity] = [] {
         didSet {
@@ -24,7 +24,7 @@ final class ArtistListPresenter  {
         }
     }
     private var albumList: [String?]?
-    init(appDependencies: AppDependenciesResolver) {
+    init(appDependencies: AppDependencies) {
         self.appDependencies = appDependencies
     }
 }
