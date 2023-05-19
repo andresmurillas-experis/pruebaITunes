@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let nav = UINavigationController()
         let appDependencies = AppDependencies(navigator: nav)
-        let coordinator: Coordinator = appDependencies.resolve()
-        let initialView = coordinator.getInitialViewController()
+        let coordinator: ArtistListCoordinator = appDependencies.resolve()
+        let initialView = coordinator.getArtistListViewController()
         window?.rootViewController = nav
         nav.show(initialView, sender: self)
         window?.makeKeyAndVisible()

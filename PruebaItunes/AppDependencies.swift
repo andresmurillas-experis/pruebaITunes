@@ -9,7 +9,8 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
-    func resolve() -> Coordinator
+    func resolve() -> ArtistListCoordinator
+    func resolve() -> ArtistDetailCoordinator
     func resolve() -> WebAPIDataSource
     func resolve() -> ArtistListPresenterProtocol
     func resolve() -> ArtistListViewProtocol
@@ -56,25 +57,11 @@ final class AppDependencies {
 }
 
 extension AppDependencies: AppDependenciesResolver {
-    func resolve() -> Coordinator {
-        Coordinator(self, navigationController: navigator)
+    func resolve() -> ArtistDetailCoordinator {
+        ArtistDetailCoordinator(self, navigationController: navigator)
     }
-}
-
-struct Coordinator {
-    private var navigationController: UINavigationController
-    private var appDependencies: AppDependenciesResolver
-    init(_ appDependencies : AppDependenciesResolver, navigationController: UINavigationController) {
-        self.appDependencies = appDependencies
-        self.navigationController = navigationController
-    }
-    func getInitialViewController() -> UIViewController {
-        ArtistListViewController(presenter: appDependencies.resolve())
-    }
-    func goToDetailViewForArtist(_ artist: ArtistEntity) {
-        let vm: ArtistDetailViewModel = appDependencies.resolve()
-        vm.setArtist(artist)
-        let artistDetailView = ArtistDetailViewController(vm: vm)
-        navigationController.pushViewController(artistDetailView, animated: true)
+    
+    func resolve() -> ArtistListCoordinator {
+        ArtistListCoordinator(self, navigationController: navigator)
     }
 }
