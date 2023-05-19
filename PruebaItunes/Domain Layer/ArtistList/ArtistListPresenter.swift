@@ -30,7 +30,7 @@ final class ArtistListPresenter  {
 }
 
 private extension ArtistListPresenter {
-    var coordinator: Coordinator {
+    var coordinator: ArtistListCoordinator {
         appDependencies.resolve()
     }
 }

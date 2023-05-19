@@ -9,21 +9,23 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
-    func resolve() -> Coordinator
+    func resolve() -> ArtistDetailCoordinator
     func resolve() -> WebAPIDataSource
     func resolve() -> ArtistListPresenterProtocol
     func resolve() -> ArtistListViewProtocol
+    func resolve() -> ArtistDetailViewModel
+    func resolve() -> ArtistListCoordinator
 }
 
 extension AppDependenciesResolver {
+    func resolve() -> ArtistDetailViewModel {
+        ArtistDetailViewModel(appDependencies: self)
+    }
     func resolve() -> WebAPIDataSource {
         WebAPIDataSource()
     }
     func resolve() -> ArtistListPresenterProtocol {
         ArtistListPresenter(appDependencies: self)
-    }
-    func resolve() -> ArtistDetailViewModel {
-        ArtistDetailViewModel(appDependencies: self)
     }
     func resolve() -> ITunesDataRepository {
         ITunesDataRepository(appDependencies: self)
@@ -38,10 +40,10 @@ extension AppDependenciesResolver {
         AlbumDataSource(appDependencies: self)
     }
     func resolve(viewController: ArtistListViewController?) -> GetArtists {
-        GetArtists(appDependencies: self, viewController: viewController)
+        GetArtists(appDependencies: self)
     }
     func resolve() -> GetAlbums {
-        GetAlbums(appDependencies: self)
+        GetAlbums(appDependencies: self as! AppDependencies)
     }
     func resolve() -> GetTwoAlbumNamesUseCase {
         GetTwoAlbumNamesUseCase(appDependencies: self)
@@ -56,25 +58,11 @@ final class AppDependencies {
 }
 
 extension AppDependencies: AppDependenciesResolver {
-    func resolve() -> Coordinator {
-        Coordinator(self, navigationController: navigator)
+    func resolve() -> ArtistListCoordinator {
+        ArtistListCoordinator(self, navigationController: navigator)
+    }
+    func resolve() -> ArtistDetailCoordinator {
+        ArtistDetailCoordinator(self, navigationController: navigator)
     }
 }
 
-struct Coordinator {
-    private var navigationController: UINavigationController
-    private var appDependencies: AppDependenciesResolver
-    init(_ appDependencies : AppDependenciesResolver, navigationController: UINavigationController) {
-        self.appDependencies = appDependencies
-        self.navigationController = navigationController
-    }
-    func getInitialViewController() -> UIViewController {
-        ArtistListViewController(presenter: appDependencies.resolve())
-    }
-    func goToDetailViewForArtist(_ artist: ArtistEntity) {
-        let vm: ArtistDetailViewModel = appDependencies.resolve()
-        vm.setArtist(artist)
-        let artistDetailView = ArtistDetailViewController(vm: vm)
-        navigationController.pushViewController(artistDetailView, animated: true)
-    }
-}
