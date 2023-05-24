@@ -16,6 +16,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
     private let tableView = UITableView()
     private var vm: ArtistListViewModel
     private var searchBar: UISearchBar = UISearchBar()
+    private var cancellables = [AnyCancellable]()
     var searchText = ""
     private var artistList: [ArtistEntity]? = [] {
         didSet {
@@ -51,6 +52,12 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         vm.artistListBinding.bind { artistList in
             self.artistList = artistList
         }
+        vm.subject.sink(receiveCompletion: { (error) in
+            print(error, "💀")
+        }, receiveValue: { (artistList) in
+            self.artistList = artistList
+            print(artistList, "🌈")
+        }).store(in: &cancellables)
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -114,7 +121,6 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistEntity) {
-        
         vm.goToDetailViewForArtist(artist)
     }
 }

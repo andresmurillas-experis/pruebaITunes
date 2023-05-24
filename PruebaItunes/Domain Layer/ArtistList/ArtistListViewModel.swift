@@ -6,18 +6,21 @@
 //
 
 import Foundation
+import Combine
 
 final class ArtistListViewModel  {
     private var appDependencies: AppDependenciesResolver
     var errorBinding: Bindable<WebAPIDataSource.NetworkError> = Bindable(nil)
     var artistListBinding: Bindable<[ArtistEntity]> = Bindable(nil)
+    var subject: CurrentValueSubject<[ArtistEntity], WebAPIDataSource.NetworkError>
     private var artistList: [ArtistEntity] = [] {
         didSet {
-            self.artistListBinding.value = artistList
+            subject.send(artistList)
         }
     }
     private var albumList: [String?]?
     init(appDependencies: AppDependenciesResolver) {
+        subject = CurrentValueSubject(artistList)
         self.appDependencies = appDependencies
     }
 }
