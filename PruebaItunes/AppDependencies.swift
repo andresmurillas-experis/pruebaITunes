@@ -11,7 +11,7 @@ import Foundation
 protocol AppDependenciesResolver {
     func resolve() -> ArtistDetailCoordinator
     func resolve() -> WebAPIDataSource
-    func resolve() -> ArtistListPresenterProtocol
+    func resolve() -> ArtistListViewModel
     func resolve() -> ArtistListViewProtocol
     func resolve() -> ArtistDetailViewModel
     func resolve() -> ArtistListCoordinator
@@ -24,14 +24,14 @@ extension AppDependenciesResolver {
     func resolve() -> WebAPIDataSource {
         WebAPIDataSource()
     }
-    func resolve() -> ArtistListPresenterProtocol {
-        ArtistListPresenter(appDependencies: self)
+    func resolve() -> ArtistListViewModel {
+        ArtistListViewModel(appDependencies: self)
     }
     func resolve() -> ITunesDataRepository {
         ITunesDataRepository(appDependencies: self)
     }
     func resolve() -> ArtistListViewProtocol {
-        ArtistListViewController(presenter: resolve())
+        ArtistListViewController(vm: resolve())
     }
     func resolve() -> ArtistDataSource {
         ArtistDataSource(appDependencies: self)
@@ -39,7 +39,7 @@ extension AppDependenciesResolver {
     func resolve() -> AlbumDataSource {
         AlbumDataSource(appDependencies: self)
     }
-    func resolve(viewController: ArtistListViewController?) -> GetArtists {
+    func resolve() -> GetArtists {
         GetArtists(appDependencies: self)
     }
     func resolve() -> GetAlbums {

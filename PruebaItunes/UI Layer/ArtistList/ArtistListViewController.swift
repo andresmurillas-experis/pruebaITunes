@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol ArtistListViewProtocol: AnyObject {
     func setArtistList(_ artistList: [ArtistEntity])
@@ -13,10 +14,10 @@ protocol ArtistListViewProtocol: AnyObject {
 
 final class ArtistListViewController: UIViewController, AlertPrompt {
     private let tableView = UITableView()
-    private var presenter: ArtistListPresenterProtocol
+    private var vm: ArtistListViewModel
     private var searchBar: UISearchBar = UISearchBar()
     var searchText = ""
-    private var artistList: [ArtistEntity] = [] {
+    private var artistList: [ArtistEntity]? = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -40,13 +41,15 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         }
     }
 
-    init(presenter: ArtistListPresenterProtocol) {
-        self.presenter = presenter
+    init(vm: ArtistListViewModel) {
+        self.vm = vm
         super.init(nibName: nil, bundle: nil)
-        presenter.artistListView = self
         searchBar.delegate = self
-        presenter.errorBinding.bind { error in
+        vm.errorBinding.bind { error in
             self.error = error
+        }
+        vm.artistListBinding.bind { artistList in
+            self.artistList = artistList
         }
     }
     required init(coder: NSCoder) {
@@ -81,18 +84,20 @@ extension ArtistListViewController: ArtistListViewProtocol {
 
 extension ArtistListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchText = searchText
-        presenter.renewSearch()
+        vm.renewSearch(for: searchText)
     }
 }
 
 extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artistList.count
+        return artistList?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCellReuseIdentifier", for: indexPath) as? ArtistCell else {
             return UITableViewCell()
+        }
+        guard let artistList = artistList else {
+            return cell
         }
         if indexPath.item < artistList.count {
             let artist = artistList[indexPath.item]
@@ -110,6 +115,6 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistEntity) {
         
-        presenter.goToDetailViewForArtist(artist)
+        vm.goToDetailViewForArtist(artist)
     }
 }

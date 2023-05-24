@@ -37,7 +37,7 @@
 		7FDB2B0329CDBB54005CCB47 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */; };
 		7FEAC45C2A0D09B0006E31E0 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAC45B2A0D09B0006E31E0 /* Bindable.swift */; };
 		7FF5A0CB29BB4EE800A26D45 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5A0C929BB4EE800A26D45 /* AlbumCell.swift */; };
-		7FF60C1D29CAE990008823D4 /* ArtistListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF60C1C29CAE990008823D4 /* ArtistListPresenter.swift */; };
+		7FF60C1D29CAE990008823D4 /* ArtistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF60C1C29CAE990008823D4 /* ArtistListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,7 @@
 		7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		7FEAC45B2A0D09B0006E31E0 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		7FF5A0C929BB4EE800A26D45 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
-		7FF60C1C29CAE990008823D4 /* ArtistListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListPresenter.swift; sourceTree = "<group>"; };
+		7FF60C1C29CAE990008823D4 /* ArtistListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +204,7 @@
 		7F6C58B229B5EDFC00C7AEB2 /* ArtistList */ = {
 			isa = PBXGroup;
 			children = (
-				7FF60C1C29CAE990008823D4 /* ArtistListPresenter.swift */,
+				7FF60C1C29CAE990008823D4 /* ArtistListViewModel.swift */,
 			);
 			path = ArtistList;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				7F47DAAD29B88CB600364F00 /* AlbumEntity.swift in Sources */,
 				7FDB2B0329CDBB54005CCB47 /* AppDependencies.swift in Sources */,
 				7F2841F429A61CA3004AFA0D /* AppDelegate.swift in Sources */,
-				7FF60C1D29CAE990008823D4 /* ArtistListPresenter.swift in Sources */,
+				7FF60C1D29CAE990008823D4 /* ArtistListViewModel.swift in Sources */,
 				7F00F4F229C05EF300337091 /* ArtistDetailViewModel.swift in Sources */,
 				7FD76AA529F936300009A83B /* CustomCollectionViewLayout.swift in Sources */,
 				7F0444F929BB3310008B2E05 /* ArtistDetailViewController.swift in Sources */,
