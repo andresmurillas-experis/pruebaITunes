@@ -7,20 +7,13 @@
 
 import Foundation
 
-protocol ArtistListPresenterProtocol: AnyObject {
-    var artistListView: ArtistListViewController? { get set }
-    var errorBinding: Bindable<WebAPIDataSource.NetworkError> { get }
-    func renewSearch()
-    func goToDetailViewForArtist(_ artist: ArtistEntity)
-}
-
-final class ArtistListPresenter  {
-    weak var artistListView: ArtistListViewController?
+final class ArtistListViewModel  {
     private var appDependencies: AppDependenciesResolver
     var errorBinding: Bindable<WebAPIDataSource.NetworkError> = Bindable(nil)
+    var artistListBinding: Bindable<[ArtistEntity]> = Bindable(nil)
     private var artistList: [ArtistEntity] = [] {
         didSet {
-            self.artistListView?.setArtistList(artistList)
+            self.artistListBinding.value = artistList
         }
     }
     private var albumList: [String?]?
@@ -29,19 +22,17 @@ final class ArtistListPresenter  {
     }
 }
 
-private extension ArtistListPresenter {
+private extension ArtistListViewModel {
     var coordinator: ArtistListCoordinator {
         appDependencies.resolve()
     }
 }
 
-extension ArtistListPresenter: ArtistListPresenterProtocol {
-    func renewSearch() {
-        guard let artistName = artistListView?.searchText.replacingOccurrences(of: " ", with: "+") else {
-            return
-        }
+extension ArtistListViewModel {
+    func renewSearch(for searchText: String) {
+        let artistName = searchText.replacingOccurrences(of: " ", with: "+")
         artistList = []
-        let getArtists: GetArtists = appDependencies.resolve(viewController: artistListView)
+        let getArtists: GetArtists = appDependencies.resolve()
         getArtists.execute(artistName: artistName) { [self] (artistList, error)  in
             guard let artistNoDiscs = artistList else {
                 errorBinding.value = error
@@ -55,7 +46,7 @@ extension ArtistListPresenter: ArtistListPresenterProtocol {
     }
 }
 
-private extension ArtistListPresenter {
+private extension ArtistListViewModel {
         func addDiscsToArtistsIn(_ artistListNoAlbums: [ArtistEntity]) {
             let getTwoAlbumNames: GetTwoAlbumNamesUseCase = appDependencies.resolve()
             artistListNoAlbums.forEach { artistNoAlbums in
