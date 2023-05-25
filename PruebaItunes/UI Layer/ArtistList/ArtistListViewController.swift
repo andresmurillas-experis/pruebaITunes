@@ -45,13 +45,14 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         self.vm = appDependencies.resolve()
         super.init(nibName: nil, bundle: nil)
         searchBar.delegate = self
-        vm.errorBinding.bind { error in
-            self.error = error
-        }
-        vm.artistListBinding.bind { artistList in
-            self.artistList = artistList
-        }
-        vm.subject.sink(receiveCompletion: { (error) in
+        vm.networkErrorSubject.sink(receiveCompletion: { (subError) in
+        }, receiveValue: { (error) in
+            guard let error = error else {
+                return
+            }
+            print(error)
+        }).store(in: &cancellables)
+        vm.artistSubject    .sink(receiveCompletion: { (subError) in
         }, receiveValue: { (artistList) in
             self.artistList = artistList
         }).store(in: &cancellables)

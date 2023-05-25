@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 final class ArtistDetailViewController: UIViewController, AlertPrompt {
+    private var cancellables = [AnyCancellable]()
     lazy private var scrollView: UIScrollView = {
         var scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,12 +49,20 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
     init(vm: ArtistDetailViewModel) {
         self.vm = vm
         super.init(nibName: nil, bundle: nil)
-        vm.albumListBinding.bind { (albumList) in
-            self.albumList = albumList ?? [AlbumEntity(albumName: nil, albumCover: nil, albumCoverLarge: nil)]
-        }
-        vm.errorBinding.bind { (error) in
-            self.error = error
-        }
+        vm.albumSubject.sink(receiveCompletion: { (subError) in
+        }, receiveValue: { (albumList) in
+            guard let albumList = albumList else {
+                return
+            }
+            self.albumList = albumList
+        }).store(in: &cancellables)
+        vm.networkErrorSubject.sink(receiveCompletion: { (subError) in
+        }, receiveValue: { (error) in
+            guard let error = error else {
+                return
+            }
+            print(error)
+        }).store(in: &cancellables)
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
