@@ -50,15 +50,15 @@ extension ArtistListViewModel {
 }
 
 private extension ArtistListViewModel {
-        func addDiscsToArtistsIn(_ artistListNoAlbums: [ArtistEntity]) {
-            let getTwoAlbumNames: GetTwoAlbumNamesUseCase = appDependencies.resolve()
-            artistListNoAlbums.forEach { artistNoAlbums in
-                var albums: [AlbumEntity] = []
-                    getTwoAlbumNames.execute(albumId: artistNoAlbums.id) { twoAlbums in
-                    albums = twoAlbums
-                    let artist = ArtistEntity(id: artistNoAlbums.id, name: artistNoAlbums.name, discOneName: albums[0].albumName, discTwoName: albums[1].albumName)
-                    self.artistList.append(artist)
-                }
+    func addDiscsToArtistsIn(_ artistListNoAlbums: [ArtistEntity]) {
+        let getTwoAlbumNames: GetTwoAlbumNamesUseCase = appDependencies.resolve()
+        artistListNoAlbums.forEach { artistNoAlbums in
+            var albums: [AlbumEntity] = []
+                getTwoAlbumNames.execute(albumId: artistNoAlbums.id) { twoAlbums in
+                albums = twoAlbums
+                let artist = ArtistEntity(id: artistNoAlbums.id, name: artistNoAlbums.name, discOneName: albums[0].albumName, discTwoName: albums[1].albumName)
+                self.artistList.append(artist)
             }
         }
+    }
 }

@@ -18,4 +18,3 @@ final class ArtistDataSource {
         downloadClient.download(from: url, completionHandler: completion)
     }
 }
-

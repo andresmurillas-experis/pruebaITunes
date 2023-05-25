@@ -31,7 +31,7 @@ extension AppDependenciesResolver {
         ITunesDataRepository(appDependencies: self)
     }
     func resolve() -> ArtistListViewProtocol {
-        ArtistListViewController(vm: resolve())
+        ArtistListViewController(appDependencies: self)
     }
     func resolve() -> ArtistDataSource {
         ArtistDataSource(appDependencies: self)
@@ -43,7 +43,7 @@ extension AppDependenciesResolver {
         GetArtists(appDependencies: self)
     }
     func resolve() -> GetAlbums {
-        GetAlbums(appDependencies: self as! AppDependencies)
+        GetAlbums(appDependencies: self)
     }
     func resolve() -> GetTwoAlbumNamesUseCase {
         GetTwoAlbumNamesUseCase(appDependencies: self)
