@@ -10,17 +10,15 @@ import Combine
 
 final class ArtistListViewModel {
     private var appDependencies: AppDependenciesResolver
-    var artistSubject: CurrentValueSubject<[ArtistEntity], Error>
-    var networkErrorSubject: CurrentValueSubject<WebAPIDataSource.NetworkError?, Error>
+    var subject: CurrentValueSubject<[ArtistEntity], WebAPIDataSource.NetworkError>
     private var artistList: [ArtistEntity] = [] {
         didSet {
-            artistSubject.send(artistList)
+            subject.send(artistList)
         }
     }
     private var albumList: [String?]?
     init(appDependencies: AppDependenciesResolver) {
-        artistSubject = CurrentValueSubject(artistList)
-        networkErrorSubject = CurrentValueSubject(nil)
+        subject = CurrentValueSubject(artistList)
         self.appDependencies = appDependencies
     }
 }
@@ -38,7 +36,6 @@ extension ArtistListViewModel {
         let getArtists: GetArtists = appDependencies.resolve()
         getArtists.execute(artistName: artistName) { [self] (artistList, error)  in
             guard let artistNoDiscs = artistList else {
-                networkErrorSubject.send(error)
                 return
             }
             self.addDiscsToArtistsIn(artistNoDiscs)

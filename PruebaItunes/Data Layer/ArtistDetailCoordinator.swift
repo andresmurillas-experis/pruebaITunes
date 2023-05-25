@@ -18,7 +18,7 @@ class ArtistDetailCoordinator {
     func start(artist: ArtistEntity) {
         let vm: ArtistDetailViewModel = appDependencies.resolve()
         vm.setArtist(artist)
-        let artistDetailViewController = ArtistDetailViewController(vm: vm)
+        let artistDetailViewController = ArtistDetailViewController(appDependencies: appDependencies)
         navigationController.pushViewController(artistDetailViewController, animated: true)
     }
 }

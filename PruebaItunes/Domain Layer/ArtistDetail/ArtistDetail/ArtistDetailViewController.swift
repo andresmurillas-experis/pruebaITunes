@@ -46,23 +46,21 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
             }
         }
     }
-    init(vm: ArtistDetailViewModel) {
-        self.vm = vm
+    init(appDependencies: AppDependenciesResolver) {
+        self.vm = appDependencies.resolve()
         super.init(nibName: nil, bundle: nil)
-        vm.albumSubject.sink(receiveCompletion: { (subError) in
-        }, receiveValue: { (albumList) in
-            guard let albumList = albumList else {
-                return
-            }
-            self.albumList = albumList
-        }).store(in: &cancellables)
-        vm.networkErrorSubject.sink(receiveCompletion: { (subError) in
-        }, receiveValue: { (error) in
-            guard let error = error else {
-                return
-            }
-            print(error)
-        }).store(in: &cancellables)
+        vm.subject
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    print(error)
+                }
+            }, receiveValue: { albumList in
+                guard let albumList = albumList else {
+                    return
+                }
+                self.albumList = albumList
+            })
+            .store(in: &cancellables)
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
