@@ -41,9 +41,8 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             }
         }
     }
-
-    init(vm: ArtistListViewModel) {
-        self.vm = vm
+    init(appDependencies: AppDependenciesResolver) {
+        self.vm = appDependencies.resolve()
         super.init(nibName: nil, bundle: nil)
         searchBar.delegate = self
         vm.errorBinding.bind { error in
@@ -53,10 +52,8 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             self.artistList = artistList
         }
         vm.subject.sink(receiveCompletion: { (error) in
-            print(error, "💀")
         }, receiveValue: { (artistList) in
             self.artistList = artistList
-            print(artistList, "🌈")
         }).store(in: &cancellables)
     }
     required init(coder: NSCoder) {
