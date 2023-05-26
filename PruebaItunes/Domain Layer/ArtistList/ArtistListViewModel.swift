@@ -36,6 +36,10 @@ extension ArtistListViewModel {
         let getArtists: GetArtists = appDependencies.resolve()
         getArtists.execute(artistName: artistName) { [self] (artistList, error)  in
             guard let artistNoDiscs = artistList else {
+                guard let error = error else {
+                    return
+                }
+                subject.send(completion: .failure(error))
                 return
             }
             self.addDiscsToArtistsIn(artistNoDiscs)

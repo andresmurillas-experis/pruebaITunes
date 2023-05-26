@@ -48,7 +48,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         vm.subject
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
-                    print(error)
+                    self.error = error
                 }
             }, receiveValue: { artistList in
                 self.artistList = artistList
