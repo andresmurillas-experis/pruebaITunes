@@ -45,16 +45,16 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         self.vm = appDependencies.resolve()
         super.init(nibName: nil, bundle: nil)
         searchBar.delegate = self
-        vm.errorBinding.bind { error in
-            self.error = error
-        }
-        vm.artistListBinding.bind { artistList in
-            self.artistList = artistList
-        }
-        vm.subject.sink(receiveCompletion: { (error) in
-        }, receiveValue: { (artistList) in
-            self.artistList = artistList
-        }).store(in: &cancellables)
+        vm.subject
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    self.error = error
+                }
+            }, receiveValue: { artistList in
+                self.artistList = artistList
+                print(artistList, "🍈")
+            })
+            .store(in: &cancellables)
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

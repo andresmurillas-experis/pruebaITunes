@@ -8,10 +8,8 @@
 import Foundation
 import Combine
 
-final class ArtistListViewModel  {
+final class ArtistListViewModel {
     private var appDependencies: AppDependenciesResolver
-    var errorBinding: Bindable<WebAPIDataSource.NetworkError> = Bindable(nil)
-    var artistListBinding: Bindable<[ArtistEntity]> = Bindable(nil)
     var subject: CurrentValueSubject<[ArtistEntity], WebAPIDataSource.NetworkError>
     private var artistList: [ArtistEntity] = [] {
         didSet {
@@ -38,7 +36,10 @@ extension ArtistListViewModel {
         let getArtists: GetArtists = appDependencies.resolve()
         getArtists.execute(artistName: artistName) { [self] (artistList, error)  in
             guard let artistNoDiscs = artistList else {
-                errorBinding.value = error
+                guard let error = error else {
+                    return
+                }
+                subject.send(completion: .failure(error))
                 return
             }
             self.addDiscsToArtistsIn(artistNoDiscs)
@@ -54,9 +55,10 @@ private extension ArtistListViewModel {
         let getTwoAlbumNames: GetTwoAlbumNamesUseCase = appDependencies.resolve()
         artistListNoAlbums.forEach { artistNoAlbums in
             var albums: [AlbumEntity] = []
-                getTwoAlbumNames.execute(albumId: artistNoAlbums.id) { twoAlbums in
+            getTwoAlbumNames.execute(albumId: artistNoAlbums.id) { (twoAlbums) in
                 albums = twoAlbums
-                let artist = ArtistEntity(id: artistNoAlbums.id, name: artistNoAlbums.name, discOneName: albums[0].albumName, discTwoName: albums[1].albumName)
+                let artist = ArtistEntity(id: artistNoAlbums.id, name: artistNoAlbums.name, discOneName: albums[0].albumName,
+                                            discTwoName: albums[1].albumName)
                 self.artistList.append(artist)
             }
         }

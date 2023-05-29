@@ -12,7 +12,6 @@ final class WebAPIDataSource {
     enum NetworkError: Error {
         case serviceError, noData, parsing
     }
-
     func download <ResultType: Decodable>(from url: String, completionHandler: @escaping (Result<ResultType , NetworkError>) -> ()) {
         guard let url = URL(string: url) else {
             print("Invalid URL")

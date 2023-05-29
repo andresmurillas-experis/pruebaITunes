@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 final class ArtistDetailViewController: UIViewController, AlertPrompt {
+    private var cancellables = [AnyCancellable]()
     lazy private var scrollView: UIScrollView = {
         var scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,12 +49,6 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
     init(vm: ArtistDetailViewModel) {
         self.vm = vm
         super.init(nibName: nil, bundle: nil)
-        vm.albumListBinding.bind { (albumList) in
-            self.albumList = albumList ?? [AlbumEntity(albumName: nil, albumCover: nil, albumCoverLarge: nil)]
-        }
-        vm.errorBinding.bind { (error) in
-            self.error = error
-        }
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -60,7 +56,26 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        vm.viewDidLoad()
+        self.vm.subject
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    switch error {
+                    case .noData:
+                        self.showError(error, title: "No Data Error")
+                    case .parsing:
+                        self.showError(error, title: "Parsing Error")
+                    case .serviceError:
+                        self.showError(error, title: "Service Error")
+                    }
+                }
+            }, receiveValue: { albumList in
+                guard let albumList = albumList else {
+                    return
+                }
+                self.albumList = albumList
+            })
+            .store(in: &cancellables)
+        self.vm.viewDidLoad()
     }
 }
 

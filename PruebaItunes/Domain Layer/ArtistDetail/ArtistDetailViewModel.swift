@@ -9,11 +9,11 @@ import Foundation
 import Combine
 
 final class ArtistDetailViewModel {
-    private var artist: ArtistEntity?
     private var appDependencies: AppDependenciesResolver
-    var albumListBinding: Bindable<[AlbumEntity]> = Bindable([])
-    var errorBinding: Bindable<WebAPIDataSource.NetworkError> = Bindable(nil)
+    var subject: CurrentValueSubject<[AlbumEntity]?, WebAPIDataSource.NetworkError>
+    private var artist: ArtistEntity?
     init(appDependencies: AppDependenciesResolver) {
+        subject = CurrentValueSubject(nil)
         self.appDependencies = appDependencies
     }
 }
@@ -29,13 +29,9 @@ extension ArtistDetailViewModel {
         let getAlbums: GetAlbums = appDependencies.resolve()
         getAlbums.execute(albumId: artistId) { albumList, error in
             guard let albumList = albumList else {
-                guard let error = error else  {
-                     return
-                }
-                self.errorBinding.value = error
                 return
             }
-            self.albumListBinding.value = albumList
+            self.subject.send(albumList)
         }
     }
 }
