@@ -46,13 +46,27 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
             }
         }
     }
-    init(appDependencies: AppDependenciesResolver) {
-        self.vm = appDependencies.resolve()
+    init(vm: ArtistDetailViewModel) {
+        self.vm = vm
         super.init(nibName: nil, bundle: nil)
-        vm.subject
+    }
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        self.vm.subject
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
-                    print(error)
+                    switch error {
+                    case .noData:
+                        self.showError(error, title: "No Data Error")
+                    case .parsing:
+                        self.showError(error, title: "Parsing Error")
+                    case .serviceError:
+                        self.showError(error, title: "Service Error")
+                    }
                 }
             }, receiveValue: { albumList in
                 guard let albumList = albumList else {
@@ -61,14 +75,7 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
                 self.albumList = albumList
             })
             .store(in: &cancellables)
-    }
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        vm.viewDidLoad()
+        self.vm.viewDidLoad()
     }
 }
 

@@ -52,6 +52,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
                 }
             }, receiveValue: { artistList in
                 self.artistList = artistList
+                print(artistList, "🍈")
             })
             .store(in: &cancellables)
     }
