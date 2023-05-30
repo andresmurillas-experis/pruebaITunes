@@ -41,6 +41,8 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
                 showError(error, title: "No Data Error")
             case .parsing:
                 showError(error, title: "Parsing Error")
+            case .alamofire:
+                showError(error, title: "Alamofire Error")
             case .none:
                 return
             }
@@ -66,6 +68,8 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
                         self.showError(error, title: "Parsing Error")
                     case .serviceError:
                         self.showError(error, title: "Service Error")
+                    case .alamofire:
+                        self.showError(error, title: "Alamofire Error")
                     }
                 }
             }, receiveValue: { albumList in

@@ -37,6 +37,8 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
                     showError(error, title: "Service Error")
                 case .none:
                     return
+                case .alamofire:
+                    showError(error, title: "Alamofire Error")
                 }
             }
         }

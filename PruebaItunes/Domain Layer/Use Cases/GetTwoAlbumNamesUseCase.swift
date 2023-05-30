@@ -6,19 +6,21 @@
 //
 
 import Foundation
+import Combine
 
 class GetTwoAlbumNamesUseCase {
     private var appDependencies: AppDependenciesResolver
     private var dataRepository: DataRepository
+    private var cancellables = [AnyCancellable]()
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
         dataRepository = appDependencies.resolve()
     }
     func execute(albumId: Int, completion: @escaping (([AlbumEntity]) -> ())) {
-        dataRepository.getTwoAlbums(for: albumId) { (result: Result<AlbumDTO, WebAPIDataSource.NetworkError>) in
-            switch result {
-            case .success(let iTunesArtistModel):
-                let albumList = iTunesArtistModel.results.map {
+        dataRepository.getTwoAlbums(for: albumId).sink(receiveCompletion: { error in
+            print(error)
+        }, receiveValue: { iTunesAlbums in
+                let albumList = iTunesAlbums.results.map {
                     let name = $0.collectionName
                     let cover = $0.artworkUrl60
                     let coverLarge = $0.artworkUrl100
@@ -32,20 +34,6 @@ class GetTwoAlbumNamesUseCase {
                         safeAlbumList.append(AlbumEntity(albumName: nil, albumCover: nil, albumCoverLarge: nil))
                     }
                 }
-                completion(safeAlbumList)
-            case .failure(let error):
-                switch error {
-                case .serviceError:
-                    print(error)
-                    print("No Data Eroor: ", error)
-                case .noData:
-                    print(error)
-                    print("Network Service Error: ", error)
-                case .parsing:
-                    print(error)
-                    print("JSON Parsing Error: ", error)
-                }
-            }
-        }
+        }).store(in: &cancellables)
     }
 }

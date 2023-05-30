@@ -7,33 +7,25 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 final class WebAPIDataSource {
     enum NetworkError: Error {
-        case serviceError, noData, parsing
+        case serviceError, noData, parsing, alamofire(wrapped: AFError)
     }
-    func download <ResultType: Decodable>(from url: String, completionHandler: @escaping (Result<ResultType , NetworkError>) -> ()) {
+    func download <DecodableType: Decodable>(from url: String) -> AnyPublisher<DecodableType, WebAPIDataSource.NetworkError> {
         guard let url = URL(string: url) else {
             print("Invalid URL")
-            return
+            return Fail(error: WebAPIDataSource.NetworkError.serviceError).eraseToAnyPublisher()
         }
-        AF.request(url).response { response in
-            if response.error != nil {
-                completionHandler(.failure(NetworkError.serviceError))
-                return
-            }
-            guard let data = response.data else {
-                completionHandler(.failure(NetworkError.noData))
-                return
-            }
-            guard let iTunesResult: ResultType = self.decodeJsonFromData(data) else {
-                completionHandler(.failure(NetworkError.parsing))
-                return
-            }
-            DispatchQueue.main.async {
-                completionHandler(.success(iTunesResult))
-            }
-        }
+        return AF
+            .request(url)
+            .publishDecodable(type: DecodableType.self)
+            .value()
+            .mapError({
+                WebAPIDataSource.NetworkError.alamofire(wrapped: $0)
+            })
+            .eraseToAnyPublisher()
     }
 }
 

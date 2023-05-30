@@ -11,6 +11,7 @@ import Combine
 final class ArtistDetailViewModel {
     private var appDependencies: AppDependenciesResolver
     var subject: CurrentValueSubject<[AlbumEntity]?, WebAPIDataSource.NetworkError>
+    private var cancellables = [AnyCancellable]()
     private var artist: ArtistEntity?
     init(appDependencies: AppDependenciesResolver) {
         subject = CurrentValueSubject(nil)
@@ -27,11 +28,10 @@ extension ArtistDetailViewModel {
             return
         }
         let getAlbums: GetAlbums = appDependencies.resolve()
-        getAlbums.execute(albumId: artistId) { albumList, error in
-            guard let albumList = albumList else {
-                return
-            }
-            self.subject.send(albumList)
-        }
+        getAlbums.execute(albumId: artistId).sink(receiveCompletion: { (error) in
+            print(error)
+        }, receiveValue: { [weak self] (albumList) in
+            self?.subject.send(albumList as? [AlbumEntity])
+        }).store(in: &cancellables)
     }
 }

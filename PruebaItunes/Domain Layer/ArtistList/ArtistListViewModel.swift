@@ -34,30 +34,24 @@ extension ArtistListViewModel {
         let artistName = searchText.replacingOccurrences(of: " ", with: "+")
         artistList = []
         let getArtists: GetArtists = appDependencies.resolve()
-        getArtists.execute(artistName: artistName) { [self] (artistList, error)  in
-            guard let artistNoDiscs = artistList else {
-                guard let error = error else {
-                    return
-                }
-                subject.send(completion: .failure(error))
-                return
-            }
-            self.addDiscsToArtistsIn(artistNoDiscs)
-        }
+        getArtists.execute(artistName: artistName).sink(receiveCompletion: { error in
+            print(error)
+        }, receiveValue: { [weak self] (artistsNoAlbum) in
+            self?.addDiscsToArtistsIn(artistsNoAlbum)
+        })
     }
     func goToDetailViewForArtist(_ artist: ArtistEntity) {
         coordinator.goToDetailViewForArtist(artist)
     }
 }
-
 private extension ArtistListViewModel {
-    func addDiscsToArtistsIn(_ artistListNoAlbums: [ArtistEntity]) {
+    func addDiscsToArtistsIn(_ artistListNoAlbums: [ArtistEntity?]) {
         let getTwoAlbumNames: GetTwoAlbumNamesUseCase = appDependencies.resolve()
         artistListNoAlbums.forEach { artistNoAlbums in
             var albums: [AlbumEntity] = []
-            getTwoAlbumNames.execute(albumId: artistNoAlbums.id) { (twoAlbums) in
+            getTwoAlbumNames.execute(albumId: artistNoAlbums?.id ?? 0) { (twoAlbums) in
                 albums = twoAlbums
-                let artist = ArtistEntity(id: artistNoAlbums.id, name: artistNoAlbums.name, discOneName: albums[0].albumName,
+                let artist = ArtistEntity(id: artistNoAlbums?.id ?? 0, name: artistNoAlbums?.name ?? "", discOneName: albums[0].albumName,
                                             discTwoName: albums[1].albumName)
                 self.artistList.append(artist)
             }
