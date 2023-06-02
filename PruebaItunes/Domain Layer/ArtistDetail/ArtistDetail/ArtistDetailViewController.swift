@@ -58,27 +58,30 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        self.vm.subject
-            .sink(receiveCompletion: { completion in
-                if case .failure(let error) = completion {
-                    switch error {
-                    case .noData:
-                        self.showError(error, title: "No Data Error")
-                    case .parsing:
-                        self.showError(error, title: "Parsing Error")
-                    case .serviceError:
-                        self.showError(error, title: "Service Error")
-                    case .alamofire:
-                        self.showError(error, title: "Alamofire Error")
-                    }
-                }
-            }, receiveValue: { albumList in
-                guard let albumList = albumList else {
+        self.vm.subject.sink( receiveCompletion: { [weak self] (completion) in
+            switch completion {
+            case .failure(let error):
+                switch error {
+                case .noData:
+                    self?.showError(error, title: "No Data Error")
+                    return
+                case .parsing:
+                    self?.showError(error, title: "Parsing Error")
+                    return
+                case .serviceError:
+                    self?.showError(error, title: "Service Error")
+                    return
+                case .alamofire:
+                    self?.showError(error, title: "Alamofire Error")
                     return
                 }
-                self.albumList = albumList
-            })
-            .store(in: &cancellables)
+            case .finished:
+                print("Succesfully finished washing my boat")
+            }
+        }, receiveValue: { [weak self] (albumList) in
+            print(albumList, "😭")
+            self?.albumList = albumList
+        }).store(in: &cancellables)
         self.vm.viewDidLoad()
     }
 }

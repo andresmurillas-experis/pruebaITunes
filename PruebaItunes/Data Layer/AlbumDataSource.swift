@@ -22,6 +22,5 @@ final class AlbumDataSource {
         let url = "https://itunes.apple.com/lookup?id=\(artistId)&entity=album&limit=2"
         let downloadClient: WebAPIDataSource = appDependencies.resolve()
         return downloadClient.download(from: url)
-
     }
 }

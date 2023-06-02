@@ -19,18 +19,7 @@ final class GetAlbums {
         self.dataRepository = appDependencies.resolve()
         self.subject = CurrentValueSubject([])
     }
-    func execute(albumId: (Int)) -> CurrentValueSubject<[AlbumEntity?], WebAPIDataSource.NetworkError> {
-        dataRepository.getAllAlbums(for: albumId).sink(receiveCompletion: { error in
-            print(error)
-        }, receiveValue: { [weak self] (iTunesAlbumModel) in
-            let albumList = iTunesAlbumModel.results.suffix(from: 1).map {
-                let name = $0.collectionName
-                let cover = $0.artworkUrl60
-                let coverLarge = $0.artworkUrl100
-                return AlbumEntity(albumName: name, albumCover: cover, albumCoverLarge: coverLarge)
-            }
-            self?.subject.send(albumList)
-        }).store(in: &cancellables)
-        return subject
+    func execute(albumId: (Int)) -> AnyPublisher<AlbumDTO, WebAPIDataSource.NetworkError> {
+        return dataRepository.getAllAlbums(for: albumId)
     }
 }

@@ -10,12 +10,12 @@ import Combine
 
 final class ArtistDetailViewModel {
     private var appDependencies: AppDependenciesResolver
-    var subject: CurrentValueSubject<[AlbumEntity]?, WebAPIDataSource.NetworkError>
+    var subject: CurrentValueSubject<[AlbumEntity], WebAPIDataSource.NetworkError>
     private var cancellables = [AnyCancellable]()
     private var artist: ArtistEntity?
     init(appDependencies: AppDependenciesResolver) {
-        subject = CurrentValueSubject(nil)
         self.appDependencies = appDependencies
+        self.subject = CurrentValueSubject([])
     }
 }
 
@@ -28,10 +28,24 @@ extension ArtistDetailViewModel {
             return
         }
         let getAlbums: GetAlbums = appDependencies.resolve()
-        getAlbums.execute(albumId: artistId).sink(receiveCompletion: { (error) in
-            print(error)
-        }, receiveValue: { [weak self] (albumList) in
-            self?.subject.send(albumList as? [AlbumEntity])
+        getAlbums.execute(albumId: artistId).sink(receiveCompletion: { [weak self] (completion) in
+            switch completion {
+            case .finished:
+                print("GetAlbums finished succesfully")
+            case .failure:
+                print("Encountered error")
+                self?.subject.send(completion: .failure(WebAPIDataSource.NetworkError.alamofire))
+            }
+        }, receiveValue: { [weak self] (iTunesAlbumList) in
+            var iTunesAlbumListResults = iTunesAlbumList.results
+            iTunesAlbumListResults.removeFirst()
+            let albumList = iTunesAlbumListResults.map {
+                let albumName = $0.collectionName
+                let cover = $0.artworkUrl60
+                let coverLarge = $0.artworkUrl100
+                return AlbumEntity(albumName: albumName, albumCover: cover, albumCoverLarge: coverLarge)
+            }
+            self?.subject.send(albumList)
         }).store(in: &cancellables)
     }
 }

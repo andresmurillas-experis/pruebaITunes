@@ -11,9 +11,9 @@ import Combine
 
 final class WebAPIDataSource {
     enum NetworkError: Error {
-        case serviceError, noData, parsing, alamofire(wrapped: AFError)
+        case serviceError, noData, parsing, alamofire
     }
-    func download <DecodableType: Decodable>(from url: String) -> AnyPublisher<DecodableType, WebAPIDataSource.NetworkError> {
+     func download <DecodableType: Decodable>(from url: String) -> AnyPublisher<DecodableType, WebAPIDataSource.NetworkError> {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return Fail(error: WebAPIDataSource.NetworkError.serviceError).eraseToAnyPublisher()
@@ -22,11 +22,11 @@ final class WebAPIDataSource {
             .request(url)
             .publishDecodable(type: DecodableType.self)
             .value()
-            .mapError({
-                WebAPIDataSource.NetworkError.alamofire(wrapped: $0)
+            .mapError({ error in
+                    .alamofire
             })
             .eraseToAnyPublisher()
-    }
+     }
 }
 
 private extension WebAPIDataSource {
@@ -34,7 +34,7 @@ private extension WebAPIDataSource {
         let stringData = String(data: data, encoding: .utf8)!
         let json = stringData.data(using: .utf8)!
         let decoder = JSONDecoder()
-        var iTunesResultObject: ViewModelObject?  
+        var iTunesResultObject: ViewModelObject?
         do {
             iTunesResultObject = try decoder.decode(ViewModelObject.self, from: json)
         } catch {
