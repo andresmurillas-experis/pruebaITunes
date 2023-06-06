@@ -21,6 +21,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
     private var artistList: [ArtistEntity]? = [] {
         didSet {
             DispatchQueue.main.async {
+                print("🧙🏻‍♀️")
                 self.tableView.reloadData()
             }
         }
@@ -56,19 +57,6 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         self.vm = appDependencies.resolve()
         super.init(nibName: nil, bundle: nil)
         searchBar.delegate = self
-        vm.subject
-            .sink(receiveCompletion: { [weak self] (completion) in
-                switch completion {
-                case .finished:
-                    print("finished succesfully")
-                case .failure(let error):
-                    self?.error = error
-                    return
-                }
-            }, receiveValue: { artistList in
-                self.artistList = artistList
-            })
-            .store(in: &cancellables)
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -77,6 +65,20 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
         setupTableView()
+        vm.subject
+            .sink(receiveCompletion: { [weak self] (completion) in
+                switch completion {
+                case .finished:
+                    print("finished succesfully")
+                case .failure(let error):
+                    self?.error = error
+                    self?.reloadInputViews()
+                }
+            }, receiveValue: { artistList in
+                print(artistList.last, "🧙🏿‍♂️")
+                self.artistList = artistList
+            })
+            .store(in: &cancellables)
     }
 }
 

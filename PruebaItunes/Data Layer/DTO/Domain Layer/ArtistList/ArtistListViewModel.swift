@@ -39,7 +39,7 @@ extension ArtistListViewModel {
             case .finished:
                 return
             case .failure(let error):
-                return
+                print(error)
             }
         }, receiveValue: { [weak self] artists in
             self?.addDiscsToArtistsIn(artists)
@@ -54,10 +54,15 @@ private extension ArtistListViewModel {
     func addDiscsToArtistsIn(_ artists: [ArtistEntity]) {
         let getTwoAlbumNames: GetTwoAlbumNamesUseCase = appDependencies.resolve()
         artists.forEach { artist in
-            print(artist)
-            getTwoAlbumNames.execute(albumId: artist.id).sink(receiveCompletion: {_ in
-               return
-            }, receiveValue: { [weak self] albumNames in
+//            print(artist)
+            getTwoAlbumNames.execute(albumId: artist.id).sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    return
+                case .failure(let error):
+                    print(error)
+                }
+            }, receiveValue: { [weak self] (albumNames) in
                 self?.artistList.append(ArtistEntity(id: artist.id, name: artist.name, discOneName: albumNames[0], discTwoName: albumNames[1]))
             }).store(in: &cancellables)
             return

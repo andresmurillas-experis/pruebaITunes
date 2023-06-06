@@ -18,7 +18,8 @@ final class WebAPIDataSource {
              print("Invalid URL")
              return Fail(error: WebAPIDataSource.NetworkError.serviceError).eraseToAnyPublisher()
          }
-         return AF
+//         print(url, "🦩")
+         let alamofre: AnyPublisher<DecodableType, WebAPIDataSource.NetworkError> = AF
              .request(url)
              .publishDecodable(type: DecodableType.self)
              .value()
@@ -26,6 +27,7 @@ final class WebAPIDataSource {
                      .alamofire
              })
              .eraseToAnyPublisher()
+         return alamofre
 
     }
 }

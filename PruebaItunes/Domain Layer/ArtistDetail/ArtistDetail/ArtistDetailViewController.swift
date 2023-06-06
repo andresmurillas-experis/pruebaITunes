@@ -79,7 +79,6 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
                 print("Succesfully finished washing my boat")
             }
         }, receiveValue: { [weak self] (albumList) in
-            print(albumList, "😭")
             self?.albumList = albumList
         }).store(in: &cancellables)
         self.vm.viewDidLoad()
