@@ -14,19 +14,20 @@ final class WebAPIDataSource {
         case serviceError, noData, parsing, alamofire
     }
      func download <DecodableType: Decodable>(from url: String) -> AnyPublisher<DecodableType, WebAPIDataSource.NetworkError> {
-        guard let url = URL(string: url) else {
-            print("Invalid URL")
-            return Fail(error: WebAPIDataSource.NetworkError.serviceError).eraseToAnyPublisher()
-        }
-        return AF
-            .request(url)
-            .publishDecodable(type: DecodableType.self)
-            .value()
-            .mapError({ error in
-                    .alamofire
-            })
-            .eraseToAnyPublisher()
-     }
+         guard let url = URL(string: url) else {
+             print("Invalid URL")
+             return Fail(error: WebAPIDataSource.NetworkError.serviceError).eraseToAnyPublisher()
+         }
+         return AF
+             .request(url)
+             .publishDecodable(type: DecodableType.self)
+             .value()
+             .mapError({ error in
+                     .alamofire
+             })
+             .eraseToAnyPublisher()
+
+    }
 }
 
 private extension WebAPIDataSource {
