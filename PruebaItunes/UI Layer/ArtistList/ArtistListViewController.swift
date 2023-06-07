@@ -16,6 +16,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
     private let tableView = UITableView()
     private var searchBar: UISearchBar = UISearchBar()
     private var vm: ArtistListViewModel
+    private var subject = PassthroughSubject<String, WebAPIDataSource.NetworkError>()
     private var cancellables = [AnyCancellable]()
     var searchText = ""
     private var artistList: [ArtistEntity]? = [] {
@@ -71,7 +72,8 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             }, receiveValue: { artistList in
                 self.artistList = artistList
             })
-            .store(in: &cancellables)
+             .store(in: &cancellables)
+        vm.setPassThroughSubject(subject: subject)
     }
 }
 
@@ -97,7 +99,8 @@ extension ArtistListViewController: ArtistListViewProtocol {
 
 extension ArtistListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        vm.renewSearch(for: searchText)
+        subject.send(searchText)
+        vm.renewSearch()
     }
 }
 
