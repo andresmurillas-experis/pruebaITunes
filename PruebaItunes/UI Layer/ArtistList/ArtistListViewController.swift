@@ -21,9 +21,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
     private var artistList: [ArtistEntity]? = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                print(self?.artistList?.last, "🧙🏻‍♀️")
                 self?.tableView.reloadData()
-                self?.reloadInputViews()
             }
         }
     }
@@ -46,7 +44,6 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
                 case .none:
                     return
                 }
-                self?.reloadInputViews()
             }
         }
     }
