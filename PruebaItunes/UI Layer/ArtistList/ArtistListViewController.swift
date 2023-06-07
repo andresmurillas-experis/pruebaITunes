@@ -33,24 +33,20 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
                 switch self?.error {
                 case .parsing:
                     self?.showError(self?.error, title: "Parsing Error")
-                    self?.reloadInputViews()
                     return
                 case .noData:
                     self?.showError(self?.error, title: "No Data Error")
-                    self?.reloadInputViews()
                     return
                 case .serviceError:
                     self?.showError(self?.error, title: "Service Error")
-                    self?.reloadInputViews()
                     return
                 case .alamofire:
                     self?.showError(self?.error, title: "Alamofire Error")
-                    self?.reloadInputViews()
                     return
                 case .none:
-                    self?.reloadInputViews()
                     return
                 }
+                self?.reloadInputViews()
             }
         }
     }

@@ -10,7 +10,7 @@ import Combine
 
 protocol DataRepository {
     func getAllArtists(for artistName: String) -> AnyPublisher<[ArtistEntity], WebAPIDataSource.NetworkError>
-    func getAllAlbums(for artistId: Int) -> AnyPublisher<AlbumDTO, WebAPIDataSource.NetworkError>
+    func getAllAlbums(for artistId: Int) -> AnyPublisher<[AlbumEntity], WebAPIDataSource.NetworkError>
     func getTwoAlbums(for artistId: Int) -> AnyPublisher<[String], WebAPIDataSource.NetworkError>
 }
 
@@ -27,9 +27,14 @@ final class ITunesDataRepository: DataRepository {
             }
         }.eraseToAnyPublisher()
     }
-    func getAllAlbums(for artistId: Int) -> AnyPublisher<AlbumDTO, WebAPIDataSource.NetworkError> {
+    func getAllAlbums(for artistId: Int) -> AnyPublisher<[AlbumEntity], WebAPIDataSource.NetworkError> {
         let albumDataSource: AlbumDataSource = appDependencies.resolve()
-        return albumDataSource.downloadAllAlbums(for: artistId)
+        return albumDataSource.downloadAllAlbums(for: artistId).map { albumDTO in
+            let albums: [AlbumEntity] = albumDTO.results.map { albumResult in
+                AlbumEntity(albumName: albumResult.collectionName, albumCover: albumResult.artworkUrl60, albumCoverLarge: albumResult.artworkUrl100)
+            }
+            return albums
+        }.eraseToAnyPublisher()
     }
     func getTwoAlbums(for artistId: Int) -> AnyPublisher<[String], WebAPIDataSource.NetworkError> {
         let albumDataSource: AlbumDataSource = appDependencies.resolve()
