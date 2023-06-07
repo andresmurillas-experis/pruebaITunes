@@ -8,15 +8,15 @@
 import Foundation
 import Combine
 
-class GetTwoAlbumNamesUseCase {
+final class GetAlbums {
     private var appDependencies: AppDependenciesResolver
     private var dataRepository: DataRepository
-    private var cancellables = [AnyCancellable]()
+    private var viewController: ArtistDetailViewController?
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
-        dataRepository = appDependencies.resolve()
+        self.dataRepository = appDependencies.resolve()
     }
-    func execute(albumId: Int) -> AnyPublisher<AlbumDTO, WebAPIDataSource.NetworkError> {
-        return dataRepository.getTwoAlbums(for: albumId)
+    func execute(albumId: (Int)) -> AnyPublisher<[AlbumEntity], WebAPIDataSource.NetworkError> {
+        return dataRepository.getAllAlbums(for: albumId)
     }
 }

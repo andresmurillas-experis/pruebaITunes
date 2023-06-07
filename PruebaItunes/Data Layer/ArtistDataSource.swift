@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import Combine
 
 final class ArtistDataSource {
     var appDependencies: AppDependenciesResolver
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
     }
-    func downloadAllArtists(for artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {
+    func downloadAllArtists(for artistName: String) -> AnyPublisher<ArtistDTO, WebAPIDataSource.NetworkError> {
         let url = "https://itunes.apple.com/search?term=\(artistName)&entity=musicArtist&attribute=artistTerm"
         let downloadClient: WebAPIDataSource = appDependencies.resolve()
-        downloadClient.download(from: url, completionHandler: completion)
+        return downloadClient.download(from: url)
     }
 }

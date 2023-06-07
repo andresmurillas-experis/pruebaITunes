@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 protocol DataRepository {
-    func getAllArtists(for artistName: String, completion: @escaping (Result<ArtistDTO , WebAPIDataSource.NetworkError>) -> ())
-    func getAllAlbums(for artistId: Int, completion: @escaping (Result<AlbumDTO , WebAPIDataSource.NetworkError>) -> ())
-    func getTwoAlbums(for artistId: Int, completion: @escaping  (Result<AlbumDTO , WebAPIDataSource.NetworkError>) -> ())
+    func getAllArtists(for artistName: String) -> AnyPublisher<[ArtistEntity], WebAPIDataSource.NetworkError>
+    func getAllAlbums(for artistId: Int) -> AnyPublisher<[AlbumEntity], WebAPIDataSource.NetworkError>
+    func getTwoAlbums(for artistId: Int) -> AnyPublisher<[String], WebAPIDataSource.NetworkError>
 }
 
 final class ITunesDataRepository: DataRepository {
@@ -18,16 +19,38 @@ final class ITunesDataRepository: DataRepository {
     init(appDependencies: AppDependenciesResolver) {
         self.appDependencies = appDependencies
     }
-    func getAllArtists(for artistName: String, completion: @escaping (Result<ArtistDTO, WebAPIDataSource.NetworkError>) -> ()) {
+    func getAllArtists(for artistName: String) ->  AnyPublisher<[ArtistEntity], WebAPIDataSource.NetworkError> {
         let artistDataSource: ArtistDataSource = appDependencies.resolve()
-        artistDataSource.downloadAllArtists(for: artistName, completion:  completion)
+        return artistDataSource.downloadAllArtists(for: artistName).map { artistDTO in
+            artistDTO.results.map { artistResult in
+                ArtistEntity(id: artistResult.artistId, name: artistResult.artistName)
+            }
+        }.eraseToAnyPublisher()
     }
-    func getAllAlbums(for artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
+    func getAllAlbums(for artistId: Int) -> AnyPublisher<[AlbumEntity], WebAPIDataSource.NetworkError> {
         let albumDataSource: AlbumDataSource = appDependencies.resolve()
-        albumDataSource.downloadAllAlbums(for: artistId, completion: completion)
+        return albumDataSource.downloadAllAlbums(for: artistId).map { albumDTO in
+            let albums: [AlbumEntity] = albumDTO.results.map { albumResult in
+                AlbumEntity(albumName: albumResult.collectionName, albumCover: albumResult.artworkUrl60, albumCoverLarge: albumResult.artworkUrl100)
+            }
+            return albums
+        }.eraseToAnyPublisher()
     }
-    func getTwoAlbums(for artistId: Int, completion: @escaping (Result<AlbumDTO, WebAPIDataSource.NetworkError>) -> ()) {
+    func getTwoAlbums(for artistId: Int) -> AnyPublisher<[String], WebAPIDataSource.NetworkError> {
         let albumDataSource: AlbumDataSource = appDependencies.resolve()
-        albumDataSource.downloadTwoAlbums(for: artistId, completion: completion)
+        return albumDataSource.downloadTwoAlbums(for: artistId).map { albumDTO in
+            var albums: [AlbumEntity] = albumDTO.results.map { albumResult in
+                AlbumEntity(albumName: albumResult.collectionName, albumCover: albumResult.artworkUrl60, albumCoverLarge: albumResult.artworkUrl100)
+            }
+            for i in 0...2 {
+                if albums.count <= i {
+                    albums.append(AlbumEntity(albumName: nil, albumCover: nil, albumCoverLarge: nil))
+                }
+            }
+            let albumNames: [String] = albums.map { album in
+                album.albumName ?? ""
+            }
+            return albumNames
+        }.eraseToAnyPublisher()
     }
 }

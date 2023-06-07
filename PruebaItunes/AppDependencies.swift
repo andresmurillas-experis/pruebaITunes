@@ -18,26 +18,26 @@ protocol AppDependenciesResolver {
 }
 
 extension AppDependenciesResolver {
-    func resolve() -> ArtistDetailViewModel {
-        ArtistDetailViewModel(appDependencies: self)
-    }
     func resolve() -> WebAPIDataSource {
         WebAPIDataSource()
-    }
-    func resolve() -> ArtistListViewModel {
-        ArtistListViewModel(appDependencies: self)
     }
     func resolve() -> ITunesDataRepository {
         ITunesDataRepository(appDependencies: self)
     }
-    func resolve() -> ArtistListViewProtocol {
-        ArtistListViewController(appDependencies: self)
+    func resolve() -> ArtistDetailViewModel {
+        ArtistDetailViewModel(appDependencies: self)
     }
     func resolve() -> ArtistDataSource {
         ArtistDataSource(appDependencies: self)
     }
     func resolve() -> AlbumDataSource {
         AlbumDataSource(appDependencies: self)
+    }
+    func resolve() -> ArtistListViewProtocol {
+        ArtistListViewController(appDependencies: self)
+    }
+    func resolve() -> ArtistListViewModel {
+        ArtistListViewModel(appDependencies: self)
     }
     func resolve() -> GetArtists {
         GetArtists(appDependencies: self)

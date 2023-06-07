@@ -14,30 +14,39 @@ protocol ArtistListViewProtocol: AnyObject {
 
 final class ArtistListViewController: UIViewController, AlertPrompt {
     private let tableView = UITableView()
-    private var vm: ArtistListViewModel
     private var searchBar: UISearchBar = UISearchBar()
+    private var vm: ArtistListViewModel
     private var cancellables = [AnyCancellable]()
     var searchText = ""
     private var artistList: [ArtistEntity]? = [] {
         didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                print(self?.artistList?.last, "🧙🏻‍♀️")
+                self?.tableView.reloadData()
+                self?.reloadInputViews()
             }
         }
     }
     private var error: WebAPIDataSource.NetworkError? {
         didSet {
-            DispatchQueue.main.async { [self] in
-                switch error {
+            DispatchQueue.main.async { [weak self] in
+                switch self?.error {
                 case .parsing:
-                    showError(error, title: "Parsing Error")
+                    self?.showError(self?.error, title: "Parsing Error")
+                    return
                 case .noData:
-                    showError(error, title: "No Data Error")
+                    self?.showError(self?.error, title: "No Data Error")
+                    return
                 case .serviceError:
-                    showError(error, title: "Service Error")
+                    self?.showError(self?.error, title: "Service Error")
+                    return
+                case .alamofire:
+                    self?.showError(self?.error, title: "Alamofire Error")
+                    return
                 case .none:
                     return
                 }
+                self?.reloadInputViews()
             }
         }
     }
@@ -45,16 +54,6 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         self.vm = appDependencies.resolve()
         super.init(nibName: nil, bundle: nil)
         searchBar.delegate = self
-        vm.subject
-            .sink(receiveCompletion: { completion in
-                if case .failure(let error) = completion {
-                    self.error = error
-                }
-            }, receiveValue: { artistList in
-                self.artistList = artistList
-                print(artistList, "🍈")
-            })
-            .store(in: &cancellables)
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -63,6 +62,19 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
         setupTableView()
+        vm.subject
+            .sink(receiveCompletion: { [weak self] (completion) in
+                switch completion {
+                case .finished:
+                    print("finished succesfully")
+                case .failure(let error):
+                    self?.error = error
+                    self?.reloadInputViews()
+                }
+            }, receiveValue: { artistList in
+                self.artistList = artistList
+            })
+            .store(in: &cancellables)
     }
 }
 

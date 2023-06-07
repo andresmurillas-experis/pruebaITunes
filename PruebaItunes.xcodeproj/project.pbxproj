@@ -167,7 +167,6 @@
 				7F2841F529A61CA3004AFA0D /* SceneDelegate.swift */,
 				7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */,
 				7FF60C1E29CB04E7008823D4 /* Data Layer */,
-				7F8B10182A0CDE9000CD0F11 /* Domain Layer */,
 				7F8B101C2A0D036A00CD0F11 /* UI Layer */,
 				7F2841FC29A61CA5004AFA0D /* Assets.xcassets */,
 				7F2841FE29A61CA5004AFA0D /* LaunchScreen.storyboard */,
@@ -244,6 +243,7 @@
 		7F8B101D2A0D044700CD0F11 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				7F8B10182A0CDE9000CD0F11 /* Domain Layer */,
 				7FBC438529A8D67E00FD0D3D /* ArtistDTO.swift */,
 				7F47DAAA29B8894700364F00 /* AlbumDTO.swift */,
 			);

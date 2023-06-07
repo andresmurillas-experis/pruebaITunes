@@ -36,15 +36,9 @@ extension ArtistDetailViewModel {
                 print("Encountered error")
                 self?.subject.send(completion: .failure(WebAPIDataSource.NetworkError.alamofire))
             }
-        }, receiveValue: { [weak self] (iTunesAlbumList) in
-            var iTunesAlbumListResults = iTunesAlbumList.results
-            iTunesAlbumListResults.removeFirst()
-            let albumList = iTunesAlbumListResults.map {
-                let albumName = $0.collectionName
-                let cover = $0.artworkUrl60
-                let coverLarge = $0.artworkUrl100
-                return AlbumEntity(albumName: albumName, albumCover: cover, albumCoverLarge: coverLarge)
-            }
+        }, receiveValue: { [weak self] (albums) in
+            var albumList: [AlbumEntity] = albums
+            albumList.removeFirst()
             self?.subject.send(albumList)
         }).store(in: &cancellables)
     }
