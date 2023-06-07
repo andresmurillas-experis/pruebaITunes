@@ -48,10 +48,8 @@ extension ArtistCell {
         discTwoName.text = viewModel.discTwoName
         moreContentExistsIndicator.isHidden = true
         artist = viewModel
-        print(name.text, "🍊")  
     }
     func viewdidLoad() {
-        print(name.text, "☢️    ")
         name.translatesAutoresizingMaskIntoConstraints = false
         discografia.translatesAutoresizingMaskIntoConstraints = false
         discOneName.translatesAutoresizingMaskIntoConstraints = false
