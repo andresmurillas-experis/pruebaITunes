@@ -33,6 +33,7 @@ private extension ArtistListViewModel {
 extension ArtistListViewModel {
     func renewSearch(for searchText: String) {
         let artistName = searchText.replacingOccurrences(of: " ", with: "+")
+        artistList = []
         let getArtists: GetArtists = appDependencies.resolve()
         getArtists.execute(artistName: artistName).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {

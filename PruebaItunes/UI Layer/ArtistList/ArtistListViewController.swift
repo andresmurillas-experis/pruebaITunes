@@ -20,9 +20,10 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
     var searchText = ""
     private var artistList: [ArtistEntity]? = [] {
         didSet {
-            DispatchQueue.main.async {
-                print("🧙🏻‍♀️")
-                self.tableView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                print(self?.artistList?.last, "🧙🏻‍♀️")
+                self?.tableView.reloadData()
+                self?.reloadInputViews()
             }
         }
     }
@@ -75,7 +76,6 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
                     self?.reloadInputViews()
                 }
             }, receiveValue: { artistList in
-                print(artistList.last, "🧙🏿‍♂️")
                 self.artistList = artistList
             })
             .store(in: &cancellables)
