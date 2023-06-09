@@ -12,7 +12,7 @@ final class ArtistListViewModel {
     private var appDependencies: AppDependenciesResolver
     private var cancellables = [AnyCancellable]()
     var subject: CurrentValueSubject<[ArtistEntity], WebAPIDataSource.NetworkError>
-    private var searchText = ""
+    var passSub = PassthroughSubject<String, Never>()
     private var artistList: [ArtistEntity] = [] {
         didSet {
             subject.send(artistList)
@@ -32,27 +32,37 @@ private extension ArtistListViewModel {
 }
 
 extension ArtistListViewModel {
-    func setPassThroughSubject(subject: PassthroughSubject<String, WebAPIDataSource.NetworkError>) {
-        subject.sink { completion in
-        } receiveValue: { [weak self] (value) in
-            self?.searchText = value
-        }.store(in: &cancellables)
+    func viewDidLoad() {
+        bindSubjects()
     }
-    
-    func renewSearch() {
+    func renewSearch(for searchText: String) {
         let artistName = searchText.replacingOccurrences(of: " ", with: "+")
         artistList = []
         let getArtists: GetArtists = appDependencies.resolve()
-        getArtists.execute(artistName: artistName).sink(receiveCompletion: { (completion) in
-            switch completion {
-            case .finished:
-                print("🚠")
-            case .failure(let error):
-                print(error)
+        getArtists.execute(artistName: artistName).map { [unowned self] artists in
+            getArtists.execute(artistName: artistName).sink { completion in
+                return
+            } receiveValue: { artists in
+                return
             }
-        }, receiveValue: { [weak self] artists in
-            self?.addDiscsToArtistsIn(artists)
-        }).store(in: &cancellables)
+        }
+    }
+    func getArtisPublisher(_ searchText: String) -> AnyPublisher<[ArtistEntity], WebAPIDataSource.NetworkError> {
+        let getArtists: GetArtists = appDependencies.resolve()
+        let artistName = searchText.replacingOccurrences(of: " ", with: "+")
+        return getArtists.execute(artistName: artistName)
+    }
+    func bindSubjects() {
+        passSub.flatMap { [unowned self] name in
+            self.getArtisPublisher(name)
+        }.sink { completion in
+            if case .failure = completion {
+                self.bindSubjects()
+            }
+        } receiveValue: { artists in
+            self.addDiscsToArtistsIn(artists)
+        }.store(in: &cancellables)
+
     }
     func goToDetailViewForArtist(_ artist: ArtistEntity) {
         coordinator.goToDetailViewForArtist(artist)
@@ -62,7 +72,7 @@ extension ArtistListViewModel {
 private extension ArtistListViewModel {
     func addDiscsToArtistsIn(_ artists: [ArtistEntity]) {
         let getTwoAlbumNames: GetTwoAlbumNamesUseCase = appDependencies.resolve()
-        artists.forEach { artist in
+        artists.forEach { [unowned self] artist in
             getTwoAlbumNames.execute(albumId: artist.id).sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:

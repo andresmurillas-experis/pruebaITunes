@@ -72,8 +72,8 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             }, receiveValue: { artistList in
                 self.artistList = artistList
             })
-             .store(in: &cancellables)
-        vm.setPassThroughSubject(subject: subject)
+            .store(in: &cancellables)
+        vm.viewDidLoad()
     }
 }
 
@@ -99,8 +99,8 @@ extension ArtistListViewController: ArtistListViewProtocol {
 
 extension ArtistListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        subject.send(searchText)
-        vm.renewSearch()
+        vm.renewSearch(for: searchText)
+        vm.passSub.send(searchText)
     }
 }
 

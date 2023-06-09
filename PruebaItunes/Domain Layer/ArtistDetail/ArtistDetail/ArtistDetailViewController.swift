@@ -111,6 +111,7 @@ private extension ArtistDetailViewController {
 
         contentView.heightAnchor.constraint(equalTo: mainStackView.heightAnchor).isActive = true
 
+        // Split albumList into chunks.
         let chunks = stride(from: 0, to: albumList.count, by: 3).map { i in
             var chunk: [AlbumEntity] = []
             if i < (albumList.count - 3) {
@@ -124,17 +125,19 @@ private extension ArtistDetailViewController {
             }
             return chunk
         }
-        var stackViews: [UIStackView] = []
+        var rows: [UIStackView] = []
         for _ in 0...chunks.count {
-            stackViews.append(UIStackView())
+            rows.append(UIStackView())
         }
+        // Populate the main stackview with rows and populate these with the created chunks.
         var i = 0
         for chunk in chunks {
-            mainStackView.addArrangedSubview(stackViews[i])
-            stackViews[i].translatesAutoresizingMaskIntoConstraints = false
-            stackViews[i].heightAnchor.constraint(equalToConstant: 120).isActive = true
-            stackViews[i].distribution = .fillEqually
+            mainStackView.addArrangedSubview(rows[i])
+            rows[i].translatesAutoresizingMaskIntoConstraints = false
+            rows[i].heightAnchor.constraint(equalToConstant: 120).isActive = true
+            rows[i].distribution = .fillEqually
             var newchunk = chunk
+            // Make chunks null pointer safe for populating rows.
             if chunk.count < 3 {
                 for _ in chunk.count...2 {
                     newchunk.append(AlbumEntity(albumName: nil, albumCover: nil, albumCoverLarge: nil))
@@ -146,8 +149,8 @@ private extension ArtistDetailViewController {
                 if album.albumName == nil {
                     albumViewCell.wipeCover()
                 }
-                stackViews[i].addArrangedSubview(albumViewCell)
-                stackViews[i].reloadInputViews()
+                rows[i].addArrangedSubview(albumViewCell)
+                rows[i].reloadInputViews()
             }
             i += 1
         }

@@ -28,18 +28,21 @@ extension ArtistDetailViewModel {
             return
         }
         let getAlbums: GetAlbums = appDependencies.resolve()
-        getAlbums.execute(albumId: artistId).sink(receiveCompletion: { [weak self] (completion) in
-            switch completion {
-            case .finished:
-                print("GetAlbums finished succesfully")
-            case .failure:
-                print("Encountered error")
-                self?.subject.send(completion: .failure(WebAPIDataSource.NetworkError.alamofire))
-            }
-        }, receiveValue: { [weak self] (albums) in
-            var albumList: [AlbumEntity] = albums
-            albumList.removeFirst()
-            self?.subject.send(albumList)
-        }).store(in: &cancellables)
+        getAlbums
+            .execute(albumId: artistId).subscribe(on: DispatchQueue.global(qos: .background)).receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] (completion) in
+                switch completion {
+                case .finished:
+                    print("GetAlbums finished succesfully")
+                case .failure:
+                    print("Encountered error")
+                    return
+//                    self?.subject.send(completion: .failure(WebAPIDataSource.NetworkError.alamofire))
+                }
+            }, receiveValue: { [weak self] (albums) in
+                var albumList: [AlbumEntity] = albums
+                albumList.removeFirst()
+                self?.subject.send(albumList)
+            }).store(in: &cancellables)
     }
 }
