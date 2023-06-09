@@ -51,7 +51,9 @@ extension ArtistListViewModel {
                 }
             }, receiveValue: { [weak self] (artists) in
                 var albumList: [ArtistEntity] = artists
-                albumList.removeFirst()
+                if !albumList.isEmpty {
+                    albumList.removeFirst()
+                }
                 self?.subject.send(albumList)
             }).store(in: &cancellables)
     }
