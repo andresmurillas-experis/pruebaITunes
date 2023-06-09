@@ -12,6 +12,7 @@ final class ArtistListViewModel {
     private var appDependencies: AppDependenciesResolver
     private var cancellables = [AnyCancellable]()
     var subject: CurrentValueSubject<[ArtistEntity], WebAPIDataSource.NetworkError>
+    private var searchText = ""
     private var artistList: [ArtistEntity] = [] {
         didSet {
             subject.send(artistList)
@@ -31,14 +32,21 @@ private extension ArtistListViewModel {
 }
 
 extension ArtistListViewModel {
-    func renewSearch(for searchText: String) {
+    func setPassThroughSubject(subject: PassthroughSubject<String, WebAPIDataSource.NetworkError>) {
+        subject.sink { completion in
+        } receiveValue: { [weak self] (value) in
+            self?.searchText = value
+        }.store(in: &cancellables)
+    }
+    
+    func renewSearch() {
         let artistName = searchText.replacingOccurrences(of: " ", with: "+")
         artistList = []
         let getArtists: GetArtists = appDependencies.resolve()
-        getArtists.execute(artistName: artistName).sink(receiveCompletion: { [weak self] (completion) in
+        getArtists.execute(artistName: artistName).sink(receiveCompletion: { (completion) in
             switch completion {
             case .finished:
-                return
+                print("🚠")
             case .failure(let error):
                 print(error)
             }
@@ -55,7 +63,6 @@ private extension ArtistListViewModel {
     func addDiscsToArtistsIn(_ artists: [ArtistEntity]) {
         let getTwoAlbumNames: GetTwoAlbumNamesUseCase = appDependencies.resolve()
         artists.forEach { artist in
-//            print(artist)
             getTwoAlbumNames.execute(albumId: artist.id).sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
