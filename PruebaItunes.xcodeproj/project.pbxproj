@@ -154,7 +154,6 @@
 		7F2841F229A61CA3004AFA0D /* PruebaItunes */ = {
 			isa = PBXGroup;
 			children = (
-				7FF78F9E2A3B05690047F09A /* New Group */,
 				7F8B101C2A0D036A00CD0F11 /* UI */,
 				7FEAC45A2A0D099D006E31E0 /* Binding */,
 				7FF78F982A39E2CE0047F09A /* ArtistDetailCoordinator.swift */,
@@ -222,13 +221,6 @@
 				7FEAC45B2A0D09B0006E31E0 /* Bindable.swift */,
 			);
 			path = Binding;
-			sourceTree = "<group>";
-		};
-		7FF78F9E2A3B05690047F09A /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

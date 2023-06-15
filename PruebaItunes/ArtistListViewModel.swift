@@ -75,11 +75,11 @@ private extension ArtistListViewModel {
                     print(error)
                 }
             }, receiveValue: { [weak self] (albumNames) in
-                var names: [String] = []
+                var names: [String] = albumNames
                 for _ in albumNames.count ... 5 {
-                    print(albumNames.count)
                     names.append("")
                 }
+                print(albumNames, "/\n", names)
                 self?.artistList.append(ArtistEntity(id: artist.id, name: artist.name, discOneName: names[0], discTwoName: names[1]))
             }).store(in: &cancellables)
             return

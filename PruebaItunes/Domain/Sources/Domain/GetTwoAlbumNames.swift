@@ -14,7 +14,7 @@ public final class GetTwoAlbumNames {
     public static func execute(albumId: Int) -> AnyPublisher<[String], WebAPIDataSource.NetworkError> {
         ITunesDataRepository.getTwoAlbums(for: albumId).map { albumDTO in
             let names: [String] = albumDTO.results.map { result in
-                result.collectionName ?? ""
+                return result.collectionName ?? ""
             }
             return names
         }.eraseToAnyPublisher()

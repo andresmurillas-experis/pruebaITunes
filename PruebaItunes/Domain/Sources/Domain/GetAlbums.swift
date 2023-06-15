@@ -13,8 +13,7 @@ import Data
 public final class GetAlbums {
     public static func execute(albumId: (Int)) -> AnyPublisher<[AlbumEntity], WebAPIDataSource.NetworkError> {
         return ITunesDataRepository.getAllAlbums(for: albumId).map { albumDTO in
-            albumDTO.results.map { result in
-                print(albumDTO.results.count, "🥵")
+            return albumDTO.results.map { result in
                 return AlbumEntity(albumName: result.collectionName, albumCover: result.artworkUrl60, albumCoverLarge: result.artworkUrl100)
             }
         }.eraseToAnyPublisher()
