@@ -9,45 +9,10 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
-    func resolve() -> ArtistDetailCoordinator
-    func resolve() -> WebAPIDataSource
     func resolve() -> ArtistListViewModel
-    func resolve() -> ArtistListViewProtocol
     func resolve() -> ArtistDetailViewModel
     func resolve() -> ArtistListCoordinator
-}
-
-extension AppDependenciesResolver {
-    func resolve() -> WebAPIDataSource {
-        WebAPIDataSource()
-    }
-    func resolve() -> ITunesDataRepository {
-        ITunesDataRepository(appDependencies: self)
-    }
-    func resolve() -> ArtistDetailViewModel {
-        ArtistDetailViewModel(appDependencies: self)
-    }
-    func resolve() -> ArtistDataSource {
-        ArtistDataSource(appDependencies: self)
-    }
-    func resolve() -> AlbumDataSource {
-        AlbumDataSource(appDependencies: self)
-    }
-    func resolve() -> ArtistListViewProtocol {
-        ArtistListViewController(appDependencies: self)
-    }
-    func resolve() -> ArtistListViewModel {
-        ArtistListViewModel(appDependencies: self)
-    }
-    func resolve() -> GetArtists {
-        GetArtists(appDependencies: self)
-    }
-    func resolve() -> GetAlbums {
-        GetAlbums(appDependencies: self)
-    }
-    func resolve() -> GetTwoAlbumNamesUseCase {
-        GetTwoAlbumNamesUseCase(appDependencies: self)
-    }
+    func resolve() -> ArtistDetailCoordinator
 }
 
 final class AppDependencies {
@@ -64,5 +29,10 @@ extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistDetailCoordinator {
         ArtistDetailCoordinator(self, navigationController: navigator)
     }
+    func resolve() -> ArtistDetailViewModel {
+        ArtistDetailViewModel()
+    }
+    func resolve() -> ArtistListViewModel {
+        ArtistListViewModel(appDependencies: self )
+    }
 }
-
