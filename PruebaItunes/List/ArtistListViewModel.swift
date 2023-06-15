@@ -86,7 +86,7 @@ private extension ArtistListViewModel {
         }
     }
     func bindSubjects() {
-        self.passSub.flatMap { [unowned self] name in
+        passSub.flatMap { [unowned self] name in
             self.getArtisPublisher(name)
         }.sink { completion in
             if case .failure = completion {
