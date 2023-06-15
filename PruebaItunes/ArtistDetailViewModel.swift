@@ -43,6 +43,7 @@ extension ArtistDetailViewModel {
                 var albumList: [AlbumEntity] = albums
                 albumList.removeFirst()
                 self?.subject.send(albumList)
+                print(albumList.count, "🎼")
             }).store(in: &cancellables)
     }
 }
