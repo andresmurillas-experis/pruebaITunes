@@ -12,7 +12,6 @@ let package = Package(
             targets: ["Domain"]),
     ],
     dependencies: [
-        .package(name: "Data", path: "Data")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
