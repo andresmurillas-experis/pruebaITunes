@@ -18,7 +18,6 @@
 		7F2B64B129A7529C001DF58A /* ArtistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */; };
 		7F3D6FDD2A164A460060FCF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F3D6FDC2A164A460060FCF1 /* Alamofire */; };
 		7FBC437D29A76D0000FD0D3D /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC437B29A76D0000FD0D3D /* ArtistCell.swift */; };
-		7FCCC7052A388CE50029834D /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 7FCCC7042A388CE50029834D /* Data */; };
 		7FD76AA529F936300009A83B /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD76AA429F936300009A83B /* CustomCollectionViewLayout.swift */; };
 		7FDB2B0329CDBB54005CCB47 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */; };
 		7FDC92C32A3B240F0099952E /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDC92C22A3B240F0099952E /* Domain */; };
@@ -63,7 +62,6 @@
 
 /* Begin PBXFileReference section */
 		7F0444F729BB3310008B2E05 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
-		7F0FF5152A38882300EA5E8A /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = PruebaItunes/Data; sourceTree = "<group>"; };
 		7F0FF5182A38888400EA5E8A /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = PruebaItunes/Domain; sourceTree = "<group>"; };
 		7F2841F029A61CA3004AFA0D /* PruebaItunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaItunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F2841F329A61CA3004AFA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FDC92C32A3B240F0099952E /* Domain in Frameworks */,
-				7FCCC7052A388CE50029834D /* Data in Frameworks */,
 				7F3D6FDD2A164A460060FCF1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +192,6 @@
 		7F962B312A38860400157F74 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				7F0FF5152A38882300EA5E8A /* Data */,
 				7F0FF5182A38888400EA5E8A /* Domain */,
 			);
 			name = Packages;
@@ -245,7 +241,6 @@
 			name = PruebaItunes;
 			packageProductDependencies = (
 				7F3D6FDC2A164A460060FCF1 /* Alamofire */,
-				7FCCC7042A388CE50029834D /* Data */,
 				7FDC92C22A3B240F0099952E /* Domain */,
 			);
 			productName = PruebaItunes;
@@ -726,10 +721,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F3D6FDB2A164A460060FCF1 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		7FCCC7042A388CE50029834D /* Data */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Data;
 		};
 		7FDC92C22A3B240F0099952E /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
