@@ -7,13 +7,12 @@
 
 import Foundation
 import Combine
-import Data
 import UIKit
 import Domain
 
 @available(iOS 13.0, *)
 public final class ArtistListViewModel {
-    private var cancellables = [AnyCancellable]()
+    var cancellables = [AnyCancellable]()
     var subject: CurrentValueSubject<[ArtistEntity], Error>
     var passSub = PassthroughSubject<String, Never>()
     var coordinator: ArtistListCoordinator
@@ -55,7 +54,7 @@ extension ArtistListViewModel {
                 self?.subject.send(albumList)
             }).store(in: &cancellables)
     }
-    func getArtisPublisher(_ searchText: String) -> AnyPublisher<[ArtistEntity], WebAPIDataSource.NetworkError> {
+    func getArtisPublisher(_ searchText: String) -> AnyPublisher<[ArtistEntity], AlertPrompt.NetworkError> {
         let artistName = searchText.replacingOccurrences(of: " ", with: "+")
         return GetArtists.execute(artistName: artistName)
     }
@@ -87,7 +86,7 @@ private extension ArtistListViewModel {
         }
     }
     func bindSubjects() {
-        passSub.flatMap { [unowned self] name in
+        self.passSub.flatMap { [unowned self] name in
             self.getArtisPublisher(name)
         }.sink { completion in
             if case .failure = completion {
