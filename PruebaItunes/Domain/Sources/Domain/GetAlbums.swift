@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import Data
 
-@available(iOS 13.0, *)
 public final class GetAlbums {
     public static func execute(albumId: (Int)) -> AnyPublisher<[AlbumEntity], WebAPIDataSource.NetworkError> {
         return ITunesDataRepository.getAllAlbums(for: albumId).map { albumDTO in

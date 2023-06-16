@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import Data
 
-@available(iOS 13.0, *)
 public final class GetArtists {
     public static func execute(artistName: String) -> AnyPublisher<[ArtistEntity], WebAPIDataSource.NetworkError> {
         return ITunesDataRepository.getAllArtists(for: artistName).map { artistDTO in
