@@ -16,7 +16,7 @@ let package = Package(
     
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .branch("master")),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", branch: "master"),
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
