@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 import Combine
 
-@available(iOS 13.0, *)
 public final class WebAPIDataSource {
     public enum NetworkError: Error {
         case serviceError, noData, parsing, alamofire
@@ -31,7 +30,6 @@ public final class WebAPIDataSource {
     }
 }
 
-@available(iOS 13.0, *)
 private extension WebAPIDataSource {
     func decodeJsonFromData<ViewModelObject: Decodable>(_ data: Data) -> ViewModelObject? {
         let stringData = String(data: data, encoding: .utf8)!

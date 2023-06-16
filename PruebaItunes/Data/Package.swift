@@ -5,11 +5,15 @@ import PackageDescription
 
 let package = Package(
     name: "Data",
+    platforms:[
+        .iOS(.v13),
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Data",
             targets: ["Data"]),
+    
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", .branch("master")),

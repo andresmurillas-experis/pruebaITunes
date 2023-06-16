@@ -10,7 +10,6 @@ import Combine
 import UIKit
 import Domain
 
-@available(iOS 13.0, *)
 public final class ArtistListViewModel {
     var cancellables = [AnyCancellable]()
     var subject: CurrentValueSubject<[ArtistEntity], Error>
@@ -28,7 +27,6 @@ public final class ArtistListViewModel {
     }
 }
 
-@available(iOS 13.0, *)
 extension ArtistListViewModel {
     func viewDidLoad() {
         bindSubjects()
@@ -63,7 +61,6 @@ extension ArtistListViewModel {
     }
 }
 
-@available(iOS 13.0, *)
 private extension ArtistListViewModel {
     func addDiscsToArtistsIn(_ artists: [ArtistEntity]) {
         artists.forEach { [unowned self] artist in

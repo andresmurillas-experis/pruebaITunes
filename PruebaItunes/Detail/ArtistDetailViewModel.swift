@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import Domain
 
-@available(iOS 13.0, *)
 public final class ArtistDetailViewModel {
     public var subject: CurrentValueSubject<[AlbumEntity], Error>
     private var cancellables = [AnyCancellable]()
@@ -20,7 +19,6 @@ public final class ArtistDetailViewModel {
     }
 }
 
-@available(iOS 13.0, *)
 extension ArtistDetailViewModel {
     public func setArtist(_ artist: ArtistEntity) {
         self.artist = artist
@@ -47,7 +45,6 @@ extension ArtistDetailViewModel {
     }
 }
 
-@available(iOS 13.0, *)
 private extension ArtistDetailViewModel {
     func bindSubjects() {
         if #available(iOS 14.0, *) {

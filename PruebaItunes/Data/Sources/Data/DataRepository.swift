@@ -8,14 +8,12 @@
 import Foundation
 import Combine
 
-@available(iOS 13.0, *)
 public protocol DataRepository {
     static func getAllArtists(for artistName: String) -> AnyPublisher<ArtistDTO, WebAPIDataSource.NetworkError>
     static func getAllAlbums(for artistId: Int) -> AnyPublisher<AlbumDTO, WebAPIDataSource.NetworkError>
     static func getTwoAlbums(for artistId: Int) -> AnyPublisher<AlbumDTO, WebAPIDataSource.NetworkError>
 }
 
-@available(iOS 13.0, *)
 public final class ITunesDataRepository: DataRepository {
     public static func getAllArtists(for artistName: String) -> AnyPublisher<ArtistDTO, WebAPIDataSource.NetworkError> {
         ArtistDataSource.downloadAllArtists(for: artistName)
