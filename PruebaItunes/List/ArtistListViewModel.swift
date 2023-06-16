@@ -52,7 +52,7 @@ extension ArtistListViewModel {
                 self?.subject.send(albumList)
             }).store(in: &cancellables)
     }
-    func getArtisPublisher(_ searchText: String) -> AnyPublisher<[ArtistEntity], AlertPrompt.NetworkError> {
+    func getArtisPublisher(_ searchText: String) -> AnyPublisher<[ArtistEntity], NetworkError> {
         let artistName = searchText.replacingOccurrences(of: " ", with: "+")
         return GetArtists.execute(artistName: artistName)
     }

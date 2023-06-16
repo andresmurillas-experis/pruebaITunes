@@ -7,15 +7,14 @@
 
 import Foundation
 import UIKit
-import Data
+import Domain
 
 protocol AlertPrompt: UIAlertViewDelegate {
-    typealias NetworkError = WebAPIDataSource.NetworkError
-    func showError(_ error: WebAPIDataSource.NetworkError?, title: String) -> Void
+    func showError(_ error: NetworkError?, title: String) -> Void
 }
 
 extension AlertPrompt where Self: UIViewController {
-    func showError(_ error: WebAPIDataSource.NetworkError?, title: String) {
+    func showError(_ error: NetworkError?, title: String) {
         let alertMessage = UIAlertController(title: title, message: error?.localizedDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.destructive)
         alertMessage.addAction(okAction)

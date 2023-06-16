@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-public class AlbumDataSource {
+    public class AlbumDataSource {
     public static func downloadAllAlbums(for artistId: Int) -> AnyPublisher<AlbumDTO, WebAPIDataSource.NetworkError> {
         let url = "https://itunes.apple.com/lookup?id=\(artistId)&entity=album"
         let downloadClient: WebAPIDataSource = WebAPIDataSource()

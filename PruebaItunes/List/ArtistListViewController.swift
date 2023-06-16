@@ -66,7 +66,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
                 case .finished:
                     print("finished succesfully")
                 case .failure(let error):
-                    self?.error = error as! ArtistListViewController.NetworkError
+                    self?.error = error as! NetworkError
                     self?.reloadInputViews()
                 }
             }, receiveValue: { artistList in

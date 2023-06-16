@@ -62,7 +62,7 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
         self.vm.subject.sink( receiveCompletion: { [weak self] (completion) in
             switch completion {
             case .failure(let error):
-                self?.error = error as? ArtistDetailViewController.NetworkError
+                self?.error = error as? NetworkError
             case .finished:
                 print("Succesfully finished washing my boat")
             }
