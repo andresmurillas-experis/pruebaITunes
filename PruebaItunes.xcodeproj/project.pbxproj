@@ -75,7 +75,7 @@
 		7F28421429A61CA5004AFA0D /* PruebaItunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaItunesUITests.swift; sourceTree = "<group>"; };
 		7F28421629A61CA5004AFA0D /* PruebaItunesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaItunesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewController.swift; sourceTree = "<group>"; };
-		7F7DFE592A3B36150074A43E /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = PruebaItunes/Data; sourceTree = "<group>"; };
+		7F98CDA82A3C50EA008E4C1F /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = PruebaItunes/Data; sourceTree = "<group>"; };
 		7FBC437B29A76D0000FD0D3D /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
 		7FD76AA429F936300009A83B /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				7F0FF5182A38888400EA5E8A /* Domain */,
-				7F7DFE592A3B36150074A43E /* Data */,
+				7F98CDA82A3C50EA008E4C1F /* Data */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
