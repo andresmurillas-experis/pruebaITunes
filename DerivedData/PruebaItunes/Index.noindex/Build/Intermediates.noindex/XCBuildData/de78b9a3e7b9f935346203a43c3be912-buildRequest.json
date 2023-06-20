@@ -1,0 +1,67 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "dd2d1cb57b2114f27152a5171857db2a8396710d6c8e08533c201dbc66ec8615"
+    },
+    {
+      "guid" : "dd2d1cb57b2114f27152a5171857db2a23a7875c46c5fb5a9ed629ece19e4737"
+    },
+    {
+      "guid" : "dd2d1cb57b2114f27152a5171857db2a1f04cedc552a94e406dd9b261db8c3af"
+    },
+    {
+      "guid" : "dd2d1cb57b2114f27152a5171857db2a0c39f7b67bcd1282307ede3bf669d9e3"
+    }
+  ],
+  "containerPath" : "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator16.2",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/andresmurillas/Documents/proyectos/PruebaItunes/DerivedData/PruebaItunes/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/andresmurillas/Documents/proyectos/PruebaItunes/DerivedData/PruebaItunes/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/andresmurillas/Documents/proyectos/PruebaItunes/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/andresmurillas/Documents/proyectos/PruebaItunes/DerivedData/PruebaItunes/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/andresmurillas/Documents/proyectos/PruebaItunes/DerivedData/PruebaItunes/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/andresmurillas/Documents/proyectos/PruebaItunes/DerivedData/PruebaItunes/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "INDEX_ARENA_INFO_REGULAR_BUILD_PRODUCTS_DIR" : "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/Build/Products",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

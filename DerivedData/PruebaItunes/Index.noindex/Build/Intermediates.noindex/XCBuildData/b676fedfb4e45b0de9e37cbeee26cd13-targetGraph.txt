@@ -1,0 +1,20 @@
+Target dependency graph (8 targets)
+Alamofire in Alamofire, no dependencies
+Alamofire in Alamofire, depends on:
+Alamofire in Alamofire (explicit)
+Data in Data, depends on:
+Alamofire in Alamofire (explicit)
+Data in Data, depends on:
+Data in Data (explicit)
+Alamofire in Alamofire (explicit)
+DataTests in Data, depends on:
+Data in Data (explicit)
+Alamofire in Alamofire (explicit)
+Domain in Domain, depends on:
+Data in Data (explicit)
+Domain in Domain, depends on:
+Domain in Domain (explicit)
+Data in Data (explicit)
+DomainTests in Domain, depends on:
+Domain in Domain (explicit)
+Data in Data (explicit)
