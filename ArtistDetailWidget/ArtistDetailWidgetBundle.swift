@@ -2,7 +2,7 @@
 //  ArtistDetailWidgetBundle.swift
 //  ArtistDetailWidget
 //
-//  Created by Andrés Murillas on 20/6/23.
+//  Created by Andrés Murillas on 21/6/23.
 //
 
 import WidgetKit

@@ -1,0 +1,16 @@
+{
+  "source": "/Users/andresmurillas/Documents/proyectos/PruebaItunes/ArtistDetailWidget/ArtistDetailWidget.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "My Widget"
+      },
+      {
+        "comment": "",
+        "key": "This is an example widget."
+      }
+    ]
+  },
+  "version": 1
+}

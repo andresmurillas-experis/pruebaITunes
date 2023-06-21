@@ -2,7 +2,7 @@
 //  ArtistDetailWidget.swift
 //  ArtistDetailWidget
 //
-//  Created by Andrés Murillas on 20/6/23.
+//  Created by Andrés Murillas on 21/6/23.
 //
 
 import WidgetKit
@@ -44,7 +44,7 @@ struct ArtistDetailWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        Image(systemName: "face.smiling")
     }
 }
 

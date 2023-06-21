@@ -1,0 +1,79 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "5cfac8da67572da023c48fc57f7e83a4fd3c1dd470b0b68610a4cd67608a7f6b"
+build_start_time: [1687338386, 897624969]
+build_end_time: [1687338393, 789219856]
+inputs:
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/AFError.swift"
+  : [1687250901, 485717773]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Alamofire.swift"
+  : [1687250901, 486015796]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/AlamofireExtended.swift"
+  : [1687250901, 486290931]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/AuthenticationInterceptor.swift"
+  : [1687250901, 486617565]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/CachedResponseHandler.swift"
+  : [1687250901, 487365722]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Combine.swift"
+  : [1687250901, 488145828]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Concurrency.swift"
+  : [1687250901, 488553524]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/DispatchQueue+Alamofire.swift"
+  : [1687250901, 488852977]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/EventMonitor.swift"
+  : [1687250901, 489225864]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/HTTPHeaders.swift"
+  : [1687250901, 489512681]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/HTTPMethod.swift"
+  : [1687250901, 489884376]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/MultipartFormData.swift"
+  : [1687250901, 490843296]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/MultipartUpload.swift"
+  : [1687250901, 491589307]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/NetworkReachabilityManager.swift"
+  : [1687250901, 491921424]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Notifications.swift"
+  : [1687250901, 492197036]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/OperationQueue+Alamofire.swift"
+  : [1687250901, 492759704]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/ParameterEncoder.swift"
+  : [1687250901, 492998838]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/ParameterEncoding.swift"
+  : [1687250901, 493296384]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Protected.swift"
+  : [1687250901, 493552207]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/RedirectHandler.swift"
+  : [1687250901, 493793487]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Request.swift"
+  : [1687250901, 494747161]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/RequestCompression.swift"
+  : [1687250901, 495027542]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/RequestInterceptor.swift"
+  : [1687250901, 495344161]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/RequestTaskMap.swift"
+  : [1687250901, 496140956]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Response.swift"
+  : [1687250901, 496496677]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/ResponseSerialization.swift"
+  : [1687250901, 496963500]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Result+Alamofire.swift"
+  : [1687250901, 497279882]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/RetryPolicy.swift"
+  : [1687250901, 498014211]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/ServerTrustEvaluation.swift"
+  : [1687250901, 498939275]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Session.swift"
+  : [1687250901, 499723672]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/SessionDelegate.swift"
+  : [1687250901, 500075817]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/StringEncoding+Alamofire.swift"
+  : [1687250901, 500431776]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/URLConvertible+URLRequestConvertible.swift"
+  : [1687250901, 500692605]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/URLEncodedFormEncoder.swift"
+  : [1687250901, 501111507]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/URLRequest+Alamofire.swift"
+  : [1687250901, 501420259]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/URLSessionConfiguration+Alamofire.swift"
+  : [1687250901, 501683235]
+  ? "/Users/andresmurillas/Library/Developer/Xcode/DerivedData/PruebaItunes-fvsbtvfaenuncfaweogwrewoudrm/SourcePackages/checkouts/Alamofire/Source/Validation.swift"
+  : [1687250901, 501908302]

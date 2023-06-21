@@ -2,7 +2,7 @@
 //  ArtistDetailWidgetLiveActivity.swift
 //  ArtistDetailWidget
 //
-//  Created by Andrés Murillas on 20/6/23.
+//  Created by Andrés Murillas on 21/6/23.
 //
 
 import ActivityKit
@@ -26,7 +26,7 @@ struct ArtistDetailWidgetLiveActivity: Widget {
             VStack {
                 Text("Hello")
             }
-            .activityBackgroundTint(Color.cyan)
+            .activityBackgroundTint(Color.green)
             .activitySystemActionForegroundColor(Color.black)
 
         } dynamicIsland: { context in

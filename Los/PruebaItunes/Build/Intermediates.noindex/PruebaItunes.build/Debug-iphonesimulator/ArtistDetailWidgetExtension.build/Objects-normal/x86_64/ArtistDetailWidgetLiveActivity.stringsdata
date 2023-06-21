@@ -1,0 +1,36 @@
+{
+  "source": "/Users/andresmurillas/Documents/proyectos/PruebaItunes/ArtistDetailWidget/ArtistDetailWidgetLiveActivity.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Hello"
+      },
+      {
+        "comment": "",
+        "key": "Leading"
+      },
+      {
+        "comment": "",
+        "key": "Trailing"
+      },
+      {
+        "comment": "",
+        "key": "Bottom"
+      },
+      {
+        "comment": "",
+        "key": "L"
+      },
+      {
+        "comment": "",
+        "key": "T"
+      },
+      {
+        "comment": "",
+        "key": "Min"
+      }
+    ]
+  },
+  "version": 1
+}

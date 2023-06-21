@@ -1,0 +1,11 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "df297acb79f5cb821818a474f1a4bc110e389b12375bbb3542d9a975894ac4e6"
+build_start_time: [1687336808, 999019145]
+build_end_time: [1687336809, 225862979]
+inputs:
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Entity/AlbumEntity.swift": [1687250898, 918906688]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Entity/ArtistEntity.swift": [1687250898, 919508457]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/NetworkErrorType.swift": [1687250898, 920116901]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Use Cases/GetAlbums.swift": [1687250898, 920920372]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Use Cases/GetArtists.swift": [1687250898, 921602725]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Use Cases/GetTwoAlbumNames.swift": [1687250898, 922052860]

@@ -1,0 +1,10 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "8c18d7becd611980085c1f58ac755a54850eb9ef49a68a18d95b6842455d719e"
+build_start_time: [1687338388, 972349166]
+build_end_time: [1687338389, 28676033]
+inputs:
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/ArtistDetailWidget/ArtistDetailWidget.swift": !private [1687335397, 564575910]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/ArtistDetailWidget/ArtistDetailWidgetBundle.swift": !private [1687335397, 550031185]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/ArtistDetailWidget/ArtistDetailWidgetLiveActivity.swift": !private [1687335397, 558278083]
+  ? "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/PruebaItunes.build/Debug-iphonesimulator/ArtistDetailWidgetExtension.build/DerivedSources/IntentDefinitionGenerated/ArtistDetailWidget/ConfigurationIntent.swift"
+  : !private [1687338386, 912680387]

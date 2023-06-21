@@ -1,0 +1,19 @@
+Target dependency graph (8 targets)
+ArtistDetailWidgetExtension in PruebaItunes, no dependencies
+Alamofire in Alamofire, no dependencies
+Alamofire in Alamofire, depends on:
+Alamofire in Alamofire (explicit)
+Data in Data, depends on:
+Alamofire in Alamofire (explicit)
+Data in Data, depends on:
+Data in Data (explicit)
+Alamofire in Alamofire (explicit)
+Domain in Domain, depends on:
+Data in Data (explicit)
+Domain in Domain, depends on:
+Domain in Domain (explicit)
+Data in Data (explicit)
+PruebaItunes in PruebaItunes, depends on:
+ArtistDetailWidgetExtension in PruebaItunes (explicit)
+Domain in Domain (explicit)
+Alamofire in Alamofire (explicit)
