@@ -37,6 +37,7 @@
 		7FDB2B0329CDBB54005CCB47 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB2B0229CDBB54005CCB47 /* AppDependencies.swift */; };
 		7FDC92C32A3B240F0099952E /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDC92C22A3B240F0099952E /* Domain */; };
 		7FDEA7D42A3C652D00DE37B0 /* AlertPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDEA7D32A3C652D00DE37B0 /* AlertPrompt.swift */; };
+		7FDF6FC12A499C1500F76D89 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDF6FC02A499C1500F76D89 /* Domain */; };
 		7FEAC45C2A0D09B0006E31E0 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAC45B2A0D09B0006E31E0 /* Bindable.swift */; };
 		7FF5A0CB29BB4EE800A26D45 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5A0C929BB4EE800A26D45 /* AlbumCell.swift */; };
 		7FF78F952A39DC490047F09A /* ArtistListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF78F942A39DC490047F09A /* ArtistListCoordinator.swift */; };
@@ -169,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FDF6FC12A499C1500F76D89 /* Domain in Frameworks */,
 				7F846DED2A419FDF00EF0021 /* SwiftUI.framework in Frameworks */,
 				7F846DEB2A419FDF00EF0021 /* WidgetKit.framework in Frameworks */,
 			);
@@ -405,6 +407,9 @@
 			dependencies = (
 			);
 			name = ArtistDetailWidgetExtension;
+			packageProductDependencies = (
+				7FDF6FC02A499C1500F76D89 /* Domain */,
+			);
 			productName = ArtistDetailWidgetExtension;
 			productReference = 7F846DE92A419FDF00EF0021 /* ArtistDetailWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1046,6 +1051,10 @@
 			productName = Alamofire;
 		};
 		7FDC92C22A3B240F0099952E /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		7FDF6FC02A499C1500F76D89 /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Domain;
 		};

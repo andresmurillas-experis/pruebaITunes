@@ -35,7 +35,6 @@ final class AlbumCell: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 extension AlbumCell {
     func setupViewModel(_ viewModel: AlbumEntity) {
         downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { result in

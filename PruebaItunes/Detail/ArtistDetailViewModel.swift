@@ -14,6 +14,7 @@ public final class ArtistDetailViewModel {
     private var cancellables = [AnyCancellable]()
     private var artist: ArtistEntity?
     private var passSub = PassthroughSubject<Int, Never>()
+    private var lastAlbum: AlbumEntity?
     public init() {
         self.subject = CurrentValueSubject<[AlbumEntity], Error>([])
     }

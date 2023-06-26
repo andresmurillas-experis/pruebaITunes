@@ -1,7 +1,7 @@
 version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
 options: "09e87525f0c791b36e73da33d0f36c60eee99c7a6541c43f61b1614ad910b12a"
-build_start_time: [1687338391, 262828826]
-build_end_time: [1687338391, 313252925]
+build_start_time: [1687774631, 914324045]
+build_end_time: [1687774631, 960502147]
 inputs:
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DTO/AlbumDTO.swift": !private [1687250898, 910182714]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DTO/ArtistDTO.swift": !private [1687250898, 910577535]

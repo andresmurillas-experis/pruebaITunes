@@ -1,0 +1,20 @@
+"/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/SourcePackages/checkouts/Alamofire/Source/AlamofireExtended.swift":
+  object: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AlamofireExtended.o"
+  dependencies: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AlamofireExtended.d"
+  swift-dependencies: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AlamofireExtended.swiftdeps"
+  diagnostics: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AlamofireExtended.dia"
+"/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/SourcePackages/checkouts/Alamofire/Source/Alamofire.swift":
+  dependencies: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/Alamofire.d"
+  swift-dependencies: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/Alamofire.swiftdeps"
+  object: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/Alamofire.o"
+  diagnostics: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/Alamofire.dia"
+"/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/SourcePackages/checkouts/Alamofire/Source/AuthenticationInterceptor.swift":
+  dependencies: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AuthenticationInterceptor.d"
+  swift-dependencies: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AuthenticationInterceptor.swiftdeps"
+  object: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AuthenticationInterceptor.o"
+  diagnostics: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AuthenticationInterceptor.dia"
+"/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/SourcePackages/checkouts/Alamofire/Source/AFError.swift":
+  diagnostics: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AFError.dia"
+  object: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AFError.o"
+  swift-dependencies: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AFError.swiftdeps"
+  dependencies: "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/Alamofire.build/Debug-iphonesimulator/Alamofire.build/Objects-normal/x86_64/AFError.d"

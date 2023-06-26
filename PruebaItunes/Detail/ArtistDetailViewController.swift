@@ -142,6 +142,8 @@ private extension ArtistDetailViewController {
             }
             i += 1
         }
+        let encodedAlbum = try! JSONEncoder().encode(albumList.last)
+        UserDefaults(suiteName: "com.experis.PruebaItunes")?.set(encodedAlbum, forKey: "album")
         mainStackView.reloadInputViews()
     }
 }
