@@ -1,11 +1,13 @@
 version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
 options: "27af185368a08ef26b774d64ab49a75b0da2ca9332f1dea52fa3825128ae195f"
-build_start_time: [1687775396, 456073045]
-build_end_time: [1687775396, 796365976]
+build_start_time: [1687869601, 732334136]
+build_end_time: [1687869602, 4209041]
 inputs:
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DTO/AlbumDTO.swift": [1687250898, 910182714]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DTO/ArtistDTO.swift": [1687250898, 910577535]
-  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataRepository.swift": [1687250898, 911171913]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DTO/ImageDTO.swift": [1687867951, 463419437]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataRepository.swift": [1687868733, 963339328]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataSource/AlbumCoverDataSource.swift": [1687868045, 591776609]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataSource/AlbumDataSource.swift": [1687250898, 911974430]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataSource/ArtistDataSource.swift": [1687250898, 912577152]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/WebAPIDataSource.swift": [1687250898, 913173198]

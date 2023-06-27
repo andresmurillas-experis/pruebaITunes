@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.gitignore</key>
+		<data>
+		doYayGNbB4LDBhDJ80n3qa27Ym8=
+		</data>
 		<key>ArtistDetailWidget.intentdefinition</key>
 		<data>
 		ga+Fzay0gJ3sQx3qddo6XxRgPos=
@@ -22,7 +26,7 @@
 		</data>
 		<key>PlugIns/ArtistDetailWidgetExtension.appex/ArtistDetailWidgetExtension</key>
 		<data>
-		jS+bOXCsRmb/7RFQU7XsO9JGWsA=
+		vWCTB0On/m5psIYHlfIxLOrNf1I=
 		</data>
 		<key>PlugIns/ArtistDetailWidgetExtension.appex/Info.plist</key>
 		<data>
@@ -35,6 +39,13 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>.gitignore</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+CjwzIXGZvCZgRp6zLvleGJzJsDrqpTL3OX0z209bzs=
+			</data>
+		</dict>
 		<key>ArtistDetailWidget.intentdefinition</key>
 		<dict>
 			<key>hash2</key>
@@ -53,7 +64,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aw125wa9ceu/g71Q1yZpOWQaZDeY72zzgAAAWZun1+0=
+			epig61+PGr7i5M76UcAWcTDJyHx8Lhs2WDqdC0fjrJY=
 			</data>
 		</dict>
 		<key>PlugIns/ArtistDetailWidgetExtension.appex/Info.plist</key>

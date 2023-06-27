@@ -9,26 +9,25 @@ import WidgetKit
 import SwiftUI
 import Intents
 import Domain
-import Combine
 
 struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> AlbumCoverEntry {
-        AlbumCoverEntry(date: Date(), configuration: ConfigurationIntent())
+    func placeholder(in context: Context) -> ArtistDetailEntry {
+        ArtistDetailEntry(date: Date(), configuration: ConfigurationIntent())
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (AlbumCoverEntry) -> ()) {
-        let entry = AlbumCoverEntry(date: Date(), configuration: configuration)
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (ArtistDetailEntry) -> ()) {
+        let entry = ArtistDetailEntry(date: Date(), configuration: configuration)
         completion(entry)
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [AlbumCoverEntry] = []
+        var entries: [ArtistDetailEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = AlbumCoverEntry(date: entryDate, configuration: configuration)
+            let entry = ArtistDetailEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
 
@@ -37,48 +36,30 @@ struct Provider: IntentTimelineProvider {
     }
 }
 
-struct AlbumCoverEntry: TimelineEntry {
+struct ArtistDetailEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
-//    let image: UIImage
 }
 
 struct ArtistDetailWidgetEntryView : View {
     var entry: Provider.Entry
-    let dataTask: URLSessionDataTask?
+
     var body: some View {
-        let encodedAlbum = UserDefaults(suiteName: "com.experis.PruebaItunes")!.object(forKey: "album")
-        let albumCoverURL =  try! JSONDecoder().decode(AlbumEntity.self, from: encodedAlbum as! Data).albumCoverLarge
-        var albumCover = Image(systemName: "face.smiling")
-        self.downloadAlbumCover(from: albumCoverURL!).sink { vcompletion in
+        var image = Image(systemName: "face.smiling")
+        let album = UserDefaults(suiteName: "com.example.PruebaItunes")?.object(forKey: "album") as! AlbumEntity
+        guard let albumCover = album.coverLarge else {
+            return Image(systemName: "face.smiling")
+        }
+        GetAlbumCover.execute(albumCover: albumCover).sink(receiveCompletion: { completion in
             return
-        } receiveValue: { image in
-            albumCover = image
-        }
-        return albumCover
-    }
-    func downloadAlbumCover(from url: String) -> CurrentValueSubject<Image, NetworkError> {
-        guard let url = URL(string: url) else {
-            print("Invalid URL")
-            return CurrentValueSubject(Image(systemName: "face.smiling"))
-        }
-        dataTask?.cancel()
-        let subject = CurrentValueSubject<Image, NetworkError>(Image(systemName: "face.smiling"))
-        let request = URLRequest(url: url)
-        let session = URLSession.shared
-        session.dataTask(with: request) { data, response, error in
-            if error != nil {
-                print("Error: Service Error")
+        }, receiveValue: { data in
+            guard let uiiimage = UIImage(data: data) else {
                 return
             }
-            guard let data = data else {
-                print("Error: No Data Error")
-                return
-            }
-            let image = Image(uiImage: (UIImage(data: data) ?? UIImage(systemName: "face.smiling")) ?? UIImage())
-            subject.send(image)
-        }.resume()
-        return subject
+            image = Image(uiImage: uiiimage)
+        })
+        print("🇭🇰")
+        return image
     }
 }
 
@@ -87,7 +68,7 @@ struct ArtistDetailWidget: Widget {
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            ArtistDetailWidgetEntryView(entry: entry, dataTask: URLSessionDataTask())
+            ArtistDetailWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
@@ -96,7 +77,7 @@ struct ArtistDetailWidget: Widget {
 
 struct ArtistDetailWidget_Previews: PreviewProvider {
     static var previews: some View {
-        ArtistDetailWidgetEntryView(entry: AlbumCoverEntry(date: Date(), configuration: ConfigurationIntent()), dataTask: URLSessionDataTask())
+        ArtistDetailWidgetEntryView(entry: ArtistDetailEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

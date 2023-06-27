@@ -1,7 +1,7 @@
 version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
 options: "f219050f3cf54a6e5eaf7e5732dbb0e220036da7145da8057bacb244dcff501f"
-build_start_time: [1687774611, 948392868]
-build_end_time: [1687774612, 864117145]
+build_start_time: [1687869377, 840150833]
+build_end_time: [1687869379, 278068065]
 inputs:
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/SourcePackages/checkouts/Alamofire/Source/AFError.swift": !dirty [1687431472, 541063308]
   ? "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/SourcePackages/checkouts/Alamofire/Source/Alamofire.swift"

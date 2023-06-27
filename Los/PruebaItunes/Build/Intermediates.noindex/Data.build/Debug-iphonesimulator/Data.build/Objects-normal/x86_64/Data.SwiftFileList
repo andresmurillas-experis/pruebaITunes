@@ -1,6 +1,8 @@
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DTO/AlbumDTO.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DTO/ArtistDTO.swift
+/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DTO/ImageDTO.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataRepository.swift
+/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataSource/AlbumCoverDataSource.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataSource/AlbumDataSource.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/DataSource/ArtistDataSource.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Data/Sources/Data/WebAPIDataSource.swift

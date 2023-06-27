@@ -96,6 +96,96 @@
 			<key>uniqueIdentifier</key>
 			<string>04428C5A-93AE-4F5A-A871-64282822B092</string>
 		</dict>
+		<key>050CFC28-7375-4138-8A64-7ED72DA219D4</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>5615585D-4A47-4E70-906E-EC46AC0EB8FC</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-27-55-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561675.707407</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>050CFC28-7375-4138-8A64-7ED72DA219D4</string>
+		</dict>
+		<key>0BA31754-0435-4898-A469-992D6F567F77</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>2E42C82B-1452-4D9A-8A38-7A4B6945DCBA</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.26_13-13-14-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709470794.09439301</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>0BA31754-0435-4898-A469-992D6F567F77</string>
+		</dict>
 		<key>0D8F4180-D375-48DE-AE84-3767849BA322</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -366,6 +456,51 @@
 			<key>uniqueIdentifier</key>
 			<string>10D770C2-1A1D-4A04-BC48-8A330BD00B3E</string>
 		</dict>
+		<key>192AFA10-F6B0-4E36-B00D-F7877AFB50D5</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>41012E1E-48F1-4CA9-8431-73D557AE540B</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-00-36-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560036.36070704</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>192AFA10-F6B0-4E36-B00D-F7877AFB50D5</string>
+		</dict>
 		<key>192F6E7D-4820-44D2-A636-BA13BAEB4CC4</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -410,6 +545,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>192F6E7D-4820-44D2-A636-BA13BAEB4CC4</string>
+		</dict>
+		<key>1B0AED90-7E83-45E3-B302-C353CAB4CB0D</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>AD74844C-9EE1-435F-B0A7-F4F61B4E4FB6</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_10-52-17-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709548737.58413601</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>1B0AED90-7E83-45E3-B302-C353CAB4CB0D</string>
 		</dict>
 		<key>1B2D98EC-C914-42CA-BC8D-175152FCB606</key>
 		<dict>
@@ -1266,6 +1446,51 @@
 			<key>uniqueIdentifier</key>
 			<string>366C3F95-0519-469F-B54E-3F8991E8CEFF</string>
 		</dict>
+		<key>3C419865-820F-43B8-A738-6CC9515E050C</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>F7E614ED-C4E8-4E5E-8644-6BA7ED176F7E</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.26_13-46-18-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709472778.66917205</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>3C419865-820F-43B8-A738-6CC9515E050C</string>
+		</dict>
 		<key>3C71C2F8-DC22-4FA1-BD19-A36A52DA39AE</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -1761,6 +1986,96 @@
 			<key>uniqueIdentifier</key>
 			<string>4CE0D24D-14C7-4AE4-8E18-357C845C0E7C</string>
 		</dict>
+		<key>50A924CF-292F-48BA-BE85-AB2B607A85AE</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>571DEC39-4C1A-407B-BB17-D7D1EA7AC7E0</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_12-54-57-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709556097.69480801</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>50A924CF-292F-48BA-BE85-AB2B607A85AE</string>
+		</dict>
+		<key>52144F71-AF1C-40D6-895C-708A04FF4246</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>922B691D-1E33-43E7-B72C-0888E489548A</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-26-11-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561571.28034306</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>52144F71-AF1C-40D6-895C-708A04FF4246</string>
+		</dict>
 		<key>52C85A33-2CBA-490E-81BF-A1867F03E660</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -1851,6 +2166,96 @@
 			<key>uniqueIdentifier</key>
 			<string>537879E9-ABC9-44C2-AFB9-379185AF3D56</string>
 		</dict>
+		<key>54AAA14A-6D7F-4672-BB9F-8B61FEB6AD8F</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>E65BBA37-E930-4D77-8B0E-E96D0D779D25</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-16-48-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561008.34484303</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>54AAA14A-6D7F-4672-BB9F-8B61FEB6AD8F</string>
+		</dict>
+		<key>54AD2F12-89F6-41A6-BBE7-334148042061</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>0CD76623-CDDB-4022-9D92-17C13CB98B9B</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_13-26-21-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709557981.32686901</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>54AD2F12-89F6-41A6-BBE7-334148042061</string>
+		</dict>
 		<key>553D27DC-622A-42D8-B522-015B05C73711</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -1895,6 +2300,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>553D27DC-622A-42D8-B522-015B05C73711</string>
+		</dict>
+		<key>56E76722-17BA-4743-8DE6-25D4EED761AC</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>9AD8F0D7-7302-44AE-93EB-FD89ED4FFAB8</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-03-16-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560196.92907596</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>56E76722-17BA-4743-8DE6-25D4EED761AC</string>
 		</dict>
 		<key>5B50B7DA-AACF-45E6-A75E-BA0D09E4945A</key>
 		<dict>
@@ -2345,6 +2795,96 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>64F63A19-744D-4E69-A3C9-14E067BCB771</string>
+		</dict>
+		<key>662BC5A7-B912-4530-8A9D-13BF05116137</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>4E518AF5-54A9-4B20-B6FA-A25B693FB110</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-32-45-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561965.79064405</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>662BC5A7-B912-4530-8A9D-13BF05116137</string>
+		</dict>
+		<key>66A3C304-6218-4680-8DA4-7A227B240C2B</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>EA6CBFE0-2D16-4B55-BA9F-CAB904EBABBC</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_13-26-01-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709557961.53517902</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>66A3C304-6218-4680-8DA4-7A227B240C2B</string>
 		</dict>
 		<key>67C81DF4-9AA2-44F4-9E8C-40DE8B96063C</key>
 		<dict>
@@ -2886,6 +3426,96 @@
 			<key>uniqueIdentifier</key>
 			<string>72BC25AA-6FAC-4CE8-88B0-758B2940ABC2</string>
 		</dict>
+		<key>74F71344-4198-4914-92CA-FB36A7A8A7D5</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>701A77ED-1EAF-4474-9F48-68F8601DFFA5</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-34-43-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562083.18403101</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>74F71344-4198-4914-92CA-FB36A7A8A7D5</string>
+		</dict>
+		<key>7537412A-7398-4E4E-A459-09540FA5F77D</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>97D5581A-D43D-4FD3-8DDD-5AF02B33EBDF</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-17-19-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561039.72954297</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>7537412A-7398-4E4E-A459-09540FA5F77D</string>
+		</dict>
 		<key>755A7A7C-F59F-45E0-BD67-1AC3B6C59009</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -2930,6 +3560,96 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>755A7A7C-F59F-45E0-BD67-1AC3B6C59009</string>
+		</dict>
+		<key>75C5A473-20EC-403D-9BB0-C7A5F4191430</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>B93A0036-8DA4-4C1A-BDE6-3B355BC3CFAF</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-33-14-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561994.06050706</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>75C5A473-20EC-403D-9BB0-C7A5F4191430</string>
+		</dict>
+		<key>75E5672E-C250-4C36-BE54-53F13135B084</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>109B0BB6-906A-4004-ACFE-F636E35A1836</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-26-02-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561562.58594298</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>75E5672E-C250-4C36-BE54-53F13135B084</string>
 		</dict>
 		<key>75F813ED-5055-48C4-A7BB-026480DB5CC1</key>
 		<dict>
@@ -3246,6 +3966,51 @@
 			<key>uniqueIdentifier</key>
 			<string>802EF116-D48B-4CE7-9922-07C9A6F0394C</string>
 		</dict>
+		<key>805D2B75-4402-4B48-A484-E5069EBAA283</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>4FFF0E7F-DCCD-46E5-BED4-182CF3565F44</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-06-29-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560389.57333803</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>805D2B75-4402-4B48-A484-E5069EBAA283</string>
+		</dict>
 		<key>80770FFD-EE3C-46CB-A24E-81F70525FB9F</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -3335,6 +4100,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>8240483D-8197-47F5-BC4F-9E91F5976ED2</string>
+		</dict>
+		<key>830EDCF1-DC16-46D6-A6F6-92971FAFC7F0</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>92AC9091-F6F4-40A5-B8DE-33FFDBA8655B</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-28-27-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561707.59997797</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>830EDCF1-DC16-46D6-A6F6-92971FAFC7F0</string>
 		</dict>
 		<key>83A67ED2-B651-482F-AF4C-828ABB735AC9</key>
 		<dict>
@@ -3471,6 +4281,96 @@
 			<key>uniqueIdentifier</key>
 			<string>85C558C9-8F0B-4B14-81FE-72E5A967B112</string>
 		</dict>
+		<key>85C9C210-4E23-4850-B53C-88333D4E803C</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>B6C51AE8-F835-4431-A9B6-AC5DE1C5FA65</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-27-22-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561642.84867704</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>85C9C210-4E23-4850-B53C-88333D4E803C</string>
+		</dict>
+		<key>8672EBBE-0089-49B0-827B-8A2BB0A77117</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>E69DF575-1E60-4D59-9E72-F2E701DCA029</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_12-18-49-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709553929.53912497</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>8672EBBE-0089-49B0-827B-8A2BB0A77117</string>
+		</dict>
 		<key>8715B27D-E5C4-45ED-A197-B907F0068CB4</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -3606,6 +4506,96 @@
 			<key>uniqueIdentifier</key>
 			<string>88ACCA9C-700B-4B7B-BB44-5B014B82EA75</string>
 		</dict>
+		<key>8974B42E-3A56-473F-9A0E-081A319F36BC</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>38AF6492-AA81-4D40-A7BC-BCD40F32FAC0</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-36-18-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562178.50863802</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>8974B42E-3A56-473F-9A0E-081A319F36BC</string>
+		</dict>
+		<key>8A194E75-5F7B-4317-A759-4F910F82FE47</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>27854721-66AE-46BA-AA56-2F7C180E1CFE</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_13-27-25-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709558045.41773796</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>8A194E75-5F7B-4317-A759-4F910F82FE47</string>
+		</dict>
 		<key>8BCDC332-7431-41C9-ADB1-2089450DD0D9</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -3740,6 +4730,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>8D310037-A38A-4A45-9197-3EDDD8C278DB</string>
+		</dict>
+		<key>8D8F9D03-AEE3-4880-AD20-CC90B46FF67E</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>EF72C2D4-9E83-4C5E-9EFB-8059E8832F5E</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-14-26-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560866.77829003</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>8D8F9D03-AEE3-4880-AD20-CC90B46FF67E</string>
 		</dict>
 		<key>8ED54520-25F4-4CD5-9B4C-2839423149F5</key>
 		<dict>
@@ -3921,6 +4956,51 @@
 			<key>uniqueIdentifier</key>
 			<string>941E7AFE-85E4-4DFD-94A9-A7A04ED349DC</string>
 		</dict>
+		<key>94911EEC-2925-4E6F-84EB-4308A34DB1F5</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>A65A7CAF-1E05-4B83-B1E6-F890A3884C2C</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-34-29-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562069.77250695</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>94911EEC-2925-4E6F-84EB-4308A34DB1F5</string>
+		</dict>
 		<key>957AA455-F8E7-4261-AEF9-8352A0D9CCEC</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -3965,6 +5045,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>957AA455-F8E7-4261-AEF9-8352A0D9CCEC</string>
+		</dict>
+		<key>962B95A8-164A-4138-9916-C6543AE9B3F5</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>0FF4D0D4-D0D0-443B-8865-3955BA40C3DA</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_13-29-16-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709558156.66546905</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>962B95A8-164A-4138-9916-C6543AE9B3F5</string>
 		</dict>
 		<key>97EBF305-DC93-4BC9-B42B-3D118FC25D35</key>
 		<dict>
@@ -4055,6 +5180,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>9CD7C032-5158-48B6-866F-25E1E02A8515</string>
+		</dict>
+		<key>9E00C83E-1D64-45C0-AC5C-1BAEC1DC2940</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>B09FE578-6AA5-4B6A-A1A8-CAEDF092FD25</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-14-38-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560878.774248</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>9E00C83E-1D64-45C0-AC5C-1BAEC1DC2940</string>
 		</dict>
 		<key>9EE5DB25-D55C-4972-AEC4-2529981E5C6B</key>
 		<dict>
@@ -4190,6 +5360,96 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>A1D8F4C4-97A1-4B80-A443-D1C823052D86</string>
+		</dict>
+		<key>A48B413F-D6BE-45C0-B3EA-17EBC65584A7</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>A38BA615-CD31-4DC7-9499-40F04CA49F8D</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-36-04-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562164.42757595</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>A48B413F-D6BE-45C0-B3EA-17EBC65584A7</string>
+		</dict>
+		<key>A51B4A12-3C78-4184-B956-6A9D9AE1EDC8</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>3511EF90-97B2-4A62-8B30-A6CF1EDEECD0</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_13-28-06-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709558086.96854699</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>A51B4A12-3C78-4184-B956-6A9D9AE1EDC8</string>
 		</dict>
 		<key>A727795A-70E9-4F91-BB17-AD24DBFF579E</key>
 		<dict>
@@ -4371,6 +5631,51 @@
 			<key>uniqueIdentifier</key>
 			<string>AEDA4EBF-EE2B-4E48-9C69-994F1D007706</string>
 		</dict>
+		<key>B3FA6D3F-AA81-4EF6-B0E1-2ED37D9E0E8F</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>D1D16459-9F83-4ACF-B2EC-33A63AB1583A</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-30-52-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561852.58313894</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>B3FA6D3F-AA81-4EF6-B0E1-2ED37D9E0E8F</string>
+		</dict>
 		<key>B52D694F-064D-48EA-BDB2-7DE3500D3C54</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -4415,6 +5720,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>B52D694F-064D-48EA-BDB2-7DE3500D3C54</string>
+		</dict>
+		<key>B65EB8B2-1395-43AE-8945-8FF71A28FBD1</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>E163B70F-561C-4BD3-ACDD-ED48CE48AA51</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-28-37-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561717.70866096</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>B65EB8B2-1395-43AE-8945-8FF71A28FBD1</string>
 		</dict>
 		<key>B7EC29D6-82EE-4245-B6A3-DDBC872CA91B</key>
 		<dict>
@@ -4641,6 +5991,51 @@
 			<key>uniqueIdentifier</key>
 			<string>B8DF7291-72F6-4A39-BB8D-17ABB24BE190</string>
 		</dict>
+		<key>BC4055FE-ECEC-4554-A6BA-963129A412D1</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>31084935-4836-4099-9C11-956F815880EE</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-28-09-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561689.58611405</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>BC4055FE-ECEC-4554-A6BA-963129A412D1</string>
+		</dict>
 		<key>BD3B6C3F-5955-4D63-9E2E-C5D402F40856</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -4731,6 +6126,51 @@
 			<key>uniqueIdentifier</key>
 			<string>BD6CEBB1-C71C-4CF0-992C-C8A014B526A6</string>
 		</dict>
+		<key>C12CFDB8-6D77-45F6-BDCF-1E0B621DBBAB</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>20F299EF-50B7-4E5F-B081-3D48C0A4380A</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-14-05-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560845.61719799</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>C12CFDB8-6D77-45F6-BDCF-1E0B621DBBAB</string>
+		</dict>
 		<key>C1D3B592-5E23-4909-8B2F-AC9705925FE8</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -4820,6 +6260,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>C1DA5593-4C4D-493E-BE2E-5C872E07D0DB</string>
+		</dict>
+		<key>C2318A21-33A2-4B14-8D38-4EF567DAC1DD</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>CB9F3333-4579-4B8B-9D73-4D70392C520B</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.26_13-27-31-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709471651.29602098</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>C2318A21-33A2-4B14-8D38-4EF567DAC1DD</string>
 		</dict>
 		<key>C62CEA22-EC1A-406C-8163-7F2EB520D62D</key>
 		<dict>
@@ -5451,6 +6936,51 @@
 			<key>uniqueIdentifier</key>
 			<string>D84D94BC-F617-4D22-87DF-34A8D1FB6447</string>
 		</dict>
+		<key>DA13C9DC-8B11-40B7-B16B-CD3A34CC0DB4</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>0E980FCF-1A1E-4D70-A107-93F1054121F4</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-25-34-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561534.04748595</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>DA13C9DC-8B11-40B7-B16B-CD3A34CC0DB4</string>
+		</dict>
 		<key>DA87FB9B-B725-42F6-84B5-C249601E55E0</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -5585,6 +7115,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>DB3E3F01-114D-4341-8CD1-F847C7F88192</string>
+		</dict>
+		<key>DCBBCB71-0081-4CDD-B6EA-EFAF37F84A5F</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>CA9EE192-0A1B-4CA3-BC8B-62FC63B91560</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-33-11-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561991.11851799</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>DCBBCB71-0081-4CDD-B6EA-EFAF37F84A5F</string>
 		</dict>
 		<key>DCE33C63-DA9C-404A-AE90-1D653A9B1D47</key>
 		<dict>
@@ -5765,6 +7340,51 @@
 			<string>Run ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>E0E77572-04B3-41EA-94B2-F80D8FA071F5</string>
+		</dict>
+		<key>E34E7566-EE4A-4596-9E5F-8A5499FD5971</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>797144F2-60F4-458C-8249-00EFA582AF09</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ArtistDetailWidgetExtension-2023.06.27_14-28-50-+0200.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561730.78793502</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>E34E7566-EE4A-4596-9E5F-8A5499FD5971</string>
 		</dict>
 		<key>E352C721-E572-4224-9266-05E7487D97CF</key>
 		<dict>

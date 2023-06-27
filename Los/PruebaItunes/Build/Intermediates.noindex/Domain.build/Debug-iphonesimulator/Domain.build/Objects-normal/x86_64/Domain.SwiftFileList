@@ -1,6 +1,7 @@
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Entity/AlbumEntity.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Entity/ArtistEntity.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/NetworkErrorType.swift
+/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Use\ Cases/GetAlbumCover.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Use\ Cases/GetAlbums.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Use\ Cases/GetArtists.swift
 /Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Domain/Sources/Domain/Use\ Cases/GetTwoAlbumNames.swift

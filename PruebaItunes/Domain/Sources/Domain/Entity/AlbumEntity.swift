@@ -8,17 +8,17 @@
 import Foundation
 
 public struct AlbumEntity: Codable{
-    public let albumName: String?
-    public let albumCover: String?
-    public let albumCoverLarge: String?
+    public let name: String?
+    public let cover: String?
+    public let coverLarge: String?
     public init () {
-        albumName = nil
-        albumCover = nil
-        albumCoverLarge = nil
+        name = nil
+        cover = nil
+        coverLarge = nil
     }
     public init(albumName: String?, albumCover: String?, albumCoverLarge: String?) {
-        self.albumName = albumName
-        self.albumCover = albumCover
-        self.albumCoverLarge = albumCoverLarge
+        self.name = albumName
+        self.cover = albumCover
+        self.coverLarge = albumCoverLarge
     }
 }

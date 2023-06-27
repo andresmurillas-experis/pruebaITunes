@@ -34,6 +34,34 @@
 			<key>uniqueIdentifier</key>
 			<string>13A9D8F1-B880-45D4-A5F4-4415CE791B15</string>
 		</dict>
+		<key>19D93ECE-15B7-4045-BE61-D30214C3CBF9</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
+			<key>fileName</key>
+			<string>19D93ECE-15B7-4045-BE61-D30214C3CBF9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Resolve Packages</string>
+			<key>timeStartedRecording</key>
+			<real>709560981.726686</real>
+			<key>timeStoppedRecording</key>
+			<real>709560981.89020097</real>
+			<key>title</key>
+			<string>Resolve Packages</string>
+			<key>uniqueIdentifier</key>
+			<string>19D93ECE-15B7-4045-BE61-D30214C3CBF9</string>
+		</dict>
 		<key>3737DD70-8CD6-4539-86A3-0009EA864051</key>
 		<dict>
 			<key>className</key>
@@ -89,6 +117,34 @@
 			<string>Resolve Packages</string>
 			<key>uniqueIdentifier</key>
 			<string>57EE0FBC-12D0-41BE-AC40-C1BD7A099DD6</string>
+		</dict>
+		<key>6FC89C01-08F7-41F8-8350-42BBE409A3BF</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
+			<key>fileName</key>
+			<string>6FC89C01-08F7-41F8-8350-42BBE409A3BF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Resolve Packages</string>
+			<key>timeStartedRecording</key>
+			<real>709560539.49685705</real>
+			<key>timeStoppedRecording</key>
+			<real>709560539.55311596</real>
+			<key>title</key>
+			<string>Resolve Packages</string>
+			<key>uniqueIdentifier</key>
+			<string>6FC89C01-08F7-41F8-8350-42BBE409A3BF</string>
 		</dict>
 		<key>8A458EF6-43BD-4793-A772-A136BDF38E35</key>
 		<dict>
@@ -174,6 +230,34 @@
 			<key>uniqueIdentifier</key>
 			<string>BEF5D0B2-B9E5-4CC9-A9B5-AE3E468E93FD</string>
 		</dict>
+		<key>C6BDCAB6-3884-4AD5-851F-E7E856864ED5</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
+			<key>fileName</key>
+			<string>C6BDCAB6-3884-4AD5-851F-E7E856864ED5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Resolve Packages</string>
+			<key>timeStartedRecording</key>
+			<real>709560525.888399</real>
+			<key>timeStoppedRecording</key>
+			<real>709560526.06898105</real>
+			<key>title</key>
+			<string>Resolve Packages</string>
+			<key>uniqueIdentifier</key>
+			<string>C6BDCAB6-3884-4AD5-851F-E7E856864ED5</string>
+		</dict>
 		<key>D5F73766-3FCC-44F7-A3DC-DE6F46035A30</key>
 		<dict>
 			<key>className</key>
@@ -201,6 +285,90 @@
 			<string>Resolve Packages</string>
 			<key>uniqueIdentifier</key>
 			<string>D5F73766-3FCC-44F7-A3DC-DE6F46035A30</string>
+		</dict>
+		<key>E0E2BD52-77B6-403B-A51D-3DD8B92A63AD</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
+			<key>fileName</key>
+			<string>E0E2BD52-77B6-403B-A51D-3DD8B92A63AD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Resolve Packages</string>
+			<key>timeStartedRecording</key>
+			<real>709561008.04626596</real>
+			<key>timeStoppedRecording</key>
+			<real>709561008.11588001</real>
+			<key>title</key>
+			<string>Resolve Packages</string>
+			<key>uniqueIdentifier</key>
+			<string>E0E2BD52-77B6-403B-A51D-3DD8B92A63AD</string>
+		</dict>
+		<key>EF440CB3-24B0-4290-BC15-B05BBB819D14</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
+			<key>fileName</key>
+			<string>EF440CB3-24B0-4290-BC15-B05BBB819D14.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Resolve Packages</string>
+			<key>timeStartedRecording</key>
+			<real>709560756.09374702</real>
+			<key>timeStoppedRecording</key>
+			<real>709560756.17754805</real>
+			<key>title</key>
+			<string>Resolve Packages</string>
+			<key>uniqueIdentifier</key>
+			<string>EF440CB3-24B0-4290-BC15-B05BBB819D14</string>
+		</dict>
+		<key>F596454E-A0CC-4CA2-B80F-4D06DBE461BA</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
+			<key>fileName</key>
+			<string>F596454E-A0CC-4CA2-B80F-4D06DBE461BA.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Resolve Packages</string>
+			<key>timeStartedRecording</key>
+			<real>709560751.84707606</real>
+			<key>timeStoppedRecording</key>
+			<real>709560751.99514699</real>
+			<key>title</key>
+			<string>Resolve Packages</string>
+			<key>uniqueIdentifier</key>
+			<string>F596454E-A0CC-4CA2-B80F-4D06DBE461BA</string>
 		</dict>
 	</dict>
 </dict>

@@ -134,7 +134,7 @@ private extension ArtistDetailViewController {
             for album in newchunk {
                 let albumViewCell = AlbumCell(frame: CGRect.zero)
                 albumViewCell.setupViewModel(album)
-                if album.albumName == nil {
+                if album.name == nil {
                     albumViewCell.wipeCover()
                 }
                 rows[i].addArrangedSubview(albumViewCell)

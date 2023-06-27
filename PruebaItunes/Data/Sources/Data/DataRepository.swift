@@ -24,4 +24,7 @@ public final class ITunesDataRepository: DataRepository {
     public static func getTwoAlbums(for artistId: Int) -> AnyPublisher<AlbumDTO, WebAPIDataSource.NetworkError> {
         AlbumDataSource.downloadTwoAlbums(for: artistId)
     }
+    public static func getAlbumCover(from url: String) -> AnyPublisher<Data, WebAPIDataSource.NetworkError> {
+        AlbumCoverDataSource.downloadAlbumCover(from: url)
+    }
 }

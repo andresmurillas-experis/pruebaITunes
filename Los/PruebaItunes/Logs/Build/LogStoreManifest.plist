@@ -380,6 +380,142 @@
 			<key>uniqueIdentifier</key>
 			<string>0C71E394-B291-480B-9FBE-00573930F1A1</string>
 		</dict>
+		<key>0CD76623-CDDB-4022-9D92-17C13CB98B9B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0CD76623-CDDB-4022-9D92-17C13CB98B9B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709557981.32702696</real>
+			<key>timeStoppedRecording</key>
+			<real>709557981.93794096</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>0CD76623-CDDB-4022-9D92-17C13CB98B9B</string>
+		</dict>
+		<key>0E980FCF-1A1E-4D70-A107-93F1054121F4</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0E980FCF-1A1E-4D70-A107-93F1054121F4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561534.04764104</real>
+			<key>timeStoppedRecording</key>
+			<real>709561535.61202097</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>0E980FCF-1A1E-4D70-A107-93F1054121F4</string>
+		</dict>
+		<key>0FF4D0D4-D0D0-443B-8865-3955BA40C3DA</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0FF4D0D4-D0D0-443B-8865-3955BA40C3DA.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709558156.66562998</real>
+			<key>timeStoppedRecording</key>
+			<real>709558159.43198395</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>0FF4D0D4-D0D0-443B-8865-3955BA40C3DA</string>
+		</dict>
+		<key>109B0BB6-906A-4004-ACFE-F636E35A1836</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>109B0BB6-906A-4004-ACFE-F636E35A1836.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561562.58609104</real>
+			<key>timeStoppedRecording</key>
+			<real>709561569.01689899</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>109B0BB6-906A-4004-ACFE-F636E35A1836</string>
+		</dict>
 		<key>11255D9E-0C90-497C-9CE3-D2EA1817D98E</key>
 		<dict>
 			<key>className</key>
@@ -413,6 +549,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>11255D9E-0C90-497C-9CE3-D2EA1817D98E</string>
+		</dict>
+		<key>116E33EE-D073-4DE5-8176-85F1E2DE96D9</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>116E33EE-D073-4DE5-8176-85F1E2DE96D9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Clean ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561552.02515101</real>
+			<key>timeStoppedRecording</key>
+			<real>709561552.19290495</real>
+			<key>title</key>
+			<string>Clean ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>116E33EE-D073-4DE5-8176-85F1E2DE96D9</string>
 		</dict>
 		<key>11B061A6-0560-42D5-ACD5-58E81F946EDE</key>
 		<dict>
@@ -686,6 +856,40 @@
 			<key>uniqueIdentifier</key>
 			<string>2059B201-83E7-4912-A47E-483CBBF40D32</string>
 		</dict>
+		<key>20F299EF-50B7-4E5F-B081-3D48C0A4380A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>20F299EF-50B7-4E5F-B081-3D48C0A4380A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560845.61737394</real>
+			<key>timeStoppedRecording</key>
+			<real>709560847.67174602</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>20F299EF-50B7-4E5F-B081-3D48C0A4380A</string>
+		</dict>
 		<key>23A4AB7A-8D2A-4E09-BCAA-5B7C686CB96C</key>
 		<dict>
 			<key>className</key>
@@ -855,6 +1059,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>25A3A481-2D06-4061-BE38-9F3F3BD6B0E5</string>
+		</dict>
+		<key>27854721-66AE-46BA-AA56-2F7C180E1CFE</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>27854721-66AE-46BA-AA56-2F7C180E1CFE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709558045.41803706</real>
+			<key>timeStoppedRecording</key>
+			<real>709558046.04133701</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>27854721-66AE-46BA-AA56-2F7C180E1CFE</string>
 		</dict>
 		<key>28606604-7C1F-4202-A997-D2E41DB34E8E</key>
 		<dict>
@@ -1162,6 +1400,40 @@
 			<key>uniqueIdentifier</key>
 			<string>3005A5FA-925D-4DFE-A74F-B627501ADC0F</string>
 		</dict>
+		<key>31084935-4836-4099-9C11-956F815880EE</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>31084935-4836-4099-9C11-956F815880EE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561689.58627701</real>
+			<key>timeStoppedRecording</key>
+			<real>709561690.396523</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>31084935-4836-4099-9C11-956F815880EE</string>
+		</dict>
 		<key>350D33B6-9174-4595-A154-DC8BD1A93FC4</key>
 		<dict>
 			<key>className</key>
@@ -1195,6 +1467,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>350D33B6-9174-4595-A154-DC8BD1A93FC4</string>
+		</dict>
+		<key>3511EF90-97B2-4A62-8B30-A6CF1EDEECD0</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3511EF90-97B2-4A62-8B30-A6CF1EDEECD0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709558086.968732</real>
+			<key>timeStoppedRecording</key>
+			<real>709558091.25189698</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>3511EF90-97B2-4A62-8B30-A6CF1EDEECD0</string>
 		</dict>
 		<key>37E7A553-B502-4109-814A-5FF1056F50EE</key>
 		<dict>
@@ -1230,6 +1536,40 @@
 			<key>uniqueIdentifier</key>
 			<string>37E7A553-B502-4109-814A-5FF1056F50EE</string>
 		</dict>
+		<key>38AF6492-AA81-4D40-A7BC-BCD40F32FAC0</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>38AF6492-AA81-4D40-A7BC-BCD40F32FAC0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562178.50878501</real>
+			<key>timeStoppedRecording</key>
+			<real>709562187.33387995</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>38AF6492-AA81-4D40-A7BC-BCD40F32FAC0</string>
+		</dict>
 		<key>3DD38365-6B35-447D-827D-E5A28289BD64</key>
 		<dict>
 			<key>className</key>
@@ -1263,6 +1603,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>3DD38365-6B35-447D-827D-E5A28289BD64</string>
+		</dict>
+		<key>41012E1E-48F1-4CA9-8431-73D557AE540B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>41012E1E-48F1-4CA9-8431-73D557AE540B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560036.36089206</real>
+			<key>timeStoppedRecording</key>
+			<real>709560039.57973897</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>41012E1E-48F1-4CA9-8431-73D557AE540B</string>
 		</dict>
 		<key>41464091-3BD6-4B6A-B608-535B9D1687A5</key>
 		<dict>
@@ -1434,6 +1808,40 @@
 			<key>uniqueIdentifier</key>
 			<string>480172F1-CC90-4FC3-96E3-06C9953295B0</string>
 		</dict>
+		<key>4A78C950-8409-42A3-9B55-43D4CB12346C</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4A78C950-8409-42A3-9B55-43D4CB12346C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562407.88999999</real>
+			<key>timeStoppedRecording</key>
+			<real>709562410.180673</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>4A78C950-8409-42A3-9B55-43D4CB12346C</string>
+		</dict>
 		<key>4B1189D4-186E-4D27-873D-44F2530C80B7</key>
 		<dict>
 			<key>className</key>
@@ -1468,6 +1876,40 @@
 			<key>uniqueIdentifier</key>
 			<string>4B1189D4-186E-4D27-873D-44F2530C80B7</string>
 		</dict>
+		<key>4B59CC11-FA22-4008-846A-B961C02265B6</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4B59CC11-FA22-4008-846A-B961C02265B6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Clean ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562175.41153705</real>
+			<key>timeStoppedRecording</key>
+			<real>709562175.54070902</real>
+			<key>title</key>
+			<string>Clean ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>4B59CC11-FA22-4008-846A-B961C02265B6</string>
+		</dict>
 		<key>4C662E9F-54A0-414A-9CE7-14E8886366C8</key>
 		<dict>
 			<key>className</key>
@@ -1501,6 +1943,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>4C662E9F-54A0-414A-9CE7-14E8886366C8</string>
+		</dict>
+		<key>4E518AF5-54A9-4B20-B6FA-A25B693FB110</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4E518AF5-54A9-4B20-B6FA-A25B693FB110.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561965.790851</real>
+			<key>timeStoppedRecording</key>
+			<real>709561966.568699</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>4E518AF5-54A9-4B20-B6FA-A25B693FB110</string>
 		</dict>
 		<key>4F89E612-4D5D-447C-8CCB-8CD28CC11D02</key>
 		<dict>
@@ -1569,6 +2045,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>4FE032F6-CCCD-4AB7-90D3-8D0FEC410173</string>
+		</dict>
+		<key>4FFF0E7F-DCCD-46E5-BED4-182CF3565F44</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4FFF0E7F-DCCD-46E5-BED4-182CF3565F44.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560389.573524</real>
+			<key>timeStoppedRecording</key>
+			<real>709560390.13457501</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>4FFF0E7F-DCCD-46E5-BED4-182CF3565F44</string>
 		</dict>
 		<key>51C1289D-D0BE-48F7-8C07-8466DB56212A</key>
 		<dict>
@@ -1739,6 +2249,74 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>552F618D-236E-4774-BF4B-D15A218EF0F9</string>
+		</dict>
+		<key>5615585D-4A47-4E70-906E-EC46AC0EB8FC</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5615585D-4A47-4E70-906E-EC46AC0EB8FC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561675.70756698</real>
+			<key>timeStoppedRecording</key>
+			<real>709561676.42901802</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>5615585D-4A47-4E70-906E-EC46AC0EB8FC</string>
+		</dict>
+		<key>571DEC39-4C1A-407B-BB17-D7D1EA7AC7E0</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>571DEC39-4C1A-407B-BB17-D7D1EA7AC7E0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709556097.69510603</real>
+			<key>timeStoppedRecording</key>
+			<real>709556100.13170505</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>571DEC39-4C1A-407B-BB17-D7D1EA7AC7E0</string>
 		</dict>
 		<key>58388735-B47D-4828-B3CC-016B23066B98</key>
 		<dict>
@@ -2114,6 +2692,40 @@
 			<key>uniqueIdentifier</key>
 			<string>6E661CA4-0766-46D8-8E70-E2236F9E8EF2</string>
 		</dict>
+		<key>701A77ED-1EAF-4474-9F48-68F8601DFFA5</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>701A77ED-1EAF-4474-9F48-68F8601DFFA5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562083.18421197</real>
+			<key>timeStoppedRecording</key>
+			<real>709562087.09771204</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>701A77ED-1EAF-4474-9F48-68F8601DFFA5</string>
+		</dict>
 		<key>707DC669-2A7D-4E65-A467-97E0276EA9B6</key>
 		<dict>
 			<key>className</key>
@@ -2283,6 +2895,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>74F496BB-F712-4A00-B933-639E6054C9E3</string>
+		</dict>
+		<key>797144F2-60F4-458C-8249-00EFA582AF09</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>797144F2-60F4-458C-8249-00EFA582AF09.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561730.78815496</real>
+			<key>timeStoppedRecording</key>
+			<real>709561731.44519699</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>797144F2-60F4-458C-8249-00EFA582AF09</string>
 		</dict>
 		<key>7A7FC6F9-21BC-4BD2-8531-2BF12BA4C711</key>
 		<dict>
@@ -2658,6 +3304,74 @@
 			<key>uniqueIdentifier</key>
 			<string>913C9709-642C-47F5-80A5-FE7A0097C3E2</string>
 		</dict>
+		<key>922B691D-1E33-43E7-B72C-0888E489548A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>922B691D-1E33-43E7-B72C-0888E489548A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561571.28050697</real>
+			<key>timeStoppedRecording</key>
+			<real>709561571.93486297</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>922B691D-1E33-43E7-B72C-0888E489548A</string>
+		</dict>
+		<key>92AC9091-F6F4-40A5-B8DE-33FFDBA8655B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>92AC9091-F6F4-40A5-B8DE-33FFDBA8655B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561707.60012698</real>
+			<key>timeStoppedRecording</key>
+			<real>709561708.36147106</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>92AC9091-F6F4-40A5-B8DE-33FFDBA8655B</string>
+		</dict>
 		<key>93C4F1D4-F196-4A3F-B7DA-CBC07EEF245C</key>
 		<dict>
 			<key>className</key>
@@ -2794,6 +3508,40 @@
 			<key>uniqueIdentifier</key>
 			<string>97953CD9-CBA3-4CB3-B86D-C18646FA6DA6</string>
 		</dict>
+		<key>97D5581A-D43D-4FD3-8DDD-5AF02B33EBDF</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>97D5581A-D43D-4FD3-8DDD-5AF02B33EBDF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561039.72974002</real>
+			<key>timeStoppedRecording</key>
+			<real>709561040.41658795</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>97D5581A-D43D-4FD3-8DDD-5AF02B33EBDF</string>
+		</dict>
 		<key>984FFE0D-013F-485F-AC7D-22627F3C28E8</key>
 		<dict>
 			<key>className</key>
@@ -2895,6 +3643,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>992967E3-1052-4354-9A3C-D3947D02E5A4</string>
+		</dict>
+		<key>9AD8F0D7-7302-44AE-93EB-FD89ED4FFAB8</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9AD8F0D7-7302-44AE-93EB-FD89ED4FFAB8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560196.92928398</real>
+			<key>timeStoppedRecording</key>
+			<real>709560200.18424296</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>9AD8F0D7-7302-44AE-93EB-FD89ED4FFAB8</string>
 		</dict>
 		<key>9E431F0E-8A2B-41BF-B800-7078A7FFBD12</key>
 		<dict>
@@ -3032,6 +3814,40 @@
 			<key>uniqueIdentifier</key>
 			<string>A31A2995-C064-46BE-8E53-06624808FBAA</string>
 		</dict>
+		<key>A38BA615-CD31-4DC7-9499-40F04CA49F8D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A38BA615-CD31-4DC7-9499-40F04CA49F8D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562164.42774498</real>
+			<key>timeStoppedRecording</key>
+			<real>709562167.30999005</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>A38BA615-CD31-4DC7-9499-40F04CA49F8D</string>
+		</dict>
 		<key>A4BEF4E2-3274-4F8D-8E56-C71BCEEC8C57</key>
 		<dict>
 			<key>className</key>
@@ -3133,6 +3949,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>A63A6C87-88E7-49D4-B8DE-A0B44988394D</string>
+		</dict>
+		<key>A65A7CAF-1E05-4B83-B1E6-F890A3884C2C</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A65A7CAF-1E05-4B83-B1E6-F890A3884C2C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709562069.772681</real>
+			<key>timeStoppedRecording</key>
+			<real>709562070.53657198</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>A65A7CAF-1E05-4B83-B1E6-F890A3884C2C</string>
 		</dict>
 		<key>A7B08BCD-63FF-4A77-8403-47C20D2A7FA4</key>
 		<dict>
@@ -3270,6 +4120,40 @@
 			<key>uniqueIdentifier</key>
 			<string>ABBAB16D-755D-4CDA-A7D5-F2A293B81523</string>
 		</dict>
+		<key>AD74844C-9EE1-435F-B0A7-F4F61B4E4FB6</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>AD74844C-9EE1-435F-B0A7-F4F61B4E4FB6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709548737.58927703</real>
+			<key>timeStoppedRecording</key>
+			<real>709548738.05654705</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>AD74844C-9EE1-435F-B0A7-F4F61B4E4FB6</string>
+		</dict>
 		<key>AE505D3F-E114-4549-8926-4E57E3AF4D0F</key>
 		<dict>
 			<key>className</key>
@@ -3337,6 +4221,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>AE51AD47-E805-48E4-A9B7-68F6F8CD211C</string>
+		</dict>
+		<key>B09FE578-6AA5-4B6A-A1A8-CAEDF092FD25</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B09FE578-6AA5-4B6A-A1A8-CAEDF092FD25.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560878.77444506</real>
+			<key>timeStoppedRecording</key>
+			<real>709560883.11048102</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>B09FE578-6AA5-4B6A-A1A8-CAEDF092FD25</string>
 		</dict>
 		<key>B0AD2989-E275-45B8-865C-6E7212B69E6F</key>
 		<dict>
@@ -3508,6 +4426,40 @@
 			<key>uniqueIdentifier</key>
 			<string>B51CA40A-164E-4558-9EA7-044E44D814A8</string>
 		</dict>
+		<key>B6C51AE8-F835-4431-A9B6-AC5DE1C5FA65</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B6C51AE8-F835-4431-A9B6-AC5DE1C5FA65.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561642.84890604</real>
+			<key>timeStoppedRecording</key>
+			<real>709561643.61508</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>B6C51AE8-F835-4431-A9B6-AC5DE1C5FA65</string>
+		</dict>
 		<key>B70EEBF5-4C74-46B7-BBF2-52053C7FFEFF</key>
 		<dict>
 			<key>className</key>
@@ -3609,6 +4561,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>B8AF4BEC-B90C-46DF-A3FD-08806F6F6C21</string>
+		</dict>
+		<key>B93A0036-8DA4-4C1A-BDE6-3B355BC3CFAF</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B93A0036-8DA4-4C1A-BDE6-3B355BC3CFAF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561994.06065202</real>
+			<key>timeStoppedRecording</key>
+			<real>709561994.77116704</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>B93A0036-8DA4-4C1A-BDE6-3B355BC3CFAF</string>
 		</dict>
 		<key>BA28A6AD-97F1-443F-BC7E-EA32D3DD56D3</key>
 		<dict>
@@ -3848,6 +4834,74 @@
 			<key>uniqueIdentifier</key>
 			<string>C7800651-B8ED-43B5-93D5-714BB5755DC4</string>
 		</dict>
+		<key>CA9EE192-0A1B-4CA3-BC8B-62FC63B91560</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>CA9EE192-0A1B-4CA3-BC8B-62FC63B91560.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561991.11868501</real>
+			<key>timeStoppedRecording</key>
+			<real>709561991.91316497</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>CA9EE192-0A1B-4CA3-BC8B-62FC63B91560</string>
+		</dict>
+		<key>CB9F3333-4579-4B8B-9D73-4D70392C520B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>CB9F3333-4579-4B8B-9D73-4D70392C520B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709471651.29621005</real>
+			<key>timeStoppedRecording</key>
+			<real>709471655.55001402</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>CB9F3333-4579-4B8B-9D73-4D70392C520B</string>
+		</dict>
 		<key>CC464826-B625-464C-8C35-DE7849CEBE07</key>
 		<dict>
 			<key>className</key>
@@ -3983,6 +5037,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>CFA8589E-450C-462A-B168-8C7DE043E76B</string>
+		</dict>
+		<key>D1D16459-9F83-4ACF-B2EC-33A63AB1583A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D1D16459-9F83-4ACF-B2EC-33A63AB1583A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561852.58331096</real>
+			<key>timeStoppedRecording</key>
+			<real>709561853.53968406</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>D1D16459-9F83-4ACF-B2EC-33A63AB1583A</string>
 		</dict>
 		<key>D2E037AD-A28B-405E-B937-19F178E4DAB2</key>
 		<dict>
@@ -4562,6 +5650,40 @@
 			<key>uniqueIdentifier</key>
 			<string>E15D6585-653A-448C-9350-E9E508843407</string>
 		</dict>
+		<key>E163B70F-561C-4BD3-ACDD-ED48CE48AA51</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E163B70F-561C-4BD3-ACDD-ED48CE48AA51.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561717.70881701</real>
+			<key>timeStoppedRecording</key>
+			<real>709561718.44482005</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>E163B70F-561C-4BD3-ACDD-ED48CE48AA51</string>
+		</dict>
 		<key>E1980256-504D-47E3-849D-F916EF95C021</key>
 		<dict>
 			<key>className</key>
@@ -4630,6 +5752,74 @@
 			<key>uniqueIdentifier</key>
 			<string>E337F16C-23CC-4EB9-842D-3A566BEB9B88</string>
 		</dict>
+		<key>E65BBA37-E930-4D77-8B0E-E96D0D779D25</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E65BBA37-E930-4D77-8B0E-E96D0D779D25.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709561008.34502804</real>
+			<key>timeStoppedRecording</key>
+			<real>709561009.74853098</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>E65BBA37-E930-4D77-8B0E-E96D0D779D25</string>
+		</dict>
+		<key>E69DF575-1E60-4D59-9E72-F2E701DCA029</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E69DF575-1E60-4D59-9E72-F2E701DCA029.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709553929.53943801</real>
+			<key>timeStoppedRecording</key>
+			<real>709553929.75381804</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>E69DF575-1E60-4D59-9E72-F2E701DCA029</string>
+		</dict>
 		<key>E88916D4-FE52-43D4-8670-DC354CBA752F</key>
 		<dict>
 			<key>className</key>
@@ -4663,6 +5853,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>E88916D4-FE52-43D4-8670-DC354CBA752F</string>
+		</dict>
+		<key>EA6CBFE0-2D16-4B55-BA9F-CAB904EBABBC</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>EA6CBFE0-2D16-4B55-BA9F-CAB904EBABBC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709557961.53544199</real>
+			<key>timeStoppedRecording</key>
+			<real>709557962.42462504</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>EA6CBFE0-2D16-4B55-BA9F-CAB904EBABBC</string>
 		</dict>
 		<key>EB9996DD-7DF0-4575-9854-486D792E7EC6</key>
 		<dict>
@@ -4800,6 +6024,40 @@
 			<key>uniqueIdentifier</key>
 			<string>EF407766-E1DA-4DC6-97FA-D15BCE0D0A43</string>
 		</dict>
+		<key>EF72C2D4-9E83-4C5E-9EFB-8059E8832F5E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>EF72C2D4-9E83-4C5E-9EFB-8059E8832F5E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709560866.77848697</real>
+			<key>timeStoppedRecording</key>
+			<real>709560867.44040096</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>EF72C2D4-9E83-4C5E-9EFB-8059E8832F5E</string>
+		</dict>
 		<key>F5A3AE6D-A0C7-4DF1-BCB2-1E3DE1A6D0C0</key>
 		<dict>
 			<key>className</key>
@@ -4867,6 +6125,40 @@
 			<string>Build ArtistDetailWidgetExtension</string>
 			<key>uniqueIdentifier</key>
 			<string>F68F2F7A-201C-4E1D-858C-A7C4875D30F5</string>
+		</dict>
+		<key>F7E614ED-C4E8-4E5E-8644-6BA7ED176F7E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>F7E614ED-C4E8-4E5E-8644-6BA7ED176F7E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>PruebaItunes project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ArtistDetailWidgetExtension</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>timeStartedRecording</key>
+			<real>709472778.66935098</real>
+			<key>timeStoppedRecording</key>
+			<real>709472778.93552005</real>
+			<key>title</key>
+			<string>Build ArtistDetailWidgetExtension</string>
+			<key>uniqueIdentifier</key>
+			<string>F7E614ED-C4E8-4E5E-8644-6BA7ED176F7E</string>
 		</dict>
 		<key>F88B6949-58D2-45D3-BD41-75A84AD0C391</key>
 		<dict>

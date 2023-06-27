@@ -1,21 +1,21 @@
 version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
 options: "87cc5d28bf020799b8c6db2e49359a57198e3ac06ea0d04acb49a69eba8b729c"
-build_start_time: [1687775768, 981480121]
-build_end_time: [1687775769, 46105861]
+build_start_time: [1687869384, 793788909]
+build_end_time: [1687869384, 858667850]
 inputs:
   ? "/Users/andresmurillas/Documents/proyectos/PruebaItunes/Los/PruebaItunes/Build/Intermediates.noindex/PruebaItunes.build/Debug-iphonesimulator/PruebaItunes.build/DerivedSources/IntentDefinitionGenerated/ArtistDetailWidget/ConfigurationIntent.swift"
-  : !private [1687775768, 899539470]
+  : !private [1687869384, 701053380]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/AppDelegate.swift": !private [1682074592, 280890941]
-  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/AppDependencies.swift": !private [1687250898, 905169725]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/AppDependencies.swift": !private [1687863292, 746824264]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Binding/Bindable.swift": !private [1684408527, 559401035]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Detail/ArtistDetailCoordinator.swift": !private [1687250898, 914478778]
-  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Detail/ArtistDetailViewController.swift": !private [1687773906, 787134647]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Detail/ArtistDetailViewController.swift": !private [1687868991, 764886856]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/Detail/ArtistDetailViewModel.swift": !private [1687770345, 429721832]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/List/ArtistListCoordinator.swift": !private [1687250898, 927076816]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/List/ArtistListViewController.swift": !private [1687250898, 927663326]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/List/ArtistListViewModel.swift": !private [1687250898, 928347110]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/SceneDelegate.swift": !private [1685003668, 82448482]
-  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/View components/AlbumCell.swift": !private [1687772151, 359282732]
+  "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/View components/AlbumCell.swift": !private [1687869052, 526749372]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/View components/AlertPrompt.swift": !private [1687250898, 930651664]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/View components/ArtistCell.swift": !private [1687250898, 931344509]
   "/Users/andresmurillas/Documents/proyectos/PruebaItunes/PruebaItunes/View components/CustomCollectionViewLayout.swift": !private [1687250898, 931976318]
