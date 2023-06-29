@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import Domain
+import WidgetKit
 
 final class ArtistDetailViewController: UIViewController, AlertPrompt {
     private var cancellables = [AnyCancellable]()
@@ -31,6 +32,7 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
     private var albumList: [AlbumEntity] = [] {
         didSet {
             setupCollectionView()
+            print("🍗")
         }
     }
     private var error: NetworkError? {
@@ -57,6 +59,7 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
         fatalError("init(coder:) has not been implemented")
     }
     override func viewDidLoad() {
+        print("🍗")
         super.viewDidLoad()
         view.backgroundColor = .white
         self.vm.subject.sink( receiveCompletion: { [weak self] (completion) in
@@ -144,6 +147,8 @@ private extension ArtistDetailViewController {
         }
         let encodedAlbum = try! JSONEncoder().encode(albumList.last)
         UserDefaults(suiteName: "com.experis.PruebaItunes")?.set(encodedAlbum, forKey: "album")
+        print("🚴🏽‍♂️")
+        WidgetCenter.shared.reloadTimelines(ofKind: "com.experis.PruebaItunes")
         mainStackView.reloadInputViews()
     }
 }
