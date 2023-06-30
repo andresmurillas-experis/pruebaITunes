@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Domain
+import WidgetKit
 
 public final class ArtistDetailViewModel {
     public var subject: CurrentValueSubject<[AlbumEntity], Error>
@@ -42,6 +43,9 @@ extension ArtistDetailViewModel {
                 var albumList: [AlbumEntity] = albums
                 albumList.removeFirst()
                 self?.subject.send(albumList)
+                let encodedAlbum = try! JSONEncoder().encode(albumList.last)
+                UserDefaults.standard.set(encodedAlbum, forKey: "album")
+                WidgetCenter.shared.reloadAllTimelines()
             }).store(in: &cancellables)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AlbumEntity: Codable{
+public struct AlbumEntity: Codable {
     public let name: String?
     public let cover: String?
     public let coverLarge: String?

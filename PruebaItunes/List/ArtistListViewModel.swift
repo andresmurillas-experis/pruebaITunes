@@ -29,6 +29,7 @@ public final class ArtistListViewModel {
 
 extension ArtistListViewModel {
     func viewDidLoad() {
+        print("🫓")
         bindSubjects()
     }
     func renewSearch(for searchText: String) {

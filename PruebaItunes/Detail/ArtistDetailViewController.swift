@@ -59,7 +59,6 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
         fatalError("init(coder:) has not been implemented")
     }
     override func viewDidLoad() {
-        print("🍗")
         super.viewDidLoad()
         view.backgroundColor = .white
         self.vm.subject.sink( receiveCompletion: { [weak self] (completion) in
@@ -145,16 +144,5 @@ private extension ArtistDetailViewController {
             }
             i += 1
         }
-        let encodedAlbum = try! JSONEncoder().encode(albumList.last)
-        UserDefaults(suiteName: "com.experis.PruebaItunes")?.set(encodedAlbum, forKey: "album")
-        print("🚴🏽‍♂️")
-        WidgetCenter.shared.reloadTimelines(ofKind: "com.experis.PruebaItunes")
-        mainStackView.reloadInputViews()
-    }
-}
-
-extension ArtistDetailViewController {
-    func setAlbumList(_ albumList: [AlbumEntity]) {
-        self.albumList = albumList
     }
 }
