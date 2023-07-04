@@ -45,7 +45,9 @@ extension ArtistDetailViewModel {
                 self?.subject.send(albumList)
                 let encodedAlbum = try! JSONEncoder().encode(albumList.last)
                 UserDefaults.standard.set(encodedAlbum, forKey: "album")
+                
                 WidgetCenter.shared.reloadAllTimelines()
+                print("WidgetCenter.UserInfoKey.self")
             }).store(in: &cancellables)
     }
 }

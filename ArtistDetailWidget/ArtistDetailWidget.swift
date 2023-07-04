@@ -19,15 +19,15 @@ struct ArtistDetailProvider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<ArtistDetailEntry>) -> Void) {
         var cancellables = [AnyCancellable]()
-        var image = Image(systemName: "face.smiling")
+        var image = Image(systemName: "heart.circle.fill")
         guard let data = UserDefaults.standard.object(forKey: "album") as? Data else {
+            print("chair")
             image = Image(systemName: "face.smiling.fill")
             let entries: [ArtistDetailEntry] = [ArtistDetailEntry(date: Date(), image: image)]
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
             return
         }
-        
         guard let album = try? JSONDecoder().decode(AlbumEntity.self, from: data) else {
             image = Image(uiImage: (UIImage()))
             let entries: [ArtistDetailEntry] = [ArtistDetailEntry(date: Date(), image: image)]
@@ -57,7 +57,7 @@ struct ArtistDetailEntry: TimelineEntry {
     let image: Image
 }
 
-struct ArtistDetailWidgetEntryView : View {		
+struct ArtistDetailWidgetEntryView : View {
     var entry: ArtistDetailProvider.Entry
 
     var body: some View {

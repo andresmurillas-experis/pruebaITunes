@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import UIKit
 import Domain
+import WidgetKit
 
 public final class ArtistListViewModel {
     var cancellables = [AnyCancellable]()
@@ -29,7 +30,6 @@ public final class ArtistListViewModel {
 
 extension ArtistListViewModel {
     func viewDidLoad() {
-        print("🫓")
         bindSubjects()
     }
     func renewSearch(for searchText: String) {
@@ -51,6 +51,7 @@ extension ArtistListViewModel {
                     albumList.removeFirst()
                 }
                 self?.subject.send(albumList)
+
             }).store(in: &cancellables)
     }
     func getArtisPublisher(_ searchText: String) -> AnyPublisher<[ArtistEntity], NetworkError> {

@@ -19,6 +19,7 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
     }()
     lazy private var contentView: UIView = {
         var contentView = UIView()
+        print("hello world")
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
@@ -32,7 +33,6 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
     private var albumList: [AlbumEntity] = [] {
         didSet {
             setupCollectionView()
-            print("🍗")
         }
     }
     private var error: NetworkError? {
