@@ -44,13 +44,12 @@ extension ArtistDetailViewModel {
                 albumList.removeFirst()
                 self?.subject.send(albumList)
                 let encodedAlbum = try! JSONEncoder().encode(albumList.last)
-                UserDefaults.standard.set(encodedAlbum, forKey: "album")
-                
+                UserDefaults(suiteName: "com.experis.PruebaItunes")?.set(encodedAlbum, forKey: "album")
                 WidgetCenter.shared.reloadAllTimelines()
                 print("WidgetCenter.UserInfoKey.self")
             }).store(in: &cancellables)
     }
-}
+}   
 
 private extension ArtistDetailViewModel {
     func bindSubjects() {

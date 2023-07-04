@@ -17,7 +17,6 @@ class ArtistListCoordinator {
         self.navigationController = navigationController
     }
     func goToDetailViewForArtist(_ artist: ArtistEntity) {
-        print("zoroastrian")
         let artistDetailView: ArtistDetailCoordinator = appDependencies.resolve()
         artistDetailView.start(with: artist)
     }

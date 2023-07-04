@@ -20,7 +20,7 @@ struct ArtistDetailProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<ArtistDetailEntry>) -> Void) {
         var cancellables = [AnyCancellable]()
         var image = Image(systemName: "heart.circle.fill")
-        guard let data = UserDefaults.standard.object(forKey: "album") as? Data else {
+        guard let data = UserDefaults(suiteName: "com.experis.PruebaItunes")?.object(forKey: "album") as? Data else {
             print("chair")
             image = Image(systemName: "face.smiling.fill")
             let entries: [ArtistDetailEntry] = [ArtistDetailEntry(date: Date(), image: image)]
