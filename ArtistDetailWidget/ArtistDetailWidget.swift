@@ -21,14 +21,14 @@ struct ArtistDetailProvider: TimelineProvider {
         var cancellables = [AnyCancellable]()
         var image = Image(systemName: "heart.circle.fill")
         guard let data = UserDefaults(suiteName: "group.com.PruebaItunes")?.object(forKey: "album") as? Data else {
-            image = Image(systemName: "face.smiling.fill")
+            image = Image(systemName: "face.smiling")
             let entries: [ArtistDetailEntry] = [ArtistDetailEntry(date: Date(), image: image)]
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
             return
         }
         guard let album = try? JSONDecoder().decode(AlbumEntity.self, from: data) else {
-            image = Image(uiImage: (UIImage()))
+            image = Image(systemName: "face.smiling")
             let entries: [ArtistDetailEntry] = [ArtistDetailEntry(date: Date(), image: image)]
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
@@ -47,7 +47,7 @@ struct ArtistDetailProvider: TimelineProvider {
     }
 
     func placeholder(in context: Context) -> ArtistDetailEntry {
-        ArtistDetailEntry(date: Date(), image: Image(systemName: "face.smiling.fill"))
+        ArtistDetailEntry(date: Date(), image: Image(systemName: "face.smiling"))
     }
 }
 
@@ -61,8 +61,8 @@ struct ArtistDetailWidgetEntryView : View {
 
     var body: some View {
         VStack(alignment: .center) {
-//            entry.image
-        }.scaledToFill()
+//            Image(systemName: "face.smiling")
+        }.scaledToFit()
     }
 }
 
