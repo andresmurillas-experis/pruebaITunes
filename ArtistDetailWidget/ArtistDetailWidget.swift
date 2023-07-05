@@ -20,8 +20,7 @@ struct ArtistDetailProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<ArtistDetailEntry>) -> Void) {
         var cancellables = [AnyCancellable]()
         var image = Image(systemName: "heart.circle.fill")
-        guard let data = UserDefaults(suiteName: "com.experis.PruebaItunes")?.object(forKey: "album") as? Data else {
-            print("chair")
+        guard let data = UserDefaults(suiteName: "group.com.PruebaItunes")?.object(forKey: "album") as? Data else {
             image = Image(systemName: "face.smiling.fill")
             let entries: [ArtistDetailEntry] = [ArtistDetailEntry(date: Date(), image: image)]
             let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -48,7 +47,7 @@ struct ArtistDetailProvider: TimelineProvider {
     }
 
     func placeholder(in context: Context) -> ArtistDetailEntry {
-        ArtistDetailEntry(date: Date(), image: Image(systemName: "face.smiling"))
+        ArtistDetailEntry(date: Date(), image: Image(systemName: "face.smiling.fill"))
     }
 }
 
@@ -62,7 +61,7 @@ struct ArtistDetailWidgetEntryView : View {
 
     var body: some View {
         VStack(alignment: .center) {
-            entry.image
+//            entry.image
         }.scaledToFill()
     }
 }
