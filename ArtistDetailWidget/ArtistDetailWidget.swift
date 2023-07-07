@@ -28,7 +28,7 @@ struct ArtistDetailProvider: TimelineProvider {
         }
         image = Image(uiImage: (UIImage(data: data) ?? UIImage()))
         let entries: [ArtistDetailEntry] = [ArtistDetailEntry(date: Date(), image: image)]
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
 
@@ -47,7 +47,7 @@ struct ArtistDetailWidgetEntryView : View {
 
     var body: some View {
         VStack(alignment: .center) {
-            Image(systemName: "face.smiling")
+            entry.image
         }.scaledToFit()
     }
 }
