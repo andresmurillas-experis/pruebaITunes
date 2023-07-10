@@ -30,9 +30,9 @@ final class ArtistCell: UITableViewCell {
     }
     override func prepareForReuse() {
         name.text = ""
+        discografia.text = "Discografia"
         discOneName.text = ""
         discTwoName.text = ""
-        discografia.text = "Discografia"
     }
     @objc func cellTapped() {
         guard let artist = artist else {
