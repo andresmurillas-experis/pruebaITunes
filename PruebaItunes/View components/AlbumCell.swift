@@ -35,14 +35,13 @@ final class AlbumCell: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 extension AlbumCell {
     func setupViewModel(_ viewModel: AlbumEntity) {
-        downloadAlbumCover(from: viewModel.albumCoverLarge ?? "") { result in
+        downloadAlbumCover(from: viewModel.coverLarge ?? "") { result in
             switch result {
             case .success(let image):
                 self.albumCover.image = image
-                self.albumTitle.text = viewModel.albumName
+                self.albumTitle.text = viewModel.name
             case .failure(let error):
                 switch error {
                 case .noData:

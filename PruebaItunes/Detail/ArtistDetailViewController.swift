@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import Domain
+import WidgetKit
 
 final class ArtistDetailViewController: UIViewController, AlertPrompt {
     private var cancellables = [AnyCancellable]()
@@ -18,6 +19,7 @@ final class ArtistDetailViewController: UIViewController, AlertPrompt {
     }()
     lazy private var contentView: UIView = {
         var contentView = UIView()
+        print("hello world")
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
@@ -134,7 +136,7 @@ private extension ArtistDetailViewController {
             for album in newchunk {
                 let albumViewCell = AlbumCell(frame: CGRect.zero)
                 albumViewCell.setupViewModel(album)
-                if album.albumName == nil {
+                if album.name == nil {
                     albumViewCell.wipeCover()
                 }
                 rows[i].addArrangedSubview(albumViewCell)
@@ -142,12 +144,5 @@ private extension ArtistDetailViewController {
             }
             i += 1
         }
-        mainStackView.reloadInputViews()
-    }
-}
-
-extension ArtistDetailViewController {
-    func setAlbumList(_ albumList: [AlbumEntity]) {
-        self.albumList = albumList
     }
 }
