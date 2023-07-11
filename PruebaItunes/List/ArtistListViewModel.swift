@@ -51,7 +51,6 @@ extension ArtistListViewModel {
                     albumList.removeFirst()
                 }
                 self?.subject.send(albumList)
-
             }).store(in: &cancellables)
     }
     func getArtisPublisher(_ searchText: String) -> AnyPublisher<[ArtistEntity], NetworkError> {
