@@ -16,7 +16,6 @@
 		7F2B64B129A7529C001DF58A /* ArtistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */; };
 		7F3D6FDD2A164A460060FCF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F3D6FDC2A164A460060FCF1 /* Alamofire */; };
 		7F6A3F002A5C13BE00752616 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3EFF2A5C13BE00752616 /* TabBar.swift */; };
-		7F6A3F022A5C14E200752616 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3F012A5C14E200752616 /* Settings.swift */; };
 		7F6A3F052A5C14F800752616 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3F042A5C14F800752616 /* SettingsViewModel.swift */; };
 		7F6A3F072A5C151E00752616 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3F062A5C151E00752616 /* SettingsViewController.swift */; };
 		7F6A3F092A5C152E00752616 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3F082A5C152E00752616 /* SettingsCoordinator.swift */; };
@@ -114,7 +113,6 @@
 		7F28421629A61CA5004AFA0D /* PruebaItunesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaItunesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewController.swift; sourceTree = "<group>"; };
 		7F6A3EFF2A5C13BE00752616 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		7F6A3F012A5C14E200752616 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		7F6A3F042A5C14F800752616 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7F6A3F062A5C151E00752616 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7F6A3F082A5C152E00752616 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 		7F8B101C2A0D036A00CD0F11 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				7F6A3F012A5C14E200752616 /* Settings.swift */,
 				7FF78F9A2A3AEF750047F09A /* ArtistListViewModel.swift */,
 				7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */,
 				7FF78F942A39DC490047F09A /* ArtistListCoordinator.swift */,
@@ -504,7 +501,6 @@
 				7FF5A0CB29BB4EE800A26D45 /* AlbumCell.swift in Sources */,
 				7FF78F952A39DC490047F09A /* ArtistListCoordinator.swift in Sources */,
 				7FDB2B0329CDBB54005CCB47 /* AppDependencies.swift in Sources */,
-				7F6A3F022A5C14E200752616 /* Settings.swift in Sources */,
 				7F6A3F002A5C13BE00752616 /* TabBar.swift in Sources */,
 				7F6A3F092A5C152E00752616 /* SettingsCoordinator.swift in Sources */,
 				7F6A3F072A5C151E00752616 /* SettingsViewController.swift in Sources */,
