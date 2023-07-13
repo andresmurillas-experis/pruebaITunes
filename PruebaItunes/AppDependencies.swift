@@ -13,7 +13,6 @@ protocol AppDependenciesResolver {
     func resolve() -> ArtistDetailViewModel
     func resolve() -> ArtistListCoordinator
     func resolve() -> ArtistDetailCoordinator
-//    func resolve() -> UITabBarController
 }
 
 final class AppDependencies {
@@ -36,7 +35,4 @@ extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistListViewModel {
         ArtistListViewModel(appDependencies: self )
     }
-//    func resolve() -> UITabBarController {
-//        TabBar()
-//    }
 }
