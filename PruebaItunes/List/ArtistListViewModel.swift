@@ -22,7 +22,7 @@ public final class ArtistListViewModel {
         }
     }
     private var albumNameList: [String] = []
-    init(appDependencies: AppDependencies) {
+    init(_ appDependencies: AppDependencies) {
         subject = CurrentValueSubject(artistList)
         coordinator = appDependencies.resolve()
     }

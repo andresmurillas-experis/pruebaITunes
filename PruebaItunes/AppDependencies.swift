@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 
 protocol AppDependenciesResolver {
+    var nav: UINavigationController? { get }
     func resolve() -> ArtistListViewModel
     func resolve() -> ArtistDetailViewModel
     func resolve() -> ArtistListCoordinator
@@ -16,23 +17,23 @@ protocol AppDependenciesResolver {
 }
 
 final class AppDependencies {
-    private let nav: UINavigationController
-    init(navigator: UINavigationController) {
+    let nav: UINavigationController?
+    init(navigator: UINavigationController?) {
         self.nav = navigator
     }
 }
 
 extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistListCoordinator {
-        ArtistListCoordinator(self, navigationController: nav)
+        ArtistListCoordinator(self)
+    }
+    func resolve() -> ArtistListViewModel {
+        ArtistListViewModel(self)
     }
     func resolve() -> ArtistDetailCoordinator {
         ArtistDetailCoordinator(self, navigationController: nav)
     }
     func resolve() -> ArtistDetailViewModel {
         ArtistDetailViewModel()
-    }
-    func resolve() -> ArtistListViewModel {
-        ArtistListViewModel(appDependencies: self )
     }
 }

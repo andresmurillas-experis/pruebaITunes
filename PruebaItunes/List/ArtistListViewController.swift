@@ -11,12 +11,13 @@ import Domain
 
 protocol ArtistListViewProtocol: AnyObject {
     func setArtistList(_ artistList: [ArtistEntity])
+    func setupViewModel(vm: ArtistListViewModel)
 }
 
 final class ArtistListViewController: UIViewController, AlertPrompt {
     private let tableView = UITableView()
     private var searchBar: UISearchBar = UISearchBar()
-    private var vm: ArtistListViewModel
+    private var vm: ArtistListViewModel?
     private var cancellables = [AnyCancellable]()
     var searchText = ""
     private var artistList: [ArtistEntity]? = [] {
@@ -48,10 +49,13 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             }
         }
     }
-    init(appDependencies: AppDependenciesResolver) {
-        self.vm = appDependencies.resolve()
+    init(_ appDependencies: AppDependenciesResolver?) {
+        self.vm = appDependencies?.resolve()
         super.init(nibName: nil, bundle: nil)
         searchBar.delegate = self
+    }
+    init () {
+        super.init(nibName: nil, bundle: nil)
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -60,20 +64,20 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
         setupTableView()
-        vm.subject
-            .sink(receiveCompletion: { [weak self] (completion) in
+        vm?.subject
+            .sink(receiveCompletion: { [unowned self] (completion) in
                 switch completion {
                 case .finished:
                     print("finished succesfully")
                 case .failure(let error):
-                    self?.error = error as? NetworkError
-                    self?.reloadInputViews()
+                    self.error = error as? NetworkError
+                    self.reloadInputViews()
                 }
             }, receiveValue: { artistList in
                 self.artistList = artistList
             })
             .store(in: &cancellables)
-        vm.viewDidLoad()
+        vm?.viewDidLoad()
     }
 }
 
@@ -89,18 +93,24 @@ private extension ArtistListViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
+    func setupViewModel(with navigator: UINavigationController) {
+        vm = AppDependencies(navigator: navigator).resolve()
+    }
 }
 
 extension ArtistListViewController: ArtistListViewProtocol {
     func setArtistList(_ artistList: [ArtistEntity]) {
         self.artistList = artistList
     }
+    func setupViewModel(vm: ArtistListViewModel) {
+        self.vm = vm
+    }
 }
 
 extension ArtistListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        vm.renewSearch(for: searchText)
-        vm.passSub.send(searchText)
+        vm?.renewSearch(for: searchText)
+        vm?.passSub.send(searchText)
     }
 }
 
@@ -130,6 +140,6 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistEntity) {
-        vm.goToDetailViewForArtist(artist)
+        vm?.goToDetailViewForArtist(artist)
     }
 }

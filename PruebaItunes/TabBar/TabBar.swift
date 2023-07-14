@@ -30,9 +30,10 @@ fileprivate extension TabBar {
 
 extension TabBar {
     func setupVCs() {
+        let artistList: ArtistListViewController = ArtistListViewController()
+        let settingsView: SettingsViewController = SettingsViewController(vm: SettingsViewModel())
         viewControllers = [
-            createNavController(for: ArtistListViewController(appDependencies: AppDependencies(navigator: UINavigationController())), title: NSLocalizedString("Search", comment: "Search"), image: UIImage(systemName: "magnifyingglass") ?? UIImage()),
-            createNavController(for: SettingsViewController(vm: SettingsViewModel()), title: NSLocalizedString("Settings", comment: "Settings"), image: UIImage(systemName: "gear") ?? UIImage())
+            createNavController(for: artistList, title: NSLocalizedString("Search", comment: "Search"), image: UIImage(systemName: "magnifyingglass") ?? UIImage()),
+            createNavController(for: settingsView, title: NSLocalizedString("Settings", comment: "Settings"), image: UIImage(systemName: "gear") ?? UIImage())
         ]
-    }
 }

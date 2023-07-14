@@ -10,14 +10,12 @@ import UIKit
 import Domain
 
 class ArtistListCoordinator {
-    private var navigationController: UINavigationController
     private var appDependencies: AppDependencies
-    init(_ appDependencies : AppDependencies, navigationController: UINavigationController) {
+    init(_ appDependencies : AppDependencies) {
         self.appDependencies = appDependencies
-        self.navigationController = navigationController
     }
     func goToDetailViewForArtist(_ artist: ArtistEntity) {
-        let artistDetailView: ArtistDetailCoordinator = appDependencies.resolve()
-        artistDetailView.start(with: artist)
+        let artistDetailCoordinator: ArtistDetailCoordinator = appDependencies.resolve()
+        artistDetailCoordinator.startView(for: artist)
     }
 }
