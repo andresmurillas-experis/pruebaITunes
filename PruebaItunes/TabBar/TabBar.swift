@@ -35,5 +35,6 @@ extension TabBar {
         viewControllers = [
             createNavController(for: artistList, title: NSLocalizedString("Search", comment: "Search"), image: UIImage(systemName: "magnifyingglass") ?? UIImage()),
             createNavController(for: settingsView, title: NSLocalizedString("Settings", comment: "Settings"), image: UIImage(systemName: "gear") ?? UIImage())
-        ]
+        ]   
+    }
 }
