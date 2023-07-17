@@ -49,8 +49,8 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             }
         }
     }
-    init(_ appDependencies: AppDependenciesResolver?) {
-        self.vm = appDependencies?.resolve()
+    init(_ appDependencies: AppDependenciesResolver) {
+        self.vm = appDependencies.resolve()
         super.init(nibName: nil, bundle: nil)
         searchBar.delegate = self
     }
