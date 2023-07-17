@@ -13,22 +13,21 @@ protocol AppDependenciesResolver {
     func resolve() -> ArtistDetailViewModel
     func resolve() -> ArtistListCoordinator
     func resolve() -> ArtistDetailCoordinator
-//    func resolve() -> UITabBarController
 }
 
 final class AppDependencies {
-    private let nav: UINavigationController
-    init(navigator: UINavigationController) {
-        self.nav = navigator
+    private let navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
 }
 
 extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistListCoordinator {
-        ArtistListCoordinator(self)
+        ArtistListCoordinator(self, navigationController: navigationController)
     }
     func resolve() -> ArtistDetailCoordinator {
-        ArtistDetailCoordinator(self, navigationController: nav)
+        ArtistDetailCoordinator(self, navigationController: navigationController)
     }
     func resolve() -> ArtistDetailViewModel {
         ArtistDetailViewModel()
@@ -36,7 +35,4 @@ extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistListViewModel {
         ArtistListViewModel(self)
     }
-//    func resolve() -> UITabBarController {
-//        TabBar()
-//    }
 }

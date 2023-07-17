@@ -49,9 +49,9 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             }
         }
     }
-    init(_ appDependencies: AppDependenciesResolver) {
-        self.vm = appDependencies.resolve()
+    init(vm: ArtistListViewModel) {
         super.init(nibName: nil, bundle: nil)
+        self.vm = vm
         searchBar.delegate = self
     }
     init () {
@@ -94,7 +94,7 @@ private extension ArtistListViewController {
         tableView.delegate = self
     }
     func setupViewModel(with navigator: UINavigationController) {
-        vm = AppDependencies(navigator: navigator).resolve()
+        vm = AppDependencies(navigationController: navigator).resolve()
     }
 }
 
