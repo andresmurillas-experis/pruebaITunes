@@ -48,8 +48,8 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
             }
         }
     }
-    init(appDependencies: AppDependenciesResolver) {
-        self.vm = appDependencies.resolve()
+    init(vm: ArtistListViewModel) {
+        self.vm = vm
         super.init(nibName: nil, bundle: nil)
         searchBar.delegate = self
     }
@@ -61,13 +61,13 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         navigationItem.titleView = searchBar
         setupTableView()
         vm.subject
-            .sink(receiveCompletion: { [weak self] (completion) in
+            .sink(receiveCompletion: { [unowned self] (completion) in
                 switch completion {
                 case .finished:
                     print("finished succesfully")
                 case .failure(let error):
-                    self?.error = error as? NetworkError
-                    self?.reloadInputViews()
+                    self.error = error as? NetworkError
+                    self.reloadInputViews()
                 }
             }, receiveValue: { artistList in
                 self.artistList = artistList
@@ -88,6 +88,9 @@ private extension ArtistListViewController {
         tableView.register(ArtistCell.self, forCellReuseIdentifier:"ArtistCellReuseIdentifier")
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    func setupViewModel(with navigator: UINavigationController) {
+        vm = AppDependencies(navigationController: navigator).resolve()
     }
 }
 

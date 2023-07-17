@@ -10,14 +10,21 @@ import UIKit
 import Domain
 
 class ArtistListCoordinator {
-    private var navigationController: UINavigationController
     private var appDependencies: AppDependencies
+    private var nav: UINavigationController
     init(_ appDependencies : AppDependencies, navigationController: UINavigationController) {
         self.appDependencies = appDependencies
-        self.navigationController = navigationController
+        nav = navigationController
+    }
+    func start() -> UINavigationController {
+        let vm: ArtistListViewModel = appDependencies.resolve()
+        let artistListViewController = ArtistListViewController(vm: vm)
+        nav.pushViewController(artistListViewController, animated: true)
+        nav.tabBarItem.image = UIImage(systemName: "magnifyingglass") ?? UIImage()
+        return nav
     }
     func goToDetailViewForArtist(_ artist: ArtistEntity) {
-        let artistDetailView: ArtistDetailCoordinator = appDependencies.resolve()
-        artistDetailView.start(with: artist)
+        let artistDetailCoordinator: ArtistDetailCoordinator = appDependencies.resolve()
+        artistDetailCoordinator.start(with: artist)
     }
 }

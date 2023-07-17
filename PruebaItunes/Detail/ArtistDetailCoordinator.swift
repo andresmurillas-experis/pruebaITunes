@@ -20,6 +20,7 @@ class ArtistDetailCoordinator {
         let vm: ArtistDetailViewModel = appDependencies.resolve()
         vm.setArtist(artist)
         let artistDetailViewController = ArtistDetailViewController(vm: vm)
+        artistDetailViewController.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(artistDetailViewController, animated: true)
     }
 }

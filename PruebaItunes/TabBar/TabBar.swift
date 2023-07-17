@@ -10,16 +10,10 @@ import UIKit
 class TabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
-        UITabBar.appearance().barTintColor = .systemRed
+        view.backgroundColor = .systemBackground
+        UITabBar.appearance().barTintColor = .systemBackground
         tabBar.tintColor = .label
         setupVCs()
-    }
-}
-
-extension TabBar {
-    func setupVCs() {
-        viewControllers = [createNavController(for: ArtistListViewController(appDependencies: AppDependencies(navigator: UINavigationController())), title: NSLocalizedString("", comment: ""), image: UIImage(systemName: "home") ?? UIImage()   )]
     }
 }
 
@@ -30,8 +24,19 @@ fileprivate extension TabBar {
         navController.tabBarItem.image = image
         navController.navigationBar.prefersLargeTitles = true
         rootViewController.navigationItem.title = title
-        UITabBar.appearance().barTintColor = .systemBackground
-        setupVCs()
         return navController
+    }
+}
+
+extension TabBar {
+    func setupVCs() {
+        let  nav = UINavigationController()
+        let appDependencies = AppDependencies(navigationController: nav)
+        let artistListCoordinator: ArtistListCoordinator = appDependencies.resolve()
+        viewControllers = [
+            artistListCoordinator.start(),
+            createNavController(for: SettingsViewController(), title: NSLocalizedString("", comment: ""), image: UIImage(systemName: "gear") ?? UIImage())
+            
+        ]
     }
 }
