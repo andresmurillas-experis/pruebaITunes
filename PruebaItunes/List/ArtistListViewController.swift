@@ -11,13 +11,12 @@ import Domain
 
 protocol ArtistListViewProtocol: AnyObject {
     func setArtistList(_ artistList: [ArtistEntity])
-    func setupViewModel(vm: ArtistListViewModel)
 }
 
 final class ArtistListViewController: UIViewController, AlertPrompt {
     private let tableView = UITableView()
     private var searchBar: UISearchBar = UISearchBar()
-    private var vm: ArtistListViewModel?
+    private var vm: ArtistListViewModel
     private var cancellables = [AnyCancellable]()
     var searchText = ""
     private var artistList: [ArtistEntity]? = [] {
@@ -50,12 +49,9 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         }
     }
     init(vm: ArtistListViewModel) {
-        super.init(nibName: nil, bundle: nil)
         self.vm = vm
-        searchBar.delegate = self
-    }
-    init () {
         super.init(nibName: nil, bundle: nil)
+        searchBar.delegate = self
     }
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -64,7 +60,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
         setupTableView()
-        vm?.subject
+        vm.subject
             .sink(receiveCompletion: { [unowned self] (completion) in
                 switch completion {
                 case .finished:
@@ -77,7 +73,7 @@ final class ArtistListViewController: UIViewController, AlertPrompt {
                 self.artistList = artistList
             })
             .store(in: &cancellables)
-        vm?.viewDidLoad()
+        vm.viewDidLoad()
     }
 }
 
@@ -102,15 +98,12 @@ extension ArtistListViewController: ArtistListViewProtocol {
     func setArtistList(_ artistList: [ArtistEntity]) {
         self.artistList = artistList
     }
-    func setupViewModel(vm: ArtistListViewModel) {
-        self.vm = vm
-    }
 }
 
 extension ArtistListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        vm?.renewSearch(for: searchText)
-        vm?.passSub.send(searchText)
+        vm.renewSearch(for: searchText)
+        vm.passSub.send(searchText)
     }
 }
 
@@ -140,6 +133,6 @@ extension ArtistListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ArtistListViewController: OnTapDelegate {
     func didSelectCellWith(artist: ArtistEntity) {
-        vm?.goToDetailViewForArtist(artist)
+        vm.goToDetailViewForArtist(artist)
     }
 }

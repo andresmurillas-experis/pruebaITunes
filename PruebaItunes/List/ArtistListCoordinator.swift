@@ -16,7 +16,7 @@ class ArtistListCoordinator {
         self.appDependencies = appDependencies
         nav = navigationController
     }
-    func start() -> UINavigationController{
+    func start() -> UINavigationController {
         let vm: ArtistListViewModel = appDependencies.resolve()
         let artistListViewController = ArtistListViewController(vm: vm)
         nav.pushViewController(artistListViewController, animated: true)
