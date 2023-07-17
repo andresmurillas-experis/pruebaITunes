@@ -25,7 +25,7 @@ final class AppDependencies {
 
 extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistListCoordinator {
-        ArtistListCoordinator(self, navigationController: nav)
+        ArtistListCoordinator(self)
     }
     func resolve() -> ArtistDetailCoordinator {
         ArtistDetailCoordinator(self, navigationController: nav)
@@ -34,7 +34,7 @@ extension AppDependencies: AppDependenciesResolver {
         ArtistDetailViewModel()
     }
     func resolve() -> ArtistListViewModel {
-        ArtistListViewModel(appDependencies: self )
+        ArtistListViewModel(self)
     }
 //    func resolve() -> UITabBarController {
 //        TabBar()

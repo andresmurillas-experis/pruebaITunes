@@ -16,9 +16,7 @@
 		7F2B64B129A7529C001DF58A /* ArtistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */; };
 		7F3D6FDD2A164A460060FCF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F3D6FDC2A164A460060FCF1 /* Alamofire */; };
 		7F6A3F002A5C13BE00752616 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3EFF2A5C13BE00752616 /* TabBar.swift */; };
-		7F6A3F052A5C14F800752616 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3F042A5C14F800752616 /* SettingsViewModel.swift */; };
 		7F6A3F072A5C151E00752616 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3F062A5C151E00752616 /* SettingsViewController.swift */; };
-		7F6A3F092A5C152E00752616 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A3F082A5C152E00752616 /* SettingsCoordinator.swift */; };
 		7F846DEB2A419FDF00EF0021 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F846DEA2A419FDF00EF0021 /* WidgetKit.framework */; };
 		7F846DF02A419FDF00EF0021 /* ArtistDetailWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F846DEF2A419FDF00EF0021 /* ArtistDetailWidgetBundle.swift */; };
 		7F846DF22A419FDF00EF0021 /* ArtistDetailWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F846DF12A419FDF00EF0021 /* ArtistDetailWidgetLiveActivity.swift */; };
@@ -113,9 +111,7 @@
 		7F28421629A61CA5004AFA0D /* PruebaItunesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaItunesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F2B64AF29A7529C001DF58A /* ArtistListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewController.swift; sourceTree = "<group>"; };
 		7F6A3EFF2A5C13BE00752616 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		7F6A3F042A5C14F800752616 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7F6A3F062A5C151E00752616 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		7F6A3F082A5C152E00752616 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		7F846DE92A419FDF00EF0021 /* ArtistDetailWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArtistDetailWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F846DEA2A419FDF00EF0021 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		7F846DEC2A419FDF00EF0021 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -261,9 +257,7 @@
 		7F6A3F032A5C14ED00752616 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7F6A3F042A5C14F800752616 /* SettingsViewModel.swift */,
 				7F6A3F062A5C151E00752616 /* SettingsViewController.swift */,
-				7F6A3F082A5C152E00752616 /* SettingsCoordinator.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -502,10 +496,8 @@
 				7FF78F952A39DC490047F09A /* ArtistListCoordinator.swift in Sources */,
 				7FDB2B0329CDBB54005CCB47 /* AppDependencies.swift in Sources */,
 				7F6A3F002A5C13BE00752616 /* TabBar.swift in Sources */,
-				7F6A3F092A5C152E00752616 /* SettingsCoordinator.swift in Sources */,
 				7F6A3F072A5C151E00752616 /* SettingsViewController.swift in Sources */,
 				7F846DFA2A419FE100EF0021 /* ArtistDetailWidget.intentdefinition in Sources */,
-				7F6A3F052A5C14F800752616 /* SettingsViewModel.swift in Sources */,
 				7F2841F429A61CA3004AFA0D /* AppDelegate.swift in Sources */,
 				7FD76AA529F936300009A83B /* CustomCollectionViewLayout.swift in Sources */,
 				7F0444F929BB3310008B2E05 /* ArtistDetailViewController.swift in Sources */,

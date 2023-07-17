@@ -16,6 +16,6 @@ class ArtistListCoordinator {
     }
     func goToDetailViewForArtist(_ artist: ArtistEntity) {
         let artistDetailCoordinator: ArtistDetailCoordinator = appDependencies.resolve()
-        artistDetailCoordinator.startView(for: artist)
+        artistDetailCoordinator.start(with: artist)
     }
 }
