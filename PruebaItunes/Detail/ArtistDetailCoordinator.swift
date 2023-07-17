@@ -10,16 +10,16 @@ import UIKit
 import Domain
 
 class ArtistDetailCoordinator {
-    private var navigationController: UINavigationController?
+    private var navigationController: UINavigationController
     private var appDependencies: AppDependenciesResolver
-    public init(_ appDependencies: AppDependenciesResolver, navigationController: UINavigationController?) {
+    public init(_ appDependencies: AppDependenciesResolver, navigationController: UINavigationController) {
         self.appDependencies = appDependencies
         self.navigationController = navigationController
     }
-    func startView(for artist: ArtistEntity) {
+    func start(with artist: ArtistEntity) {
         let vm: ArtistDetailViewModel = appDependencies.resolve()
         vm.setArtist(artist)
         let artistDetailViewController = ArtistDetailViewController(vm: vm)
-        navigationController?.pushViewController(artistDetailViewController, animated: true)
+        navigationController.pushViewController(artistDetailViewController, animated: true)
     }
 }
