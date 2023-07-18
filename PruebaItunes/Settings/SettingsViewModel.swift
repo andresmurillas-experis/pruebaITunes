@@ -9,8 +9,7 @@ import Foundation
 import UIKit
 
 public final class SettingsViewModel {
-    private let vm: SettingsViewModel
     init(_ appDependencies: AppDependencies) {
-        vm = appDependencies.resolve()
+        
     }
 }

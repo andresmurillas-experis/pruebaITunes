@@ -18,8 +18,9 @@ class SettingsCoordinator {
     func start() -> UINavigationController {
         let vm: SettingsViewModel = appDependencies.resolve()
         let settingsviewController = SettingsViewController(vm: vm)
-        nav.pushViewController(settingsviewController, animated: true)
         nav.navigationController?.navigationBar.isHidden = true
+        nav.tabBarItem.image = UIImage(systemName: "gear") ?? UIImage()
+        nav.pushViewController(settingsviewController, animated: true)
         return nav
     }
 }

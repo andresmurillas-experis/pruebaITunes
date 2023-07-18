@@ -25,22 +25,22 @@ final class AppDependencies {
 }
 
 extension AppDependencies: AppDependenciesResolver {
-    func resolve() -> ArtistListCoordinator {
-        ArtistListCoordinator(self, navigationController: nav)
+    func resolve() -> ArtistListViewModel {
+        ArtistListViewModel(self)
     }
-    func resolve() -> ArtistDetailCoordinator {
-        ArtistDetailCoordinator(self, navigationController: nav)
+    func resolve() -> ArtistListCoordinator {
+        ArtistListCoordinator(self, navigationController: UINavigationController())
     }
     func resolve() -> ArtistDetailViewModel {
         ArtistDetailViewModel()
     }
-    func resolve() -> ArtistListViewModel {
-        ArtistListViewModel(self)
+    func resolve() -> ArtistDetailCoordinator {
+        ArtistDetailCoordinator(self, navigationController: nav)
     }
     func resolve() -> SettingsViewModel {
         SettingsViewModel(self)
     }
     func resolve() -> SettingsCoordinator {
-        SettingsCoordinator(self, navigationController: nav)
+        SettingsCoordinator(self, navigationController: UINavigationController())
     }
 }

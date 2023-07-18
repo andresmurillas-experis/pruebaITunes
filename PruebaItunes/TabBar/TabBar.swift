@@ -30,13 +30,13 @@ fileprivate extension TabBar {
 
 extension TabBar {
     func setupVCs() {
-        let  nav = UINavigationController()
-        let appDependencies = AppDependencies(navigationController: nav)
+        view.backgroundColor = .white
+        let appDependencies = AppDependencies(navigationController: UINavigationController())
         let artistListCoordinator: ArtistListCoordinator = appDependencies.resolve()
+        let settingsCoordinator: SettingsCoordinator = AppDependencies(navigationController: UINavigationController()).resolve()
         viewControllers = [
             artistListCoordinator.start(),
-            createNavController(for: SettingsViewController(), title: NSLocalizedString("", comment: ""), image: UIImage(systemName: "gear") ?? UIImage())
-            
+            settingsCoordinator.start()
         ]
     }
 }
