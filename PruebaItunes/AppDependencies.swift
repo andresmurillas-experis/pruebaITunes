@@ -10,29 +10,37 @@ import Foundation
 
 protocol AppDependenciesResolver {
     func resolve() -> ArtistListViewModel
-    func resolve() -> ArtistDetailViewModel
     func resolve() -> ArtistListCoordinator
+    func resolve() -> ArtistDetailViewModel
     func resolve() -> ArtistDetailCoordinator
+    func resolve() -> SettingsViewModel
+    func resolve() -> SettingsCoordinator
 }
 
 final class AppDependencies {
-    private let navigationController: UINavigationController
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    private let nav: UINavigationController
+    init(navigationController nav: UINavigationController) {
+        self.nav = nav
     }
 }
 
 extension AppDependencies: AppDependenciesResolver {
     func resolve() -> ArtistListCoordinator {
-        ArtistListCoordinator(self, navigationController: navigationController)
+        ArtistListCoordinator(self, navigationController: nav)
     }
     func resolve() -> ArtistDetailCoordinator {
-        ArtistDetailCoordinator(self, navigationController: navigationController)
+        ArtistDetailCoordinator(self, navigationController: nav)
     }
     func resolve() -> ArtistDetailViewModel {
         ArtistDetailViewModel()
     }
     func resolve() -> ArtistListViewModel {
         ArtistListViewModel(self)
+    }
+    func resolve() -> SettingsViewModel {
+        SettingsViewModel(self)
+    }
+    func resolve() -> SettingsCoordinator {
+        SettingsCoordinator(self, navigationController: nav)
     }
 }
