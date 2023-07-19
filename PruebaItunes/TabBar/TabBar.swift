@@ -31,8 +31,7 @@ fileprivate extension TabBar {
 extension TabBar {
     func setupVCs() {
         view.backgroundColor = .white
-        let appDependencies = AppDependencies(navigationController: UINavigationController())
-        let artistListCoordinator: ArtistListCoordinator = appDependencies.resolve()
+        let artistListCoordinator: ArtistListCoordinator = AppDependencies(navigationController: UINavigationController()).resolve()
         let settingsCoordinator: SettingsCoordinator = AppDependencies(navigationController: UINavigationController()).resolve()
         viewControllers = [
             artistListCoordinator.start(),

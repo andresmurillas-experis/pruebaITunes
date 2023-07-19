@@ -29,7 +29,7 @@ extension AppDependencies: AppDependenciesResolver {
         ArtistListViewModel(self)
     }
     func resolve() -> ArtistListCoordinator {
-        ArtistListCoordinator(self, navigationController: UINavigationController())
+        ArtistListCoordinator(self, navigationController: nav)
     }
     func resolve() -> ArtistDetailViewModel {
         ArtistDetailViewModel()

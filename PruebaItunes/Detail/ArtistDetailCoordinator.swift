@@ -21,6 +21,7 @@ class ArtistDetailCoordinator {
         vm.setArtist(artist)
         let artistDetailViewController = ArtistDetailViewController(vm: vm)
         artistDetailViewController.hidesBottomBarWhenPushed = true
+        print(navigationController, "two")
         navigationController.pushViewController(artistDetailViewController, animated: true)
     }
 }
