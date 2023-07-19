@@ -23,7 +23,6 @@ public final class ArtistDetailViewModel {
 }
 
 extension ArtistDetailViewModel {
-    
     public func setArtist(_ artist: ArtistEntity) {
         self.artist = artist
     }

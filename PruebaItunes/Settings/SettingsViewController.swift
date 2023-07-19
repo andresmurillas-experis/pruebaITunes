@@ -32,21 +32,24 @@ public class SettingsViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(scrollView)
+        
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollView.addSubview(stackView)
         scrollView.backgroundColor = .blue
+        
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25).isActive = true
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         stackView.backgroundColor = .green
+        
         stackView.addArrangedSubview({
             let imageView = UIImageView(image: UIImage(systemName: "paperplane"))
             imageView.contentMode = .scaleAspectFit
             return imageView
         }())
-        stackView.addArrangedSubview( {
+        stackView.addArrangedSubview({
             let textView = UITextView()
             textView.heightAnchor.constraint(equalToConstant: 30).isActive = true
             textView.text = "hello"
