@@ -7,9 +7,13 @@
 
 import Foundation
 import UIKit
+import Domain
 
 public final class SettingsViewModel {
     init(_ appDependencies: AppDependencies) {
+        
+    }
+    func renewName(to newName: String) {
         
     }
 }

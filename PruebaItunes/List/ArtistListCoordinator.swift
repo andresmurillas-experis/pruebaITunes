@@ -24,6 +24,7 @@ class ArtistListCoordinator {
         return nav
     }
     func goToDetailViewForArtist(_ artist: ArtistEntity) {
+        print(nav, "one")
         let artistDetailCoordinator: ArtistDetailCoordinator = appDependencies.resolve()
         artistDetailCoordinator.start(with: artist)
     }
