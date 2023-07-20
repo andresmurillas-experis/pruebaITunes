@@ -13,5 +13,7 @@ public final class SettingsViewModel {
     init(_ appDependencies: AppDependencies) {
         
     }
-    
+    func renewName(to newName: String) {
+        
+    }
 }

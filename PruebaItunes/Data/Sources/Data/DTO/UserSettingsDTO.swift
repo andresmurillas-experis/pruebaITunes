@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UserDataEntity: Codable {
+public struct UserSettingsDTO: Decodable {
     public var id: Int
     public var name: String
     public var photo: Data
@@ -17,5 +17,3 @@ public struct UserDataEntity: Codable {
         self.photo = photo
     }
 }
-
-
